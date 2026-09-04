@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muurschilderingen Nederland — iconografie</title>
+  <meta name="description" content="Iconografische onderwerpen uit de RCE Muurschilderingendatabase, gegroepeerd via Wikidata-entiteiten." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Muurschilderingen Nederland <span class="sub">iconografie — wie en wat is afgebeeld</span></h1>
+    <nav class="tabs">
+      <a href="index.html">Kaart</a>
+      <a href="iconografie.html" class="active">Iconografie</a>
+    </nav>
+  </header>
+
+  <main style="display:block; overflow-y:auto;">
+    <div id="icono-wrap">
+      <div id="icono-filters">
+        <input type="search" id="icono-q" placeholder="Zoek een onderwerp (bv. Christoffel, engel, wapenschild)…" />
+      </div>
+      <div id="icono-detail"></div>
+      <div class="icono-grid" id="icono-grid"></div>
+    </div>
+  </main>
+
+  <footer class="credits">
+    Onderwerplabels en -afbeeldingen: <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a> (rdfs:label, P18).
+    Schilderingdata: <a href="https://muurschilderingendatabase.nl" target="_blank" rel="noopener">Muurschilderingendatabase</a> via de
+    <a href="https://linkeddata.cultureelerfgoed.nl" target="_blank" rel="noopener">RCE Linked Data Voorziening</a>.
+  </footer>
+
+  <script src="iconografie.js"></script>
+</body>
+</html>

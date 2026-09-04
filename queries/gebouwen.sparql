@@ -1,0 +1,36 @@
+# Alle gebouwen (gtm:Gebouw) uit de RCE Muurschilderingendatabase: kerken en
+# een enkel ander gebouwtype, met rijksmonumentnummer (exacte sleutel naar
+# het reguliere RCE Rijksmonumentenregister), plaats, huidige functie,
+# bouw-/restauratiegeschiedenis en puntgeometrie (via de Omeka
+# mapping-module, geen GeoSPARQL in deze dataset).
+#
+# geography-coordinates is twee keer aanwezig per Feature zonder
+# lat/lon-onderscheid in het predicate zelf -- scripts/fetch.py herkent
+# lat vs lon aan de waardegrens (NL: lat 50-54, lon 3-7.5).
+
+PREFIX gtm: <https://www.goudatijdmachine.nl/def#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ceo: <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
+PREFIX o: <http://omeka.org/s/vocabs/o#>
+PREFIX m: <http://omeka.org/s/vocabs/module/mapping#>
+PREFIX schema: <https://schema.org/>
+
+SELECT ?s ?titel ?identifier ?rijksmonumentnummer ?woonplaats ?huidigeFunctie
+       ?bouwgeschiedenis ?restauratiegeschiedenis ?sameAs ?coord
+WHERE {
+  GRAPH ?g {
+    ?s a gtm:Gebouw .
+    OPTIONAL { ?s dcterms:title ?titel }
+    OPTIONAL { ?s dcterms:identifier ?identifier }
+    OPTIONAL { ?s ceo:rijksmonumentnummer ?rijksmonumentnummer }
+    OPTIONAL { ?s ceo:woonplaatsnaam ?woonplaats }
+    OPTIONAL { ?s ceo:heeftHuidigeFunctie ?huidigeFunctie }
+    OPTIONAL { ?s <https://omeka.phpetra.nl/ns/mural#bouwgeschiedenis> ?bouwgeschiedenis }
+    OPTIONAL { ?s <https://omeka.phpetra.nl/ns/mural#restauratiegeschiedenis> ?restauratiegeschiedenis }
+    OPTIONAL { ?s schema:sameAs ?sameAs }
+    OPTIONAL {
+      ?s m:feature ?feat .
+      ?feat m:geography-coordinates ?coord .
+    }
+  }
+}

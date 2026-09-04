@@ -1,0 +1,42 @@
+# Alle muurschilderingen (schema:Painting) uit de RCE Muurschilderingendatabase,
+# met datering, iconografie, materiaal/drager en de koppeling naar het gebouw
+# waarin ze zich bevinden.
+#
+# Bron: RCE Linked Data Voorziening, dataset "Muurschilderingen"
+# (https://muurschilderingendatabase.nl, gepubliceerd als linked data op basis
+# van schema.org + een eigen mural-ontologie + het Gouda Tijdmachine-vocabulaire).
+#
+# schema:about, schema:artMedium en schema:artworkSurface zijn multi-valued
+# per schildering -> hier als losse rijen opgehaald (GROUP_CONCAT zou een
+# cartesisch product geven zodra een schildering >1 van elk heeft), en in
+# scripts/fetch.py per ?s samengevoegd tot lijsten.
+
+PREFIX schema: <https://schema.org/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ceo: <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
+PREFIX o: <http://omeka.org/s/vocabs/o#>
+PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
+
+SELECT ?s ?titel ?beschrijving ?identifier ?gebouw ?begin ?eind ?temporeel
+       ?locatieomschrijving ?onderdeelVan ?spatial ?genre ?about ?medium ?surface
+       ?primaryMedia
+WHERE {
+  GRAPH ?g {
+    ?s a schema:Painting .
+    OPTIONAL { ?s dcterms:title ?titel . FILTER(lang(?titel) = "" || lang(?titel) = "nl") }
+    OPTIONAL { ?s dcterms:description ?beschrijving . FILTER(lang(?beschrijving) = "" || lang(?beschrijving) = "nl") }
+    OPTIONAL { ?s dcterms:identifier ?identifier }
+    OPTIONAL { ?s schema:location ?gebouw }
+    OPTIONAL { ?s sem:hasEarliestBeginTimeStamp ?begin }
+    OPTIONAL { ?s sem:hasLatestEndTimeStamp ?eind }
+    OPTIONAL { ?s schema:temporal ?temporeel }
+    OPTIONAL { ?s ceo:locatieomschrijving ?locatieomschrijving }
+    OPTIONAL { ?s schema:isPartOf ?onderdeelVan }
+    OPTIONAL { ?s schema:spatial ?spatial }
+    OPTIONAL { ?s schema:genre ?genre }
+    OPTIONAL { ?s schema:about ?about }
+    OPTIONAL { ?s schema:artMedium ?medium }
+    OPTIONAL { ?s schema:artworkSurface ?surface }
+    OPTIONAL { ?s o:primary_media ?primaryMedia }
+  }
+}

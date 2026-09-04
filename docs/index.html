@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muurschilderingen Nederland — kaart</title>
+  <meta name="description" content="Kaart van kerken en gebouwen met geregistreerde muurschilderingen, op basis van de RCE Muurschilderingendatabase (linked data)." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@3.6.2/dist/maplibre-gl.css" />
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Muurschilderingen Nederland <span class="sub">verkenner op basis van de RCE Muurschilderingendatabase</span></h1>
+    <nav class="tabs">
+      <a href="index.html" class="active">Kaart</a>
+      <a href="iconografie.html">Iconografie</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="sidebar">
+      <div id="filters">
+        <input type="search" id="q" placeholder="Zoek op gebouw of plaats…" />
+        <div class="row">
+          <select id="f-functie"><option value="">Alle functies</option></select>
+          <select id="f-rm">
+            <option value="">Rijksmonument: alle</option>
+            <option value="ja">Alleen rijksmonumenten</option>
+            <option value="nee">Alleen niet-rijksmonumenten</option>
+          </select>
+        </div>
+        <div id="stats-line">laden…</div>
+      </div>
+      <div id="gebouw-list"></div>
+      <button id="zonder-locatie-btn" style="display:none;text-align:left;border:none;background:none;padding:0.6rem 1rem;color:var(--ink-soft);font-size:0.78rem;cursor:pointer;border-top:1px solid var(--line);"></button>
+    </div>
+
+    <div id="map-wrap">
+      <div id="map"></div>
+      <div id="detail">
+        <button class="close-btn" id="detail-close" aria-label="Sluiten">✕</button>
+        <div id="detail-body"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="credits">
+    Data: <a href="https://muurschilderingendatabase.nl" target="_blank" rel="noopener">Muurschilderingendatabase</a>,
+    gepubliceerd als linked data door de <a href="https://www.cultureelerfgoed.nl" target="_blank" rel="noopener">Rijksdienst voor het Cultureel Erfgoed</a>
+    via de <a href="https://linkeddata.cultureelerfgoed.nl" target="_blank" rel="noopener">Linked Data Voorziening</a>.
+    Iconografielabels: <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a>. Kaartbasis: OpenStreetMap-bijdragers.
+    Deze site is een onafhankelijke verkenner, geen officiële RCE-publicatie. Zie <a href="https://github.com/jolietjakeblues/muurschilderingendatabase-explorer/blob/main/docs/methode.md" target="_blank" rel="noopener">methode</a>.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
