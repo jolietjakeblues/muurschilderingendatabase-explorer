@@ -82,6 +82,21 @@ python scripts/fetch.py
 Schrijft `data/raw/*.json` en `docs/data/site/*`. Geen destructieve stappen;
 overschrijft alleen de gegenereerde bestanden.
 
+## Vragen over kleurhistorisch onderzoek
+
+Deze verkenner is een technisch zijproject, geen loket. Voor inhoudelijke
+vragen over kleurhistorisch onderzoek en/of reconstructieschilderwerk kun je
+terecht bij Mariël Polman (m.polman@cultureelerfgoed.nl), RCE.
+
+Gaat het niet om een rijksmonument maar om onderzoek of onderhoud van
+schilderingen uit de wederopbouwperiode of post-65, dan is Reinout Morelissen
+(r.morelissen@cultureelerfgoed.nl), RCE, het aanspreekpunt.
+
+Algemene informatie over het specialisme Kleur en Schilderingen:
+
+- [Thema Kleur en schilderingen — RCE-kennisbank](https://kennis.cultureelerfgoed.nl/index.php/Thema/Kleur_en_schilderingen)
+- [Schilderwerk en kleurhistorie — cultureelerfgoed.nl](https://www.cultureelerfgoed.nl/onderwerpen/schilderwerk-en-kleurhistorie)
+
 ## Licenties en attributie
 
 - Broninhoud: RCE Muurschilderingendatabase / RCE Linked Data Voorziening.
