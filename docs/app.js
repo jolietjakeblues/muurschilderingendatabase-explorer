@@ -4,6 +4,20 @@
 
 const DATA_BASE = "data/site";
 
+// Periode-emmers voor het histogramfilter. De grenzen volgen geen kunsthistorische
+// canon maar de vraag die dit filter beantwoordt: is een schildering middeleeuws,
+// vroegmodern/negentiende-eeuws, interbellum (opvallende piek in de data), of
+// wederopbouw/post-65 (het onderscheid dat de RCE zelf hanteert tussen
+// kleurhistorisch onderzoek en het post-65-specialisme).
+const ERAS = [
+  { id: "middeleeuwen", label: "≤1499", start: -9999, end: 1499 },
+  { id: "1500-1799", label: "1500–1799", start: 1500, end: 1799 },
+  { id: "1800-1919", label: "1800–1919", start: 1800, end: 1919 },
+  { id: "interbellum", label: "1920–1944", start: 1920, end: 1944 },
+  { id: "wederopbouw", label: "1945–1965", start: 1945, end: 1965 },
+  { id: "post65", label: "1965–heden", start: 1966, end: 9999 },
+];
+
 const state = {
   gebouwen: null, // GeoJSON FeatureCollection
   schilderingenByGebouw: new Map(),
@@ -11,6 +25,8 @@ const state = {
   map: null,
   markers: new Map(), // id -> maplibregl.Marker
   activeId: null,
+  activeEras: new Set(), // leeg = geen periodefilter
+  eraCache: new Map(), // gebouwId -> Set(era.id)
 };
 
 async function loadData() {
@@ -53,6 +69,57 @@ function periodOf(gebouwId) {
   return [Math.min(...valid), Math.max(...valid)];
 }
 
+function paintingYearRange(p) {
+  const van = p.datering?.van ? parseInt(p.datering.van, 10) : NaN;
+  const tot = p.datering?.tot ? parseInt(p.datering.tot, 10) : NaN;
+  if (isNaN(van) && isNaN(tot)) return null;
+  if (isNaN(van)) return [tot, tot];
+  if (isNaN(tot)) return [van, van];
+  return van <= tot ? [van, tot] : [tot, van];
+}
+
+function buildingEras(gebouwId) {
+  if (state.eraCache.has(gebouwId)) return state.eraCache.get(gebouwId);
+  const eras = new Set();
+  for (const p of state.schilderingenByGebouw.get(gebouwId) || []) {
+    const range = paintingYearRange(p);
+    if (!range) continue;
+    for (const era of ERAS) {
+      if (range[0] <= era.end && range[1] >= era.start) eras.add(era.id);
+    }
+  }
+  state.eraCache.set(gebouwId, eras);
+  return eras;
+}
+
+function renderPeriodeFilter() {
+  const counts = new Map(ERAS.map((e) => [e.id, 0]));
+  for (const f of state.gebouwen.features) {
+    for (const eraId of buildingEras(f.properties.id)) {
+      counts.set(eraId, counts.get(eraId) + 1);
+    }
+  }
+  const max = Math.max(1, ...counts.values());
+  const wrap = document.getElementById("periode-filter");
+  wrap.innerHTML = "";
+  for (const era of ERAS) {
+    const n = counts.get(era.id);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "periode-bar" + (state.activeEras.has(era.id) ? " active" : "");
+    btn.title = `${era.label}: ${n} gebouw${n === 1 ? "" : "en"}`;
+    const barHeight = Math.max(3, Math.round((n / max) * 44));
+    btn.innerHTML = `<span class="bar" style="height:${barHeight}px"></span><span class="label">${era.label}</span>`;
+    btn.addEventListener("click", () => {
+      if (state.activeEras.has(era.id)) state.activeEras.delete(era.id);
+      else state.activeEras.add(era.id);
+      renderPeriodeFilter();
+      renderMarkers();
+    });
+    wrap.appendChild(btn);
+  }
+}
+
 function populateFunctieFilter() {
   const select = document.getElementById("f-functie");
   const seen = new Set();
@@ -80,6 +147,10 @@ function matchesFilters(feature) {
   if (functie && p.huidige_functie !== functie) return false;
   if (rm === "ja" && !p.rijksmonumentnummer) return false;
   if (rm === "nee" && p.rijksmonumentnummer) return false;
+  if (state.activeEras.size) {
+    const eras = buildingEras(p.id);
+    if (![...state.activeEras].some((e) => eras.has(e))) return false;
+  }
   return true;
 }
 
@@ -252,6 +323,7 @@ async function main() {
   initMap();
   await loadData();
   populateFunctieFilter();
+  renderPeriodeFilter();
   renderMarkers(); // vult de lijst meteen; kaartmarkers volgen zodra de stijl geladen is
   state.map.on("load", renderMarkers);
 

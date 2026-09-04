@@ -131,6 +131,46 @@ main {
 #filters .row { display: flex; gap: 0.5rem; }
 #filters .row > * { flex: 1; min-width: 0; }
 
+.periode-filter {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 56px;
+  padding: 2px 1px 0;
+}
+.periode-bar {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  color: var(--ink-soft);
+}
+.periode-bar .bar {
+  width: 100%;
+  min-height: 3px;
+  background: var(--line);
+  border-radius: 3px 3px 0 0;
+  transition: background 0.15s;
+}
+.periode-bar:hover .bar { background: #c9a882; }
+.periode-bar.active .bar { background: var(--accent); }
+.periode-bar .label {
+  font-size: 0.6rem;
+  line-height: 1.15;
+  margin-top: 0.2rem;
+  text-align: center;
+  white-space: nowrap;
+}
+.periode-bar.active .label { color: var(--accent-ink); font-weight: 600; }
+
 #stats-line {
   font-size: 0.78rem;
   color: var(--ink-soft);

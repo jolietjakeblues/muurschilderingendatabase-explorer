@@ -308,6 +308,13 @@ def fetch_reliwiki_geocodes(candidates: list[tuple[str, str, str]]) -> dict[str,
     return result
 
 
+def clean_year(value: str | None) -> str | None:
+    """De bron gebruikt '0' als sentinel voor 'geen datering bekend', niet
+    een letterlijk jaar 0 (geen Nederlandse kerk dateert uit 0-99 n.Chr.) --
+    geverifieerd op de 20 rijen die dit raken, zie docs/methode.md."""
+    return None if value == "0" else value
+
+
 def item_id_from_uri(uri: str | None) -> str | None:
     if not uri:
         return None
@@ -450,7 +457,7 @@ def main() -> None:
                 "beschrijving": p["beschrijving"],
                 "identifier": p["identifier"],
                 "gebouw_id": gebouw_id,
-                "datering": {"van": p["begin"], "tot": p["eind"], "tekst": p["temporeel"]},
+                "datering": {"van": clean_year(p["begin"]), "tot": clean_year(p["eind"]), "tekst": p["temporeel"]},
                 "locatieomschrijving": p["locatieomschrijving"],
                 "onderdeel_van": p["onderdeelVan"],
                 "interieur_exterieur": p["spatial"],

@@ -71,6 +71,9 @@ De site laadt alleen `docs/data/site/*.json` + `gebouwen.geojson`.
 - Coördinaten van gebouwen komen uit een Omeka mapping-module zonder
   expliciet lat/lon-onderscheid per triple; het bouwscript classificeert op
   waardebereik (Nederland: breedte 50–54°, lengte 3–7,5°).
+- De bron gebruikt `"0"` als sentinel voor "geen datering bekend" bij 20
+  schilderingen (bv. wijdingskruizen zonder vastgestelde datering) — geen
+  letterlijk jaar 0. Het bouwscript zet dit om naar `null`.
 
 ## Herbouwen
 
