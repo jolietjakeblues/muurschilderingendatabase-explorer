@@ -16,6 +16,10 @@ Bronnen:
      de SPARQL-graph bevat alleen media-URI's, geen thumbnail/origineel-URLs;
      die REST-API wel. Volledig gepagineerd opgehaald or o:item (de
      schildering of het gebouw) gekoppeld.
+  5. PDOK Locatieserver (BAG-adressen, REST) -- laatste redmiddel voor
+     gebouwen zonder eigen coördinaat en zonder (vindbaar) rijksmonument:
+     een deel heeft wel een Reliwiki-link met adres erin (schema:sameAs),
+     dat adres geocoderen we hiermee.
 
 Schrijft data/raw/*.json (ruwe extracts, voor herleidbaarheid) en
 data/site/*.json + gebouwen.geojson (het datamodel dat de viewer laadt).
@@ -28,6 +32,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import urllib.parse
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -38,6 +43,7 @@ MUUR_ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/Muursch
 CHO_ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql"
 WIKIDATA_ENDPOINT = "https://query.wikidata.org/sparql"
 OMEKA_MEDIA_API = "https://muurschilderingendatabase.nl/api/media"
+PDOK_LOCATIESERVER = "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 QUERIES_DIR = REPO_ROOT / "queries"
@@ -203,7 +209,7 @@ def fetch_all_media() -> dict[str, list[dict]]:
     return dict(by_item)
 
 
-WKT_POINT_RE = re.compile(r"Point\s*\(([-\d.]+)\s+([-\d.]+)\)")
+WKT_POINT_RE = re.compile(r"Point\s*\(([-\d.]+)\s+([-\d.]+)\)", re.IGNORECASE)
 WKT_VERTEX_RE = re.compile(r"[-\d.]+\s+[-\d.]+")
 
 
@@ -250,6 +256,55 @@ SELECT ?rm ?wkt WHERE {{
         if latlon:
             result[row["rm"]] = latlon
     print(f"rijksmonument-centroids als fallback-geometrie: {len(result)}/{len(rm_numbers)} gevonden")
+    return result
+
+
+RELIWIKI_ADDRESS_RE = re.compile(r"/index\.php/[^,]*,(?P<rest>.+)$")
+
+
+def reliwiki_address(url: str) -> str | None:
+    """Reliwiki-URL's coderen 'Plaats,_Straat_Nr_-_Kerknaam' -- pak het
+    straat+nr-deel voor v e n een adres. De plaatsnaam halen we niet uit de
+    URL (bij namen met een apostrof, zoals 's-Gravenhage, staat die er
+    verminkt in); we gebruiken in plaats daarvan het al bekende
+    woonplaats-veld van het gebouw zelf."""
+    m = RELIWIKI_ADDRESS_RE.search(urllib.parse.unquote(url))
+    if not m:
+        return None
+    rest = m.group("rest").replace("_", " ").strip()
+    if " - " not in rest:
+        return None
+    return rest.split(" - ")[0].strip()
+
+
+def geocode_pdok(query: str) -> tuple[float, float] | None:
+    resp = requests.get(PDOK_LOCATIESERVER, params={"q": query, "rows": 1}, headers=HEADERS_UA, timeout=15)
+    resp.raise_for_status()
+    docs = resp.json()["response"]["docs"]
+    if not docs:
+        return None
+    m = WKT_POINT_RE.search(docs[0]["centroide_ll"])
+    if not m:
+        return None
+    lon, lat = float(m.group(1)), float(m.group(2))
+    return lat, lon
+
+
+def fetch_reliwiki_geocodes(candidates: list[tuple[str, str, str]]) -> dict[str, tuple[float, float]]:
+    """candidates: (gebouw_uri, reliwiki_url, woonplaats). Eén PDOK-call per
+    kandidaat (klein aantal, geen bulk-endpoint beschikbaar)."""
+    result: dict[str, tuple[float, float]] = {}
+    for gebouw_uri, reliwiki_url, plaats in candidates:
+        addr = reliwiki_address(reliwiki_url)
+        if not addr:
+            continue
+        try:
+            latlon = geocode_pdok(f"{addr}, {plaats or ''}".strip(", "))
+        except requests.RequestException:
+            continue
+        if latlon:
+            result[gebouw_uri] = latlon
+    print(f"reliwiki-adressen gegeocodeerd via PDOK: {len(result)}/{len(candidates)}")
     return result
 
 
@@ -312,6 +367,18 @@ def main() -> None:
     }
     rm_centroids = fetch_rm_centroids(rm_fallback_needed)
 
+    # Nog steeds geen coördinaat en geen (vindbaar) rijksmonumentnummer?
+    # Een deel heeft een Reliwiki-link met adres erin -- laatste redmiddel
+    # via PDOK-geocoding op dat adres.
+    reliwiki_candidates = [
+        (uri, same_as, g["woonplaats"])
+        for uri, g in gebouwen.items()
+        if not g["coord"] and g["rijksmonumentnummer"] not in rm_centroids
+        for same_as in g["sameAs"]
+        if "reliwiki" in same_as
+    ]
+    reliwiki_geocodes = fetch_reliwiki_geocodes(reliwiki_candidates)
+
     # -- gebouwen.geojson --
     features = []
     gebouw_id_by_uri: dict[str, str] = {}
@@ -324,6 +391,9 @@ def main() -> None:
         if latlon is None and g["rijksmonumentnummer"] in rm_centroids:
             latlon = rm_centroids[g["rijksmonumentnummer"]]
             geometrie_bron = "rijksmonumentenregister_centroid"
+        if latlon is None and uri in reliwiki_geocodes:
+            latlon = reliwiki_geocodes[uri]
+            geometrie_bron = "reliwiki_adres_pdok"
         if latlon is None:
             zonder_locatie.append(
                 {

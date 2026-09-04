@@ -26,6 +26,12 @@ officiële RCE-publicatie.
 4. **muurschilderingendatabase.nl/api (Omeka S REST)** — de SPARQL-graph bevat
    alleen media-URI's, geen thumbnail-URL's. De volledige mediacatalogus
    (~2.900 items) wordt gepagineerd opgehaald en gekoppeld via `o:item`.
+5. **PDOK Locatieserver** (`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free`)
+   — laatste geometriefallback: gebouwen zonder eigen coördinaat en zonder
+   (vindbaar) rijksmonumentnummer hebben soms wel een Reliwiki-link
+   (`schema:sameAs`) waar het adres in de URL zelf gecodeerd staat (bv.
+   `.../Vaals,_Kerkstraat_47_-_Protestantse_Kerk`). Dat adres wordt
+   losgehaald en tegen PDOK geocodeerd.
 
 Alles wordt opgehaald door `scripts/fetch.py`. Ruwe SPARQL-extracten staan in
 `data/raw/` (niet gepubliceerd op de site, wel in de repo voor herleidbaarheid).
@@ -34,17 +40,21 @@ De site laadt alleen `docs/data/site/*.json` + `gebouwen.geojson`.
 ## Datamodel
 
 - `docs/data/site/gebouwen.geojson` — één punt per gebouw. `geometrie_bron` is
-  `muurschilderingendatabase` (eigen coördinaat uit de bron) of
-  `rijksmonumentenregister_centroid` (fallback via rijksmonumentnummer).
+  `muurschilderingendatabase` (eigen coördinaat uit de bron),
+  `rijksmonumentenregister_centroid` (fallback via rijksmonumentnummer) of
+  `reliwiki_adres_pdok` (fallback via een in de Reliwiki-link gecodeerd adres,
+  gegeocodeerd met PDOK).
 - `docs/data/site/muurschilderingen.json` — één record per schildering, met
   `gebouw_id` als foreign key.
 - `docs/data/site/onderwerpen.json` — iconografie-index: per Wikidata-subject
   de gekoppelde schildering-id's.
 - `docs/data/site/gebouwen_zonder_locatie.json` — gebouwen zonder puntgeometrie
-  (eigen noch via rijksmonumentnummer). Niet stilzwijgend laten vallen: ~32 van
-  576 gebouwen (o.a. enkele zonder rijksmonumentnummer, of met een
-  rijksmonumentnummer dat niet in het CHO-register terug te vinden was). Zie
-  het paneel "gebouwen zonder coördinaten" in de kaartweergave.
+  via geen van de drie bovenstaande routes. Niet stilzwijgend laten vallen:
+  ~24 van 576 gebouwen. Een deel daarvan zijn geen "echte" gebouwrecords maar
+  losse/ongeïdentificeerde items uit de brondatabase (bv. titels als
+  "Onbekend gebouw" of een losse schilderingtitel zonder plaatsnaam) — die
+  hebben sowieso geen adres om te geocoderen. Zie de knop "gebouwen zonder
+  coördinaten" direct onder de statistiekregel in de kaartweergave.
 
 ## Bekende beperkingen
 

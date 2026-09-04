@@ -230,7 +230,7 @@ function openZonderLocatie() {
     .join("");
   body.innerHTML = `
     <h2>Gebouwen zonder coördinaten</h2>
-    <div class="plaats-line">${state.zonderLocatie.length} gebouwen in de brondata hebben geen puntgeometrie (eigen noch via rijksmonumentnummer) en staan daarom niet op de kaart. Hun schilderingen blijven wel bewaard in de dataset.</div>
+    <div class="plaats-line">${state.zonderLocatie.length} gebouwen hebben geen vindbare puntgeometrie (niet in de bron zelf, niet via rijksmonumentnummer, niet via een Reliwiki-adres) en staan daarom niet op de kaart. Hun schilderingen blijven wel bewaard in de dataset — zie de bronlink per gebouw hieronder.</div>
     ${rows}
   `;
   document.getElementById("detail").classList.add("open");

@@ -136,6 +136,21 @@ main {
   color: var(--ink-soft);
 }
 
+.zonder-locatie-btn {
+  text-align: left;
+  border: 1px dashed var(--line);
+  background: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  margin-top: 0.35rem;
+  color: var(--accent-ink);
+  font-size: 0.78rem;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+}
+.zonder-locatie-btn:hover { background: var(--accent-soft); }
+
 #gebouw-list {
   overflow-y: auto;
   flex: 1;

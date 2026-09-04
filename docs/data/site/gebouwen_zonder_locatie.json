@@ -24,38 +24,6 @@
     "aantal_schilderingen": 3
   },
   {
-    "id": "14162",
-    "naam": "Herv. Kerk, Vaals",
-    "plaats": "Vaals",
-    "rijksmonumentnummer": "RM36625",
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/14162",
-    "aantal_schilderingen": 0
-  },
-  {
-    "id": "11875",
-    "naam": "Onze-Lieve-Vrouw Visitatiekerk, Westdorpe",
-    "plaats": "Westdorpe",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/11875",
-    "aantal_schilderingen": 1
-  },
-  {
-    "id": "11881",
-    "naam": "Petrus en Paulus, Middelburg",
-    "plaats": "Middelburg",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/11881",
-    "aantal_schilderingen": 1
-  },
-  {
-    "id": "11886",
-    "naam": "Petrus en Pauluskerk, Vogelwaarde",
-    "plaats": "Vogelwaarde",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/11886",
-    "aantal_schilderingen": 1
-  },
-  {
     "id": "12854",
     "naam": "Fort bij Spijkerboor",
     "plaats": "Westbeemster ",
@@ -80,28 +48,12 @@
     "aantal_schilderingen": 1
   },
   {
-    "id": "15030",
-    "naam": "Heilige Familiekerk, Den Haag",
-    "plaats": "Den Haag",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/15030",
-    "aantal_schilderingen": 1
-  },
-  {
     "id": "15824",
     "naam": "Loods 6, voormalige KNSM Passengersterminal, Amsterdam",
     "plaats": "Amsterdam",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/15824",
     "aantal_schilderingen": 1
-  },
-  {
-    "id": "14966",
-    "naam": "Heilige Geestkerk, Slootdorp",
-    "plaats": "Slootdorp",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/14966",
-    "aantal_schilderingen": 0
   },
   {
     "id": "15815",
@@ -128,14 +80,6 @@
     "aantal_schilderingen": 1
   },
   {
-    "id": "14767",
-    "naam": "Mariakerk, Enschede",
-    "plaats": "Enschede",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/14767",
-    "aantal_schilderingen": 16
-  },
-  {
     "id": "14782",
     "naam": "Rij geschakelde woonhuizen, Overveen",
     "plaats": "Overveen",
@@ -157,14 +101,6 @@
     "plaats": "Gorcum",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/15389",
-    "aantal_schilderingen": 1
-  },
-  {
-    "id": "14762",
-    "naam": "Voormalige Fabianus en Sebastianuskerk (1300 - 1944), Sevenum",
-    "plaats": "Sevenum",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/14762",
     "aantal_schilderingen": 1
   },
   {
