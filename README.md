@@ -6,11 +6,7 @@ kerken en andere gebouwen met geregistreerde muurschilderingen, doorzoekbaar
 op plaats, rijksmonumentstatus en periode, met een aparte iconografie-browser
 die schilderingen groepeert op wat erop staat (via Wikidata-onderwerpen).
 
-Onafhankelijk project, geen officiële RCE-publicatie. Ontstaan als zijspoor
-van [dodenakkers](https://github.com/jolietjakeblues/dodenakkers) (begraafplaatsen
-Zuid-Holland), toen bleek dat de RCE ook een linked-data-dataset voor
-muurschilderingen publiceert met een directe koppelsleutel
-(`rijksmonumentnummer`) naar het reguliere rijksmonumentenregister.
+Onafhankelijk project, geen officiële RCE-publicatie. 
 
 ## Wat je kunt doen
 
