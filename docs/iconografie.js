@@ -84,6 +84,10 @@ async function main() {
 
   renderGrid("");
   document.getElementById("icono-q").addEventListener("input", (e) => renderGrid(e.target.value));
+  document.getElementById("surprise-btn").addEventListener("click", () => {
+    const pick = onderwerpen[Math.floor(Math.random() * onderwerpen.length)];
+    if (pick) showSubject(pick);
+  });
 }
 
 main();

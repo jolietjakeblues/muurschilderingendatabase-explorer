@@ -133,9 +133,18 @@ function renderList() {
       openDetail(p.id);
       const [lon, lat] = feature.geometry.coordinates;
       state.map.flyTo({ center: [lon, lat], zoom: Math.max(state.map.getZoom(), 13) });
+      collapseSidebarOnMobile();
     });
     list.appendChild(div);
   }
+}
+
+function isMobile() {
+  return window.matchMedia("(max-width: 760px)").matches;
+}
+
+function collapseSidebarOnMobile() {
+  if (isMobile()) document.getElementById("sidebar").classList.remove("expanded");
 }
 
 function escapeHtml(str) {
@@ -227,6 +236,18 @@ function openZonderLocatie() {
   document.getElementById("detail").classList.add("open");
 }
 
+function surpriseMe() {
+  const candidates = state.gebouwen.features.filter(
+    (f) => (state.schilderingenByGebouw.get(f.properties.id) || []).length > 0
+  );
+  if (!candidates.length) return;
+  const feature = candidates[Math.floor(Math.random() * candidates.length)];
+  openDetail(feature.properties.id);
+  const [lon, lat] = feature.geometry.coordinates;
+  state.map.flyTo({ center: [lon, lat], zoom: Math.max(state.map.getZoom(), 13) });
+  collapseSidebarOnMobile();
+}
+
 async function main() {
   initMap();
   await loadData();
@@ -238,6 +259,15 @@ async function main() {
   document.getElementById("f-functie").addEventListener("change", renderMarkers);
   document.getElementById("f-rm").addEventListener("change", renderMarkers);
   document.getElementById("detail-close").addEventListener("click", closeDetail);
+
+  const handle = document.getElementById("sidebar-handle");
+  const toggleSidebar = () => document.getElementById("sidebar").classList.toggle("expanded");
+  handle.addEventListener("click", toggleSidebar);
+  handle.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSidebar(); }
+  });
+
+  document.getElementById("surprise-btn").addEventListener("click", surpriseMe);
 
   if (state.zonderLocatie.length) {
     const btn = document.getElementById("zonder-locatie-btn");
