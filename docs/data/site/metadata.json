@@ -1,7 +1,7 @@
 {
   "source": "RCE Linked Data Voorziening, dataset Muurschilderingen (+ cho voor thesauruslabels, Wikidata voor iconografielabels)",
   "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/Muurschilderingen/sparql",
-  "retrieved_at": "2026-09-04T18:50:14.878842+00:00",
+  "retrieved_at": "2026-09-05T06:38:52.707723+00:00",
   "stats": {
     "gebouwen_totaal": 576,
     "gebouwen_met_geometrie": 552,

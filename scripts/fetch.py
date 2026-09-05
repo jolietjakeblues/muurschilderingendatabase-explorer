@@ -30,6 +30,7 @@ architectuurkeuze als het dodenakkers-project waar dit uit voortkomt.
 from __future__ import annotations
 
 import json
+import math
 import re
 import sys
 import urllib.parse
@@ -290,6 +291,69 @@ def geocode_pdok(query: str) -> tuple[float, float] | None:
     return lat, lon
 
 
+def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    r = 6371.0
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dphi = math.radians(lat2 - lat1)
+    dl = math.radians(lon2 - lon1)
+    a = math.sin(dphi / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
+    return 2 * r * math.asin(math.sqrt(a))
+
+
+PLAUSIBILITEITSGRENS_KM = 30.0
+
+
+def fetch_plaats_candidates(plaatsen: set[str]) -> dict[str, list[tuple[float, float]]]:
+    """Woonplaats-centroïden per plaatsnaam, om de eigen coördinaat van een
+    gebouw op plausibiliteit te toetsen (zie PLAUSIBILITEITSGRENS_KM
+    hieronder) -- de brondatabase blijkt bij een enkel gebouw een coördinaat
+    honderden kilometers verkeerd te hebben (bv. 'Ameide' en 'Molenhoek' die
+    in België belandden), zonder dat daar in de data zelf een signaal voor
+    is.
+
+    PDOK's fq=type:woonplaats is een vrije-tekstzoekopdracht, geen exacte
+    match: voor plaatsnamen die geen eigen BAG-woonplaats zijn (een wijk als
+    'Amsterdam-Zuid', of -- databronfout -- een kerknaam in het
+    woonplaats-veld) geeft het een compleet ongerelateerd "best passend"
+    resultaat terug, wat zonder verdere check valse positieven oplevert.
+    Daarom hier alleen kandidaten bewaren waarvan woonplaatsnaam exact (case-
+    insensitive) overeenkomt met de gevraagde naam; per plaats kunnen dat er
+    ook meerdere zijn (Elsloo bestaat zowel in Limburg als in Friesland) --
+    de aanroeper kiest per gebouw de dichtstbijzijnde kandidaat."""
+    result: dict[str, list[tuple[float, float]]] = {}
+    for plaats in plaatsen:
+        if not plaats:
+            continue
+        try:
+            resp = requests.get(
+                PDOK_LOCATIESERVER,
+                params={"q": plaats, "fq": "type:woonplaats", "rows": 10},
+                headers=HEADERS_UA,
+                timeout=15,
+            )
+            resp.raise_for_status()
+            docs = resp.json()["response"]["docs"]
+        except requests.RequestException:
+            continue
+        candidates = []
+        plaats_norm = plaats.strip().lower()
+        for doc in docs:
+            naam_norm = (doc.get("woonplaatsnaam") or "").strip().lower()
+            # exact, of een BAG-disambiguatiesuffix zoals "Beuningen Gld"
+            # voor het Gelderse Beuningen (i.t.t. het gelijknamige Beuningen
+            # in Overijssel) -- de spatie voorkomt dat dit toevallig ook
+            # woorddelen matcht (bv. "Beek" mag geen "Beekbergen" matchen).
+            if naam_norm != plaats_norm and not naam_norm.startswith(plaats_norm + " "):
+                continue
+            m = WKT_POINT_RE.search(doc["centroide_ll"])
+            if m:
+                candidates.append((float(m.group(2)), float(m.group(1))))
+        if candidates:
+            result[plaats] = candidates
+    print(f"plaatsen met exacte woonplaats-match voor plausibiliteitscheck: {len(result)}/{len(plaatsen)}")
+    return result
+
+
 def fetch_reliwiki_geocodes(candidates: list[tuple[str, str, str]]) -> dict[str, tuple[float, float]]:
     """candidates: (gebouw_uri, reliwiki_url, woonplaats). Eén PDOK-call per
     kandidaat (klein aantal, geen bulk-endpoint beschikbaar)."""
@@ -364,13 +428,45 @@ def main() -> None:
 
     media_by_item = fetch_all_media()
 
-    # Gebouwen zonder eigen mapping-coördinaat maar met rijksmonumentnummer
-    # (bv. de Grote Kerk van Gouda zelf) krijgen een fallback-punt uit de
-    # rijksmonumentgeometrie i.p.v. stilzwijgend van de kaart te verdwijnen.
+    # Eigen coördinaat plausibiliteitschecken tegen de woonplaats: de bron
+    # blijkt bij een enkel gebouw een coördinaat honderden kilometers
+    # verkeerd te hebben (Ameide en Molenhoek belandden zo in België),
+    # zonder dat daar in de data zelf een signaal voor staat. Alleen
+    # gebouwen met een eigen coördinaat kosten een plaats-lookup.
+    plaatsen_te_checken = {
+        g["woonplaats"] for g in gebouwen.values() if g["coord"] and g["woonplaats"]
+    }
+    plaats_candidates = fetch_plaats_candidates(plaatsen_te_checken)
+
+    own_latlon_by_uri: dict[str, tuple[float, float]] = {}
+    afgekeurd = []
+    for uri, g in gebouwen.items():
+        if not g["coord"]:
+            continue
+        latlon = split_lat_lon(g["coord"])
+        if latlon is None:
+            continue
+        candidates = plaats_candidates.get(g["woonplaats"])
+        if candidates:
+            nearest = min(candidates, key=lambda c: haversine_km(*latlon, *c))
+            afstand = haversine_km(*latlon, *nearest)
+            if afstand > PLAUSIBILITEITSGRENS_KM:
+                afgekeurd.append((g["titel"], g["woonplaats"], latlon, nearest, afstand))
+                continue  # niet gebruiken, val terug op rijksmonument/reliwiki hieronder
+        own_latlon_by_uri[uri] = latlon
+    if afgekeurd:
+        print(f"eigen coördinaat afgekeurd (>{PLAUSIBILITEITSGRENS_KM:.0f} km van dichtstbijzijnde woonplaats-match): {len(afgekeurd)}")
+        for titel, plaats, latlon, nearest, afstand in afgekeurd:
+            print(f"  - {titel} ({plaats}): bron {latlon} vs. woonplaats {nearest} -- {afstand:.0f} km")
+
+    # Gebouwen zonder (betrouwbare) eigen coördinaat maar met
+    # rijksmonumentnummer (bv. de Grote Kerk van Gouda zelf) krijgen een
+    # fallback-punt uit de rijksmonumentgeometrie i.p.v. stilzwijgend van de
+    # kaart te verdwijnen.
     rm_fallback_needed = {
         g["rijksmonumentnummer"]
-        for g in gebouwen.values()
-        if not g["coord"] and g["rijksmonumentnummer"]
+        for uri, g in gebouwen.items()
+        if uri not in own_latlon_by_uri and g["rijksmonumentnummer"]
     }
     rm_centroids = fetch_rm_centroids(rm_fallback_needed)
 
@@ -380,7 +476,7 @@ def main() -> None:
     reliwiki_candidates = [
         (uri, same_as, g["woonplaats"])
         for uri, g in gebouwen.items()
-        if not g["coord"] and g["rijksmonumentnummer"] not in rm_centroids
+        if uri not in own_latlon_by_uri and g["rijksmonumentnummer"] not in rm_centroids
         for same_as in g["sameAs"]
         if "reliwiki" in same_as
     ]
@@ -393,7 +489,7 @@ def main() -> None:
     for uri, g in gebouwen.items():
         gid = item_id_from_uri(uri) or uri.rsplit("/", 1)[-1]
         gebouw_id_by_uri[uri] = gid
-        latlon = split_lat_lon(g["coord"]) if g["coord"] else None
+        latlon = own_latlon_by_uri.get(uri)
         geometrie_bron = "muurschilderingendatabase"
         if latlon is None and g["rijksmonumentnummer"] in rm_centroids:
             latlon = rm_centroids[g["rijksmonumentnummer"]]
