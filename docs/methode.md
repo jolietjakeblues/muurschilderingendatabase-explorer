@@ -2,7 +2,7 @@
 
 ## Wat dit is
 
-Een statische kaart- en iconografieverkenner bovenop de linked-data-publicatie
+Een statische kaart-, iconografie- en makersverkenner bovenop de linked-data-publicatie
 van de [Muurschilderingendatabase](https://muurschilderingendatabase.nl)
 (RCE). Geen live queries vanuit de browser: alle data wordt tijdens de build
 opgehaald en als platte JSON/GeoJSON gepubliceerd. Onafhankelijk project, geen
@@ -12,9 +12,11 @@ officiële RCE-publicatie.
 
 1. **RCE Linked Data Voorziening, dataset "Muurschilderingen"**
    (`https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/Muurschilderingen/sparql`)
-   — gebouwen (`gtm:Gebouw`) en schilderingen (`schema:Painting`), zie
-   `queries/gebouwen.sparql` en `queries/paintings.sparql`. Dit is dezelfde
-   RCE Linked Data-infrastructuur als de Rijksmonumenten/CHO-datasets.
+   — gebouwen (`gtm:Gebouw`), schilderingen (`schema:Painting`) en hun makers
+   (`schema:Person`/`schema:Organization`, gekoppeld via `dcterms:creator`),
+   zie `queries/gebouwen.sparql`, `queries/paintings.sparql`,
+   `queries/personen.sparql` en `queries/organisaties.sparql`. Dit is
+   dezelfde RCE Linked Data-infrastructuur als de Rijksmonumenten/CHO-datasets.
 2. **RCE Linked Data Voorziening, dataset "cho"** — `skos:prefLabel` voor de
    materiaal-/drager-thesaurusconcepten (`schema:artMedium`,
    `schema:artworkSurface`), en als fallback-geometrie: de rijksmonumentgeometrie
@@ -25,13 +27,26 @@ officiële RCE-publicatie.
    onderwerpen (`schema:about`).
 4. **muurschilderingendatabase.nl/api (Omeka S REST)** — de SPARQL-graph bevat
    alleen media-URI's, geen thumbnail-URL's. De volledige mediacatalogus
-   (~2.900 items) wordt gepagineerd opgehaald en gekoppeld via `o:item`.
-5. **PDOK Locatieserver** (`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free`)
-   — laatste geometriefallback: gebouwen zonder eigen coördinaat en zonder
-   (vindbaar) rijksmonumentnummer hebben soms wel een Reliwiki-link
-   (`schema:sameAs`) waar het adres in de URL zelf gecodeerd staat (bv.
-   `.../Vaals,_Kerkstraat_47_-_Protestantse_Kerk`). Dat adres wordt
-   losgehaald en tegen PDOK geocodeerd.
+   (~2.900 items) wordt gepagineerd opgehaald en gekoppeld via `o:item`. Geen
+   IIIF: geen `/iiif/`-endpoints, geen `o-module-iiifserver`-velden in de
+   item-/media-API — geverifieerd, geen IIIF Server-module actief bij de bron.
+   Daarom een lightbox met de grootst beschikbare Omeka-afgeleide
+   (`origineel` > `large` > `medium` > `square`) in plaats van deep-zoom.
+5. **PDOK Locatieserver** (`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free`),
+   twee toepassingen:
+   - **Geometriefallback**: gebouwen zonder eigen coördinaat en zonder
+     (vindbaar) rijksmonumentnummer hebben soms wel een Reliwiki-link
+     (`schema:sameAs`) waar het adres in de URL zelf gecodeerd staat (bv.
+     `.../Vaals,_Kerkstraat_47_-_Protestantse_Kerk`). Dat adres wordt
+     losgehaald en tegen PDOK geocodeerd.
+   - **Plausibiliteitscheck**: elke eigen coördinaat uit de bron wordt getoetst
+     tegen de officiële PDOK-woonplaatslocatie (exacte naam-match, met
+     tolerantie voor BAG-disambiguatiesuffixen als "Beuningen Gld" om
+     plaatsnaamdubbels — Elsloo bestaat tweemaal — niet per ongeluk af te
+     keuren) en verworpen boven 30 km afwijking. Gevonden na een
+     gebruikersmelding dat twee gebouwen in België stonden: bleek een bredere
+     bronfout, uiteindelijk 4 gebouwen getroffen. Zie
+     `PLAUSIBILITEITSGRENS_KM` in `scripts/fetch.py`.
 
 Alles wordt opgehaald door `scripts/fetch.py`. Ruwe SPARQL-extracten staan in
 `data/raw/` (niet gepubliceerd op de site, wel in de repo voor herleidbaarheid).
@@ -45,9 +60,15 @@ De site laadt alleen `docs/data/site/*.json` + `gebouwen.geojson`.
   `reliwiki_adres_pdok` (fallback via een in de Reliwiki-link gecodeerd adres,
   gegeocodeerd met PDOK).
 - `docs/data/site/muurschilderingen.json` — één record per schildering, met
-  `gebouw_id` als foreign key.
+  `gebouw_id` als foreign key en een `makers`-array (elk `{id, naam, type}`,
+  type `persoon` of `organisatie`).
 - `docs/data/site/onderwerpen.json` — iconografie-index: per Wikidata-subject
   de gekoppelde schildering-id's.
+- `docs/data/site/makers.json` — makers-index: per persoon/organisatie naam,
+  `type`, geboorte-/sterftedatum (alleen personen), `same_as` (RKD/Wikidata)
+  en de gekoppelde schildering-id's. Alleen makers met ≥1 gekoppelde
+  schildering worden gepubliceerd (217 van de 239 in de bron); de rest van de
+  authority-lijst (nog niet aan een schildering gekoppeld) blijft ongebruikt.
 - `docs/data/site/gebouwen_zonder_locatie.json` — gebouwen zonder puntgeometrie
   via geen van de drie bovenstaande routes. Niet stilzwijgend laten vallen:
   ~24 van 576 gebouwen. Een deel daarvan zijn geen "echte" gebouwrecords maar
@@ -74,6 +95,11 @@ De site laadt alleen `docs/data/site/*.json` + `gebouwen.geojson`.
 - De bron gebruikt `"0"` als sentinel voor "geen datering bekend" bij 20
   schilderingen (bv. wijdingskruizen zonder vastgestelde datering) — geen
   letterlijk jaar 0. Het bouwscript zet dit om naar `null`.
+- Van de 217 gepubliceerde makers is een deel geen individueel geïdentificeerde
+  persoon maar een naamloze authority-list-entry (bv. "A) Anonieme
+  kerkdecoratieschilder", of de generieke RKD/Wikidata-entiteit "anoniem" met
+  153 gekoppelde schilderingen) — nodig om ook ongeïdentificeerde makers als
+  telbare entiteit te kunnen koppelen, maar geen echte biografie.
 
 ## Herbouwen
 
@@ -106,5 +132,7 @@ Algemene informatie over het specialisme Kleur en Schilderingen:
 - Iconografielabels en -afbeeldingen: Wikidata / Wikimedia Commons, per
   onderwerp eigen licentie (doorgaans CC0/CC BY-SA); zie de Wikidata-link per
   onderwerp.
+- Makersgegevens: doorklik naar [RKD](https://rkd.nl) en Wikidata waar
+  beschikbaar; biografische tekst komt uit de brondatabase zelf.
 - Kaartbasis: OpenStreetMap-bijdragers, tiles via OpenFreeMap.
 - Deze repository (code + samengestelde datasets): CC BY 4.0, zie `LICENSE`.

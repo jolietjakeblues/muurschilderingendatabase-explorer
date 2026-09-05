@@ -1,22 +1,34 @@
 # Muurschilderingendatabase-explorer
 
-Een kaart- en iconografieverkenner bovenop de linked-data-publicatie van de
-[Muurschilderingendatabase](https://muurschilderingendatabase.nl) (RCE):
-kerken en andere gebouwen met geregistreerde muurschilderingen, doorzoekbaar
-op plaats, rijksmonumentstatus en periode, met een aparte iconografie-browser
-die schilderingen groepeert op wat erop staat (via Wikidata-onderwerpen).
+Een kaart-, iconografie- en makersverkenner bovenop de linked-data-publicatie
+van de [Muurschilderingendatabase](https://muurschilderingendatabase.nl)
+(RCE): kerken en andere gebouwen met geregistreerde muurschilderingen,
+doorzoekbaar op plaats, rijksmonumentstatus, periode, iconografisch onderwerp
+en maker.
 
-Onafhankelijk project, geen officiële RCE-publicatie. 
+Onafhankelijk project, geen officiële RCE-publicatie.
 
 ## Wat je kunt doen
 
 - **Kaart**: alle gebouwen met geregistreerde muurschilderingen, filterbaar op
-  naam/plaats, huidige functie en rijksmonumentstatus. Klik een gebouw voor
-  een detailpaneel met alle gekoppelde schilderingen (datering, locatie in het
-  gebouw, materiaal/drager, afbeelding, links naar Monumentenregister/Wikidata/Reliwiki).
+  naam/plaats, huidige functie, rijksmonumentstatus en periode (histogram met
+  zes tijdvakken, van middeleeuwen tot post-65 — 29% van de schilderingen is
+  20e-eeuws, met een piek in het interbellum). Klik een gebouw voor een
+  detailpaneel met alle gekoppelde schilderingen (datering, locatie in het
+  gebouw, materiaal/drager, maker, afbeelding, links naar
+  Monumentenregister/Wikidata/Reliwiki).
 - **Iconografie**: alle ~950 afgebeelde onderwerpen (heiligen, dieren,
   ornamentiek, taferelen, …) als doorzoekbare galerij, elk doorklikbaar naar
   de schilderingen waarin het voorkomt en het gebouw waar die zich bevindt.
+- **Makers**: 217 kunstenaars en restauratieateliers met minstens één
+  gekoppelde schildering (210 bij naam bekend, met geboorte-/sterfjaar en
+  doorklik naar RKD/Wikidata waar beschikbaar), elk met een galerij van hun
+  werk.
+- **Lightbox**: klik een schilderingafbeelding voor de grootst beschikbare
+  versie op donkere achtergrond (geen IIIF/deep-zoom beschikbaar bij de bron —
+  geverifieerd, zie `docs/methode.md`).
+- Mobielvriendelijk: kaart en lijst worden op een telefoon uitschuivende
+  bottom sheets i.p.v. een vaste zijkolom.
 
 ## Architectuur
 
@@ -26,12 +38,13 @@ Statische site, geen backend, geen live SPARQL vanuit de browser:
 RCE Linked Data (SPARQL: Muurschilderingen + cho)
   + Wikidata Query Service (iconografielabels)
   + Omeka REST-API (afbeeldingen)
+  + PDOK Locatieserver (geometriefallback + plausibiliteitscheck)
         │
         ▼  scripts/fetch.py
 docs/data/site/*.json + gebouwen.geojson
         │
         ▼
-docs/index.html + iconografie.html  (vanilla JS, MapLibre GL)
+docs/index.html + iconografie.html + makers.html  (vanilla JS, MapLibre GL)
 ```
 
 Zie [`docs/methode.md`](docs/methode.md) voor de volledige herkomst,
