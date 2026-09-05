@@ -30,20 +30,26 @@ const state = {
 };
 
 async function loadData() {
-  const [gebouwenRes, schilderingenRes, zonderLocatieRes] = await Promise.all([
-    fetch(`${DATA_BASE}/gebouwen.geojson`),
-    fetch(`${DATA_BASE}/muurschilderingen.json`),
-    fetch(`${DATA_BASE}/gebouwen_zonder_locatie.json`),
-  ]);
-  state.gebouwen = await gebouwenRes.json();
-  state.zonderLocatie = await zonderLocatieRes.json();
-  const schilderingen = await schilderingenRes.json();
-  for (const s of schilderingen) {
-    if (!s.gebouw_id) continue;
-    if (!state.schilderingenByGebouw.has(s.gebouw_id)) {
-      state.schilderingenByGebouw.set(s.gebouw_id, []);
+  state.gebouwen = { type: "FeatureCollection", features: [] }; // veilige fallback als de fetch hieronder faalt
+  try {
+    const [gebouwenRes, schilderingenRes, zonderLocatieRes] = await Promise.all([
+      fetch(`${DATA_BASE}/gebouwen.geojson`),
+      fetch(`${DATA_BASE}/muurschilderingen.json`),
+      fetch(`${DATA_BASE}/gebouwen_zonder_locatie.json`),
+    ]);
+    if (!gebouwenRes.ok || !schilderingenRes.ok || !zonderLocatieRes.ok) throw new Error("dataload mislukt");
+    state.gebouwen = await gebouwenRes.json();
+    state.zonderLocatie = await zonderLocatieRes.json();
+    const schilderingen = await schilderingenRes.json();
+    for (const s of schilderingen) {
+      if (!s.gebouw_id) continue;
+      if (!state.schilderingenByGebouw.has(s.gebouw_id)) {
+        state.schilderingenByGebouw.set(s.gebouw_id, []);
+      }
+      state.schilderingenByGebouw.get(s.gebouw_id).push(s);
     }
-    state.schilderingenByGebouw.get(s.gebouw_id).push(s);
+  } catch (err) {
+    console.error("app.js: data laden mislukt", err);
   }
 }
 
@@ -183,9 +189,21 @@ function renderMarkers() {
 function renderList() {
   const list = document.getElementById("gebouw-list");
   list.innerHTML = "";
+
+  if (!state.gebouwen.features.length) {
+    document.getElementById("stats-line").textContent = "";
+    list.innerHTML = '<p style="color:var(--ink-soft);padding:0.8rem 1rem;">Kon de gebouwenlijst niet laden. Controleer je verbinding en <a href="javascript:location.reload()">probeer opnieuw</a>.</p>';
+    return;
+  }
+
   const visible = state.gebouwen.features.filter(matchesFilters).sort((a, b) => (a.properties.naam || "").localeCompare(b.properties.naam || ""));
 
   document.getElementById("stats-line").textContent = `${visible.length} van ${state.gebouwen.features.length} gebouwen`;
+
+  if (!visible.length) {
+    list.innerHTML = '<p style="color:var(--ink-soft);padding:0.8rem 1rem;">Geen gebouwen gevonden met deze filters.</p>';
+    return;
+  }
 
   for (const feature of visible) {
     const p = feature.properties;

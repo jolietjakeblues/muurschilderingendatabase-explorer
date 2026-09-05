@@ -34,6 +34,14 @@ function renderGrid(filterText) {
   const q = (filterText || "").trim().toLowerCase();
   const visible = onderwerpen.filter((o) => !q || (o.label || "").toLowerCase().includes(q));
 
+  if (!onderwerpen.length) {
+    grid.innerHTML = '<p style="color:var(--ink-soft);">Kon de onderwerpenlijst niet laden. Controleer je verbinding en <a href="javascript:location.reload()">probeer opnieuw</a>.</p>';
+    return;
+  }
+  if (!visible.length) {
+    grid.innerHTML = `<p style="color:var(--ink-soft);">Geen onderwerpen gevonden${q ? ` voor "${escapeHtml(filterText.trim())}"` : ""}.</p>`;
+    return;
+  }
   for (const o of visible) {
     const card = document.createElement("div");
     card.className = "icono-card";
@@ -86,16 +94,21 @@ function showSubject(o) {
 }
 
 async function main() {
-  const [onderwerpenRes, schilderingenRes, gebouwenRes] = await Promise.all([
-    fetch(`${DATA_BASE}/onderwerpen.json`),
-    fetch(`${DATA_BASE}/muurschilderingen.json`),
-    fetch(`${DATA_BASE}/gebouwen.geojson`),
-  ]);
-  onderwerpen = await onderwerpenRes.json();
-  const schilderingen = await schilderingenRes.json();
-  for (const s of schilderingen) schilderingenById.set(s.id, s);
-  const gebouwen = await gebouwenRes.json();
-  for (const f of gebouwen.features) gebouwenById.set(f.properties.id, f.properties);
+  try {
+    const [onderwerpenRes, schilderingenRes, gebouwenRes] = await Promise.all([
+      fetch(`${DATA_BASE}/onderwerpen.json`),
+      fetch(`${DATA_BASE}/muurschilderingen.json`),
+      fetch(`${DATA_BASE}/gebouwen.geojson`),
+    ]);
+    if (!onderwerpenRes.ok || !schilderingenRes.ok || !gebouwenRes.ok) throw new Error("dataload mislukt");
+    onderwerpen = await onderwerpenRes.json();
+    const schilderingen = await schilderingenRes.json();
+    for (const s of schilderingen) schilderingenById.set(s.id, s);
+    const gebouwen = await gebouwenRes.json();
+    for (const f of gebouwen.features) gebouwenById.set(f.properties.id, f.properties);
+  } catch (err) {
+    console.error("iconografie.js: data laden mislukt", err);
+  }
 
   renderGrid("");
   document.getElementById("icono-q").addEventListener("input", (e) => renderGrid(e.target.value));

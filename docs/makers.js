@@ -47,6 +47,14 @@ function renderGrid(filterText, typeFilter) {
     .filter((m) => !typeFilter || m.type === typeFilter)
     .filter((m) => !q || (m.naam || "").toLowerCase().includes(q));
 
+  if (!makers.length) {
+    grid.innerHTML = '<p style="color:var(--ink-soft);">Kon de makerslijst niet laden. Controleer je verbinding en <a href="javascript:location.reload()">probeer opnieuw</a>.</p>';
+    return;
+  }
+  if (!visible.length) {
+    grid.innerHTML = `<p style="color:var(--ink-soft);">Geen makers gevonden${q ? ` voor "${escapeHtml(filterText.trim())}"` : ""}.</p>`;
+    return;
+  }
   for (const m of visible) {
     const card = document.createElement("div");
     card.className = "icono-card";
@@ -115,19 +123,24 @@ function showMaker(m) {
 }
 
 async function main() {
-  const [makersRes, schilderingenRes, gebouwenRes] = await Promise.all([
-    fetch(`${DATA_BASE}/makers.json`),
-    fetch(`${DATA_BASE}/muurschilderingen.json`),
-    fetch(`${DATA_BASE}/gebouwen.geojson`),
-  ]);
-  makers = await makersRes.json();
-  const schilderingen = await schilderingenRes.json();
-  for (const s of schilderingen) schilderingenById.set(s.id, s);
-  const gebouwen = await gebouwenRes.json();
-  for (const f of gebouwen.features) gebouwenById.set(f.properties.id, f.properties);
-
   const rerender = () =>
     renderGrid(document.getElementById("icono-q").value, document.getElementById("maker-type-filter").value);
+
+  try {
+    const [makersRes, schilderingenRes, gebouwenRes] = await Promise.all([
+      fetch(`${DATA_BASE}/makers.json`),
+      fetch(`${DATA_BASE}/muurschilderingen.json`),
+      fetch(`${DATA_BASE}/gebouwen.geojson`),
+    ]);
+    if (!makersRes.ok || !schilderingenRes.ok || !gebouwenRes.ok) throw new Error("dataload mislukt");
+    makers = await makersRes.json();
+    const schilderingen = await schilderingenRes.json();
+    for (const s of schilderingen) schilderingenById.set(s.id, s);
+    const gebouwen = await gebouwenRes.json();
+    for (const f of gebouwen.features) gebouwenById.set(f.properties.id, f.properties);
+  } catch (err) {
+    console.error("makers.js: data laden mislukt", err);
+  }
 
   rerender();
   document.getElementById("icono-q").addEventListener("input", rerender);
