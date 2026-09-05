@@ -192,8 +192,13 @@ function renderList() {
     const div = document.createElement("div");
     div.className = "gebouw-item" + (p.id === state.activeId ? " active" : "");
     const thumb = document.createElement("div");
-    thumb.className = "thumb";
-    if (p.afbeelding) thumb.style.backgroundImage = `url(${p.afbeelding})`;
+    if (p.afbeelding) {
+      thumb.className = "thumb";
+      thumb.style.backgroundImage = `url(${p.afbeelding})`;
+    } else {
+      thumb.className = "thumb no-photo";
+      thumb.textContent = "geen foto";
+    }
     const meta = document.createElement("div");
     meta.className = "meta";
     const count = (state.schilderingenByGebouw.get(p.id) || []).length;
@@ -261,7 +266,7 @@ function openDetail(gebouwId) {
       : (s.datering?.tekst || "");
     const tags = [...s.onderwerpen.map((o) => o.label || o.uri.split("/").pop()), ...s.materiaal, ...s.drager].filter(Boolean);
     card.innerHTML = `
-      ${img ? `<img src="${img}" loading="lazy" alt="" />` : '<div style="width:84px;height:84px;border-radius:6px;background:var(--line);flex-shrink:0;"></div>'}
+      ${img ? `<img src="${img}" loading="lazy" alt="" />` : '<div class="no-photo">nog geen foto beschikbaar</div>'}
       <div class="body">
         <div class="titel">${escapeHtml(s.titel || "(zonder titel)")}</div>
         ${dat ? `<div class="datering">${escapeHtml(String(dat))}</div>` : ""}

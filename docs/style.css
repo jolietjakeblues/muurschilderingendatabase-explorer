@@ -217,6 +217,21 @@ main {
   flex-shrink: 0;
 }
 
+.no-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--bg);
+  border: 1px dashed var(--line);
+  color: var(--ink-soft);
+  border-radius: 6px;
+  flex-shrink: 0;
+  line-height: 1.15;
+}
+.gebouw-item .thumb.no-photo { font-size: 0.48rem; padding: 1px; }
+.painting-card .no-photo { font-size: 0.62rem; padding: 4px; }
+
 .gebouw-item .meta { min-width: 0; }
 .gebouw-item .naam {
   font-size: 0.92rem;
@@ -287,6 +302,10 @@ main {
   border-radius: 6px;
   background: var(--line);
   flex-shrink: 0;
+}
+.painting-card .no-photo {
+  width: 84px;
+  height: 84px;
 }
 .painting-card .body { min-width: 0; }
 .painting-card .titel { font-weight: 600; font-size: 0.9rem; }
@@ -365,6 +384,7 @@ main {
 }
 #icono-detail .gallery figure { margin: 0; }
 #icono-detail .gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 6px; }
+#icono-detail .gallery .no-photo { width: 100%; aspect-ratio: 1; font-size: 0.68rem; }
 #icono-detail .gallery figcaption { font-size: 0.72rem; color: var(--ink-soft); margin-top: 0.2rem; }
 
 footer.credits {
@@ -444,7 +464,7 @@ footer.credits a { color: inherit; }
   header.topbar h1 { font-size: 1rem; }
   header.topbar h1 .sub { display: block; margin-left: 0; font-size: 0.78rem; }
 
-  .painting-card img { width: 68px; height: 68px; }
+  .painting-card img, .painting-card .no-photo { width: 68px; height: 68px; }
 
   /* De kaart-attributie in de hoek van MapLibre dekt de OSM-verplichting al;
      deze uitgebreide creditregel voegt op een telefoon vooral scrollruimte

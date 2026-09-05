@@ -58,11 +58,11 @@ function showSubject(o) {
   const gallery = detail.querySelector(".gallery");
   for (const s of paintings) {
     const gebouw = gebouwenById.get(s.gebouw_id);
-    const img = s.afbeelding?.square || s.afbeelding?.medium || placeholderThumb(s.titel);
+    const img = s.afbeelding?.square || s.afbeelding?.medium;
     const fig = document.createElement("figure");
     const gebouwLink = gebouw ? `<a href="index.html?gebouw=${encodeURIComponent(gebouw.id)}">${escapeHtml(gebouw.naam || gebouw.plaats || "")}</a>` : "";
     fig.innerHTML = `
-      <img src="${img}" loading="lazy" alt="" />
+      ${img ? `<img src="${img}" loading="lazy" alt="" />` : '<div class="no-photo">nog geen foto beschikbaar</div>'}
       <figcaption>${escapeHtml(s.titel || "")}${gebouwLink ? " — " + gebouwLink : ""}</figcaption>
     `;
     gallery.appendChild(fig);
