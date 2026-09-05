@@ -272,12 +272,16 @@ function openDetail(gebouwId) {
       ? (s.datering.van === s.datering.tot ? s.datering.van : `${s.datering.van}–${s.datering.tot}`)
       : (s.datering?.tekst || "");
     const tags = [...s.onderwerpen.map((o) => o.label || o.uri.split("/").pop()), ...s.materiaal, ...s.drager].filter(Boolean);
+    const makerLine = (s.makers || [])
+      .map((m) => `<a href="makers.html?maker=${encodeURIComponent(m.id)}">${escapeHtml((m.naam || "").replace(/^A\)\s*/, ""))}</a>`)
+      .join(", ");
     card.innerHTML = `
       ${img ? `<img class="zoomable" src="${img}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
       <div class="body">
         <div class="titel">${escapeHtml(s.titel || "(zonder titel)")}</div>
         ${dat ? `<div class="datering">${escapeHtml(String(dat))}</div>` : ""}
         ${s.locatieomschrijving ? `<div class="locatie">${escapeHtml(s.locatieomschrijving)}</div>` : ""}
+        ${makerLine ? `<div class="maker">door ${makerLine}</div>` : ""}
         <div class="tags">${tags.slice(0, 6).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
       </div>
     `;

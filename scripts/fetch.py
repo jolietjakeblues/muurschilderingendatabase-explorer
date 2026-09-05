@@ -393,6 +393,8 @@ def item_id_from_uri(uri: str | None) -> str | None:
 def main() -> None:
     gebouw_rows = fetch_muur_rows("gebouwen")
     painting_rows = fetch_muur_rows("paintings")
+    persoon_rows = fetch_muur_rows("personen")
+    organisatie_rows = fetch_muur_rows("organisaties")
 
     gebouwen = group_by_subject(
         gebouw_rows,
@@ -414,7 +416,14 @@ def main() -> None:
         painting_rows,
         "s",
         single_fields=["titel", "beschrijving", "identifier", "gebouw", "begin", "eind", "temporeel", "locatieomschrijving", "onderdeelVan", "spatial", "primaryMedia"],
-        multi_fields=["genre", "about", "medium", "surface"],
+        multi_fields=["genre", "about", "medium", "surface", "creator"],
+    )
+
+    personen = group_by_subject(
+        persoon_rows, "s", single_fields=["titel", "beschrijving", "geboorte", "sterfte"], multi_fields=["sameAs"]
+    )
+    organisaties = group_by_subject(
+        organisatie_rows, "s", single_fields=["titel", "beschrijving"], multi_fields=["sameAs"]
     )
 
     concept_uris = set()
@@ -536,6 +545,19 @@ def main() -> None:
     gebouwen_fc = {"type": "FeatureCollection", "name": "muurschilderingen_gebouwen", "features": features}
 
     # -- muurschilderingen.json --
+    # Makers (personen + organisaties) samenvoegen tot één opzoektabel:
+    # dcterms:creator op een schildering kan naar beide klassen wijzen.
+    maker_id_by_uri: dict[str, str] = {}
+    maker_naam_type_by_id: dict[str, dict] = {}
+    for uri, pers in personen.items():
+        mid = item_id_from_uri(uri) or uri.rsplit("/", 1)[-1]
+        maker_id_by_uri[uri] = mid
+        maker_naam_type_by_id[mid] = {"naam": pers["titel"], "type": "persoon"}
+    for uri, org in organisaties.items():
+        mid = item_id_from_uri(uri) or uri.rsplit("/", 1)[-1]
+        maker_id_by_uri[uri] = mid
+        maker_naam_type_by_id[mid] = {"naam": org["titel"], "type": "organisatie"}
+
     schilderingen_out = []
     for uri, p in paintings.items():
         pid = item_id_from_uri(uri) or uri.rsplit("/", 1)[-1]
@@ -545,6 +567,11 @@ def main() -> None:
         onderwerpen = [
             {"uri": u, "label": subject_labels.get(u, {}).get("label"), "afbeelding": subject_labels.get(u, {}).get("image")}
             for u in p["about"]
+        ]
+        makers = [
+            {"id": maker_id_by_uri[u], **maker_naam_type_by_id[maker_id_by_uri[u]]}
+            for u in p["creator"]
+            if u in maker_id_by_uri
         ]
         schilderingen_out.append(
             {
@@ -559,6 +586,7 @@ def main() -> None:
                 "interieur_exterieur": p["spatial"],
                 "genre": p["genre"],
                 "onderwerpen": onderwerpen,
+                "makers": makers,
                 "materiaal": [concept_labels.get(u, u) for u in p["medium"]],
                 "drager": [concept_labels.get(u, u) for u in p["surface"]],
                 "afbeelding": {
@@ -572,6 +600,43 @@ def main() -> None:
                 "bron_item_url": uri,
             }
         )
+
+    # -- makers.json: kunstenaars-/organisatie-index --
+    makers_index: dict[str, dict] = {}
+    for uri, pers in personen.items():
+        mid = maker_id_by_uri[uri]
+        makers_index[mid] = {
+            "id": mid,
+            "naam": pers["titel"],
+            "type": "persoon",
+            "beschrijving": pers["beschrijving"],
+            "geboorte": pers["geboorte"],
+            "sterfte": pers["sterfte"],
+            "same_as": pers["sameAs"],
+            "schildering_ids": [],
+        }
+    for uri, org in organisaties.items():
+        mid = maker_id_by_uri[uri]
+        makers_index[mid] = {
+            "id": mid,
+            "naam": org["titel"],
+            "type": "organisatie",
+            "beschrijving": org["beschrijving"],
+            "geboorte": None,
+            "sterfte": None,
+            "same_as": org["sameAs"],
+            "schildering_ids": [],
+        }
+    for s in schilderingen_out:
+        for maker in s["makers"]:
+            makers_index[maker["id"]]["schildering_ids"].append(s["id"])
+    # Alleen makers met minstens één gekoppelde schildering publiceren --
+    # de brondatabase bevat de volledige authority-lijst, ook entries die
+    # (nog) nergens aan gekoppeld zijn.
+    makers_out = sorted(
+        (m for m in makers_index.values() if m["schildering_ids"]),
+        key=lambda m: -len(m["schildering_ids"]),
+    )
 
     # -- onderwerpen.json: iconografie-index --
     onderwerpen_index: dict[str, dict] = {}
@@ -591,12 +656,16 @@ def main() -> None:
         "schilderingen_met_afbeelding": sum(1 for s in schilderingen_out if s["afbeelding"]),
         "iconografische_onderwerpen": len(onderwerpen_out),
         "gebouwen_met_rijksmonumentnummer": sum(1 for g in gebouwen.values() if g["rijksmonumentnummer"]),
+        "makers_gekoppeld": len(makers_out),
+        "makers_met_geboortedatum": sum(1 for m in makers_out if m["geboorte"]),
+        "schilderingen_met_maker": sum(1 for s in schilderingen_out if s["makers"]),
     }
 
     SITE_DIR.mkdir(parents=True, exist_ok=True)
     (SITE_DIR / "gebouwen.geojson").write_text(json.dumps(gebouwen_fc, ensure_ascii=False, indent=None, separators=(",", ":")), encoding="utf-8")
     (SITE_DIR / "muurschilderingen.json").write_text(json.dumps(schilderingen_out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     (SITE_DIR / "onderwerpen.json").write_text(json.dumps(onderwerpen_out, ensure_ascii=False, indent=2), encoding="utf-8")
+    (SITE_DIR / "makers.json").write_text(json.dumps(makers_out, ensure_ascii=False, indent=2), encoding="utf-8")
     (SITE_DIR / "gebouwen_zonder_locatie.json").write_text(json.dumps(zonder_locatie, ensure_ascii=False, indent=2), encoding="utf-8")
 
     metadata = {

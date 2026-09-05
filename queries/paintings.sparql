@@ -19,7 +19,7 @@ PREFIX sem: <http://semanticweb.cs.vu.nl/2009/11/sem/>
 
 SELECT ?s ?titel ?beschrijving ?identifier ?gebouw ?begin ?eind ?temporeel
        ?locatieomschrijving ?onderdeelVan ?spatial ?genre ?about ?medium ?surface
-       ?primaryMedia
+       ?primaryMedia ?creator
 WHERE {
   GRAPH ?g {
     ?s a schema:Painting .
@@ -38,5 +38,8 @@ WHERE {
     OPTIONAL { ?s schema:artMedium ?medium }
     OPTIONAL { ?s schema:artworkSurface ?surface }
     OPTIONAL { ?s o:primary_media ?primaryMedia }
+    # dcterms:creator wijst naar een schema:Person of schema:Organization
+    # (queries/personen.sparql) -- meerdere makers per schildering mogelijk.
+    OPTIONAL { ?s dcterms:creator ?creator }
   }
 }

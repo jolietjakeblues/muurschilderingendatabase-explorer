@@ -1,0 +1,23 @@
+# Makers (schema:Person) uit de RCE Muurschilderingendatabase, gekoppeld
+# via dcterms:creator op schema:Painting (zie queries/paintings.sparql en
+# queries/organisaties.sparql voor het organisatie-equivalent).
+#
+# 239 personen in totaal, waarvan 166 met een geboortedatum (dus een
+# werkelijk geïdentificeerde maker; de rest is een naamloze
+# authority-list-entry als "A) Anonieme kerkdecoratieschilder", nodig om
+# ook ongeïdentificeerde makers als aparte, telbare entiteit te kunnen
+# koppelen).
+
+PREFIX schema: <https://schema.org/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?s ?titel ?beschrijving ?geboorte ?sterfte ?sameAs WHERE {
+  GRAPH ?g {
+    ?s a schema:Person .
+    OPTIONAL { ?s dcterms:title ?titel }
+    OPTIONAL { ?s dcterms:description ?beschrijving }
+    OPTIONAL { ?s schema:birthDate ?geboorte }
+    OPTIONAL { ?s schema:deathDate ?sterfte }
+    OPTIONAL { ?s schema:sameAs ?sameAs }
+  }
+}

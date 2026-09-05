@@ -1,0 +1,3890 @@
+[
+  {
+    "id": "11715",
+    "naam": "anoniem",
+    "type": "persoon",
+    "beschrijving": "persoon met onbekende identiteit",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "http://www.wikidata.org/entity/Q4233718",
+      "https://rkd.nl/artists/1984"
+    ],
+    "schildering_ids": [
+      "12154",
+      "12156",
+      "12157",
+      "12158",
+      "12159",
+      "12160",
+      "12161",
+      "12162",
+      "12163",
+      "12164",
+      "12166",
+      "12171",
+      "12200",
+      "12201",
+      "12202",
+      "12203",
+      "12204",
+      "12205",
+      "12206",
+      "12208",
+      "12209",
+      "12215",
+      "12216",
+      "12217",
+      "12218",
+      "12233",
+      "12234",
+      "12264",
+      "12280",
+      "12281",
+      "12282",
+      "12339",
+      "12340",
+      "12341",
+      "12342",
+      "12343",
+      "12382",
+      "12383",
+      "12384",
+      "12385",
+      "12387",
+      "12388",
+      "12392",
+      "12393",
+      "12395",
+      "12397",
+      "12399",
+      "12401",
+      "12403",
+      "12405",
+      "12406",
+      "12413",
+      "12414",
+      "12415",
+      "12417",
+      "12419",
+      "12422",
+      "12423",
+      "12424",
+      "12427",
+      "12431",
+      "12433",
+      "12436",
+      "12437",
+      "12443",
+      "12449",
+      "12450",
+      "12451",
+      "12452",
+      "12455",
+      "12456",
+      "12459",
+      "12461",
+      "12463",
+      "12464",
+      "12465",
+      "12468",
+      "12469",
+      "12470",
+      "12471",
+      "12474",
+      "12476",
+      "12478",
+      "12479",
+      "12480",
+      "12481",
+      "12485",
+      "12487",
+      "12488",
+      "12489",
+      "12491",
+      "12493",
+      "12494",
+      "12496",
+      "12499",
+      "12500",
+      "12502",
+      "12504",
+      "12505",
+      "12506",
+      "12507",
+      "12508",
+      "12509",
+      "12510",
+      "12512",
+      "12513",
+      "12518",
+      "12521",
+      "12527",
+      "12528",
+      "12531",
+      "12534",
+      "12536",
+      "12538",
+      "12541",
+      "12542",
+      "12543",
+      "12545",
+      "12547",
+      "12548",
+      "12550",
+      "12551",
+      "12553",
+      "12557",
+      "12560",
+      "12561",
+      "12562",
+      "12564",
+      "12566",
+      "12570",
+      "12571",
+      "12572",
+      "12574",
+      "12575",
+      "12576",
+      "12581",
+      "12582",
+      "12583",
+      "12585",
+      "12586",
+      "12587",
+      "12588",
+      "12589",
+      "12591",
+      "12594",
+      "12598",
+      "12600",
+      "12604",
+      "12396",
+      "12155",
+      "12434",
+      "12514",
+      "12386"
+    ]
+  },
+  {
+    "id": "10583",
+    "naam": "Charles Eyck",
+    "type": "persoon",
+    "beschrijving": "Nederlands beeldend kunstenaar. Doofstommeninstituut en academie te Rotterdam. Rijksacademie te Amsterdam",
+    "geboorte": "1897-03-24",
+    "sterfte": "1983-08-02",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q1865834",
+      "https://rkd.nl/artists/26953"
+    ],
+    "schildering_ids": [
+      "10802",
+      "10806",
+      "10789",
+      "10790",
+      "10791",
+      "13813",
+      "14917",
+      "14942",
+      "10793",
+      "10794",
+      "10792",
+      "10800",
+      "10787",
+      "10788",
+      "10797",
+      "10799",
+      "10804",
+      "10807",
+      "10785",
+      "10798",
+      "10803",
+      "10805",
+      "10808",
+      "10801",
+      "10784",
+      "10783",
+      "14295",
+      "14317",
+      "12810"
+    ]
+  },
+  {
+    "id": "11709",
+    "naam": "Gerrit Hendrik Heinen",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1851-1930)",
+    "geboorte": "1851-01-01",
+    "sterfte": "1930-09-26",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2351782",
+      "https://rkd.nl/artists/343269"
+    ],
+    "schildering_ids": [
+      "12344",
+      "12345",
+      "12346",
+      "12347",
+      "12348",
+      "12349",
+      "12350",
+      "12351",
+      "12352",
+      "12353",
+      "12354",
+      "12355",
+      "12356",
+      "12357",
+      "12358",
+      "12359",
+      "12360",
+      "12361",
+      "12362",
+      "12363",
+      "12364",
+      "12365",
+      "12366",
+      "12367",
+      "12368",
+      "12369",
+      "12370"
+    ]
+  },
+  {
+    "id": "10628",
+    "naam": "Richard Roland Holst",
+    "type": "persoon",
+    "beschrijving": "Nederlands beeldend kunstenaar (1868–1938). Rijksacademie van beeldende kunsten (Amsterdam) 1885-1890",
+    "geboorte": "1868-12-04",
+    "sterfte": "1938-12-31",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2221664",
+      "https://rkd.nl/artists/39274"
+    ],
+    "schildering_ids": [
+      "11560",
+      "11561",
+      "13221",
+      "13222",
+      "13224",
+      "13225",
+      "13226",
+      "13227",
+      "13228",
+      "13229",
+      "13230",
+      "13231",
+      "13232",
+      "13233",
+      "13234",
+      "10981",
+      "12265",
+      "12266",
+      "12477",
+      "13223",
+      "10980",
+      "10979",
+      "11559",
+      "10982"
+    ]
+  },
+  {
+    "id": "10621",
+    "naam": "Joep Nicolas",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Academie van Fribourg, Rijksschool voor Kunstnijverheid te Amsterdam",
+    "geboorte": "1897-10-06",
+    "sterfte": "1972-07-25",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q1946470",
+      "https://rkd.nl/artists/59417"
+    ],
+    "schildering_ids": [
+      "12274",
+      "13857",
+      "10924",
+      "10925",
+      "10926",
+      "10927",
+      "10928",
+      "10929",
+      "10930",
+      "10931",
+      "10932",
+      "10933",
+      "10934",
+      "10935",
+      "10936",
+      "10937",
+      "10938",
+      "10939",
+      "10942",
+      "10940"
+    ]
+  },
+  {
+    "id": "10616",
+    "naam": "Mengelberg, Atelier",
+    "type": "organisatie",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "11367",
+      "11368",
+      "11370",
+      "11372",
+      "11374",
+      "11376",
+      "11378",
+      "11380",
+      "11382",
+      "11384",
+      "11386",
+      "11388",
+      "11390",
+      "11392",
+      "11394",
+      "10897",
+      "10895",
+      "10894",
+      "10896",
+      "14795"
+    ]
+  },
+  {
+    "id": "10580",
+    "naam": "Kees Dunselman",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1878 - 1937). KB Krantenbank 1937: Rijksschool voor Kunstnijverheid en de Rijksacademie te Amsterdam. Vermeld als 'kerkschilder' | RKD nauwelijks gegevens.",
+    "geboorte": "1877-10-11",
+    "sterfte": "1937-03-14",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q27431377",
+      "https://rkd.nl/artists/482707"
+    ],
+    "schildering_ids": [
+      "14915",
+      "10741",
+      "10744",
+      "10751",
+      "10753",
+      "10754",
+      "10756",
+      "10742",
+      "10743",
+      "10750",
+      "10755",
+      "10745",
+      "10746",
+      "10747",
+      "10749",
+      "10748",
+      "10752",
+      "10757",
+      "10758"
+    ]
+  },
+  {
+    "id": "10582",
+    "naam": "Jan Dunselman",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1863-1931). Tekeninstituut Den Helder, Rijksacademie van beeldende kunsten Amsterdam, Academie Antwerpen, Tekenacademie Antwerpen",
+    "geboorte": "1863-08-05",
+    "sterfte": "1931-01-16",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q3036509",
+      "https://rkd.nl/artists/24889"
+    ],
+    "schildering_ids": [
+      "10782",
+      "10771",
+      "10772",
+      "10773",
+      "11097",
+      "10770",
+      "10753",
+      "10774",
+      "10775",
+      "10776",
+      "10777",
+      "10778",
+      "10779",
+      "10780",
+      "10781",
+      "10767",
+      "10769",
+      "11250",
+      "14719"
+    ]
+  },
+  {
+    "id": "10571",
+    "naam": "Franciscus Hermanus Bach",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Academie Minerva (Groningen)\r\nExamen M.O. Tekenen",
+    "geboorte": "1865-05-28",
+    "sterfte": "1956-01-22",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2024284",
+      "https://rkd.nl/artists/3337"
+    ],
+    "schildering_ids": [
+      "12130",
+      "10683",
+      "10680",
+      "10677",
+      "10670",
+      "10671",
+      "10672",
+      "10673",
+      "10674",
+      "10675",
+      "10676",
+      "10678",
+      "10668",
+      "10679",
+      "10681",
+      "10682",
+      "10684"
+    ]
+  },
+  {
+    "id": "11711",
+    "naam": "Joop Sjollema",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1900-1990)",
+    "geboorte": "1900-12-10",
+    "sterfte": "1990-07-05",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2397082",
+      "https://rkd.nl/artists/72909"
+    ],
+    "schildering_ids": [
+      "12330",
+      "12295",
+      "12318",
+      "12319",
+      "12320",
+      "12321",
+      "12322",
+      "12323",
+      "12324",
+      "12325",
+      "12326",
+      "12327",
+      "12329",
+      "12332",
+      "12333",
+      "12335",
+      "15823"
+    ]
+  },
+  {
+    "id": "13168",
+    "naam": "Johann Adam Schöpf",
+    "type": "persoon",
+    "beschrijving": "etser, schilder. ook wel Jan Adam Schopf.",
+    "geboorte": "1702",
+    "sterfte": "1772",
+    "same_as": [
+      "https://rkd.nl/artists/70868"
+    ],
+    "schildering_ids": [
+      "13173",
+      "13175",
+      "13176",
+      "13189",
+      "13174",
+      "13177",
+      "13178",
+      "13179",
+      "13180",
+      "13181",
+      "13182",
+      "13183",
+      "13184",
+      "13185",
+      "13186",
+      "13187",
+      "13188"
+    ]
+  },
+  {
+    "id": "14766",
+    "naam": "Fons Windhausen",
+    "type": "persoon",
+    "beschrijving": "aquarellist, schilder\n",
+    "geboorte": "1901",
+    "sterfte": "1973",
+    "same_as": [
+      "https://rkd.nl/artists/84907"
+    ],
+    "schildering_ids": [
+      "14764",
+      "14768",
+      "14769",
+      "14771",
+      "14773",
+      "14775",
+      "14778",
+      "14854",
+      "14857",
+      "14859",
+      "14770",
+      "14772",
+      "14774",
+      "14776",
+      "14853",
+      "14861",
+      "14777"
+    ]
+  },
+  {
+    "id": "10623",
+    "naam": "Jan Oosterman",
+    "type": "persoon",
+    "beschrijving": "Nederlands schilder. RKD geen gegevens. Volgens GB-1 (p. 385) leerling van Derkinderen",
+    "geboorte": "1876-02-17",
+    "sterfte": "1963-01-19",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q22263013",
+      "https://rkd.nl/artists/60755"
+    ],
+    "schildering_ids": [
+      "10957",
+      "10947",
+      "11458",
+      "10949",
+      "10950",
+      "10951",
+      "10952",
+      "10953",
+      "10954",
+      "10955",
+      "10956",
+      "10958",
+      "10946",
+      "10948",
+      "12712"
+    ]
+  },
+  {
+    "id": "10577",
+    "naam": "Atelier Cuypers-Stoltzenberg",
+    "type": "organisatie",
+    "beschrijving": "atelier voor beeldhouwkunst en meubels in Roermond. n.v.t",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2677906"
+    ],
+    "schildering_ids": [
+      "15218",
+      "15219",
+      "15220",
+      "15214",
+      "10723",
+      "10712",
+      "10728",
+      "10729",
+      "10721",
+      "10731",
+      "10732",
+      "10733",
+      "10734",
+      "10724",
+      "10711"
+    ]
+  },
+  {
+    "id": "11716",
+    "naam": "Pieter Jansz. van Ruyven",
+    "type": "persoon",
+    "beschrijving": "Nederlands schilder (1651-1719)",
+    "geboorte": "1651-03-07",
+    "sterfte": "1719-05-17",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q7192793",
+      "https://rkd.nl/artists/69084"
+    ],
+    "schildering_ids": [
+      "12526",
+      "12578",
+      "12408",
+      "12426",
+      "12440",
+      "12446",
+      "12454",
+      "12460",
+      "12484",
+      "12492",
+      "12511",
+      "12544",
+      "12552",
+      "12568"
+    ]
+  },
+  {
+    "id": "10572",
+    "naam": "Raymund van Bergen",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1883–1978). Kunstacademie te Dusseldorf",
+    "geboorte": "1883-07-30",
+    "sterfte": "1978-11-23",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2305358",
+      "https://rkd.nl/artists/7106"
+    ],
+    "schildering_ids": [
+      "10687",
+      "10688",
+      "10689",
+      "10690",
+      "10691",
+      "10692",
+      "10693",
+      "10694",
+      "10685",
+      "10686",
+      "10695",
+      "10696",
+      "10697"
+    ]
+  },
+  {
+    "id": "10588",
+    "naam": "Piet Gerrits",
+    "type": "persoon",
+    "beschrijving": "Nederlands beeldhouwer, boekbandontwerper, glazenier en schilder. Werkplaats P.J.H. Cuypers, Koninklijke Academie voor Schone Kunsten Antwerpen (onvoltooid)",
+    "geboorte": "1878-11-13",
+    "sterfte": "1957-01-15",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q1830274",
+      "https://rkd.nl/artists/31127"
+    ],
+    "schildering_ids": [
+      "10828",
+      "10821",
+      "10829",
+      "14912",
+      "10820",
+      "10822",
+      "10823",
+      "10824",
+      "10825",
+      "10826",
+      "10827",
+      "10819",
+      "10830"
+    ]
+  },
+  {
+    "id": "11721",
+    "naam": "Hendrik Paulides",
+    "type": "persoon",
+    "beschrijving": "Nederlands schilder (1892-1967)",
+    "geboorte": "1892-07-19",
+    "sterfte": "1967-12-28",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q18603294",
+      "https://rkd.nl/artists/62147"
+    ],
+    "schildering_ids": [
+      "12303",
+      "12304",
+      "12305",
+      "12306",
+      "12307",
+      "12308",
+      "12309",
+      "12310",
+      "12311",
+      "12312",
+      "12313",
+      "12314",
+      "13118"
+    ]
+  },
+  {
+    "id": "10590",
+    "naam": "Jan Grégoire",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Ecole Normale des Arts du Dessin in Brussel. Stadsteekeninstituut en Zondagsschool voor Decoratieve Kunsten te Maastricht. Rijksacademie van Beeldende Kunsten bezocht (1913-1915).",
+    "geboorte": "1887-09-11",
+    "sterfte": "1960-02-11",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2390601",
+      "https://rkd.nl/artists/33616"
+    ],
+    "schildering_ids": [
+      "12134",
+      "12152",
+      "12390",
+      "12391",
+      "10836",
+      "10835",
+      "10838",
+      "10839",
+      "10837",
+      "10832",
+      "10834",
+      "10833"
+    ]
+  },
+  {
+    "id": "11328",
+    "naam": "Chris Lebeau",
+    "type": "persoon",
+    "beschrijving": "wandschilder, lithograaf, politiek tekenaar, kunstnijveraar, ontwerper, docent aan academie, grafisch ontwerper, textieldrukkunstenaar, houtsnijder (prentkunstenaar), glasontwerper, graficus, keramist, etser, schilder, tekenaar, textielkunstenaar",
+    "geboorte": "1878-05-26",
+    "sterfte": "1945-04-02",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2710856",
+      "https://rkd.nl/artists/48648"
+    ],
+    "schildering_ids": [
+      "13235",
+      "13236",
+      "13237",
+      "13238",
+      "13239",
+      "13240",
+      "13241",
+      "12435",
+      "12447",
+      "12501",
+      "12569",
+      "11329"
+    ]
+  },
+  {
+    "id": "11696",
+    "naam": "Theodoor van der Schuer",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1634-1707)",
+    "geboorte": "1634-01-01",
+    "sterfte": "1707-12-01",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q194961",
+      "https://rkd.nl/artists/71288"
+    ],
+    "schildering_ids": [
+      "12195",
+      "12189",
+      "12190",
+      "12191",
+      "12192",
+      "12193",
+      "12194",
+      "12196",
+      "12197",
+      "12198",
+      "12199",
+      "15140"
+    ]
+  },
+  {
+    "id": "11727",
+    "naam": "Theo van Delft",
+    "type": "persoon",
+    "beschrijving": "Nederlands schilder en beeldhouwer (1883-1967)",
+    "geboorte": "1883-08-21",
+    "sterfte": "1967-07-11",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q26936813",
+      "https://rkd.nl/artists/21728"
+    ],
+    "schildering_ids": [
+      "12283",
+      "12284",
+      "12285",
+      "12286",
+      "12287",
+      "12288",
+      "12289",
+      "12290",
+      "12291",
+      "12292",
+      "12293",
+      "12294"
+    ]
+  },
+  {
+    "id": "10573",
+    "naam": "Han Bijvoet",
+    "type": "persoon",
+    "beschrijving": "Nederlands glazenier. Kunstnijverheidsschool te Haarlem. Rijksacademie Beeldende Kunsten Amsterdam",
+    "geboorte": "1897-02-14",
+    "sterfte": "1975-10-18",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q22329174",
+      "https://rkd.nl/artists/8370"
+    ],
+    "schildering_ids": [
+      "14702",
+      "14703",
+      "14700",
+      "10703",
+      "10704",
+      "10705",
+      "10701",
+      "10702",
+      "10698",
+      "10699",
+      "10986"
+    ]
+  },
+  {
+    "id": "10576",
+    "naam": "Joan Colette",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstenaar (1889-1958). Rijksnormaalschool voor Teekenonderwijzers en Rijksschool voor Kunstnijverheid  en Rijksacademie te Amsterdam",
+    "geboorte": "1889-05-16",
+    "sterfte": "1958-04-26",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2161099",
+      "https://rkd.nl/artists/17718"
+    ],
+    "schildering_ids": [
+      "10715",
+      "10712",
+      "10717",
+      "12849",
+      "12795",
+      "10720",
+      "10719",
+      "10714",
+      "10716",
+      "11889",
+      "10711"
+    ]
+  },
+  {
+    "id": "10612",
+    "naam": "Jan Mammen",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstenaar (1899-1978). KB Krantenbank 1920 J. Mammen uit Naarden MO-akte A tekenen en boetseren Rotterdam (vader Johann overleed te Naarden) | (RKD geen gegevens) |",
+    "geboorte": "1899-04-27",
+    "sterfte": "1978-12-10",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q58766777",
+      "https://rkd.nl/artists/52215"
+    ],
+    "schildering_ids": [
+      "10888",
+      "11415",
+      "11417",
+      "11419",
+      "11423",
+      "11425",
+      "11427",
+      "11431",
+      "11429",
+      "11421",
+      "10887"
+    ]
+  },
+  {
+    "id": "10617",
+    "naam": "Jaap Mes",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1892-1983). Haarlemse kunstnijverheidsschool (1912-1913). Avondcursus aan de Rijksacademie voor beeldende kunsten te Amsterdam. Wandschilder, penschilder, houtgraveur, aquarellist, graficus, etser, schilder, tekenaar",
+    "geboorte": "1892-03-15",
+    "sterfte": "1983-10-01",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q61943050",
+      "https://rkd.nl/artists/55460"
+    ],
+    "schildering_ids": [
+      "10912",
+      "10914",
+      "10908",
+      "10915",
+      "10906",
+      "10902",
+      "10904",
+      "10898",
+      "10910",
+      "10913",
+      "14920"
+    ]
+  },
+  {
+    "id": "10629",
+    "naam": "Willem Schermer",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1895-1973). [ Onbekend (RKD geen gegevens)",
+    "geboorte": "1895-01-10",
+    "sterfte": "1973-05-30",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q61943186",
+      "https://rkd.nl/artists/70389"
+    ],
+    "schildering_ids": [
+      "10888",
+      "11415",
+      "11417",
+      "11419",
+      "11423",
+      "11425",
+      "11427",
+      "11431",
+      "11429",
+      "11421",
+      "10887"
+    ]
+  },
+  {
+    "id": "10644",
+    "naam": "Matthieu Wiegman",
+    "type": "persoon",
+    "beschrijving": "Nederlands beeldend kunstenaar. Rijksacademie voor beeldende kunsten te Amsterdam (1905-1909). Ambachtsschool Alkmaar als huisschilder (1898-1900). MW-1, pp. 37; 115.",
+    "geboorte": "1886-05-31",
+    "sterfte": "1971-04-05",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2558717",
+      "https://rkd.nl/artists/84180"
+    ],
+    "schildering_ids": [
+      "11020",
+      "11012",
+      "11014",
+      "11013",
+      "11023",
+      "11024",
+      "11017",
+      "11021",
+      "11016",
+      "11018",
+      "11019"
+    ]
+  },
+  {
+    "id": "11706",
+    "naam": "Leo Visser",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstenaar (1880–1950)",
+    "geboorte": "1880-09-07",
+    "sterfte": "1950-02-17",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2294196",
+      "https://rkd.nl/artists/81323"
+    ],
+    "schildering_ids": [
+      "12131",
+      "12132",
+      "12133",
+      "12296",
+      "12297",
+      "12298",
+      "12299",
+      "12300",
+      "12301",
+      "12302",
+      "12338"
+    ]
+  },
+  {
+    "id": "10594",
+    "naam": "Gerard Hordijk",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1899-1958). Technische Hogeschool (Delft) ca. 1916-1918; Technische Universiteit Delft studie bouwkunde, 1918-1925; Tekenacademie (Den Haag) eindexamen 1927; Koninklijke Koninklijke academie van beeldende kunsten (Den Haag). Leerlinf Van Willem van Konijnenburg.",
+    "geboorte": "1899-09-12",
+    "sterfte": "1958-10-15",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q5390332",
+      "https://rkd.nl/artists/39726"
+    ],
+    "schildering_ids": [
+      "13242",
+      "13243",
+      "13244",
+      "13245",
+      "13246",
+      "13247",
+      "13248",
+      "13249",
+      "10848",
+      "15823"
+    ]
+  },
+  {
+    "id": "11736",
+    "naam": "Clement Benedictus Antheunis",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder",
+    "geboorte": "1876-01-01",
+    "sterfte": null,
+    "same_as": [
+      "http://www.wikidata.org/entity/Q46999082",
+      "https://rkd.nl/artists/349641"
+    ],
+    "schildering_ids": [
+      "12398",
+      "12418",
+      "12439",
+      "12444",
+      "12457",
+      "12516",
+      "12524",
+      "12537",
+      "12563",
+      "12580"
+    ]
+  },
+  {
+    "id": "12606",
+    "naam": "Reclair",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/341104"
+    ],
+    "schildering_ids": [
+      "12172",
+      "12173",
+      "12174",
+      "12175",
+      "12176",
+      "12177",
+      "12178",
+      "12179",
+      "12180",
+      "12181"
+    ]
+  },
+  {
+    "id": "12607",
+    "naam": "Monogrammist J.S.C.",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/334166"
+    ],
+    "schildering_ids": [
+      "12420",
+      "12429",
+      "12430",
+      "12445",
+      "12453",
+      "12466",
+      "12535",
+      "12539",
+      "12590",
+      "12428"
+    ]
+  },
+  {
+    "id": "10595",
+    "naam": "Jos ten Horn",
+    "type": "persoon",
+    "beschrijving": "Nederlands glazenier. Rijksschool voor Kunstnijverheid (Amsterdam) Leerling van Cuypers, Pierre Joseph Hubert en Falise, August",
+    "geboorte": "1894-06-15",
+    "sterfte": "1956-06-01",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q21994102",
+      "https://rkd.nl/artists/39764"
+    ],
+    "schildering_ids": [
+      "10853",
+      "10851",
+      "10852",
+      "10854",
+      "10855",
+      "10856",
+      "10849",
+      "10850",
+      "12788"
+    ]
+  },
+  {
+    "id": "11729",
+    "naam": "P. Engelen",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1880-1961)",
+    "geboorte": "1880-01-01",
+    "sterfte": "1961-01-01",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q27508142",
+      "https://rkd.nl/artists/343312"
+    ],
+    "schildering_ids": [
+      "12394",
+      "12411",
+      "12432",
+      "12442",
+      "12486",
+      "12540",
+      "12554",
+      "12559",
+      "12584"
+    ]
+  },
+  {
+    "id": "11733",
+    "naam": "Auguste Graux",
+    "type": "persoon",
+    "beschrijving": "kunstschilder",
+    "geboorte": "1831-10-13",
+    "sterfte": "1889-11-04",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q41331729",
+      "https://rkd.nl/artists/33420"
+    ],
+    "schildering_ids": [
+      "12407",
+      "12412",
+      "12421",
+      "12467",
+      "12515",
+      "12525",
+      "12532",
+      "12565",
+      "12602"
+    ]
+  },
+  {
+    "id": "13134",
+    "naam": "Jan Boon",
+    "type": "persoon",
+    "beschrijving": "wandschilder, mozaïekwerker, graficus, schilder, tekenaar, monumentaal kunstenaar",
+    "geboorte": "1918",
+    "sterfte": "1988",
+    "same_as": [
+      "https://rkd.nl/artists/338055"
+    ],
+    "schildering_ids": [
+      "13135",
+      "13148",
+      "13150",
+      "13152",
+      "13154",
+      "13156",
+      "13158",
+      "13160",
+      "13162"
+    ]
+  },
+  {
+    "id": "10618",
+    "naam": "Jacques van der Meij",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstenaar. Opgeleid door Antoon Derkinderen (in welk verband?) en aan de Rijksacademie in Amsterdam (waar Derkinderen doceerde).",
+    "geboorte": "1888-01-02",
+    "sterfte": "1969-01-02",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q14632349",
+      "https://rkd.nl/artists/54908"
+    ],
+    "schildering_ids": [
+      "11635",
+      "11637",
+      "10918",
+      "10919",
+      "10916",
+      "10917",
+      "12686",
+      "12688"
+    ]
+  },
+  {
+    "id": "11624",
+    "naam": "Aart van Dobbenburgh\n",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1899",
+    "sterfte": "1988",
+    "same_as": [
+      "https://rkd.nl/artists/23377"
+    ],
+    "schildering_ids": [
+      "12135",
+      "12138",
+      "12140",
+      "12141",
+      "12142",
+      "12145",
+      "12146",
+      "11602"
+    ]
+  },
+  {
+    "id": "10626",
+    "naam": "Otto van Rees",
+    "type": "persoon",
+    "beschrijving": "Otto van Rees was beeldhouwer, collagist, etser geboren op 1884-04-20 te Freiburg en overleden op 1957-05-19 te Utrecht. Leerling van Herman Heijenbrock en Jan Toorop; Academie van Carrière Parijs",
+    "geboorte": "1884-04-20",
+    "sterfte": "1957-05-19",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2372742",
+      "https://rkd.nl/artists/65952"
+    ],
+    "schildering_ids": [
+      "10969",
+      "10970",
+      "10971",
+      "10972",
+      "10973",
+      "10975",
+      "10974"
+    ]
+  },
+  {
+    "id": "10631",
+    "naam": "Lode Sengers",
+    "type": "persoon",
+    "beschrijving": "Nederlands (wand)schilder, graficus en monumentaal vormgever. Academie voor Beeldende Kunsten Rotterdam",
+    "geboorte": "1896-09-05",
+    "sterfte": "1956-03-02",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q46998223",
+      "https://rkd.nl/artists/71959"
+    ],
+    "schildering_ids": [
+      "12149",
+      "10988",
+      "10989",
+      "10990",
+      "10991",
+      "10992",
+      "10993"
+    ]
+  },
+  {
+    "id": "11707",
+    "naam": "Peter Alma",
+    "type": "persoon",
+    "beschrijving": "Nederlands lithograaf, wandschilder, ontwerper, houtsnijder, mozaïekwerker, etser, schilder, monumentaal kunstenaar (1886–1969)",
+    "geboorte": "1886-01-18",
+    "sterfte": "1944-12-15",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2318919",
+      "https://rkd.nl/artists/1268"
+    ],
+    "schildering_ids": [
+      "12328",
+      "12331",
+      "12334",
+      "12336",
+      "12337",
+      "13104",
+      "13107"
+    ]
+  },
+  {
+    "id": "11730",
+    "naam": "Friedrich Florack",
+    "type": "persoon",
+    "beschrijving": "kunstschilder  (1844-1929)",
+    "geboorte": "1844-05-12",
+    "sterfte": "1929-02-06",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q27508527",
+      "https://rkd.nl/artists/335846"
+    ],
+    "schildering_ids": [
+      "12236",
+      "12237",
+      "12238",
+      "12239",
+      "12240",
+      "12241",
+      "12242"
+    ]
+  },
+  {
+    "id": "12605",
+    "naam": "Monogrammist JC (1899)",
+    "type": "persoon",
+    "beschrijving": "JC (ineen) gelezen op decoraties in particulier bezit, Ter Apel",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/347312"
+    ],
+    "schildering_ids": [
+      "12473",
+      "12475",
+      "12533",
+      "12546",
+      "12567",
+      "12573",
+      "12523"
+    ]
+  },
+  {
+    "id": "10567",
+    "naam": "A) Anonieme kunstenaar",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10653",
+      "10656",
+      "10658",
+      "10655",
+      "10657",
+      "10651",
+      "10652"
+    ]
+  },
+  {
+    "id": "10568",
+    "naam": "Jean Adams",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1899-1970). Gymnasium Weert. Filosofie en theologie, Rolduc en Roermond. RK Leergangen Tilburg. Rijksinstituut voor de opleiding van tekenleraren en Rijksacademie voor Beeldende Kunsten te Amsterdam.",
+    "geboorte": "1899-02-03",
+    "sterfte": "1970-11-27",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q13736703",
+      "https://rkd.nl/artists/395"
+    ],
+    "schildering_ids": [
+      "14313",
+      "10664",
+      "10660",
+      "10661",
+      "10662",
+      "10663"
+    ]
+  },
+  {
+    "id": "10630",
+    "naam": "Henri Schoonbrood",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Limburgse Kunstkring (Jonas, Graafland), Middelbare Kunstnijverheidsschool te Maastricht. Rijksacademie te Amsterdam.",
+    "geboorte": "1898-07-28",
+    "sterfte": "1972-11-10",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2752266",
+      "https://rkd.nl/artists/70989"
+    ],
+    "schildering_ids": [
+      "14095",
+      "14096",
+      "14099",
+      "14101",
+      "10985",
+      "10986"
+    ]
+  },
+  {
+    "id": "10649",
+    "naam": "Jacob Ydema",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Teekenschool Rijksmuseum Amsterdam (Huib Luns) Rijksacademie Amsterdam (J.H. Jurres en J. Bronner; mogelijk ook R.N. Roland Holst?",
+    "geboorte": "1901-10-05",
+    "sterfte": "1990-10-14",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2358107",
+      "https://rkd.nl/artists/120208"
+    ],
+    "schildering_ids": [
+      "10442",
+      "10432",
+      "10431",
+      "10430",
+      "10440",
+      "10878"
+    ]
+  },
+  {
+    "id": "11717",
+    "naam": "Dirk Nijland",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1881-1955)",
+    "geboorte": "1881-04-02",
+    "sterfte": "1955-03-27",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q13573542",
+      "https://rkd.nl/artists/59613"
+    ],
+    "schildering_ids": [
+      "12258",
+      "12259",
+      "12252",
+      "12254",
+      "12260",
+      "12261"
+    ]
+  },
+  {
+    "id": "11725",
+    "naam": "Gerrit de Morée",
+    "type": "persoon",
+    "beschrijving": "Nederlands beeldend kunstenaar (1909-1981)",
+    "geboorte": "1909-01-28",
+    "sterfte": "1981-10-13",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q22968368",
+      "https://rkd.nl/artists/57647"
+    ],
+    "schildering_ids": [
+      "12267",
+      "12268",
+      "12269",
+      "12270",
+      "12271",
+      "12272"
+    ]
+  },
+  {
+    "id": "12608",
+    "naam": "Mantje Martens",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/344632"
+    ],
+    "schildering_ids": [
+      "12402",
+      "12409",
+      "12425",
+      "12448",
+      "12503",
+      "12530"
+    ]
+  },
+  {
+    "id": "10581",
+    "naam": "Dunselman, Gebr.",
+    "type": "organisatie",
+    "beschrijving": "n.v.t",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10761",
+      "10762",
+      "10763",
+      "10764",
+      "10765",
+      "10766"
+    ]
+  },
+  {
+    "id": "10593",
+    "naam": "Luc van Hoek",
+    "type": "persoon",
+    "beschrijving": "Nederlands schrijver. Autodidact. Nederlandse taal en letteren aan de R.K. Leergangen te Tilburg, waar ook een kunstacademie aan verbonden was (ontleend aan site Cubra).",
+    "geboorte": "1910-06-30",
+    "sterfte": "1991-01-29",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2169668",
+      "https://rkd.nl/artists/38765"
+    ],
+    "schildering_ids": [
+      "10844",
+      "10845",
+      "10846",
+      "10847",
+      "10843"
+    ]
+  },
+  {
+    "id": "10597",
+    "naam": "Henri Jonas",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1878-1944). Stadsteekeninstituut en Zondagsschool voor Decoratieve Kunsten te Maastricht. Rijksacademie te Amsterdam.",
+    "geboorte": "1878-05-08",
+    "sterfte": "1944-09-15",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2703433",
+      "https://rkd.nl/artists/42499"
+    ],
+    "schildering_ids": [
+      "10862",
+      "10863",
+      "10859",
+      "10861",
+      "10860"
+    ]
+  },
+  {
+    "id": "10646",
+    "naam": "Paul Windhausen",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. \nKleinzoon van P.H. Windhausen; neef van W. Windhausen en P. Windhausen; broer van A.H.J. (Fons) Windhausen; zoon van A. Windhausen (RKD artists)",
+    "geboorte": "1903",
+    "sterfte": "1944",
+    "same_as": [
+      "https://rkd.nl/artists/84908",
+      "https://www.wikidata.org/wiki/Q1865106"
+    ],
+    "schildering_ids": [
+      "14783",
+      "14824",
+      "14846",
+      "14781",
+      "11027"
+    ]
+  },
+  {
+    "id": "11698",
+    "naam": "Willem Arondeus",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder en schrijver (1894-1943)",
+    "geboorte": "1894-08-22",
+    "sterfte": "1943-07-01",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q323985",
+      "https://rkd.nl/artists/112056"
+    ],
+    "schildering_ids": [
+      "12136",
+      "12137",
+      "12139",
+      "12143",
+      "12144"
+    ]
+  },
+  {
+    "id": "11699",
+    "naam": "Erasmus Quellinus",
+    "type": "persoon",
+    "beschrijving": "Vlaamse kunstschilder (1607–1678)",
+    "geboorte": "1607-11-19",
+    "sterfte": "1678-11-07",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q625228",
+      "https://rkd.nl/artists/65222"
+    ],
+    "schildering_ids": [
+      "12375",
+      "12376",
+      "12380",
+      "12379",
+      "12381"
+    ]
+  },
+  {
+    "id": "11710",
+    "naam": "Pol Dom",
+    "type": "persoon",
+    "beschrijving": "Nederlands schilder",
+    "geboorte": "1885-06-04",
+    "sterfte": "1970-02-21",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2369544",
+      "https://rkd.nl/artists/23584"
+    ],
+    "schildering_ids": [
+      "12170",
+      "15847",
+      "12315",
+      "12316",
+      "12317"
+    ]
+  },
+  {
+    "id": "11728",
+    "naam": "Willem Adrianus Fabri",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1853-1925)",
+    "geboorte": "1853-12-06",
+    "sterfte": "1925-03-03",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q27019724",
+      "https://rkd.nl/artists/27127"
+    ],
+    "schildering_ids": [
+      "12410",
+      "12441",
+      "12517",
+      "12558",
+      "12595"
+    ]
+  },
+  {
+    "id": "11737",
+    "naam": "Jan Wingen",
+    "type": "persoon",
+    "beschrijving": "tekenaar",
+    "geboorte": "1874-05-28",
+    "sterfte": "1956-03-07",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q55804861",
+      "https://rkd.nl/artists/91963"
+    ],
+    "schildering_ids": [
+      "12438",
+      "12577",
+      "12593",
+      "12599",
+      "12603"
+    ]
+  },
+  {
+    "id": "15206",
+    "naam": "Lou Asperslagh",
+    "type": "persoon",
+    "beschrijving": "glasschilder, graficus, etser, schilder, tekenaar",
+    "geboorte": "1893",
+    "sterfte": "1949",
+    "same_as": [
+      "https://rkd.nl/artists/2739"
+    ],
+    "schildering_ids": [
+      "15207",
+      "15208",
+      "15209",
+      "15210",
+      "15211"
+    ]
+  },
+  {
+    "id": "12613",
+    "naam": "Johan Frederik Wilhelm Isselmann",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/89202"
+    ],
+    "schildering_ids": [
+      "12462",
+      "12483",
+      "12579",
+      "12596",
+      "12597"
+    ]
+  },
+  {
+    "id": "10624",
+    "naam": "Emmanuel Perey",
+    "type": "persoon",
+    "beschrijving": "Bij zijn grootvader Arnoldus Perey (1798-1873) in het familiebedrijf te Roermond? Komt niet voor bij RKD.",
+    "geboorte": "1864",
+    "sterfte": "1937",
+    "same_as": [],
+    "schildering_ids": [
+      "10960",
+      "10963",
+      "10964",
+      "10962",
+      "10959"
+    ]
+  },
+  {
+    "id": "10587",
+    "naam": "Wijnand Geraedts",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Tekenacademie Antwerpen; leerling Martin Feuerstein",
+    "geboorte": "1883-06-05",
+    "sterfte": "1958-05-19",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2262446",
+      "https://rkd.nl/artists/30995"
+    ],
+    "schildering_ids": [
+      "10815",
+      "10816",
+      "10817",
+      "10814"
+    ]
+  },
+  {
+    "id": "10603",
+    "naam": "Eugène Laudy",
+    "type": "persoon",
+    "beschrijving": "Nederlands beeldend kunstenaar (1921-1995). Middelbare Kunstnijverheidsschool in Maastricht (1936-1941). leerlingen van Charles Eyck. Stijlomslag na Ravenna: opleiding Mozaïekschool (1947).",
+    "geboorte": "1921-09-06",
+    "sterfte": "1995-03-03",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2250915",
+      "https://rkd.nl/artists/48277"
+    ],
+    "schildering_ids": [
+      "10872",
+      "10871",
+      "10875",
+      "13750"
+    ]
+  },
+  {
+    "id": "10610",
+    "naam": "Frans Loots",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1863-1924). RKD, geen gegevens (vermeldt Loots wel als pastoor). Volgens GB-1 verre volgeling van Jan Dunselman",
+    "geboorte": "1863-12-08",
+    "sterfte": "1924-07-14",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q61943252",
+      "https://rkd.nl/artists/50848"
+    ],
+    "schildering_ids": [
+      "10885",
+      "11910",
+      "15852",
+      "14938"
+    ]
+  },
+  {
+    "id": "11700",
+    "naam": "Gerard Hoet",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1648-1733)",
+    "geboorte": "1648-08-22",
+    "sterfte": "1733-12-02",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q978437",
+      "https://rkd.nl/artists/38840"
+    ],
+    "schildering_ids": [
+      "12275",
+      "12277",
+      "12278",
+      "12279"
+    ]
+  },
+  {
+    "id": "11701",
+    "naam": "Herman Rosse",
+    "type": "persoon",
+    "beschrijving": "Amerikaans scenograaf (1887-1965)",
+    "geboorte": "1887-01-01",
+    "sterfte": "1965-04-13",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q1610333",
+      "https://rkd.nl/artists/68332"
+    ],
+    "schildering_ids": [
+      "12211",
+      "12212",
+      "12213",
+      "12214"
+    ]
+  },
+  {
+    "id": "13757",
+    "naam": "René Smeets",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, wandschilder, kunstnijveraar, aquarellist, docent aan academie, directeur van academie, glasschilder, meubelontwerper, keramist, schilder, tekenaar, monumentaal kunstenaar",
+    "geboorte": null,
+    "sterfte": "1976",
+    "same_as": [
+      "https://rkd.nl/artists/73219"
+    ],
+    "schildering_ids": [
+      "14313",
+      "13759",
+      "13776",
+      "13778"
+    ]
+  },
+  {
+    "id": "12006",
+    "naam": "Anthonius Brouwer",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1827",
+    "sterfte": "1908",
+    "same_as": [
+      "https://rkd.nl/artists/13041"
+    ],
+    "schildering_ids": [
+      "12784",
+      "12782",
+      "14790",
+      "11994"
+    ]
+  },
+  {
+    "id": "14322",
+    "naam": "Albin Windhausen",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1863",
+    "sterfte": "1946",
+    "same_as": [
+      "https://rkd.nl/artists/91960"
+    ],
+    "schildering_ids": [
+      "14764",
+      "14324",
+      "14760",
+      "14761"
+    ]
+  },
+  {
+    "id": "10586",
+    "naam": "Gerrit van Geffen",
+    "type": "persoon",
+    "beschrijving": "Koninklijke School voor Beeldende Kunsten Den Bosch",
+    "geboorte": "1883-03-15",
+    "sterfte": "1970-09-20",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q106644199",
+      "https://rkd.nl/artists/132439"
+    ],
+    "schildering_ids": [
+      "10811",
+      "10812",
+      "10813"
+    ]
+  },
+  {
+    "id": "10622",
+    "naam": "Toon Ninaber van Eyben",
+    "type": "persoon",
+    "beschrijving": "Nederlands glazenier. Koninklijke academie van beeldende kunsten (Den Haag)",
+    "geboorte": "1896-12-21",
+    "sterfte": "1977-04-19",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q22261664",
+      "https://rkd.nl/artists/59679"
+    ],
+    "schildering_ids": [
+      "10943",
+      "10945",
+      "10944"
+    ]
+  },
+  {
+    "id": "10636",
+    "naam": "Johan Thorn Prikker",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Koninklijke academie van beeldende kunsten (Den Haag)  van 1881-1887 Gildeboek 1924-C, vermeld geboren in 1870",
+    "geboorte": "1868-06-05",
+    "sterfte": "1932-03-05",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q458861",
+      "https://rkd.nl/artists/77307"
+    ],
+    "schildering_ids": [
+      "10998",
+      "10999",
+      "11000"
+    ]
+  },
+  {
+    "id": "10641",
+    "naam": "Albert Verschuuren",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1887-1953). In 1910 voltooide V. zijn studie aan de Academie te Amsterdam. Tweemaal had hij meegedongen naar den Prix de Rome, tweemaal verwierf hij ook de zilveren medaille. Tot verdere voltooiing zijner studiën doorreisde V. nu verschillende landen van Europa en studeerde vooral in 't kunstrijke Italië, te Rome en Florence. Gildeboek 1924 B. RKD leerling van P.J.H. Cuypers en A. Derkinderen.",
+    "geboorte": "1887-03-11",
+    "sterfte": "1953-11-03",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q13428932",
+      "https://rkd.nl/artists/80646"
+    ],
+    "schildering_ids": [
+      "11008",
+      "11006",
+      "11007"
+    ]
+  },
+  {
+    "id": "11359",
+    "naam": "Karel Appel",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, theatervormgever, lithograaf, wandschilder, illustrator, glasschilder, collagist, meubelontwerper, graficus, keramist, etser, schilder, tekenaar, monumentaal kunstenaar",
+    "geboorte": "1921-04-25",
+    "sterfte": "2006-05-03",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q152793",
+      "https://rkd.nl/artists/2208"
+    ],
+    "schildering_ids": [
+      "11614",
+      "15352",
+      "15353"
+    ]
+  },
+  {
+    "id": "11697",
+    "naam": "Arthur Fitger",
+    "type": "persoon",
+    "beschrijving": "Duits dichter (1840-1909)",
+    "geboorte": "1840-10-04",
+    "sterfte": "1909-06-28",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q317470",
+      "https://rkd.nl/artists/217748"
+    ],
+    "schildering_ids": [
+      "12498",
+      "12519",
+      "12601"
+    ]
+  },
+  {
+    "id": "11702",
+    "naam": "Petrus Nicolaas van den Boer",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1846-1926)",
+    "geboorte": "1846-03-26",
+    "sterfte": "1926-01-01",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2028392",
+      "https://rkd.nl/artists/430467"
+    ],
+    "schildering_ids": [
+      "12400",
+      "12529",
+      "12556"
+    ]
+  },
+  {
+    "id": "11705",
+    "naam": "Victor de Stuers",
+    "type": "persoon",
+    "beschrijving": "Nederlands rijksambtenaar en Tweede Kamerlid (1843-1916)",
+    "geboorte": "1843-10-20",
+    "sterfte": "1916-03-21",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2125168",
+      "https://rkd.nl/artists/90578"
+    ],
+    "schildering_ids": [
+      "12182",
+      "12183",
+      "12187"
+    ]
+  },
+  {
+    "id": "11708",
+    "naam": "Johan Dijkstra",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstenaar (1896-1978)",
+    "geboorte": "1896-12-23",
+    "sterfte": "1978-02-21",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2349218",
+      "https://rkd.nl/artists/23089"
+    ],
+    "schildering_ids": [
+      "12165",
+      "12167",
+      "12168"
+    ]
+  },
+  {
+    "id": "14841",
+    "naam": "Paul Windhausen sr.",
+    "type": "persoon",
+    "beschrijving": "schilder\nzoon van Peter Heinrich Windhausen",
+    "geboorte": "1871",
+    "sterfte": "1944",
+    "same_as": [
+      "https://rkd.nl/artists/94843"
+    ],
+    "schildering_ids": [
+      "14764",
+      "14760",
+      "14761"
+    ]
+  },
+  {
+    "id": "10620",
+    "naam": "Toon Muysenbergh, van den",
+    "type": "persoon",
+    "beschrijving": "Teekenschool voor Kunstambachten Amsterdam",
+    "geboorte": "1901",
+    "sterfte": "1967",
+    "same_as": [],
+    "schildering_ids": [
+      "10921",
+      "10922",
+      "10923"
+    ]
+  },
+  {
+    "id": "10640",
+    "naam": "Jacques Verheyen",
+    "type": "persoon",
+    "beschrijving": "Roermondse Teekenschool voor Nuttige en Beeldende Kunsten. Onderwijsakten in tekenen, boetseren en vormgeving",
+    "geboorte": "1911",
+    "sterfte": "1989",
+    "same_as": [],
+    "schildering_ids": [
+      "11005",
+      "14679",
+      "14072"
+    ]
+  },
+  {
+    "id": "13031",
+    "naam": "J. Bloemendaal",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "12998",
+      "13002",
+      "13005"
+    ]
+  },
+  {
+    "id": "10570",
+    "naam": "Alex Asperslagh",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Koninklijke Academie van Beeldende Kunsten, Den Haag",
+    "geboorte": "1901-05-25",
+    "sterfte": "1984-08-15",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2652730",
+      "https://rkd.nl/artists/2736"
+    ],
+    "schildering_ids": [
+      "10666",
+      "10667"
+    ]
+  },
+  {
+    "id": "10579",
+    "naam": "Antoon Derkinderen",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder en graficus. Koninklijke School voor Beeldende Kunsten, Den Bosch. Rijksacademie Amsterdam. Tekenacademie Brussel.",
+    "geboorte": "1859-12-20",
+    "sterfte": "1925-11-02",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q1941254",
+      "https://rkd.nl/artists/22057"
+    ],
+    "schildering_ids": [
+      "10736",
+      "10737"
+    ]
+  },
+  {
+    "id": "10589",
+    "naam": "Matthias Goebbels",
+    "type": "persoon",
+    "beschrijving": "Duits kunstschilder (1836-1911). [ Onbekend (komt niet voor in RKD)",
+    "geboorte": "1836-03-19",
+    "sterfte": "1911-09-06",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q97286"
+    ],
+    "schildering_ids": [
+      "10831",
+      "14260"
+    ]
+  },
+  {
+    "id": "10596",
+    "naam": "Gerhard Jansen",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, restaurator, wandschilder, edelsmid, ontwerper, glasschilder, graficus, schilder\n",
+    "geboorte": "1878-12-09",
+    "sterfte": "1956-02-05",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q59928923",
+      "https://rkd.nl/artists/41737"
+    ],
+    "schildering_ids": [
+      "10857",
+      "10858"
+    ]
+  },
+  {
+    "id": "10601",
+    "naam": "Frans Kops",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (?-1951). Koninklijke school voor nuttige en beeldende kunsten te 's Hertogenbosch / Brugge",
+    "geboorte": "1873-08-08",
+    "sterfte": "1951-10-19",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q26936699",
+      "https://rkd.nl/artists/88735"
+    ],
+    "schildering_ids": [
+      "10868",
+      "12706"
+    ]
+  },
+  {
+    "id": "10602",
+    "naam": "Thé Lau",
+    "type": "persoon",
+    "beschrijving": "schilder. Volgens Ingrid Evers opgeleid aan de Rijksacademie. Volgens RKD echter Keulen, Dusseldorf én autodidact. Voorts avondcursus bij Klaas van Leeuwen Amsterdam (ging dat mogelijk uit van de Rijksacademie?)",
+    "geboorte": "1889-02-06",
+    "sterfte": "1958-07-09",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2112428",
+      "https://rkd.nl/artists/48258"
+    ],
+    "schildering_ids": [
+      "10869",
+      "10870"
+    ]
+  },
+  {
+    "id": "10613",
+    "naam": "Kees Mandos",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Academie voor Beeldende en Bouwende Kunsten te Tilburg",
+    "geboorte": "1913-09-21",
+    "sterfte": "2001-12-25",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2192210",
+      "https://rkd.nl/artists/52288"
+    ],
+    "schildering_ids": [
+      "10889",
+      "10890"
+    ]
+  },
+  {
+    "id": "10614",
+    "naam": "Gerard Mathot",
+    "type": "persoon",
+    "beschrijving": "Nederlands priester, schilder, tekenaar, beeldhouwer en kunstnijveraar. L.O.-akte tekenen kunstacademie Arnhem 1938. Kunstacademie Arnhem tot 1940.",
+    "geboorte": "1911-07-09",
+    "sterfte": "2000-05-10",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q60775349",
+      "https://rkd.nl/artists/53982"
+    ],
+    "schildering_ids": [
+      "10891",
+      "10892"
+    ]
+  },
+  {
+    "id": "10634",
+    "naam": "Lambert Simon",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstenaar (1909-1987). autodidact",
+    "geboorte": "1909-07-20",
+    "sterfte": "1987-10-10",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2054777",
+      "https://rkd.nl/artists/72665"
+    ],
+    "schildering_ids": [
+      "10996",
+      "14695"
+    ]
+  },
+  {
+    "id": "10645",
+    "naam": "Henriëtte Willebeek le Mair",
+    "type": "persoon",
+    "beschrijving": "Nederlands aquarelliste (1889-1966). [ Onbekend (RKD geen gegevens)",
+    "geboorte": "1889-04-23",
+    "sterfte": "1966-03-15",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2596361",
+      "https://rkd.nl/artists/84594"
+    ],
+    "schildering_ids": [
+      "11025",
+      "11026"
+    ]
+  },
+  {
+    "id": "10648",
+    "naam": "Piet Worm",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Kunstnijverheidsschool te Haarlem, de School voor Kunst, Techniek en Ambacht te Den Haag en de Rijksacademie voor Beeldende Kunsten in Amsterdam (RKD klopt op dit put niet).",
+    "geboorte": "1909-09-17",
+    "sterfte": "1996-05-07",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2681913",
+      "https://rkd.nl/artists/85573"
+    ],
+    "schildering_ids": [
+      "11030",
+      "11029"
+    ]
+  },
+  {
+    "id": "11620",
+    "naam": "Marius de Leeuw",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, pastellist, wandschilder, penschilder, kunstnijveraar, omgevingskunstenaar, aquarellist, glasschilder, mozaïekwerker, schilder, tekenaar, monumentaal kunstenaar",
+    "geboorte": "1915",
+    "sterfte": "2000",
+    "same_as": [
+      "https://rkd.nl/artists/48903"
+    ],
+    "schildering_ids": [
+      "11579",
+      "12715"
+    ]
+  },
+  {
+    "id": "11622",
+    "naam": "Albert Muis",
+    "type": "persoon",
+    "beschrijving": "wandschilder, aquarellist, vervaardiger van gouaches, schilder, tekenaar\n",
+    "geboorte": "1914",
+    "sterfte": "1988",
+    "same_as": [
+      "https://rkd.nl/artists/58161"
+    ],
+    "schildering_ids": [
+      "11587",
+      "11588"
+    ]
+  },
+  {
+    "id": "11712",
+    "naam": "Han Jelinger",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstenaar (1895-1961)",
+    "geboorte": "1895-09-04",
+    "sterfte": "1961-04-12",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2442837",
+      "https://rkd.nl/artists/42152"
+    ],
+    "schildering_ids": [
+      "12256",
+      "12257"
+    ]
+  },
+  {
+    "id": "11722",
+    "naam": "Giovanni Antonio de Groot",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1664-1712)",
+    "geboorte": "1664-06-13",
+    "sterfte": "1712-12-17",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q18814458",
+      "https://rkd.nl/artists/425140"
+    ],
+    "schildering_ids": [
+      "12371",
+      "12378"
+    ]
+  },
+  {
+    "id": "11735",
+    "naam": "Pieter Cent van der Wilt",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1908-1976)",
+    "geboorte": "1908-08-11",
+    "sterfte": "1976-11-09",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q46998837",
+      "https://rkd.nl/artists/84873"
+    ],
+    "schildering_ids": [
+      "12148",
+      "12150"
+    ]
+  },
+  {
+    "id": "12853",
+    "naam": "Eppo Doeve",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, lithograaf, wandschilder, penschilder, politiek tekenaar, medailleur, illustrator, ontwerper, aquarellist, grafisch ontwerper, architect, etser, schilder, tekenaar, cartoonist",
+    "geboorte": "1907",
+    "sterfte": "1981",
+    "same_as": [
+      "https://rkd.nl/artists/23491"
+    ],
+    "schildering_ids": [
+      "12852",
+      "15384"
+    ]
+  },
+  {
+    "id": "13758",
+    "naam": "Daan Wildschut",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, wandschilder, kunstnijveraar, illustrator, aquarellist, glasschilder, keramist, schilder, tekenaar, monumentaal kunstenaar, textielkunstenaar",
+    "geboorte": "1913",
+    "sterfte": "1995",
+    "same_as": [
+      "https://rkd.nl/artists/84510"
+    ],
+    "schildering_ids": [
+      "13760",
+      "14219"
+    ]
+  },
+  {
+    "id": "13763",
+    "naam": "Pieter Geraedts (1911-1978)\n\n",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, wandschilder, glasschilder, schilder",
+    "geboorte": "1911",
+    "sterfte": "1978",
+    "same_as": [
+      "https://rkd.nl/artists/30992"
+    ],
+    "schildering_ids": [
+      "13762",
+      "15036"
+    ]
+  },
+  {
+    "id": "13888",
+    "naam": "Alexander Klaesener",
+    "type": "persoon",
+    "beschrijving": "wandschilder, schilder, tekenaar",
+    "geboorte": "1826",
+    "sterfte": "1912",
+    "same_as": [
+      "https://rkd.nl/artists/44576"
+    ],
+    "schildering_ids": [
+      "13889",
+      "14965"
+    ]
+  },
+  {
+    "id": "14899",
+    "naam": "Pieter den Besten",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, wandschilder, kunstnijveraar, aquarellist, grafisch ontwerper, reclameontwerper, schilder, tekenaar",
+    "geboorte": "1894",
+    "sterfte": "1972",
+    "same_as": [
+      "https://rkd.nl/artists/7777"
+    ],
+    "schildering_ids": [
+      "14901",
+      "14906"
+    ]
+  },
+  {
+    "id": "11732",
+    "naam": "L. Bock",
+    "type": "persoon",
+    "beschrijving": "kunstschilder",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "http://www.wikidata.org/entity/Q41331199",
+      "https://rkd.nl/artists/346982"
+    ],
+    "schildering_ids": [
+      "12522",
+      "12549"
+    ]
+  },
+  {
+    "id": "11738",
+    "naam": "Benno de Vries",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1939-04-07",
+    "sterfte": "2013-09-16",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q124705402",
+      "https://rkd.nl/artists/296195"
+    ],
+    "schildering_ids": [
+      "12495",
+      "12555"
+    ]
+  },
+  {
+    "id": "11779",
+    "naam": "Egbert Dekkers",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1908",
+    "sterfte": "1983",
+    "same_as": [
+      "https://rkd.nl/artists/21533"
+    ],
+    "schildering_ids": [
+      "11777",
+      "12726"
+    ]
+  },
+  {
+    "id": "12609",
+    "naam": "A. Jonkhoff",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/341984"
+    ],
+    "schildering_ids": [
+      "12472",
+      "12592"
+    ]
+  },
+  {
+    "id": "12611",
+    "naam": "P. Breurken",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/344033"
+    ],
+    "schildering_ids": [
+      "12458",
+      "12520"
+    ]
+  },
+  {
+    "id": "10598",
+    "naam": "Anton (A.) Koene",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (RKD geen gegevens)",
+    "geboorte": "1883",
+    "sterfte": "1956",
+    "same_as": [],
+    "schildering_ids": [
+      "10864",
+      "10865"
+    ]
+  },
+  {
+    "id": "10605",
+    "naam": "Jos. Lelyveld",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (RKD geen gegevens).",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10877",
+      "10878"
+    ]
+  },
+  {
+    "id": "10607",
+    "naam": "(P.J.) Lodewijks",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (RKD geen gegevens).",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10881",
+      "12772"
+    ]
+  },
+  {
+    "id": "10608",
+    "naam": "Jos Lommen",
+    "type": "persoon",
+    "beschrijving": "WvL-1: Ateliers kerkelijke kunst P.J.H. Cuypers Roermond.",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10883",
+      "10882"
+    ]
+  },
+  {
+    "id": "10639",
+    "naam": "W. Triffteren, van",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (komt niet voor in RKD)",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "11003",
+      "11004"
+    ]
+  },
+  {
+    "id": "10643",
+    "naam": "K.W. Wenzel",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend: RKD te weinig gegevens om een van de aangegeven figuren te identificeren met deze K.W. Wenzel",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "11010",
+      "11011"
+    ]
+  },
+  {
+    "id": "14257",
+    "naam": "W.H. Pieper",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14393",
+      "14391"
+    ]
+  },
+  {
+    "id": "14287",
+    "naam": "R. Franquinet ",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14286",
+      "14298"
+    ]
+  },
+  {
+    "id": "10569",
+    "naam": "Willem Adolfs",
+    "type": "persoon",
+    "beschrijving": "Nederlands beeldhouwer, schilder en tekenaar (1903–1945). [ Onbekend (RKD geen gegevens)",
+    "geboorte": "1903-03-28",
+    "sterfte": "1945-01-10",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q61943026",
+      "https://rkd.nl/artists/496"
+    ],
+    "schildering_ids": [
+      "10665"
+    ]
+  },
+  {
+    "id": "10585",
+    "naam": "Georges De Geetere",
+    "type": "persoon",
+    "beschrijving": "kunstschilder. Academie voor Schone Kunsten te Brussel",
+    "geboorte": "1859-01-13",
+    "sterfte": "1929-04-14",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q27272678",
+      "https://rkd.nl/artists/20603"
+    ],
+    "schildering_ids": [
+      "10810"
+    ]
+  },
+  {
+    "id": "10592",
+    "naam": "Dorus Hermsen",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Koninklijke School voor Nuttige en Beeldende Kunsten Den Bosch (Uit: Van Bouwen en Sieren 1931)",
+    "geboorte": "1871-05-14",
+    "sterfte": "1931-04-27",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2128370",
+      "https://rkd.nl/artists/37843"
+    ],
+    "schildering_ids": [
+      "10842"
+    ]
+  },
+  {
+    "id": "10604",
+    "naam": "Henri Leeuw",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1861-1918). [ Onbekend (RKD geen gegevens, behalve dat hij les kreeg van zijn vader Jean Henri Leeuw.",
+    "geboorte": "1861-10-07",
+    "sterfte": "1918-06-12",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q1816674",
+      "https://rkd.nl/artists/48895"
+    ],
+    "schildering_ids": [
+      "10876"
+    ]
+  },
+  {
+    "id": "10606",
+    "naam": "Johannes Linse",
+    "type": "persoon",
+    "beschrijving": "Nederlands schilder, 1875-1930. Academie voor Beeldende Kunsten (Rotterdam) 1888-1892; Koninklijke Koninklijke academie van beeldende kunsten (Den Haag)",
+    "geboorte": "1875-03-30",
+    "sterfte": "1930-07-12",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q41256383",
+      "https://rkd.nl/artists/88950"
+    ],
+    "schildering_ids": [
+      "10880"
+    ]
+  },
+  {
+    "id": "10619",
+    "naam": "Antoon Molkenboer",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstenaar (1872-1960). Kunstnijverheidsschool te Haarlem. Rijksacademie Beeldende Kunsten Amsterdam, Academie des Beauw-Arts de l'Institut de France Parijs, The Art Students League of New York",
+    "geboorte": "1872-04-08",
+    "sterfte": "1960-03-10",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2519456",
+      "https://rkd.nl/artists/56719"
+    ],
+    "schildering_ids": [
+      "10841"
+    ]
+  },
+  {
+    "id": "10635",
+    "naam": "Cephas Stauthamer",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1899-1983). Rijksacademie van beeldende kunsten (Amsterdam) 1929-1934 onder prof. R.N. Roland Holst",
+    "geboorte": "1899-12-09",
+    "sterfte": "1983-04-05",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2909660",
+      "https://rkd.nl/artists/74759"
+    ],
+    "schildering_ids": [
+      "10997"
+    ]
+  },
+  {
+    "id": "10637",
+    "naam": "George Tielens",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (komt niet voor in RKD)",
+    "geboorte": "1888-02-18",
+    "sterfte": "1950-01-24",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q24846179",
+      "https://rkd.nl/artists/77433"
+    ],
+    "schildering_ids": [
+      "11001"
+    ]
+  },
+  {
+    "id": "10638",
+    "naam": "Jan Toorop",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Polytechnische school Delft\r\nRijksacademie Beeldende Kunst Amsterdam, Académie des Beaux Arts Brussel",
+    "geboorte": "1858-12-20",
+    "sterfte": "1928-03-03",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q369416",
+      "https://rkd.nl/artists/77873"
+    ],
+    "schildering_ids": [
+      "11002"
+    ]
+  },
+  {
+    "id": "10647",
+    "naam": "Cor de Wolff",
+    "type": "persoon",
+    "beschrijving": "textielkunstenaar. [ Onbekend (RKD geen gegevens)",
+    "geboorte": "1889-04-18",
+    "sterfte": "1963-06-09",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q42429147",
+      "https://rkd.nl/artists/85377"
+    ],
+    "schildering_ids": [
+      "11028"
+    ]
+  },
+  {
+    "id": "11621",
+    "naam": "Keith Haring",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, fotograaf, graffitikunstenaar, wandschilder, schilder, tekenaar",
+    "geboorte": "1958",
+    "sterfte": "1990",
+    "same_as": [
+      "https://rkd.nl/artists/36033"
+    ],
+    "schildering_ids": [
+      "11583"
+    ]
+  },
+  {
+    "id": "11703",
+    "naam": "Louis Raemaekers",
+    "type": "persoon",
+    "beschrijving": "Nederlands cartoonist (1869-1956)",
+    "geboorte": "1869-04-06",
+    "sterfte": "1956-07-26",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2073966",
+      "https://rkd.nl/artists/65417"
+    ],
+    "schildering_ids": [
+      "12188"
+    ]
+  },
+  {
+    "id": "11704",
+    "naam": "Dolf van Gendt",
+    "type": "persoon",
+    "beschrijving": "Nederlands architect",
+    "geboorte": "1835-04-18",
+    "sterfte": "1900-04-28",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2108911",
+      "https://rkd.nl/artists/30855"
+    ],
+    "schildering_ids": [
+      "12273"
+    ]
+  },
+  {
+    "id": "11713",
+    "naam": "Reijer Stolk",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder en graficus (1896-1945)",
+    "geboorte": "1896-03-30",
+    "sterfte": "1945-03-24",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2526674",
+      "https://rkd.nl/artists/75434"
+    ],
+    "schildering_ids": [
+      "12262"
+    ]
+  },
+  {
+    "id": "11714",
+    "naam": "Chris de Moor",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1899-1981)",
+    "geboorte": "1899-02-05",
+    "sterfte": "1981-09-27",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2660400",
+      "https://rkd.nl/artists/57501"
+    ],
+    "schildering_ids": [
+      "12235"
+    ]
+  },
+  {
+    "id": "11719",
+    "naam": "Henri Bol",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1945-2000)",
+    "geboorte": "1945-01-10",
+    "sterfte": "2000-07-10",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q18224991",
+      "https://rkd.nl/artists/10082"
+    ],
+    "schildering_ids": [
+      "12416"
+    ]
+  },
+  {
+    "id": "11720",
+    "naam": "Gerard Sanders",
+    "type": "persoon",
+    "beschrijving": "Nederlands schilder, 1702-1767 (1702-1767)",
+    "geboorte": "1702-01-01",
+    "sterfte": "1767-01-01",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q18516528",
+      "https://rkd.nl/artists/69569"
+    ],
+    "schildering_ids": [
+      "12151"
+    ]
+  },
+  {
+    "id": "11723",
+    "naam": "Jacques Muller",
+    "type": "persoon",
+    "beschrijving": "Duits kunstschilder (1608-1673)",
+    "geboorte": "1608-01-01",
+    "sterfte": "1673-02-03",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q19574321",
+      "https://rkd.nl/artists/58354"
+    ],
+    "schildering_ids": [
+      "12276"
+    ]
+  },
+  {
+    "id": "11724",
+    "naam": "Judy Michiels van Kessenich",
+    "type": "persoon",
+    "beschrijving": "Nederlands beeldend kunstenares (1901-1972)",
+    "geboorte": "1901-04-21",
+    "sterfte": "1972-05-17",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q21214749",
+      "https://rkd.nl/artists/86855"
+    ],
+    "schildering_ids": [
+      "12255"
+    ]
+  },
+  {
+    "id": "11726",
+    "naam": "Herman Dijkstra",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1904-1976)",
+    "geboorte": "1904-07-08",
+    "sterfte": "1976-06-11",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q25616710",
+      "https://rkd.nl/artists/23077"
+    ],
+    "schildering_ids": [
+      "12169"
+    ]
+  },
+  {
+    "id": "11734",
+    "naam": "Jan Hendrik Aikes",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1790-1846)",
+    "geboorte": "1790-08-01",
+    "sterfte": "1846-04-28",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q46998136",
+      "https://rkd.nl/artists/739"
+    ],
+    "schildering_ids": [
+      "12490"
+    ]
+  },
+  {
+    "id": "12718",
+    "naam": "A. van Bokhoven",
+    "type": "persoon",
+    "beschrijving": "beeldsnijder, beeldhouwer, glasschilder, schilder",
+    "geboorte": "1881",
+    "sterfte": "1951",
+    "same_as": [
+      "https://rkd.nl/artists/10065"
+    ],
+    "schildering_ids": [
+      "12719"
+    ]
+  },
+  {
+    "id": "12767",
+    "naam": "P.N. van den Boer",
+    "type": "persoon",
+    "beschrijving": "P. van den Boer. wandschilder, schilder.",
+    "geboorte": "1861",
+    "sterfte": "1926",
+    "same_as": [
+      "https://nl.wikipedia.org/wiki/Petrus_Nicolaas_van_den_Boer",
+      "https://rkd.nl/artists/430467"
+    ],
+    "schildering_ids": [
+      "12765"
+    ]
+  },
+  {
+    "id": "12778",
+    "naam": "Petrus Hendrikus Bockholts",
+    "type": "persoon",
+    "beschrijving": "P. Bockholts",
+    "geboorte": "1835",
+    "sterfte": "1907",
+    "same_as": [
+      "https://www.genealogieonline.nl/stamboom-peters-huijnen/I6846.php"
+    ],
+    "schildering_ids": [
+      "12780"
+    ]
+  },
+  {
+    "id": "13049",
+    "naam": "Louis Kortenhorst",
+    "type": "persoon",
+    "beschrijving": "Louis Arnoldus Kortenhorst",
+    "geboorte": "1884",
+    "sterfte": "1966",
+    "same_as": [
+      "https://rkd.nl/artists/45984"
+    ],
+    "schildering_ids": [
+      "13048"
+    ]
+  },
+  {
+    "id": "13058",
+    "naam": "Hans van der Plas",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, wandschilder, aquarellist, glasschilder, mozaïekwerker, schilder, tekenaar, monumentaal kunstenaar",
+    "geboorte": "1925",
+    "sterfte": "1991",
+    "same_as": [
+      "https://rkd.nl/artists/63780"
+    ],
+    "schildering_ids": [
+      "13056"
+    ]
+  },
+  {
+    "id": "13123",
+    "naam": "Wally Elenbaas",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, lithograaf, fotograaf, wandschilder, ontwerper, aquarellist, mozaïekwerker, graficus, keramist, schilder, tekenaar, monumentaal kunstenaar, textielkunstenaar",
+    "geboorte": "1912",
+    "sterfte": "2008",
+    "same_as": [
+      "https://rkd.nl/artists/25930"
+    ],
+    "schildering_ids": [
+      "13125"
+    ]
+  },
+  {
+    "id": "13140",
+    "naam": "Wladimir Zwaagstra",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, wandschilder, graficus, schilder",
+    "geboorte": "1937",
+    "sterfte": "2019",
+    "same_as": [
+      "https://rkd.nl/artists/86676"
+    ],
+    "schildering_ids": [
+      "13139"
+    ]
+  },
+  {
+    "id": "13141",
+    "naam": "Opland",
+    "type": "persoon",
+    "beschrijving": "wandschilder, politiek tekenaar, illustrator, tekenaar. Opland is pseudoniem voor Robert Wout",
+    "geboorte": "1928",
+    "sterfte": "2001",
+    "same_as": [
+      "https://rkd.nl/artists/60861"
+    ],
+    "schildering_ids": [
+      "13143"
+    ]
+  },
+  {
+    "id": "13171",
+    "naam": "Huub Kurvers",
+    "type": "persoon",
+    "beschrijving": "restaurator, wandschilder, kunstnijveraar, schilder, tekenaar",
+    "geboorte": "1940",
+    "sterfte": "2010",
+    "same_as": [
+      "https://rkd.nl/artists/46942"
+    ],
+    "schildering_ids": [
+      "14305"
+    ]
+  },
+  {
+    "id": "13191",
+    "naam": "Louis Hermans",
+    "type": "persoon",
+    "beschrijving": "wandschilder, schilder. \nbroer van François Hermans",
+    "geboorte": "1750",
+    "sterfte": "1835",
+    "same_as": [
+      "https://rkd.nl/artists/116707"
+    ],
+    "schildering_ids": [
+      "13189"
+    ]
+  },
+  {
+    "id": "13192",
+    "naam": "François Hermans",
+    "type": "persoon",
+    "beschrijving": "wandschilder, architect, schilder, hoogleraar, tekenaar.\nbroer van Louis Hermans",
+    "geboorte": "1745",
+    "sterfte": "1804",
+    "same_as": [
+      "https://rkd.nl/artists/297723"
+    ],
+    "schildering_ids": [
+      "13189"
+    ]
+  },
+  {
+    "id": "13218",
+    "naam": "Louis van Roode",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, wandschilder, glasschilder, mozaïekwerker, schilder, monumentaal kunstenaar. Naamsvarianten: Aloysius Maria de Roode, Aloysius Maria van Roode\n",
+    "geboorte": "1914",
+    "sterfte": "1964",
+    "same_as": [
+      "https://rkd.nl/artists/67981"
+    ],
+    "schildering_ids": [
+      "13219"
+    ]
+  },
+  {
+    "id": "14142",
+    "naam": "Henri Ritzen",
+    "type": "persoon",
+    "beschrijving": "schilder, leraar",
+    "geboorte": "1892",
+    "sterfte": "1976",
+    "same_as": [
+      "https://rkd.nl/artists/67189"
+    ],
+    "schildering_ids": [
+      "14138"
+    ]
+  },
+  {
+    "id": "14165",
+    "naam": "Frans Griesenbrock",
+    "type": "persoon",
+    "beschrijving": "pastellist, wandschilder, aquarellist, grafisch ontwerper, glasschilder, schilder, tekenaar, monumentaal kunstenaar",
+    "geboorte": "1918",
+    "sterfte": "2010",
+    "same_as": [
+      "https://rkd.nl/artists/33788"
+    ],
+    "schildering_ids": [
+      "14166"
+    ]
+  },
+  {
+    "id": "14172",
+    "naam": "Hans Truijen",
+    "type": "persoon",
+    "beschrijving": "wandschilder, glasschilder, mozaïekwerker, vervaardiger van gouaches, schilder, tekenaar, monumentaal kunstenaar",
+    "geboorte": "1928",
+    "sterfte": "2005",
+    "same_as": [
+      "https://rkd.nl/artists/78325"
+    ],
+    "schildering_ids": [
+      "14171"
+    ]
+  },
+  {
+    "id": "14266",
+    "naam": "Aad de Haas",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, lithograaf, pastellist, wandschilder, penschilder, medailleur, aquarellist, graficus, etser, schilder, tekenaar",
+    "geboorte": "1920",
+    "sterfte": "1972",
+    "same_as": [
+      "https://rkd.nl/artists/34940"
+    ],
+    "schildering_ids": [
+      "14264"
+    ]
+  },
+  {
+    "id": "14331",
+    "naam": "K. Baard",
+    "type": "persoon",
+    "beschrijving": "wandschilder, architect, schilder",
+    "geboorte": "1897",
+    "sterfte": "1972",
+    "same_as": [
+      "https://rkd.nl/artists/3200"
+    ],
+    "schildering_ids": [
+      "14330"
+    ]
+  },
+  {
+    "id": "14898",
+    "naam": "Jaap Gidding",
+    "type": "persoon",
+    "beschrijving": "decoratieschilder van interieurs, interieurontwerper, wandschilder, edelsmid, glasschilder, sieraadontwerper, mozaïekwerker, keramist, schilder, tekenaar, monumentaal kunstenaar, textielkunstenaar",
+    "geboorte": "1887",
+    "sterfte": "1955",
+    "same_as": [
+      "https://rkd.nl/artists/31479"
+    ],
+    "schildering_ids": [
+      "14900"
+    ]
+  },
+  {
+    "id": "15007",
+    "naam": "Flip Hamers",
+    "type": "persoon",
+    "beschrijving": "wandschilder, aquarellist, schilder, tekenaar",
+    "geboorte": "1909",
+    "sterfte": "1995",
+    "same_as": [
+      "https://rkd.nl/artists/35632"
+    ],
+    "schildering_ids": [
+      "15006"
+    ]
+  },
+  {
+    "id": "15067",
+    "naam": "Karel Sluijterman",
+    "type": "persoon",
+    "beschrijving": "decoratieschilder van interieurs, interieurontwerper, edelsmid, docent aan academie, meubelontwerper, keramist, schilder, hoogleraar, tekenaar",
+    "geboorte": "1863",
+    "sterfte": "1931",
+    "same_as": [
+      "https://rkd.nl/artists/90203"
+    ],
+    "schildering_ids": [
+      "15066"
+    ]
+  },
+  {
+    "id": "15068",
+    "naam": "Johan Adrianus Gerard van der Steur",
+    "type": "persoon",
+    "beschrijving": "ontwerper, architect, tekenaar",
+    "geboorte": "1865",
+    "sterfte": "1945",
+    "same_as": [
+      "https://rkd.nl/artists/90203"
+    ],
+    "schildering_ids": [
+      "15066"
+    ]
+  },
+  {
+    "id": "15129",
+    "naam": "Hans Coumans",
+    "type": "persoon",
+    "beschrijving": "graficus, schilder, tekenaar",
+    "geboorte": "1943",
+    "sterfte": "1986",
+    "same_as": [
+      "https://rkd.nl/artists/18721"
+    ],
+    "schildering_ids": [
+      "15128"
+    ]
+  },
+  {
+    "id": "15176",
+    "naam": "Mattheus Terwesten",
+    "type": "persoon",
+    "beschrijving": "decoratieschilder van interieurs, docent aan academie, hofschilder, lid van kunstenaarsfamilie, schilder, tekenaar",
+    "geboorte": "1670",
+    "sterfte": "1757",
+    "same_as": [
+      "https://rkd.nl/artists/76874",
+      "https://www.wikidata.org/wiki/Q1889803"
+    ],
+    "schildering_ids": [
+      "15178"
+    ]
+  },
+  {
+    "id": "15181",
+    "naam": "Gaspar Peeter Verbruggen",
+    "type": "persoon",
+    "beschrijving": "schilder, gildedeken",
+    "geboorte": "1664",
+    "sterfte": "1730",
+    "same_as": [
+      "https://rkd.nl/artists/80114"
+    ],
+    "schildering_ids": [
+      "15182"
+    ]
+  },
+  {
+    "id": "15826",
+    "naam": "Cuno van den Steene",
+    "type": "persoon",
+    "beschrijving": "theatervormgever, lithograaf, wandschilder, penschilder, kunstnijveraar, illustrator, linosnijder, grafisch ontwerper, houtsnijder (prentkunstenaar), vervaardiger van gouaches, graficus, keramist, etser, schilder, tekenaar, monumentaal kunstenaar, textielkunstenaar",
+    "geboorte": "1909",
+    "sterfte": "1971",
+    "same_as": [
+      "https://rkd.nl/artists/74837"
+    ],
+    "schildering_ids": [
+      "15825"
+    ]
+  },
+  {
+    "id": "15844",
+    "naam": "Johannes Stortenbeker",
+    "type": "persoon",
+    "beschrijving": "decoratieschilder van interieurs, huisschilder, schilder",
+    "geboorte": "1821",
+    "sterfte": "1899",
+    "same_as": [
+      "https://rkd.nl/artists/75554",
+      "https://www.wikidata.org/wiki/Q46998160"
+    ],
+    "schildering_ids": [
+      "15843"
+    ]
+  },
+  {
+    "id": "11718",
+    "naam": "Jurriaan Buttner",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (?-1767)",
+    "geboorte": null,
+    "sterfte": "1767-06-15",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q17644438",
+      "https://rkd.nl/artists/14521"
+    ],
+    "schildering_ids": [
+      "12482"
+    ]
+  },
+  {
+    "id": "10633",
+    "naam": "Henri Sicking",
+    "type": "persoon",
+    "beschrijving": "Koninklijke School voor Beeldende Kunsten 's-Hertogenbosch, Beuroner Kunstschule, Academie van beeldende kunsten Den Haag (RKD) Roomsche Academie, Teekenen, Doorzichtkunde, Kunstgeschiedenis, Gildeboek 1924 B",
+    "geboorte": "1889-03-06",
+    "sterfte": null,
+    "same_as": [
+      "http://www.wikidata.org/entity/Q124355110",
+      "https://rkd.nl/artists/72429"
+    ],
+    "schildering_ids": [
+      "10995"
+    ]
+  },
+  {
+    "id": "11731",
+    "naam": "Klaas de Jong",
+    "type": "persoon",
+    "beschrijving": "tekenaar",
+    "geboorte": "1918-10-01",
+    "sterfte": null,
+    "same_as": [
+      "http://www.wikidata.org/entity/Q41329454",
+      "https://rkd.nl/artists/42648"
+    ],
+    "schildering_ids": [
+      "12389"
+    ]
+  },
+  {
+    "id": "14334",
+    "naam": "Charles Tangelder",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, schilder",
+    "geboorte": "1919",
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/76466"
+    ],
+    "schildering_ids": [
+      "14333"
+    ]
+  },
+  {
+    "id": "12731",
+    "naam": "Gebr. Goossens",
+    "type": "persoon",
+    "beschrijving": "Gerardus Goossens (1820-1897 ) en Jan Goossens (1818-1905), vormden samen atelier gebr. Goossens te 's-Hertogenbosch",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/346184"
+    ],
+    "schildering_ids": [
+      "12730"
+    ]
+  },
+  {
+    "id": "11623",
+    "naam": "Otto van Rees",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1884",
+    "sterfte": "1957",
+    "same_as": [
+      "https://rkd.nl/artists/65952"
+    ],
+    "schildering_ids": [
+      "11597"
+    ]
+  },
+  {
+    "id": "11627",
+    "naam": "M.C. Escher",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1898",
+    "sterfte": "1972",
+    "same_as": [
+      "https://rkd.nl/artists/26631"
+    ],
+    "schildering_ids": [
+      "11628"
+    ]
+  },
+  {
+    "id": "11632",
+    "naam": "Theo Elfrink",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1923",
+    "sterfte": "2014",
+    "same_as": [
+      "https://rkd.nl/artists/25953"
+    ],
+    "schildering_ids": [
+      "11633"
+    ]
+  },
+  {
+    "id": "11642",
+    "naam": "Willem Sandberg",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1897",
+    "sterfte": "1984",
+    "same_as": [
+      "https://rkd.nl/artists/69550"
+    ],
+    "schildering_ids": [
+      "11643"
+    ]
+  },
+  {
+    "id": "11880",
+    "naam": "H. Luns",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1881",
+    "sterfte": "1942",
+    "same_as": [
+      "https://research.rkd.nl/nl/detail/https%3A%2F%2Fdata.rkd.nl%2Fartists%2F51360?c=q%3Dluns%26filters%255B0%255D%255Bfield%255D%3Ddb%26filters%255B0%255D%255Bvalues%255D%255B0%255D%3Drkdartists%26filters%255B0%255D%255Btype%255D%3Dall&n=i%3D4%26p%3D1%26rpp%3D20%26tp%3D4"
+    ],
+    "schildering_ids": [
+      "11872"
+    ]
+  },
+  {
+    "id": "11882",
+    "naam": "H. Heeren",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1926",
+    "sterfte": "2016",
+    "same_as": [
+      "https://rkd.nl/artists/36890"
+    ],
+    "schildering_ids": [
+      "11883"
+    ]
+  },
+  {
+    "id": "12123",
+    "naam": "Tommaso Vincidor da Bologna",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1493",
+    "sterfte": "1536",
+    "same_as": [
+      "https://rkd.nl/artists/77799"
+    ],
+    "schildering_ids": [
+      "12122"
+    ]
+  },
+  {
+    "id": "15146",
+    "naam": "F. Stülzenfuss",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1849",
+    "sterfte": "1910",
+    "same_as": [
+      "https://rkd.nl/artists/319318"
+    ],
+    "schildering_ids": [
+      "15145"
+    ]
+  },
+  {
+    "id": "15171",
+    "naam": "H. Jansen",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1867",
+    "sterfte": "1921",
+    "same_as": [
+      "https://rkd.nl/artists/37595"
+    ],
+    "schildering_ids": [
+      "15169"
+    ]
+  },
+  {
+    "id": "11644",
+    "naam": "Caveto",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1923",
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/23507"
+    ],
+    "schildering_ids": [
+      "11640"
+    ]
+  },
+  {
+    "id": "11941",
+    "naam": "Jacob Por",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/64320"
+    ],
+    "schildering_ids": [
+      "15080"
+    ]
+  },
+  {
+    "id": "12610",
+    "naam": "P.M. Snickers",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/343455"
+    ],
+    "schildering_ids": [
+      "12263"
+    ]
+  },
+  {
+    "id": "12612",
+    "naam": "Johan Herman Eilmann",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/431215"
+    ],
+    "schildering_ids": [
+      "12497"
+    ]
+  },
+  {
+    "id": "12614",
+    "naam": "Bosseret",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/343249"
+    ],
+    "schildering_ids": [
+      "12207"
+    ]
+  },
+  {
+    "id": "14641",
+    "naam": "Duchateau",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/24520"
+    ],
+    "schildering_ids": [
+      "14639"
+    ]
+  },
+  {
+    "id": "14908",
+    "naam": "Dirk Jan van der Laan",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [
+      "https://www.wikidata.org/wiki/Q139948712"
+    ],
+    "schildering_ids": [
+      "14907"
+    ]
+  },
+  {
+    "id": "10600",
+    "naam": "Piet Koppens",
+    "type": "persoon",
+    "beschrijving": "Koninklijke school voor nuttige en beeldende kunsten te 's Hertogenbosch, o.m. Piet Slagter (voornamelijk ontleend aan site kerkramen museum voor vlaklas en emaillkunst Ravestein). Bij  RKD staan onder Piet Koppens te weinig gegevens om hem te kunnen identificeren",
+    "geboorte": "1907",
+    "sterfte": "1977",
+    "same_as": [],
+    "schildering_ids": [
+      "10867"
+    ]
+  },
+  {
+    "id": "14905",
+    "naam": "Willem Kromhout\n",
+    "type": "persoon",
+    "beschrijving": "interieurontwerper, auteur, wandschilder, docent aan academie, architect, meubelontwerper",
+    "geboorte": "1864",
+    "sterfte": "1940",
+    "same_as": [],
+    "schildering_ids": [
+      "14903"
+    ]
+  },
+  {
+    "id": "10578",
+    "naam": "Alphons Damen",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (RKD geen gegevens)",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10735"
+    ]
+  },
+  {
+    "id": "10584",
+    "naam": "Pieter Geeraerdts",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (komt niet voor in RKD)",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10809"
+    ]
+  },
+  {
+    "id": "10591",
+    "naam": "Leo Haalen",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (komt niet voor in RKD)",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10841"
+    ]
+  },
+  {
+    "id": "10615",
+    "naam": "Jan Meily",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (komt niet voor in RKD)",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10893"
+    ]
+  },
+  {
+    "id": "10625",
+    "naam": "Pop",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (komt niet voor in RKD)",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10965"
+    ]
+  },
+  {
+    "id": "10632",
+    "naam": "H. Sensen",
+    "type": "persoon",
+    "beschrijving": "[ Onbekend (komt niet voor in RKD)",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10994"
+    ]
+  },
+  {
+    "id": "12702",
+    "naam": "J.M. Heymans",
+    "type": "persoon",
+    "beschrijving": "J.M. Heymans",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "12701"
+    ]
+  },
+  {
+    "id": "13764",
+    "naam": "G. Tielens",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1888",
+    "sterfte": "1950",
+    "same_as": [],
+    "schildering_ids": [
+      "13762"
+    ]
+  },
+  {
+    "id": "10566",
+    "naam": "A) Anonieme kerkdecoratieschilder",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10650"
+    ]
+  },
+  {
+    "id": "10575",
+    "naam": "Pierre Cleevers",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10707"
+    ]
+  },
+  {
+    "id": "12691",
+    "naam": "Yaiant den Schilder",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "12059"
+    ]
+  },
+  {
+    "id": "12692",
+    "naam": "J. Wilbrink",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10897"
+    ]
+  },
+  {
+    "id": "13032",
+    "naam": "J.W. Wevers",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "13016"
+    ]
+  },
+  {
+    "id": "13850",
+    "naam": "Victor Snel",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "13851"
+    ]
+  },
+  {
+    "id": "13885",
+    "naam": "Jan Vasoens",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "13883"
+    ]
+  },
+  {
+    "id": "13901",
+    "naam": "meester Gerardus",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "13895"
+    ]
+  },
+  {
+    "id": "13947",
+    "naam": "A. Herfs ",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "13946"
+    ]
+  },
+  {
+    "id": "14081",
+    "naam": "R. Colen",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14079"
+    ]
+  },
+  {
+    "id": "14246",
+    "naam": "br. Ferdinand",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14245"
+    ]
+  },
+  {
+    "id": "14248",
+    "naam": "Mathieu Clairfays",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14250"
+    ]
+  },
+  {
+    "id": "14252",
+    "naam": "E. Aalberts",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14493"
+    ]
+  },
+  {
+    "id": "14253",
+    "naam": "F. M. Middelkoop",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14425"
+    ]
+  },
+  {
+    "id": "14254",
+    "naam": "G. Timbout",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14510"
+    ]
+  },
+  {
+    "id": "14256",
+    "naam": "W. Roelands",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14509"
+    ]
+  },
+  {
+    "id": "14273",
+    "naam": "Joan Claessen",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14269"
+    ]
+  },
+  {
+    "id": "14283",
+    "naam": "Egidius Emonts",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14282"
+    ]
+  },
+  {
+    "id": "14664",
+    "naam": "Vossen en Verkooijen",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14663"
+    ]
+  },
+  {
+    "id": "14947",
+    "naam": "G. Janssen",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "14946"
+    ]
+  },
+  {
+    "id": "10609",
+    "naam": "Lommen @ Zonen, Jos",
+    "type": "organisatie",
+    "beschrijving": "n.v.t. | NB: Dit atelier stond onder leiding van Jos Lommen die ook als zelfstandig kunstenaar actief was.",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "10884"
+    ]
+  }
+]

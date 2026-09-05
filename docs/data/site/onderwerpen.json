@@ -20,7 +20,6 @@
       "12179",
       "12180",
       "12200",
-      "12210",
       "12263",
       "12273",
       "12340",
@@ -97,6 +96,7 @@
       "12601",
       "12604",
       "12396",
+      "12210",
       "12434"
     ]
   },
@@ -239,9 +239,9 @@
     "label": "putto",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Andrea%20mantegna%2C%20camera%20degli%20sposi%2C%201465-74%2C%20parete%20ovest%2C%20detta%20dell%27incontro%2C%2003%20putti%20con%20targa%20dedicatoria%2009%2C2.jpg",
     "schildering_ids": [
+      "12526",
       "8278",
       "8279",
-      "12526",
       "12195",
       "12357",
       "12375",
@@ -263,9 +263,6 @@
       "12198",
       "12199",
       "12204",
-      "12220",
-      "12221",
-      "12229",
       "12276",
       "12278",
       "12309",
@@ -291,6 +288,9 @@
       "12589",
       "12598",
       "12601",
+      "12220",
+      "12221",
+      "12229",
       "12434",
       "12514"
     ]
@@ -300,8 +300,8 @@
     "label": "vrouw",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Woman.svg",
     "schildering_ids": [
-      "8270",
       "12137",
+      "8270",
       "11560",
       "13221",
       "13227",
@@ -320,7 +320,6 @@
       "12215",
       "12216",
       "12217",
-      "12226",
       "12235",
       "12257",
       "12274",
@@ -349,6 +348,7 @@
       "12553",
       "12568",
       "12584",
+      "12226",
       "12317",
       "12389"
     ]
@@ -526,12 +526,12 @@
     "label": "man",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Pioneer%20plaque%20line-drawing%20of%20a%20human%20male.svg",
     "schildering_ids": [
-      "8325",
       "12136",
       "12137",
       "12139",
       "12143",
       "12144",
+      "8325",
       "11560",
       "13224",
       "13228",
@@ -622,16 +622,6 @@
       "12164",
       "12171",
       "12183",
-      "12219",
-      "12221",
-      "12222",
-      "12224",
-      "12225",
-      "12226",
-      "12227",
-      "12228",
-      "12229",
-      "12230",
       "12341",
       "12422",
       "12423",
@@ -645,6 +635,16 @@
       "12509",
       "12555",
       "12592",
+      "12219",
+      "12221",
+      "12222",
+      "12224",
+      "12225",
+      "12226",
+      "12227",
+      "12228",
+      "12229",
+      "12230",
       "12315",
       "12316",
       "12317"
@@ -697,11 +697,6 @@
       "12357",
       "12361",
       "12365",
-      "12153",
-      "12210",
-      "12222",
-      "12224",
-      "12226",
       "12273",
       "12392",
       "12393",
@@ -720,6 +715,11 @@
       "12571",
       "12600",
       "12604",
+      "12153",
+      "12210",
+      "12222",
+      "12224",
+      "12226",
       "12434"
     ]
   },
@@ -797,7 +797,6 @@
     "schildering_ids": [
       "12360",
       "12366",
-      "12231",
       "12295",
       "12340",
       "12403",
@@ -820,7 +819,8 @@
       "12570",
       "12587",
       "12588",
-      "12596"
+      "12596",
+      "12231"
     ]
   },
   {
@@ -860,7 +860,6 @@
     "schildering_ids": [
       "13249",
       "12195",
-      "12147",
       "12150",
       "12165",
       "12168",
@@ -880,7 +879,8 @@
       "12426",
       "12540",
       "12549",
-      "12567"
+      "12567",
+      "12147"
     ]
   },
   {
@@ -950,8 +950,6 @@
       "12357",
       "12578",
       "12151",
-      "12186",
-      "12210",
       "12211",
       "12212",
       "12213",
@@ -963,6 +961,8 @@
       "12446",
       "12482",
       "12576",
+      "12186",
+      "12210",
       "12316",
       "12514"
     ]
@@ -1009,13 +1009,13 @@
       "10234",
       "12103",
       "11858",
-      "7961",
-      "8208",
-      "8413",
       "10957",
       "10782",
       "10802",
-      "10845"
+      "10845",
+      "7961",
+      "8208",
+      "8413"
     ]
   },
   {
@@ -1069,10 +1069,10 @@
     "label": "cartouche",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/%D0%91.%D0%9C%D0%BE%D1%80%D1%81%D0%BA%D0%B0%D1%8F43-02.JPG",
     "schildering_ids": [
+      "12526",
       "10172",
       "10173",
       "10170",
-      "12526",
       "12161",
       "12162",
       "12164",
@@ -1115,8 +1115,6 @@
     "schildering_ids": [
       "12360",
       "12364",
-      "12147",
-      "12220",
       "12287",
       "12329",
       "12432",
@@ -1127,7 +1125,9 @@
       "12495",
       "12506",
       "12522",
-      "12536"
+      "12536",
+      "12147",
+      "12220"
     ]
   },
   {
@@ -1137,8 +1137,6 @@
     "schildering_ids": [
       "12360",
       "12364",
-      "12147",
-      "12220",
       "12287",
       "12329",
       "12432",
@@ -1149,7 +1147,9 @@
       "12495",
       "12506",
       "12522",
-      "12536"
+      "12536",
+      "12147",
+      "12220"
     ]
   },
   {
@@ -1163,14 +1163,14 @@
       "12163",
       "12164",
       "12176",
-      "12186",
       "12282",
       "12291",
       "12303",
       "12397",
       "12478",
       "12519",
-      "12544"
+      "12544",
+      "12186"
     ]
   },
   {
@@ -1220,7 +1220,6 @@
     "label": null,
     "afbeelding": null,
     "schildering_ids": [
-      "14128",
       "12726",
       "14764",
       "14768",
@@ -1232,26 +1231,8 @@
       "14772",
       "14774",
       "14776",
-      "14853"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q16970",
-    "label": "kerkgebouw",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Cathedral%20of%20Saint%20Cecilia%20of%20Albi%20-%207095%20-%20Altar%20and%20choir.jpg",
-    "schildering_ids": [
-      "10190",
-      "10191",
-      "10194",
-      "12256",
-      "12261",
-      "12283",
-      "12290",
-      "12300",
-      "12310",
-      "12506",
-      "12530",
-      "12575"
+      "14853",
+      "14128"
     ]
   },
   {
@@ -1280,8 +1261,6 @@
     "schildering_ids": [
       "12526",
       "12578",
-      "12219",
-      "12222",
       "12407",
       "12421",
       "12440",
@@ -1289,7 +1268,28 @@
       "12522",
       "12525",
       "12532",
-      "12602"
+      "12602",
+      "12219",
+      "12222"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q16970",
+    "label": "kerkgebouw",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Cathedral%20of%20Saint%20Cecilia%20of%20Albi%20-%207095%20-%20Altar%20and%20choir.jpg",
+    "schildering_ids": [
+      "10190",
+      "10191",
+      "10194",
+      "12256",
+      "12261",
+      "12283",
+      "12290",
+      "12300",
+      "12310",
+      "12506",
+      "12530",
+      "12575"
     ]
   },
   {
@@ -1369,24 +1369,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q49005",
-    "label": "gordijn",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Curtain.tif",
-    "schildering_ids": [
-      "8587",
-      "8588",
-      "8589",
-      "8600",
-      "8590",
-      "8320",
-      "13244",
-      "13248",
-      "12346",
-      "12348",
-      "12590"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q8074",
     "label": "wolk",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Cumulus%20cloud.jpg",
@@ -1402,6 +1384,24 @@
       "12198",
       "12459",
       "12434"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q49005",
+    "label": "gordijn",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Curtain.tif",
+    "schildering_ids": [
+      "8587",
+      "8588",
+      "8589",
+      "8600",
+      "8590",
+      "8320",
+      "13244",
+      "13248",
+      "12346",
+      "12348",
+      "12590"
     ]
   },
   {
@@ -1451,11 +1451,11 @@
       "12195",
       "12359",
       "12151",
-      "12220",
       "12275",
       "12278",
       "12279",
-      "12392"
+      "12392",
+      "12220"
     ]
   },
   {
@@ -1513,29 +1513,10 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q1821239",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14113",
-      "14089",
-      "15343",
-      "13817",
-      "14035",
-      "14111",
-      "13978",
-      "13873",
-      "13790",
-      "14066",
-      "14101"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q5113",
     "label": null,
     "afbeelding": null,
     "schildering_ids": [
-      "15151",
       "13135",
       "13148",
       "13150",
@@ -1545,7 +1526,43 @@
       "13158",
       "13160",
       "13162",
+      "15151",
       "13855"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1821239",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14101",
+      "14113",
+      "14089",
+      "15343",
+      "13817",
+      "14035",
+      "14111",
+      "13978",
+      "13873",
+      "13790",
+      "14066"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q1364",
+    "label": "vrucht",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/%28MHNT%29%20Geum%20urbanum%20-%20Fruit.jpg",
+    "schildering_ids": [
+      "12526",
+      "11561",
+      "12358",
+      "12310",
+      "12393",
+      "12416",
+      "12417",
+      "12422",
+      "12464",
+      "12598"
     ]
   },
   {
@@ -1583,33 +1600,16 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q1364",
-    "label": "vrucht",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/%28MHNT%29%20Geum%20urbanum%20-%20Fruit.jpg",
-    "schildering_ids": [
-      "12526",
-      "11561",
-      "12358",
-      "12310",
-      "12393",
-      "12416",
-      "12417",
-      "12422",
-      "12464",
-      "12598"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q193507",
     "label": null,
     "afbeelding": null,
     "schildering_ids": [
       "15258",
+      "10844",
       "14023",
       "15040",
       "15240",
       "13951",
-      "10844",
       "13790",
       "13913",
       "14833",
@@ -1689,7 +1689,6 @@
     "label": "rozet",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Multnomah%20County%20Courthouse%2C%20Portland%20%282012%29%20-%2006.JPG",
     "schildering_ids": [
-      "12153",
       "12154",
       "12273",
       "12401",
@@ -1698,7 +1697,8 @@
       "12465",
       "12497",
       "12499",
-      "12597"
+      "12597",
+      "12153"
     ]
   },
   {
@@ -1724,7 +1724,6 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/2025%20Klasztor%20Cysters%C3%B3w%20w%20Henrykowie%20%2812%29.jpg",
     "schildering_ids": [
       "12171",
-      "12222",
       "12340",
       "12342",
       "12343",
@@ -1732,24 +1731,8 @@
       "12464",
       "12531",
       "12548",
-      "12572"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q695992",
-    "label": "nis",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Orsanmichele%2C%20base.JPG",
-    "schildering_ids": [
-      "12219",
-      "12225",
-      "12422",
-      "12427",
-      "12464",
-      "12587",
-      "12588",
-      "12315",
-      "12316",
-      "12317"
+      "12572",
+      "12222"
     ]
   },
   {
@@ -1787,6 +1770,39 @@
     ]
   },
   {
+    "uri": "http://www.wikidata.org/entity/Q695992",
+    "label": "nis",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Orsanmichele%2C%20base.JPG",
+    "schildering_ids": [
+      "12422",
+      "12427",
+      "12464",
+      "12587",
+      "12588",
+      "12219",
+      "12225",
+      "12315",
+      "12316",
+      "12317"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q7560",
+    "label": "moeder",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/US%20Navy%20071129-M-3095K-023%20Mother%20and%20son%20patiently%20wait%20in%20line%20to%20receive%20medical%20aid%20in%20the%20wake%20of%20Tropical%20Cyclone%20Sidr%20that%20smashed%20into%20the%20southern%20coast%20of%20Bangladesh%20Nov.%2015.jpg",
+    "schildering_ids": [
+      "12137",
+      "12360",
+      "12183",
+      "12267",
+      "12271",
+      "12329",
+      "12477",
+      "12509",
+      "12185"
+    ]
+  },
+  {
     "uri": "http://www.wikidata.org/entity/Q154326",
     "label": "annunciatie",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Annunciation%20by%20El%20Greco%20%281570-1575%2C%20Prado%29.jpg",
@@ -1795,10 +1811,10 @@
       "8218",
       "8580",
       "10943",
-      "8129",
       "11003",
       "10944",
       "13175",
+      "8129",
       "8035"
     ]
   },
@@ -1832,22 +1848,6 @@
       "12517",
       "12558",
       "12569"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q7560",
-    "label": "moeder",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/US%20Navy%20071129-M-3095K-023%20Mother%20and%20son%20patiently%20wait%20in%20line%20to%20receive%20medical%20aid%20in%20the%20wake%20of%20Tropical%20Cyclone%20Sidr%20that%20smashed%20into%20the%20southern%20coast%20of%20Bangladesh%20Nov.%2015.jpg",
-    "schildering_ids": [
-      "12137",
-      "12360",
-      "12183",
-      "12185",
-      "12267",
-      "12271",
-      "12329",
-      "12477",
-      "12509"
     ]
   },
   {
@@ -1947,22 +1947,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q122960",
-    "label": "rococo",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/JAMeissonnierTable.jpg",
-    "schildering_ids": [
-      "12153",
-      "12406",
-      "12422",
-      "12423",
-      "12464",
-      "12500",
-      "12531",
-      "12572",
-      "12582"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q12791",
     "label": "zwaard",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Albion%20Hospitaller%20Medieval%20Sword%201%20%286092737619%29%20%28II%29.jpg",
@@ -1985,13 +1969,13 @@
     "schildering_ids": [
       "12182",
       "12183",
-      "12184",
-      "12185",
-      "12186",
       "12206",
       "12285",
       "12289",
-      "12308"
+      "12308",
+      "12184",
+      "12185",
+      "12186"
     ]
   },
   {
@@ -2008,6 +1992,67 @@
       "12311",
       "12371",
       "12378"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q122960",
+    "label": "rococo",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/JAMeissonnierTable.jpg",
+    "schildering_ids": [
+      "12406",
+      "12422",
+      "12423",
+      "12464",
+      "12500",
+      "12531",
+      "12572",
+      "12582",
+      "12153"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q152",
+    "label": "vissen",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Fish-coll002.jpg",
+    "schildering_ids": [
+      "12136",
+      "12195",
+      "12370",
+      "12131",
+      "12132",
+      "12266",
+      "12533",
+      "11628"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q332682",
+    "label": "hoorn des overvloeds",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Corne%20d%27Abondance%20Statue%20Louis%20XV%20Reims%20270608%201.jpg",
+    "schildering_ids": [
+      "12526",
+      "12195",
+      "12214",
+      "12309",
+      "12440",
+      "12517",
+      "12558",
+      "12514"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q942040",
+    "label": "schoof",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Straw%20of%20the%20rice.08Oct9.jpg",
+    "schildering_ids": [
+      "12526",
+      "13235",
+      "12345",
+      "12168",
+      "12189",
+      "12266",
+      "12332",
+      "12440"
     ]
   },
   {
@@ -2071,51 +2116,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q152",
-    "label": "vissen",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Fish-coll002.jpg",
-    "schildering_ids": [
-      "12136",
-      "12195",
-      "12370",
-      "12131",
-      "12132",
-      "12266",
-      "12533",
-      "11628"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q332682",
-    "label": "hoorn des overvloeds",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Corne%20d%27Abondance%20Statue%20Louis%20XV%20Reims%20270608%201.jpg",
-    "schildering_ids": [
-      "12526",
-      "12195",
-      "12214",
-      "12309",
-      "12440",
-      "12517",
-      "12558",
-      "12514"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q942040",
-    "label": "schoof",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Straw%20of%20the%20rice.08Oct9.jpg",
-    "schildering_ids": [
-      "12526",
-      "13235",
-      "12345",
-      "12168",
-      "12189",
-      "12266",
-      "12332",
-      "12440"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q467",
     "label": null,
     "afbeelding": null,
@@ -2137,12 +2137,12 @@
     "schildering_ids": [
       "13225",
       "13230",
-      "12147",
       "12167",
       "12266",
       "12280",
       "12296",
-      "12302"
+      "12302",
+      "12147"
     ]
   },
   {
@@ -2312,12 +2312,12 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Claw-hammer.jpg",
     "schildering_ids": [
       "13228",
-      "12147",
       "12289",
       "12290",
       "12295",
       "12304",
-      "12508"
+      "12508",
+      "12147"
     ]
   },
   {
@@ -2447,6 +2447,19 @@
     ]
   },
   {
+    "uri": "http://www.wikidata.org/entity/Q2413314",
+    "label": "kan",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Voller%20gr%C3%BCner%20Weinkranz%20Krug%200%2C8l.jpg",
+    "schildering_ids": [
+      "12526",
+      "12359",
+      "12150",
+      "12305",
+      "12466",
+      "12220"
+    ]
+  },
+  {
     "uri": "http://www.wikidata.org/entity/Q328804",
     "label": "Johannes de Evangelist",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Grandes%20Heures%20Anne%20de%20Bretagne%20Saint%20Jean.jpg",
@@ -2492,23 +2505,10 @@
     "schildering_ids": [
       "8272",
       "8461",
-      "8566",
       "12195",
       "12295",
-      "12422"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q2413314",
-    "label": "kan",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Voller%20gr%C3%BCner%20Weinkranz%20Krug%200%2C8l.jpg",
-    "schildering_ids": [
-      "12526",
-      "12359",
-      "12150",
-      "12220",
-      "12305",
-      "12466"
+      "12422",
+      "8566"
     ]
   },
   {
@@ -2543,11 +2543,11 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Grabe-%20und%20Bauspaten.JPG",
     "schildering_ids": [
       "13235",
-      "12147",
       "12167",
       "12234",
       "12269",
-      "12425"
+      "12425",
+      "12147"
     ]
   },
   {
@@ -2559,8 +2559,8 @@
       "12344",
       "12157",
       "12170",
-      "12225",
-      "12549"
+      "12549",
+      "12225"
     ]
   },
   {
@@ -2673,11 +2673,11 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Parc%20Asterix%2020.jpg",
     "schildering_ids": [
       "12157",
+      "12517",
+      "12558",
       "12221",
       "12225",
-      "12229",
-      "12517",
-      "12558"
+      "12229"
     ]
   },
   {
@@ -2687,10 +2687,10 @@
     "schildering_ids": [
       "12190",
       "12196",
-      "12223",
-      "12231",
       "12420",
-      "12466"
+      "12466",
+      "12223",
+      "12231"
     ]
   },
   {
@@ -2700,10 +2700,10 @@
     "schildering_ids": [
       "12193",
       "12199",
-      "12223",
       "12303",
       "12519",
-      "12551"
+      "12551",
+      "12223"
     ]
   },
   {
@@ -2750,11 +2750,11 @@
     "label": null,
     "afbeelding": null,
     "schildering_ids": [
+      "12782",
       "12694",
       "13817",
       "13915",
       "12741",
-      "12782",
       "15039"
     ]
   },
@@ -2769,6 +2769,42 @@
       "15625",
       "15627",
       "15651"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q162691",
+    "label": "Maria-Tenhemelopneming",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Tizian%20041.jpg",
+    "schildering_ids": [
+      "8602",
+      "8224",
+      "11777",
+      "11635",
+      "11872"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q130912",
+    "label": "zeis",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/20160520-RD-LSC-0803%20%2826795735334%29.jpg",
+    "schildering_ids": [
+      "12526",
+      "12168",
+      "12199",
+      "12440",
+      "12466"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q193788",
+    "label": "zonlicht",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Beauty%20of%20Sunshine.jpg",
+    "schildering_ids": [
+      "12526",
+      "12195",
+      "12578",
+      "12197",
+      "12402"
     ]
   },
   {
@@ -2820,18 +2856,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q162691",
-    "label": "Maria-Tenhemelopneming",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Tizian%20041.jpg",
-    "schildering_ids": [
-      "8224",
-      "8602",
-      "11777",
-      "11635",
-      "11872"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q201171",
     "label": "Agnus Dei",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Agnus%20Dei%20with%20Vexillum.jpg",
@@ -2868,30 +2892,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q130912",
-    "label": "zeis",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/20160520-RD-LSC-0803%20%2826795735334%29.jpg",
-    "schildering_ids": [
-      "12526",
-      "12168",
-      "12199",
-      "12440",
-      "12466"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q193788",
-    "label": "zonlicht",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Beauty%20of%20Sunshine.jpg",
-    "schildering_ids": [
-      "12526",
-      "12195",
-      "12578",
-      "12197",
-      "12402"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q345",
     "label": null,
     "afbeelding": null,
@@ -2909,10 +2909,10 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Workers%20in%20the%20fuse%20factory%20Woolwich%20Arsenal%20Flickr%204615367952%20d40a18ec24%20o.jpg",
     "schildering_ids": [
       "13221",
-      "12147",
       "12290",
       "12308",
-      "12339"
+      "12339",
+      "12147"
     ]
   },
   {
@@ -2921,10 +2921,10 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Northern%20Spotted%20Owl.USFWS.jpg",
     "schildering_ids": [
       "13240",
-      "12186",
       "12192",
       "12504",
-      "12535"
+      "12535",
+      "12186"
     ]
   },
   {
@@ -2997,42 +2997,6 @@
       "12199",
       "12303",
       "12447"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q1075310",
-    "label": "zeilboot",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Segelboot%20Bodensee%20Mainau%20%28Foto%20Hilarmont%29.JPG",
-    "schildering_ids": [
-      "12147",
-      "12303",
-      "12319",
-      "12470",
-      "12505"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q11019",
-    "label": "machine",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Bonsack%20machine.png",
-    "schildering_ids": [
-      "12147",
-      "12285",
-      "12293",
-      "12298",
-      "12307"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q131512",
-    "label": "agrariër",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Ueberladewagen.jpg",
-    "schildering_ids": [
-      "12147",
-      "12233",
-      "12260",
-      "12265",
-      "12425"
     ]
   },
   {
@@ -3168,6 +3132,42 @@
     ]
   },
   {
+    "uri": "http://www.wikidata.org/entity/Q131512",
+    "label": "agrariër",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Ueberladewagen.jpg",
+    "schildering_ids": [
+      "12233",
+      "12260",
+      "12265",
+      "12425",
+      "12147"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q11019",
+    "label": "machine",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Bonsack%20machine.png",
+    "schildering_ids": [
+      "12285",
+      "12293",
+      "12298",
+      "12307",
+      "12147"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q1075310",
+    "label": "zeilboot",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Segelboot%20Bodensee%20Mainau%20%28Foto%20Hilarmont%29.JPG",
+    "schildering_ids": [
+      "12303",
+      "12319",
+      "12470",
+      "12505",
+      "12147"
+    ]
+  },
+  {
     "uri": "http://www.wikidata.org/entity/Q5107",
     "label": "werelddeel",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Continentes%20Wikipedia.svg",
@@ -3213,6 +3213,28 @@
       "15335",
       "13785",
       "14031"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q165",
+    "label": "zee",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Paracas%20National%20Reserve%2C%20Ica%2C%20Peru-3April2011.jpg",
+    "schildering_ids": [
+      "12258",
+      "12252",
+      "12319",
+      "12320"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q283",
+    "label": "water",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Ice%20water%20vapor.jpg",
+    "schildering_ids": [
+      "12258",
+      "12136",
+      "12143",
+      "12359"
     ]
   },
   {
@@ -3268,28 +3290,6 @@
       "12347",
       "12150",
       "12292"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q165",
-    "label": "zee",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Paracas%20National%20Reserve%2C%20Ica%2C%20Peru-3April2011.jpg",
-    "schildering_ids": [
-      "12258",
-      "12252",
-      "12319",
-      "12320"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q283",
-    "label": "water",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Ice%20water%20vapor.jpg",
-    "schildering_ids": [
-      "12258",
-      "12136",
-      "12143",
-      "12359"
     ]
   },
   {
@@ -3364,20 +3364,9 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Marten%20de%20Vos%20Cana.jpg",
     "schildering_ids": [
       "10247",
-      "8147",
       "11020",
-      "10912"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q5007906",
-    "label": "Het offer van Abraham",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Sacrifice%20of%20Isaac-Caravaggio%20%28c.%201603%29.jpg",
-    "schildering_ids": [
-      "12101",
-      "8168",
-      "10806",
-      "13173"
+      "10912",
+      "8147"
     ]
   },
   {
@@ -3463,9 +3452,9 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Man%27s%20Ceremonial%20Head%20Cloth%20%28Iket%20Kepala%20Prada%20Setangan%2C%20Destar%29%20LACMA%20M.74.18.1%20%282%20of%202%29.jpg",
     "schildering_ids": [
       "12352",
-      "12226",
       "12323",
-      "12333"
+      "12333",
+      "12226"
     ]
   },
   {
@@ -3499,17 +3488,6 @@
       "12152",
       "12271",
       "12297"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q103459",
-    "label": "vee",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Edward%20Hicks%20001.jpg",
-    "schildering_ids": [
-      "12147",
-      "12233",
-      "12234",
-      "12472"
     ]
   },
   {
@@ -3667,6 +3645,17 @@
     ]
   },
   {
+    "uri": "http://www.wikidata.org/entity/Q103459",
+    "label": "vee",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Edward%20Hicks%20001.jpg",
+    "schildering_ids": [
+      "12233",
+      "12234",
+      "12472",
+      "12147"
+    ]
+  },
+  {
     "uri": "http://www.wikidata.org/entity/Q39715",
     "label": "vuurtoren",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Leuchtturm%20in%20Westerheversand%20crop.jpg",
@@ -3810,6 +3799,17 @@
     ]
   },
   {
+    "uri": "http://www.wikidata.org/entity/Q5007906",
+    "label": "Het offer van Abraham",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Sacrifice%20of%20Isaac-Caravaggio%20%28c.%201603%29.jpg",
+    "schildering_ids": [
+      "12101",
+      "10806",
+      "13173",
+      "8168"
+    ]
+  },
+  {
     "uri": "https://www.wikidata.org/wiki/Q43115",
     "label": null,
     "afbeelding": null,
@@ -3818,6 +3818,17 @@
       "14169",
       "15013",
       "12744"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q114315636",
+    "label": "Jezus wordt van het kruis afgenomen",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Stazione%20Santuario%20Madonna%20Miralta%202.jpg",
+    "schildering_ids": [
+      "14861",
+      "10838",
+      "10888",
+      "11390"
     ]
   },
   {
@@ -3854,17 +3865,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q114315636",
-    "label": "Jezus wordt van het kruis afgenomen",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Stazione%20Santuario%20Madonna%20Miralta%202.jpg",
-    "schildering_ids": [
-      "14861",
-      "10838",
-      "10888",
-      "11390"
-    ]
-  },
-  {
     "uri": "militair (https://www.wikidata.org/wiki/Q47064)",
     "label": null,
     "afbeelding": null,
@@ -3873,6 +3873,46 @@
       "14445",
       "14513",
       "14595"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q188520",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12258",
+      "12259",
+      "14783"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q271598",
+    "label": "visnet",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/National%20Museum%20of%20Ethnology%2C%20Osaka%20-%20Gill%20net%20-%20Trobriand%20Islands%20in%20Papua%20New%20Guinea%20-%20Collected%20in%201974.jpg",
+    "schildering_ids": [
+      "12136",
+      "12223",
+      "12231"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q64225207",
+    "label": "wijnrank",
+    "afbeelding": null,
+    "schildering_ids": [
+      "12526",
+      "12154",
+      "12568"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q9309699",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14171",
+      "14333",
+      "13951"
     ]
   },
   {
@@ -3913,16 +3953,6 @@
       "10181",
       "10241",
       "10435"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q188520",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12258",
-      "12259",
-      "14783"
     ]
   },
   {
@@ -3973,26 +4003,6 @@
       "8323",
       "8340",
       "8257"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q271598",
-    "label": "visnet",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/National%20Museum%20of%20Ethnology%2C%20Osaka%20-%20Gill%20net%20-%20Trobriand%20Islands%20in%20Papua%20New%20Guinea%20-%20Collected%20in%201974.jpg",
-    "schildering_ids": [
-      "12136",
-      "12223",
-      "12231"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q64225207",
-    "label": "wijnrank",
-    "afbeelding": null,
-    "schildering_ids": [
-      "12526",
-      "12154",
-      "12568"
     ]
   },
   {
@@ -4056,16 +4066,6 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q9309699",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14171",
-      "13951",
-      "14333"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q25640324",
     "label": "bijl",
     "afbeelding": null,
@@ -4081,8 +4081,8 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/03282012Casa%20hogar%20ni%C3%B1as%20tlahuac30.JPG",
     "schildering_ids": [
       "13226",
-      "12186",
-      "13223"
+      "13223",
+      "12186"
     ]
   },
   {
@@ -4181,8 +4181,8 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Poseidon%20sculpture%20Copenhagen%202005%20hand.jpg",
     "schildering_ids": [
       "12195",
-      "12229",
-      "12303"
+      "12303",
+      "12229"
     ]
   },
   {
@@ -4246,16 +4246,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q11451",
-    "label": "landbouw",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Unload%20wheat%20by%20the%20combine%20Claas%20Lexion%20584.jpg",
-    "schildering_ids": [
-      "12147",
-      "12298",
-      "12332"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q11464",
     "label": "ploeg",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/04-09-12-Schaupfl%C3%BCgen-Fahrenwalde-RalfR-IMG%201232.jpg",
@@ -4291,8 +4281,8 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Lossy-page1-2122px-H%C3%A4strustning%20-%20Livrustkammaren%20-%2072697%20%28retouch%29.jpg",
     "schildering_ids": [
       "12175",
-      "12186",
-      "12217"
+      "12217",
+      "12186"
     ]
   },
   {
@@ -4311,8 +4301,8 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Father%20and%20son%2027.jpg",
     "schildering_ids": [
       "12183",
-      "12185",
-      "12271"
+      "12271",
+      "12185"
     ]
   },
   {
@@ -4383,26 +4373,6 @@
       "12216",
       "12288",
       "12308"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q241045",
-    "label": "borstbeeld",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/August%20Gaul%20-%20Portr%C3%A4t%20des%20Orang-Utan%20%27Jumbo%27%20%281895%29.jpg",
-    "schildering_ids": [
-      "12227",
-      "12228",
-      "12230"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q2465790",
-    "label": "console",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Birkhill%20Station%20-%20geograph.org.uk%20-%20495370.jpg",
-    "schildering_ids": [
-      "12227",
-      "12228",
-      "12230"
     ]
   },
   {
@@ -4503,6 +4473,16 @@
       "12296",
       "12309",
       "12522"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q11451",
+    "label": "landbouw",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Unload%20wheat%20by%20the%20combine%20Claas%20Lexion%20584.jpg",
+    "schildering_ids": [
+      "12298",
+      "12332",
+      "12147"
     ]
   },
   {
@@ -4646,33 +4626,23 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q405",
-    "label": null,
-    "afbeelding": null,
+    "uri": "http://www.wikidata.org/entity/Q241045",
+    "label": "borstbeeld",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/August%20Gaul%20-%20Portr%C3%A4t%20des%20Orang-Utan%20%27Jumbo%27%20%281895%29.jpg",
     "schildering_ids": [
-      "13997",
-      "14888",
-      "14890"
+      "12227",
+      "12228",
+      "12230"
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q154326",
-    "label": null,
-    "afbeelding": null,
+    "uri": "http://www.wikidata.org/entity/Q2465790",
+    "label": "console",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Birkhill%20Station%20-%20geograph.org.uk%20-%20495370.jpg",
     "schildering_ids": [
-      "14116",
-      "13908",
-      "13921"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q170516",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14159",
-      "14105",
-      "15246"
+      "12227",
+      "12228",
+      "12230"
     ]
   },
   {
@@ -4683,16 +4653,6 @@
       "14313",
       "14058",
       "15227"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q9098119",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "13951",
-      "14058",
-      "14031"
     ]
   },
   {
@@ -4796,13 +4756,107 @@
     ]
   },
   {
+    "uri": "https://www.wikidata.org/wiki/Q405",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "13997",
+      "14888",
+      "14890"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q154326",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14116",
+      "13908",
+      "13921"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q170516",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14159",
+      "14105",
+      "15246"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q9098119",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "13951",
+      "14058",
+      "14031"
+    ]
+  },
+  {
     "uri": "http://www.wikidata.org/entity/Q1029715",
     "label": "Aanbidding der herders",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Adoraci%C3%B3n%20de%20los%20pastores%20%28Murillo%29.jpg",
     "schildering_ids": [
-      "8133",
       "10914",
-      "13176"
+      "13176",
+      "8133"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q33741",
+    "label": "bliksem",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Lightning%20Pritzerbe%2001%20%28MK%29.jpg",
+    "schildering_ids": [
+      "12258",
+      "12195"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1311",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12526",
+      "15178"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1312",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12526",
+      "15178"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1313",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12526",
+      "15178"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1314",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12526",
+      "15178"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q5686605",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14171",
+      "14089"
     ]
   },
   {
@@ -4857,15 +4911,6 @@
     "schildering_ids": [
       "13992",
       "13993"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q33741",
-    "label": "bliksem",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Lightning%20Pritzerbe%2001%20%28MK%29.jpg",
-    "schildering_ids": [
-      "12258",
-      "12195"
     ]
   },
   {
@@ -5022,42 +5067,6 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q1311",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12526",
-      "15178"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q1312",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12526",
-      "15178"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q1313",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12526",
-      "15178"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q1314",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12526",
-      "15178"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q104526",
     "label": null,
     "afbeelding": null,
@@ -5127,15 +5136,6 @@
     "schildering_ids": [
       "15655",
       "15629"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q5686605",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14171",
-      "14089"
     ]
   },
   {
@@ -5532,24 +5532,6 @@
     "schildering_ids": [
       "12213",
       "12504"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q4243098",
-    "label": "haak",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Gesmede%20ijzeren%20last-%20of%20schenkelhaak%20-%20O36ZFL%20-%2060015878%20-%20RCE.jpg",
-    "schildering_ids": [
-      "12221",
-      "12223"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q4382010",
-    "label": "en profil",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Andrea%20Mantegna%20-%20Portrait%20d%27homme.jpg",
-    "schildering_ids": [
-      "12224",
-      "12226"
     ]
   },
   {
@@ -5967,21 +5949,21 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q49703",
-    "label": "sacrament",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Seven%20Sacraments%20Rogier.jpg",
+    "uri": "http://www.wikidata.org/entity/Q4243098",
+    "label": "haak",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Gesmede%20ijzeren%20last-%20of%20schenkelhaak%20-%20O36ZFL%20-%2060015878%20-%20RCE.jpg",
     "schildering_ids": [
-      "12079",
-      "12082"
+      "12221",
+      "12223"
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q43399",
-    "label": "Andreas",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Martirio%20de%20San%20Andr%C3%A9s%2C%20por%20Juan%20Correa%20de%20Vivar.jpg",
+    "uri": "http://www.wikidata.org/entity/Q4382010",
+    "label": "en profil",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Andrea%20Mantegna%20-%20Portrait%20d%27homme.jpg",
     "schildering_ids": [
-      "10259",
-      "11835"
+      "12224",
+      "12226"
     ]
   },
   {
@@ -5989,17 +5971,8 @@
     "label": null,
     "afbeelding": null,
     "schildering_ids": [
-      "14178",
-      "14095"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q44015",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "13817",
-      "13785"
+      "14095",
+      "14178"
     ]
   },
   {
@@ -6009,24 +5982,6 @@
     "schildering_ids": [
       "14824",
       "14846"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q49599",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15084",
-      "12741"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q51624",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "13866",
-      "14031"
     ]
   },
   {
@@ -6045,15 +6000,6 @@
     "schildering_ids": [
       "15211",
       "10945"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q41291",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15661",
-      "15673"
     ]
   },
   {
@@ -6084,21 +6030,75 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q2509393",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15330",
-      "14740"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q114315626",
     "label": "Simon van Cyrene helpt Jezus het kruis dragen",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Forno%2C%20chiesa%20di%20San%20Lazzaro%20-%20Via%20Crucis%2C%20stazione%2005.jpg",
     "schildering_ids": [
       "14772",
       "11378"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q49703",
+    "label": "sacrament",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Seven%20Sacraments%20Rogier.jpg",
+    "schildering_ids": [
+      "12079",
+      "12082"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q43399",
+    "label": "Andreas",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Martirio%20de%20San%20Andr%C3%A9s%2C%20por%20Juan%20Correa%20de%20Vivar.jpg",
+    "schildering_ids": [
+      "10259",
+      "11835"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q44015",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "13817",
+      "13785"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q49599",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15084",
+      "12741"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q51624",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "13866",
+      "14031"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q41291",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15661",
+      "15673"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q2509393",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15330",
+      "14740"
     ]
   },
   {
@@ -6126,6 +6126,134 @@
     "schildering_ids": [
       "13954",
       "13956"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q2723512",
+    "label": "vuur",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Alchemical%20fire%20symbol%20%28fixed%20width%29.svg",
+    "schildering_ids": [
+      "12258"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q2488752",
+    "label": "aarde",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Alchemical%20earth%20symbol%20%28fixed%20width%29.svg",
+    "schildering_ids": [
+      "12259"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q2637489",
+    "label": "lucht",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Alchemical%20air%20symbol%20%28fixed%20width%29.svg",
+    "schildering_ids": [
+      "12259"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q36133",
+    "label": "bodem",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Stagnogley.JPG",
+    "schildering_ids": [
+      "12259"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q7391292",
+    "label": "lucht",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Top%20of%20Atmosphere.jpg",
+    "schildering_ids": [
+      "12259"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q14373",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12136"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1156970",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12137"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q36963",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12139"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q3347071",
+    "label": "waterlelie",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/N%C3%A9nuphar%202.jpg",
+    "schildering_ids": [
+      "12143"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q213753",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12143"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q45199",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12144"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q679300",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12144"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q103992",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15169"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q108019",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15169"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q37340",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15178"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1261499",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15128"
     ]
   },
   {
@@ -6294,46 +6422,6 @@
     "afbeelding": null,
     "schildering_ids": [
       "13994"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q2723512",
-    "label": "vuur",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Alchemical%20fire%20symbol%20%28fixed%20width%29.svg",
-    "schildering_ids": [
-      "12258"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q2488752",
-    "label": "aarde",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Alchemical%20earth%20symbol%20%28fixed%20width%29.svg",
-    "schildering_ids": [
-      "12259"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q2637489",
-    "label": "lucht",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Alchemical%20air%20symbol%20%28fixed%20width%29.svg",
-    "schildering_ids": [
-      "12259"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q36133",
-    "label": "bodem",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Stagnogley.JPG",
-    "schildering_ids": [
-      "12259"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q7391292",
-    "label": "lucht",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Top%20of%20Atmosphere.jpg",
-    "schildering_ids": [
-      "12259"
     ]
   },
   {
@@ -6753,78 +6841,6 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q14373",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12136"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q1156970",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12137"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q36963",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12139"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q3347071",
-    "label": "waterlelie",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/N%C3%A9nuphar%202.jpg",
-    "schildering_ids": [
-      "12143"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q213753",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12143"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q45199",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12144"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q679300",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12144"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q103992",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15169"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q108019",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15169"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q63070",
     "label": null,
     "afbeelding": null,
@@ -7081,14 +7097,6 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q37340",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15178"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q66086",
     "label": "eucharistie",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Lord%27s%20cup%20and%20Bread.JPG",
@@ -7102,14 +7110,6 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Garc%C3%ADa%20mart%C3%ADnez-la%20penitente-prado.jpg",
     "schildering_ids": [
       "10249"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q1261499",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15128"
     ]
   },
   {
@@ -7505,22 +7505,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q268592",
-    "label": "bedrijfstak",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Aba%20Leather%20Market.jpg",
-    "schildering_ids": [
-      "12147"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q3172759",
-    "label": "klederdracht",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Jiuzhaigou%20Sichuan%20China%20Man-in-traditional-costume-02.jpg",
-    "schildering_ids": [
-      "12147"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q189524",
     "label": "vloot",
     "afbeelding": null,
@@ -7550,14 +7534,6 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Loch%20Ryan%20%28ship%2C%201877%29%20-%20SLV%20H91.250-618%20b.jpg",
     "schildering_ids": [
       "12152"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q7738",
-    "label": "Lodewijk XV van Frankrijk",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Louis-Michel%20van%20Loo%20%28School%20of%29%20-%20Portrait%20of%20Louis%20XV%20-%20Louvre%20-%20INV%206319.jpg",
-    "schildering_ids": [
-      "12153"
     ]
   },
   {
@@ -7622,14 +7598,6 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Shint%C5%8D%20prayer.jpg",
     "schildering_ids": [
       "12178"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q40348",
-    "label": "advocaat",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Diana%20Ellis%20-%2019%20Oct%202011.jpg",
-    "schildering_ids": [
-      "12184"
     ]
   },
   {
@@ -7737,14 +7705,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q189771",
-    "label": "gewelf",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Visby-StNicolaus%2009.jpg",
-    "schildering_ids": [
-      "12210"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q138550",
     "label": "olijftak",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Olive%20branch%20drawing.svg",
@@ -7774,46 +7734,6 @@
     "afbeelding": null,
     "schildering_ids": [
       "12218"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q7892",
-    "label": "drinkwater",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Stilles%20Mineralwasser.jpg",
-    "schildering_ids": [
-      "12220"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q1517921",
-    "label": "Lodewijk XIV-stijl",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Den%20Haag%20Raad%20van%20State.jpg",
-    "schildering_ids": [
-      "12222"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q34735",
-    "label": "kompas",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Plastic-compass.jpg",
-    "schildering_ids": [
-      "12223"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q9362102",
-    "label": "Tritons",
-    "afbeelding": null,
-    "schildering_ids": [
-      "12225"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q744112",
-    "label": "nestkast",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Nistkasten%20mit%20Marderschutz.JPG",
-    "schildering_ids": [
-      "12231"
     ]
   },
   {
@@ -8897,11 +8817,443 @@
     ]
   },
   {
+    "uri": "http://www.wikidata.org/entity/Q268592",
+    "label": "bedrijfstak",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Aba%20Leather%20Market.jpg",
+    "schildering_ids": [
+      "12147"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q3172759",
+    "label": "klederdracht",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Jiuzhaigou%20Sichuan%20China%20Man-in-traditional-costume-02.jpg",
+    "schildering_ids": [
+      "12147"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q7738",
+    "label": "Lodewijk XV van Frankrijk",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Louis-Michel%20van%20Loo%20%28School%20of%29%20-%20Portrait%20of%20Louis%20XV%20-%20Louvre%20-%20INV%206319.jpg",
+    "schildering_ids": [
+      "12153"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q40348",
+    "label": "advocaat",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Diana%20Ellis%20-%2019%20Oct%202011.jpg",
+    "schildering_ids": [
+      "12184"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q189771",
+    "label": "gewelf",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Visby-StNicolaus%2009.jpg",
+    "schildering_ids": [
+      "12210"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q7892",
+    "label": "drinkwater",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Stilles%20Mineralwasser.jpg",
+    "schildering_ids": [
+      "12220"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q1517921",
+    "label": "Lodewijk XIV-stijl",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Den%20Haag%20Raad%20van%20State.jpg",
+    "schildering_ids": [
+      "12222"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q34735",
+    "label": "kompas",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Plastic-compass.jpg",
+    "schildering_ids": [
+      "12223"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q9362102",
+    "label": "Tritons",
+    "afbeelding": null,
+    "schildering_ids": [
+      "12225"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q744112",
+    "label": "nestkast",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Nistkasten%20mit%20Marderschutz.JPG",
+    "schildering_ids": [
+      "12231"
+    ]
+  },
+  {
     "uri": "http://www.wikidata.org/entity/Q560774",
     "label": "Piet Hein",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Piet%20Hein.jpg",
     "schildering_ids": [
       "10243"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q219395",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12765"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q5007906",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12765"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q1290338",
+    "label": "uittocht uit Egypte",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/David%20Roberts-IsraelitesLeavingEgypt%201828.jpg",
+    "schildering_ids": [
+      "10431"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q217048",
+    "label": "Doopsel van Jezus",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Piero%2C%20battesimo%20di%20cristo%2004.jpg",
+    "schildering_ids": [
+      "10431"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q48444",
+    "label": "feniks",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Phoenix-Fabelwesen.jpg",
+    "schildering_ids": [
+      "11579"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q8148",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "10980"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q252",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "13118"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q693",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "13118"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q104603833",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12784"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q121543591",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12784"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q43669",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12784"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q488841",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "12784"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q93301",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "13104"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q2695280",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "13107"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1269132",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14096"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q65477437",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14099"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q28319",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14901"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q6581072",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14906"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q179333",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14907"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q7559",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14907"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q97",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15825"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q262135",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15207"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q28735309",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15208"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q957918",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15209"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q3937194",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15210"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1308013",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15140"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q8445",
+    "label": "huwelijk",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Marriage%20symbol.svg",
+    "schildering_ids": [
+      "11329"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q601401",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "10979"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1196075",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "13760"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q625140",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15218"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q51633",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15219"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q43999",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15220"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q618057",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14702"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1029715",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14703"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q3083867",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14703"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q380651",
+    "label": "Petrus Chanel",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Illustration%20de%20Pierre%20Chanel%20jeune%20-%20Nicolet%201885%20%28cropped%29.png",
+    "schildering_ids": [
+      "11910"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q138847531",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14138"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q1135949",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14859"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q30149195",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15852"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q162691",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "14700"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q48444",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15066"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q374467",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "13759"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q695992",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15847"
+    ]
+  },
+  {
+    "uri": "https://www.wikidata.org/wiki/Q860861",
+    "label": null,
+    "afbeelding": null,
+    "schildering_ids": [
+      "15847"
     ]
   },
   {
@@ -9073,22 +9425,6 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q219395",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12765"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q5007906",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12765"
-    ]
-  },
-  {
     "uri": "https://data.cultureelerfgoed.nl/term/id/cht/8d4b421c-836a-4286-b38a-1846e357a5fb",
     "label": null,
     "afbeelding": null,
@@ -9097,59 +9433,11 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q1290338",
-    "label": "uittocht uit Egypte",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/David%20Roberts-IsraelitesLeavingEgypt%201828.jpg",
-    "schildering_ids": [
-      "10431"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q217048",
-    "label": "Doopsel van Jezus",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Piero%2C%20battesimo%20di%20cristo%2004.jpg",
-    "schildering_ids": [
-      "10431"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q48444",
-    "label": "feniks",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Phoenix-Fabelwesen.jpg",
-    "schildering_ids": [
-      "11579"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q8148",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "10980"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q1446512",
     "label": null,
     "afbeelding": null,
     "schildering_ids": [
       "14086"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q252",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "13118"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q693",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "13118"
     ]
   },
   {
@@ -9185,59 +9473,11 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q104603833",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12784"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q121543591",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12784"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q43669",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12784"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q488841",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "12784"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q232427",
     "label": null,
     "afbeelding": null,
     "schildering_ids": [
       "13061"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q93301",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "13104"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q2695280",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "13107"
     ]
   },
   {
@@ -9254,22 +9494,6 @@
     "afbeelding": null,
     "schildering_ids": [
       "13902"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q1269132",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14096"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q65477437",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14099"
     ]
   },
   {
@@ -9294,14 +9518,6 @@
     "afbeelding": null,
     "schildering_ids": [
       "14132"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q28319",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14901"
     ]
   },
   {
@@ -9337,30 +9553,6 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q6581072",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14906"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q179333",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14907"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q7559",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14907"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q139720705",
     "label": null,
     "afbeelding": null,
@@ -9393,14 +9585,6 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q97",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15825"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q1935974",
     "label": null,
     "afbeelding": null,
@@ -9409,51 +9593,11 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q262135",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15207"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q28735309",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15208"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q957918",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15209"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q3937194",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15210"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q2083405",
     "label": "pauw",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Heraldic%20peacock.svg",
     "schildering_ids": [
       "11666"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q1308013",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15140"
     ]
   },
   {
@@ -9561,22 +9705,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q8445",
-    "label": "huwelijk",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Marriage%20symbol.svg",
-    "schildering_ids": [
-      "11329"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q601401",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "10979"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q44269",
     "label": null,
     "afbeelding": null,
@@ -9625,70 +9753,6 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q1196075",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "13760"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q625140",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15218"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q51633",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15219"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q43999",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15220"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q618057",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14702"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q1029715",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14703"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q3083867",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14703"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q380651",
-    "label": "Petrus Chanel",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Illustration%20de%20Pierre%20Chanel%20jeune%20-%20Nicolet%201885%20%28cropped%29.png",
-    "schildering_ids": [
-      "11910"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q43412",
     "label": null,
     "afbeelding": null,
@@ -9713,14 +9777,6 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q138847531",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14138"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q2560355",
     "label": null,
     "afbeelding": null,
@@ -9737,22 +9793,6 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q1135949",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14859"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q30149195",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15852"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q81422",
     "label": null,
     "afbeelding": null,
@@ -9761,51 +9801,11 @@
     ]
   },
   {
-    "uri": "https://www.wikidata.org/wiki/Q162691",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "14700"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q48444",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15066"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q374467",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "13759"
-    ]
-  },
-  {
     "uri": "https://www.wikidata.org/wiki/Q40953",
     "label": null,
     "afbeelding": null,
     "schildering_ids": [
       "12769"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q695992",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15847"
-    ]
-  },
-  {
-    "uri": "https://www.wikidata.org/wiki/Q860861",
-    "label": null,
-    "afbeelding": null,
-    "schildering_ids": [
-      "15847"
     ]
   },
   {

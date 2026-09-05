@@ -325,6 +325,8 @@ main {
 .painting-card .titel { font-weight: 600; font-size: 0.9rem; }
 .painting-card .datering { font-size: 0.78rem; color: var(--accent-ink); }
 .painting-card .locatie { font-size: 0.78rem; color: var(--ink-soft); margin: 0.15rem 0; }
+.painting-card .maker { font-size: 0.78rem; color: var(--ink-soft); margin: 0.1rem 0; }
+.painting-card .maker a { color: var(--accent-ink); }
 .painting-card .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.3rem; }
 .painting-card .tag {
   font-size: 0.7rem;
@@ -359,6 +361,14 @@ main {
   border: 1px solid var(--line);
   border-radius: 6px;
   font-family: inherit;
+}
+#icono-filters select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: inherit;
+  background: #fff;
+  color: var(--ink);
 }
 .icono-grid {
   display: grid;

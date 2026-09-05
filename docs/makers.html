@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#8a2e2e" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Muurschilderingen Nederland — makers</title>
+  <meta name="description" content="Kunstenaars en restauratieateliers uit de RCE Muurschilderingendatabase, met hun werk in Nederlandse kerken." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Muurschilderingen Nederland <span class="sub">makers — wie schilderde en restaureerde</span></h1>
+    <button class="surprise-btn" id="surprise-btn" type="button">🎲 Verras me</button>
+    <nav class="tabs">
+      <a href="index.html">Kaart</a>
+      <a href="iconografie.html">Iconografie</a>
+      <a href="makers.html" class="active">Makers</a>
+    </nav>
+  </header>
+
+  <main style="display:block; overflow-y:auto;">
+    <div id="icono-wrap">
+      <div id="icono-filters">
+        <input type="search" id="icono-q" placeholder="Zoek een naam…" />
+        <select id="maker-type-filter">
+          <option value="">Personen en organisaties</option>
+          <option value="persoon">Alleen personen</option>
+          <option value="organisatie">Alleen organisaties</option>
+        </select>
+      </div>
+      <p id="makers-intro" style="color:var(--ink-soft);font-size:0.82rem;max-width:60ch;"></p>
+      <div id="icono-detail"></div>
+      <div class="icono-grid" id="icono-grid"></div>
+    </div>
+  </main>
+
+  <footer class="credits">
+    Makersgegevens: <a href="https://muurschilderingendatabase.nl" target="_blank" rel="noopener">Muurschilderingendatabase</a> via de
+    <a href="https://linkeddata.cultureelerfgoed.nl" target="_blank" rel="noopener">RCE Linked Data Voorziening</a>, met doorklik naar
+    <a href="https://rkd.nl" target="_blank" rel="noopener">RKD</a> en <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a> waar beschikbaar.
+    Vragen over kleurhistorisch onderzoek? Zie <a href="https://www.cultureelerfgoed.nl/onderwerpen/schilderwerk-en-kleurhistorie" target="_blank" rel="noopener">Schilderwerk en kleurhistorie</a> (RCE).
+  </footer>
+
+  <script src="lightbox.js"></script>
+  <script src="makers.js"></script>
+</body>
+</html>
