@@ -232,6 +232,20 @@ main {
 .gebouw-item .thumb.no-photo { font-size: 0.48rem; padding: 1px; }
 .painting-card .no-photo { font-size: 0.62rem; padding: 4px; }
 
+/* Zeldzame (~1%) easter egg i.p.v. de gewone "geen foto"-placeholder --
+   verwijst naar Ecce Homo, Borja, zonder de bekende virale "na"-foto zelf
+   te embedden (die is vermoedelijk alleen fair-use op Wikipedia, niet vrij
+   licentieerbaar op Commons -- geverifieerd voor dit project). */
+.no-photo.ecce-homo {
+  border-style: solid;
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+.no-photo.ecce-homo:hover { background: var(--accent-soft); }
+.no-photo.ecce-homo .emoji { font-size: 1.3em; display: block; }
+
 .gebouw-item .meta { min-width: 0; }
 .gebouw-item .naam {
   font-size: 0.92rem;

@@ -8,6 +8,13 @@ let onderwerpen = [];
 let schilderingenById = new Map();
 let gebouwenById = new Map();
 
+function noPhotoPlaceholder() {
+  if (Math.random() < 0.01) {
+    return `<a class="no-photo ecce-homo" href="https://en.wikipedia.org/wiki/Ecce_Homo_(El%C3%ADas_Garc%C3%ADa_Mart%C3%ADnez)" target="_blank" rel="noopener" title="Ecce Homo, Borja (2012) — dit had ook kunnen gebeuren"><span class="emoji">🙈</span>oeps</a>`;
+  }
+  return '<div class="no-photo">nog geen foto beschikbaar</div>';
+}
+
 function escapeHtml(str) {
   const div = document.createElement("div");
   div.textContent = str ?? "";
@@ -62,7 +69,7 @@ function showSubject(o) {
     const fig = document.createElement("figure");
     const gebouwLink = gebouw ? `<a href="index.html?gebouw=${encodeURIComponent(gebouw.id)}">${escapeHtml(gebouw.naam || gebouw.plaats || "")}</a>` : "";
     fig.innerHTML = `
-      ${img ? `<img src="${img}" loading="lazy" alt="" />` : '<div class="no-photo">nog geen foto beschikbaar</div>'}
+      ${img ? `<img src="${img}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
       <figcaption>${escapeHtml(s.titel || "")}${gebouwLink ? " — " + gebouwLink : ""}</figcaption>
     `;
     gallery.appendChild(fig);

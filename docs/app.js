@@ -223,6 +223,13 @@ function collapseSidebarOnMobile() {
   if (isMobile()) document.getElementById("sidebar").classList.remove("expanded");
 }
 
+function noPhotoPlaceholder() {
+  if (Math.random() < 0.01) {
+    return `<a class="no-photo ecce-homo" href="https://en.wikipedia.org/wiki/Ecce_Homo_(El%C3%ADas_Garc%C3%ADa_Mart%C3%ADnez)" target="_blank" rel="noopener" title="Ecce Homo, Borja (2012) — dit had ook kunnen gebeuren"><span class="emoji">🙈</span>oeps</a>`;
+  }
+  return '<div class="no-photo">nog geen foto beschikbaar</div>';
+}
+
 function escapeHtml(str) {
   const div = document.createElement("div");
   div.textContent = str;
@@ -266,7 +273,7 @@ function openDetail(gebouwId) {
       : (s.datering?.tekst || "");
     const tags = [...s.onderwerpen.map((o) => o.label || o.uri.split("/").pop()), ...s.materiaal, ...s.drager].filter(Boolean);
     card.innerHTML = `
-      ${img ? `<img src="${img}" loading="lazy" alt="" />` : '<div class="no-photo">nog geen foto beschikbaar</div>'}
+      ${img ? `<img src="${img}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
       <div class="body">
         <div class="titel">${escapeHtml(s.titel || "(zonder titel)")}</div>
         ${dat ? `<div class="datering">${escapeHtml(String(dat))}</div>` : ""}
