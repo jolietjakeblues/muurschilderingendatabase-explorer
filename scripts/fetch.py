@@ -565,6 +565,7 @@ def main() -> None:
                     "square": media[0]["square"] if media else None,
                     "medium": media[0]["medium"] if media else None,
                     "large": media[0]["large"] if media else None,
+                    "origineel": media[0]["origineel"] if media else None,
                 }
                 if media
                 else None,

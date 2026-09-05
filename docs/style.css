@@ -401,6 +401,58 @@ main {
 #icono-detail .gallery .no-photo { width: 100%; aspect-ratio: 1; font-size: 0.68rem; }
 #icono-detail .gallery figcaption { font-size: 0.72rem; color: var(--ink-soft); margin-top: 0.2rem; }
 
+/* --- Lightbox (lightbox.js) --- */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 12, 10, 0.92);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2.5rem 1.2rem;
+  cursor: zoom-out;
+}
+#lightbox.open { display: flex; }
+#lightbox .lightbox-img {
+  max-width: min(94vw, 1400px);
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+#lightbox .lightbox-loading {
+  color: #e8e0d4;
+  font-size: 0.9rem;
+}
+#lightbox .lightbox-caption {
+  color: #e8e0d4;
+  font-size: 0.85rem;
+  margin-top: 0.9rem;
+  text-align: center;
+  max-width: 90vw;
+}
+#lightbox .lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+#lightbox .lightbox-close:hover { background: rgba(255, 255, 255, 0.22); }
+
+/* Klikbare afbeeldingen die de lightbox openen krijgen een zoom-cursor,
+   zonder de bestaande <img>/no-photo-opmaak te wijzigen. */
+.zoomable { cursor: zoom-in; }
+
 footer.credits {
   padding: 0.6rem 1.25rem;
   font-size: 0.72rem;

@@ -273,7 +273,7 @@ function openDetail(gebouwId) {
       : (s.datering?.tekst || "");
     const tags = [...s.onderwerpen.map((o) => o.label || o.uri.split("/").pop()), ...s.materiaal, ...s.drager].filter(Boolean);
     card.innerHTML = `
-      ${img ? `<img src="${img}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
+      ${img ? `<img class="zoomable" src="${img}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
       <div class="body">
         <div class="titel">${escapeHtml(s.titel || "(zonder titel)")}</div>
         ${dat ? `<div class="datering">${escapeHtml(String(dat))}</div>` : ""}
@@ -281,6 +281,14 @@ function openDetail(gebouwId) {
         <div class="tags">${tags.slice(0, 6).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
       </div>
     `;
+    if (img) {
+      card.querySelector("img").addEventListener("click", () => {
+        openLightbox(
+          [s.afbeelding?.origineel, s.afbeelding?.large, s.afbeelding?.medium, s.afbeelding?.square],
+          s.titel || ""
+        );
+      });
+    }
     cardsWrap.appendChild(card);
   }
 

@@ -69,9 +69,17 @@ function showSubject(o) {
     const fig = document.createElement("figure");
     const gebouwLink = gebouw ? `<a href="index.html?gebouw=${encodeURIComponent(gebouw.id)}">${escapeHtml(gebouw.naam || gebouw.plaats || "")}</a>` : "";
     fig.innerHTML = `
-      ${img ? `<img src="${img}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
+      ${img ? `<img class="zoomable" src="${img}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
       <figcaption>${escapeHtml(s.titel || "")}${gebouwLink ? " — " + gebouwLink : ""}</figcaption>
     `;
+    if (img) {
+      fig.querySelector("img").addEventListener("click", () => {
+        openLightbox(
+          [s.afbeelding?.origineel, s.afbeelding?.large, s.afbeelding?.medium, s.afbeelding?.square],
+          s.titel || ""
+        );
+      });
+    }
     gallery.appendChild(fig);
   }
   detail.scrollIntoView({ behavior: "smooth", block: "start" });
