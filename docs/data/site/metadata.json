@@ -1,17 +1,17 @@
 {
   "source": "RCE Linked Data Voorziening, dataset Muurschilderingen (+ cho voor thesauruslabels, Wikidata voor iconografielabels)",
   "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/Muurschilderingen/sparql",
-  "retrieved_at": "2026-09-05T14:34:47.554774+00:00",
+  "retrieved_at": "2026-10-01T10:08:55.562357+00:00",
   "stats": {
-    "gebouwen_totaal": 576,
-    "gebouwen_met_geometrie": 552,
-    "gebouwen_zonder_geometrie": 24,
-    "schilderingen_totaal": 2685,
-    "schilderingen_met_afbeelding": 1391,
-    "iconografische_onderwerpen": 948,
-    "gebouwen_met_rijksmonumentnummer": 506,
-    "makers_gekoppeld": 217,
-    "makers_met_geboortedatum": 159,
-    "schilderingen_met_maker": 1028
+    "gebouwen_totaal": 596,
+    "gebouwen_met_geometrie": 573,
+    "gebouwen_zonder_geometrie": 23,
+    "schilderingen_totaal": 2741,
+    "schilderingen_met_afbeelding": 1465,
+    "iconografische_onderwerpen": 907,
+    "gebouwen_met_rijksmonumentnummer": 521,
+    "makers_gekoppeld": 220,
+    "makers_met_geboortedatum": 162,
+    "schilderingen_met_maker": 1038
   }
 }

@@ -188,8 +188,11 @@
       "14942",
       "10793",
       "10794",
+      "10783",
       "10792",
       "10800",
+      "14295",
+      "14317",
       "10787",
       "10788",
       "10797",
@@ -202,11 +205,8 @@
       "10805",
       "10808",
       "10801",
-      "10784",
-      "10783",
-      "14295",
-      "14317",
-      "12810"
+      "12810",
+      "10784"
     ]
   },
   {
@@ -262,6 +262,8 @@
       "https://rkd.nl/artists/39274"
     ],
     "schildering_ids": [
+      "10980",
+      "10979",
       "11560",
       "11561",
       "13221",
@@ -282,10 +284,42 @@
       "12266",
       "12477",
       "13223",
-      "10980",
-      "10979",
       "11559",
       "10982"
+    ]
+  },
+  {
+    "id": "10582",
+    "naam": "Jan Dunselman",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1863-1931). Tekeninstituut Den Helder, Rijksacademie van beeldende kunsten Amsterdam, Academie Antwerpen, Tekenacademie Antwerpen",
+    "geboorte": "1863-08-05",
+    "sterfte": "1931-01-16",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q3036509",
+      "https://rkd.nl/artists/24889"
+    ],
+    "schildering_ids": [
+      "10782",
+      "10771",
+      "10772",
+      "10773",
+      "11097",
+      "10770",
+      "10753",
+      "10774",
+      "10775",
+      "10776",
+      "10777",
+      "11250",
+      "10778",
+      "10779",
+      "10780",
+      "10781",
+      "10767",
+      "14719",
+      "15867",
+      "10769"
     ]
   },
   {
@@ -347,10 +381,10 @@
       "11392",
       "11394",
       "10897",
+      "14795",
       "10895",
       "10894",
-      "10896",
-      "14795"
+      "10896"
     ]
   },
   {
@@ -384,39 +418,6 @@
       "10752",
       "10757",
       "10758"
-    ]
-  },
-  {
-    "id": "10582",
-    "naam": "Jan Dunselman",
-    "type": "persoon",
-    "beschrijving": "Nederlands kunstschilder (1863-1931). Tekeninstituut Den Helder, Rijksacademie van beeldende kunsten Amsterdam, Academie Antwerpen, Tekenacademie Antwerpen",
-    "geboorte": "1863-08-05",
-    "sterfte": "1931-01-16",
-    "same_as": [
-      "http://www.wikidata.org/entity/Q3036509",
-      "https://rkd.nl/artists/24889"
-    ],
-    "schildering_ids": [
-      "10782",
-      "10771",
-      "10772",
-      "10773",
-      "11097",
-      "10770",
-      "10753",
-      "10774",
-      "10775",
-      "10776",
-      "10777",
-      "10778",
-      "10779",
-      "10780",
-      "10781",
-      "10767",
-      "10769",
-      "11250",
-      "14719"
     ]
   },
   {
@@ -530,6 +531,7 @@
       "14775",
       "14778",
       "14854",
+      "14777",
       "14857",
       "14859",
       "14770",
@@ -537,8 +539,7 @@
       "14774",
       "14776",
       "14853",
-      "14861",
-      "14777"
+      "14861"
     ]
   },
   {
@@ -553,9 +554,10 @@
       "https://rkd.nl/artists/60755"
     ],
     "schildering_ids": [
+      "11458",
       "10957",
       "10947",
-      "11458",
+      "12712",
       "10949",
       "10950",
       "10951",
@@ -566,8 +568,7 @@
       "10956",
       "10958",
       "10946",
-      "10948",
-      "12712"
+      "10948"
     ]
   },
   {
@@ -594,8 +595,8 @@
       "10732",
       "10733",
       "10734",
-      "10724",
-      "10711"
+      "10711",
+      "10724"
     ]
   },
   {
@@ -681,6 +682,33 @@
     ]
   },
   {
+    "id": "11328",
+    "naam": "Chris Lebeau",
+    "type": "persoon",
+    "beschrijving": "wandschilder, lithograaf, politiek tekenaar, kunstnijveraar, ontwerper, docent aan academie, grafisch ontwerper, textieldrukkunstenaar, houtsnijder (prentkunstenaar), glasontwerper, graficus, keramist, etser, schilder, tekenaar, textielkunstenaar",
+    "geboorte": "1878-05-26",
+    "sterfte": "1945-04-02",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2710856",
+      "https://rkd.nl/artists/48648"
+    ],
+    "schildering_ids": [
+      "11329",
+      "15861",
+      "13235",
+      "13236",
+      "13237",
+      "13238",
+      "13239",
+      "13240",
+      "13241",
+      "12435",
+      "12447",
+      "12501",
+      "12569"
+    ]
+  },
+  {
     "id": "11721",
     "naam": "Hendrik Paulides",
     "type": "persoon",
@@ -692,6 +720,7 @@
       "https://rkd.nl/artists/62147"
     ],
     "schildering_ids": [
+      "13118",
       "12303",
       "12304",
       "12305",
@@ -703,8 +732,7 @@
       "12311",
       "12312",
       "12313",
-      "12314",
-      "13118"
+      "12314"
     ]
   },
   {
@@ -719,11 +747,11 @@
       "https://rkd.nl/artists/33616"
     ],
     "schildering_ids": [
+      "10836",
       "12134",
       "12152",
       "12390",
       "12391",
-      "10836",
       "10835",
       "10838",
       "10839",
@@ -734,29 +762,55 @@
     ]
   },
   {
-    "id": "11328",
-    "naam": "Chris Lebeau",
+    "id": "10617",
+    "naam": "Jaap Mes",
     "type": "persoon",
-    "beschrijving": "wandschilder, lithograaf, politiek tekenaar, kunstnijveraar, ontwerper, docent aan academie, grafisch ontwerper, textieldrukkunstenaar, houtsnijder (prentkunstenaar), glasontwerper, graficus, keramist, etser, schilder, tekenaar, textielkunstenaar",
-    "geboorte": "1878-05-26",
-    "sterfte": "1945-04-02",
+    "beschrijving": "Nederlands kunstschilder (1892-1983). Haarlemse kunstnijverheidsschool (1912-1913). Avondcursus aan de Rijksacademie voor beeldende kunsten te Amsterdam. Wandschilder, penschilder, houtgraveur, aquarellist, graficus, etser, schilder, tekenaar",
+    "geboorte": "1892-03-15",
+    "sterfte": "1983-10-01",
     "same_as": [
-      "http://www.wikidata.org/entity/Q2710856",
-      "https://rkd.nl/artists/48648"
+      "http://www.wikidata.org/entity/Q61943050",
+      "https://rkd.nl/artists/55460"
     ],
     "schildering_ids": [
-      "13235",
-      "13236",
-      "13237",
-      "13238",
-      "13239",
-      "13240",
-      "13241",
-      "12435",
-      "12447",
-      "12501",
-      "12569",
-      "11329"
+      "10912",
+      "10914",
+      "10908",
+      "16039",
+      "10915",
+      "10906",
+      "14920",
+      "10902",
+      "10904",
+      "10898",
+      "10910",
+      "10913"
+    ]
+  },
+  {
+    "id": "10644",
+    "naam": "Matthieu Wiegman",
+    "type": "persoon",
+    "beschrijving": "Nederlands beeldend kunstenaar. Rijksacademie voor beeldende kunsten te Amsterdam (1905-1909). Ambachtsschool Alkmaar als huisschilder (1898-1900). MW-1, pp. 37; 115.",
+    "geboorte": "1886-05-31",
+    "sterfte": "1971-04-05",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2558717",
+      "https://rkd.nl/artists/84180"
+    ],
+    "schildering_ids": [
+      "16038",
+      "11020",
+      "11012",
+      "11014",
+      "11013",
+      "11023",
+      "11024",
+      "11017",
+      "11021",
+      "11016",
+      "11018",
+      "11019"
     ]
   },
   {
@@ -771,6 +825,7 @@
       "https://rkd.nl/artists/71288"
     ],
     "schildering_ids": [
+      "15140",
       "12195",
       "12189",
       "12190",
@@ -781,8 +836,7 @@
       "12196",
       "12197",
       "12198",
-      "12199",
-      "15140"
+      "12199"
     ]
   },
   {
@@ -823,9 +877,9 @@
       "https://rkd.nl/artists/8370"
     ],
     "schildering_ids": [
+      "14700",
       "14702",
       "14703",
-      "14700",
       "10703",
       "10704",
       "10705",
@@ -850,15 +904,15 @@
     "schildering_ids": [
       "10715",
       "10712",
-      "10717",
       "12849",
+      "10717",
       "12795",
+      "11889",
       "10720",
       "10719",
+      "10711",
       "10714",
-      "10716",
-      "11889",
-      "10711"
+      "10716"
     ]
   },
   {
@@ -887,31 +941,6 @@
     ]
   },
   {
-    "id": "10617",
-    "naam": "Jaap Mes",
-    "type": "persoon",
-    "beschrijving": "Nederlands kunstschilder (1892-1983). Haarlemse kunstnijverheidsschool (1912-1913). Avondcursus aan de Rijksacademie voor beeldende kunsten te Amsterdam. Wandschilder, penschilder, houtgraveur, aquarellist, graficus, etser, schilder, tekenaar",
-    "geboorte": "1892-03-15",
-    "sterfte": "1983-10-01",
-    "same_as": [
-      "http://www.wikidata.org/entity/Q61943050",
-      "https://rkd.nl/artists/55460"
-    ],
-    "schildering_ids": [
-      "10912",
-      "10914",
-      "10908",
-      "10915",
-      "10906",
-      "10902",
-      "10904",
-      "10898",
-      "10910",
-      "10913",
-      "14920"
-    ]
-  },
-  {
     "id": "10629",
     "naam": "Willem Schermer",
     "type": "persoon",
@@ -934,31 +963,6 @@
       "11429",
       "11421",
       "10887"
-    ]
-  },
-  {
-    "id": "10644",
-    "naam": "Matthieu Wiegman",
-    "type": "persoon",
-    "beschrijving": "Nederlands beeldend kunstenaar. Rijksacademie voor beeldende kunsten te Amsterdam (1905-1909). Ambachtsschool Alkmaar als huisschilder (1898-1900). MW-1, pp. 37; 115.",
-    "geboorte": "1886-05-31",
-    "sterfte": "1971-04-05",
-    "same_as": [
-      "http://www.wikidata.org/entity/Q2558717",
-      "https://rkd.nl/artists/84180"
-    ],
-    "schildering_ids": [
-      "11020",
-      "11012",
-      "11014",
-      "11013",
-      "11023",
-      "11024",
-      "11017",
-      "11021",
-      "11016",
-      "11018",
-      "11019"
     ]
   },
   {
@@ -1092,6 +1096,7 @@
       "https://rkd.nl/artists/39764"
     ],
     "schildering_ids": [
+      "12788",
       "10853",
       "10851",
       "10852",
@@ -1099,8 +1104,7 @@
       "10855",
       "10856",
       "10849",
-      "10850",
-      "12788"
+      "10850"
     ]
   },
   {
@@ -1188,9 +1192,31 @@
       "10918",
       "10919",
       "10916",
-      "10917",
       "12686",
-      "12688"
+      "12688",
+      "10917"
+    ]
+  },
+  {
+    "id": "11717",
+    "naam": "Dirk Nijland",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder (1881-1955)",
+    "geboorte": "1881-04-02",
+    "sterfte": "1955-03-27",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q13573542",
+      "https://rkd.nl/artists/59613"
+    ],
+    "schildering_ids": [
+      "12258",
+      "12259",
+      "15877",
+      "12260",
+      "12252",
+      "12254",
+      "12261",
+      "15880"
     ]
   },
   {
@@ -1268,13 +1294,13 @@
       "https://rkd.nl/artists/1268"
     ],
     "schildering_ids": [
+      "13104",
+      "13107",
       "12328",
       "12331",
       "12334",
       "12336",
-      "12337",
-      "13104",
-      "13107"
+      "12337"
     ]
   },
   {
@@ -1394,26 +1420,6 @@
       "10430",
       "10440",
       "10878"
-    ]
-  },
-  {
-    "id": "11717",
-    "naam": "Dirk Nijland",
-    "type": "persoon",
-    "beschrijving": "Nederlands kunstschilder (1881-1955)",
-    "geboorte": "1881-04-02",
-    "sterfte": "1955-03-27",
-    "same_as": [
-      "http://www.wikidata.org/entity/Q13573542",
-      "https://rkd.nl/artists/59613"
-    ],
-    "schildering_ids": [
-      "12258",
-      "12259",
-      "12252",
-      "12254",
-      "12260",
-      "12261"
     ]
   },
   {
@@ -1579,8 +1585,8 @@
       "https://rkd.nl/artists/23584"
     ],
     "schildering_ids": [
-      "12170",
       "15847",
+      "12170",
       "12315",
       "12316",
       "12317"
@@ -1706,10 +1712,10 @@
       "https://rkd.nl/artists/48277"
     ],
     "schildering_ids": [
+      "13750",
       "10872",
       "10871",
-      "10875",
-      "13750"
+      "10875"
     ]
   },
   {
@@ -2103,8 +2109,8 @@
       "https://rkd.nl/artists/88735"
     ],
     "schildering_ids": [
-      "10868",
-      "12706"
+      "12706",
+      "10868"
     ]
   },
   {
@@ -2167,8 +2173,8 @@
       "https://rkd.nl/artists/72665"
     ],
     "schildering_ids": [
-      "10996",
-      "14695"
+      "14695",
+      "10996"
     ]
   },
   {
@@ -2373,6 +2379,21 @@
     ]
   },
   {
+    "id": "11623",
+    "naam": "Otto van Rees",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": "1884",
+    "sterfte": "1957",
+    "same_as": [
+      "https://rkd.nl/artists/65952"
+    ],
+    "schildering_ids": [
+      "11597",
+      "16037"
+    ]
+  },
+  {
     "id": "11738",
     "naam": "Benno de Vries",
     "type": "persoon",
@@ -2468,8 +2489,8 @@
     "sterfte": null,
     "same_as": [],
     "schildering_ids": [
-      "10881",
-      "12772"
+      "12772",
+      "10881"
     ]
   },
   {
@@ -3219,6 +3240,34 @@
     ]
   },
   {
+    "id": "15888",
+    "naam": "Agnes Canta",
+    "type": "persoon",
+    "beschrijving": "lithograaf, wandschilder, ontwerper, grafisch ontwerper, decoratieschilder, schilder",
+    "geboorte": "1888",
+    "sterfte": "1964",
+    "same_as": [
+      "https://rkd.nl/artists/15146"
+    ],
+    "schildering_ids": [
+      "15886"
+    ]
+  },
+  {
+    "id": "16043",
+    "naam": "Willem Wiegmans",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, glasschilder, schilder, tekenaar, monumentaal kunstenaar, textielkunstenaar",
+    "geboorte": "1892",
+    "sterfte": "1942",
+    "same_as": [
+      "https://rkd.nl/artists/84185"
+    ],
+    "schildering_ids": [
+      "16042"
+    ]
+  },
+  {
     "id": "11718",
     "naam": "Jurriaan Buttner",
     "type": "persoon",
@@ -3289,20 +3338,6 @@
     ],
     "schildering_ids": [
       "12730"
-    ]
-  },
-  {
-    "id": "11623",
-    "naam": "Otto van Rees",
-    "type": "persoon",
-    "beschrijving": null,
-    "geboorte": "1884",
-    "sterfte": "1957",
-    "same_as": [
-      "https://rkd.nl/artists/65952"
-    ],
-    "schildering_ids": [
-      "11597"
     ]
   },
   {
@@ -3540,6 +3575,18 @@
     ]
   },
   {
+    "id": "15898",
+    "naam": "Nicolaas Winnubst",
+    "type": "persoon",
+    "beschrijving": "Nicolaas Henricus Winnubst",
+    "geboorte": "1882",
+    "sterfte": "1950",
+    "same_as": [],
+    "schildering_ids": [
+      "15897"
+    ]
+  },
+  {
     "id": "10578",
     "naam": "Alphons Damen",
     "type": "persoon",
@@ -3560,7 +3607,7 @@
     "sterfte": null,
     "same_as": [],
     "schildering_ids": [
-      "10809"
+      "11926"
     ]
   },
   {

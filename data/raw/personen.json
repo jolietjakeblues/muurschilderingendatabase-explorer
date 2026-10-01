@@ -1872,6 +1872,22 @@
     "sameAs": "https://www.wikidata.org/wiki/Q46998160"
   },
   {
+    "s": "https://muurschilderingendatabase.nl/api/items/15888",
+    "titel": "Agnes Canta",
+    "beschrijving": "lithograaf, wandschilder, ontwerper, grafisch ontwerper, decoratieschilder, schilder",
+    "geboorte": "1888",
+    "sterfte": "1964",
+    "sameAs": "https://rkd.nl/artists/15146"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16043",
+    "titel": "Willem Wiegmans",
+    "beschrijving": "beeldhouwer, glasschilder, schilder, tekenaar, monumentaal kunstenaar, textielkunstenaar",
+    "geboorte": "1892",
+    "sterfte": "1942",
+    "sameAs": "https://rkd.nl/artists/84185"
+  },
+  {
     "s": "https://muurschilderingendatabase.nl/api/items/10574",
     "titel": "Kees Boendermaker",
     "beschrijving": "Nederlands kunstschilder. Alkmaarsche Courant 7-7-1936: Kunstnijverheidsschool te Haarlem. Rijksacademie Beeldende Kunsten Amsterdam",
@@ -2162,6 +2178,13 @@
     "sameAs": "https://rkd.nl/artists/37595"
   },
   {
+    "s": "https://muurschilderingendatabase.nl/api/items/16060",
+    "titel": "Willem Haakma Wagenaar",
+    "geboorte": "1938-04-30",
+    "sterfte": "2024-11-09",
+    "sameAs": "https://rkd.nl/artists/34856"
+  },
+  {
     "s": "https://muurschilderingendatabase.nl/api/items/11644",
     "titel": "Caveto",
     "geboorte": "1923",
@@ -2303,6 +2326,13 @@
     "beschrijving": "interieurontwerper, auteur, wandschilder, docent aan academie, architect, meubelontwerper",
     "geboorte": "1864",
     "sterfte": "1940"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/15898",
+    "titel": "Nicolaas Winnubst",
+    "beschrijving": "Nicolaas Henricus Winnubst",
+    "geboorte": "1882",
+    "sterfte": "1950"
   },
   {
     "s": "https://muurschilderingendatabase.nl/api/items/10578",
