@@ -1888,6 +1888,22 @@
     "sameAs": "https://rkd.nl/artists/84185"
   },
   {
+    "s": "https://muurschilderingendatabase.nl/api/items/16135",
+    "titel": "Johan Rudolph Justus van Asperen de Boer ",
+    "beschrijving": "hoogleraar, natuurkundige",
+    "geboorte": "1935",
+    "sterfte": "2020",
+    "sameAs": "https://rkd.nl/artists/438557"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16394",
+    "titel": "Pjotr van Oorschot",
+    "beschrijving": "beeldhouwer, omgevingskunstenaar, tekenaar",
+    "geboorte": "1944",
+    "sterfte": "2012",
+    "sameAs": "https://rkd.nl/artists/60645"
+  },
+  {
     "s": "https://muurschilderingendatabase.nl/api/items/10574",
     "titel": "Kees Boendermaker",
     "beschrijving": "Nederlands kunstschilder. Alkmaarsche Courant 7-7-1936: Kunstnijverheidsschool te Haarlem. Rijksacademie Beeldende Kunsten Amsterdam",
@@ -2028,6 +2044,27 @@
     "beschrijving": "beeldhouwer, schilder",
     "geboorte": "1919",
     "sameAs": "https://rkd.nl/artists/76466"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16224",
+    "titel": "Jan Giliam",
+    "beschrijving": "schilder, tekenaar, wandschilder, graficus, glaskunstenaar",
+    "geboorte": "1965",
+    "sameAs": "https://rkd.nl/artists/31663"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16225",
+    "titel": "Ben Gort",
+    "beschrijving": "wandschilder, graficus, meubelmaker",
+    "geboorte": "1966",
+    "sameAs": "https://rkd.nl/artists/32862"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16427",
+    "titel": "Chrétien Lindsen",
+    "beschrijving": "decoratieschilder van interieurs, wandschilder",
+    "geboorte": "1840",
+    "sameAs": "https://rkd.nl/artists/346532"
   },
   {
     "s": "https://muurschilderingendatabase.nl/api/items/11715",
@@ -2335,6 +2372,63 @@
     "sterfte": "1950"
   },
   {
+    "s": "https://muurschilderingendatabase.nl/api/items/16418",
+    "titel": "Junus Ririmasse",
+    "beschrijving": "(monumentaal) kunstenaar",
+    "geboorte": "1949-12-08",
+    "sterfte": "2021-09-09"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16418",
+    "titel": "Junus Ririmasse",
+    "beschrijving": "beeldhouwer",
+    "geboorte": "1949-12-08",
+    "sterfte": "2021-09-09"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16418",
+    "titel": "Junus Ririmasse",
+    "beschrijving": "kunstschilder",
+    "geboorte": "1949-12-08",
+    "sterfte": "2021-09-09"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16286",
+    "titel": "Martine Posthuma de Boer",
+    "beschrijving": "Restaurator van historische binnenruimten",
+    "geboorte": "1976-09-28"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16288",
+    "titel": "Karin van der Lem",
+    "beschrijving": "restaurator en onderzoeker",
+    "geboorte": "1969-02-26"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16293",
+    "titel": "Bernice Crijns",
+    "beschrijving": "onderzoeker",
+    "geboorte": "1967-08-29"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16293",
+    "titel": "Bernice Crijns",
+    "beschrijving": "restaurator",
+    "geboorte": "1967-08-29"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16284",
+    "titel": "Lynn van Rijnsoever",
+    "beschrijving": "Restaurator en conservator",
+    "geboorte": "1988-08-16"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16289",
+    "titel": "Aafje Bouwhuis",
+    "beschrijving": "restaurator van muurschilderingen",
+    "geboorte": "1976-11-18"
+  },
+  {
     "s": "https://muurschilderingendatabase.nl/api/items/10578",
     "titel": "Alphons Damen",
     "beschrijving": "[ Onbekend (RKD geen gegevens)"
@@ -2413,6 +2507,31 @@
     "s": "https://muurschilderingendatabase.nl/api/items/15786",
     "titel": "Nico van der Woude",
     "beschrijving": "conservator, restaurator historische binnenruimten"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16285",
+    "titel": "Jorien Duivenvoorden",
+    "beschrijving": "onderzoeker"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16285",
+    "titel": "Jorien Duivenvoorden",
+    "beschrijving": "restaurator"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16287",
+    "titel": "Annemieke Heuft",
+    "beschrijving": "Restaurator en kleurhistorisch onderzoeker"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16290",
+    "titel": "Nanon Journée",
+    "beschrijving": "Restaurator muurschilderingen"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16301",
+    "titel": "Jasmijn Krol",
+    "beschrijving": "restaurator"
   },
   {
     "s": "https://muurschilderingendatabase.nl/api/items/10611",
@@ -2545,6 +2664,10 @@
   {
     "s": "https://muurschilderingendatabase.nl/api/items/14947",
     "titel": "G. Janssen"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16406",
+    "titel": "H.J. van den Brink"
   },
   {
     "s": "https://muurschilderingendatabase.nl/api/items/14164",

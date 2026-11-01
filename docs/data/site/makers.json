@@ -183,16 +183,10 @@
       "10789",
       "10790",
       "10791",
-      "13813",
-      "14917",
-      "14942",
       "10793",
       "10794",
-      "10783",
       "10792",
       "10800",
-      "14295",
-      "14317",
       "10787",
       "10788",
       "10797",
@@ -205,8 +199,14 @@
       "10805",
       "10808",
       "10801",
-      "12810",
-      "10784"
+      "10784",
+      "13813",
+      "14917",
+      "14942",
+      "10783",
+      "14295",
+      "14317",
+      "12810"
     ]
   },
   {
@@ -311,15 +311,15 @@
       "10775",
       "10776",
       "10777",
-      "11250",
       "10778",
       "10779",
       "10780",
       "10781",
       "10767",
+      "10769",
+      "11250",
       "14719",
-      "15867",
-      "10769"
+      "15867"
     ]
   },
   {
@@ -335,7 +335,6 @@
     ],
     "schildering_ids": [
       "12274",
-      "13857",
       "10924",
       "10925",
       "10926",
@@ -353,7 +352,8 @@
       "10938",
       "10939",
       "10942",
-      "10940"
+      "10940",
+      "13857"
     ]
   },
   {
@@ -381,10 +381,10 @@
       "11392",
       "11394",
       "10897",
-      "14795",
       "10895",
       "10894",
-      "10896"
+      "10896",
+      "14795"
     ]
   },
   {
@@ -399,7 +399,6 @@
       "https://rkd.nl/artists/482707"
     ],
     "schildering_ids": [
-      "14915",
       "10741",
       "10744",
       "10751",
@@ -417,7 +416,8 @@
       "10748",
       "10752",
       "10757",
-      "10758"
+      "10758",
+      "14915"
     ]
   },
   {
@@ -554,10 +554,9 @@
       "https://rkd.nl/artists/60755"
     ],
     "schildering_ids": [
-      "11458",
       "10957",
       "10947",
-      "12712",
+      "11458",
       "10949",
       "10950",
       "10951",
@@ -568,7 +567,8 @@
       "10956",
       "10958",
       "10946",
-      "10948"
+      "10948",
+      "12712"
     ]
   },
   {
@@ -595,8 +595,8 @@
       "10732",
       "10733",
       "10734",
-      "10711",
-      "10724"
+      "10724",
+      "10711"
     ]
   },
   {
@@ -669,7 +669,6 @@
       "10828",
       "10821",
       "10829",
-      "14912",
       "10820",
       "10822",
       "10823",
@@ -678,7 +677,8 @@
       "10826",
       "10827",
       "10819",
-      "10830"
+      "10830",
+      "14912"
     ]
   },
   {
@@ -776,15 +776,15 @@
       "10912",
       "10914",
       "10908",
-      "16039",
       "10915",
       "10906",
-      "14920",
       "10902",
       "10904",
       "10898",
       "10910",
-      "10913"
+      "10913",
+      "16039",
+      "14920"
     ]
   },
   {
@@ -877,11 +877,11 @@
       "https://rkd.nl/artists/8370"
     ],
     "schildering_ids": [
-      "14700",
       "14702",
       "14703",
-      "10703",
+      "14700",
       "10704",
+      "10703",
       "10705",
       "10701",
       "10702",
@@ -904,15 +904,15 @@
     "schildering_ids": [
       "10715",
       "10712",
-      "12849",
       "10717",
       "12795",
-      "11889",
       "10720",
       "10719",
-      "10711",
       "10714",
-      "10716"
+      "10716",
+      "12849",
+      "11889",
+      "10711"
     ]
   },
   {
@@ -1096,7 +1096,6 @@
       "https://rkd.nl/artists/39764"
     ],
     "schildering_ids": [
-      "12788",
       "10853",
       "10851",
       "10852",
@@ -1104,7 +1103,8 @@
       "10855",
       "10856",
       "10849",
-      "10850"
+      "10850",
+      "12788"
     ]
   },
   {
@@ -1192,9 +1192,9 @@
       "10918",
       "10919",
       "10916",
+      "10917",
       "12686",
-      "12688",
-      "10917"
+      "12688"
     ]
   },
   {
@@ -1414,8 +1414,8 @@
       "https://rkd.nl/artists/120208"
     ],
     "schildering_ids": [
-      "10442",
       "10432",
+      "10442",
       "10431",
       "10430",
       "10440",
@@ -1712,10 +1712,10 @@
       "https://rkd.nl/artists/48277"
     ],
     "schildering_ids": [
-      "13750",
       "10872",
       "10871",
-      "10875"
+      "10875",
+      "13750"
     ]
   },
   {
@@ -1892,6 +1892,23 @@
     ]
   },
   {
+    "id": "10648",
+    "naam": "Piet Worm",
+    "type": "persoon",
+    "beschrijving": "Nederlands kunstschilder. Kunstnijverheidsschool te Haarlem, de School voor Kunst, Techniek en Ambacht te Den Haag en de Rijksacademie voor Beeldende Kunsten in Amsterdam (RKD klopt op dit put niet).",
+    "geboorte": "1909-09-17",
+    "sterfte": "1996-05-07",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q2681913",
+      "https://rkd.nl/artists/85573"
+    ],
+    "schildering_ids": [
+      "16297",
+      "11030",
+      "11029"
+    ]
+  },
+  {
     "id": "11359",
     "naam": "Karel Appel",
     "type": "persoon",
@@ -2021,6 +2038,20 @@
     ]
   },
   {
+    "id": "16418",
+    "naam": "Junus Ririmasse",
+    "type": "persoon",
+    "beschrijving": "(monumentaal) kunstenaar",
+    "geboorte": "1949-12-08",
+    "sterfte": "2021-09-09",
+    "same_as": [],
+    "schildering_ids": [
+      "16415",
+      "16417",
+      "16416"
+    ]
+  },
+  {
     "id": "13031",
     "naam": "J. Bloemendaal",
     "type": "persoon",
@@ -2109,8 +2140,8 @@
       "https://rkd.nl/artists/88735"
     ],
     "schildering_ids": [
-      "12706",
-      "10868"
+      "10868",
+      "12706"
     ]
   },
   {
@@ -2173,8 +2204,8 @@
       "https://rkd.nl/artists/72665"
     ],
     "schildering_ids": [
-      "14695",
-      "10996"
+      "10996",
+      "14695"
     ]
   },
   {
@@ -2191,22 +2222,6 @@
     "schildering_ids": [
       "11025",
       "11026"
-    ]
-  },
-  {
-    "id": "10648",
-    "naam": "Piet Worm",
-    "type": "persoon",
-    "beschrijving": "Nederlands kunstschilder. Kunstnijverheidsschool te Haarlem, de School voor Kunst, Techniek en Ambacht te Den Haag en de Rijksacademie voor Beeldende Kunsten in Amsterdam (RKD klopt op dit put niet).",
-    "geboorte": "1909-09-17",
-    "sterfte": "1996-05-07",
-    "same_as": [
-      "http://www.wikidata.org/entity/Q2681913",
-      "https://rkd.nl/artists/85573"
-    ],
-    "schildering_ids": [
-      "11030",
-      "11029"
     ]
   },
   {
@@ -2363,6 +2378,51 @@
     ]
   },
   {
+    "id": "16043",
+    "naam": "Willem Wiegmans",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, glasschilder, schilder, tekenaar, monumentaal kunstenaar, textielkunstenaar",
+    "geboorte": "1892",
+    "sterfte": "1942",
+    "same_as": [
+      "https://rkd.nl/artists/84185"
+    ],
+    "schildering_ids": [
+      "16042",
+      "16123"
+    ]
+  },
+  {
+    "id": "16224",
+    "naam": "Jan Giliam",
+    "type": "persoon",
+    "beschrijving": "schilder, tekenaar, wandschilder, graficus, glaskunstenaar",
+    "geboorte": "1965",
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/31663"
+    ],
+    "schildering_ids": [
+      "16220",
+      "16221"
+    ]
+  },
+  {
+    "id": "16225",
+    "naam": "Ben Gort",
+    "type": "persoon",
+    "beschrijving": "wandschilder, graficus, meubelmaker",
+    "geboorte": "1966",
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/32862"
+    ],
+    "schildering_ids": [
+      "16220",
+      "16221"
+    ]
+  },
+  {
     "id": "11732",
     "naam": "L. Bock",
     "type": "persoon",
@@ -2489,8 +2549,8 @@
     "sterfte": null,
     "same_as": [],
     "schildering_ids": [
-      "12772",
-      "10881"
+      "10881",
+      "12772"
     ]
   },
   {
@@ -3254,17 +3314,17 @@
     ]
   },
   {
-    "id": "16043",
-    "naam": "Willem Wiegmans",
+    "id": "16394",
+    "naam": "Pjotr van Oorschot",
     "type": "persoon",
-    "beschrijving": "beeldhouwer, glasschilder, schilder, tekenaar, monumentaal kunstenaar, textielkunstenaar",
-    "geboorte": "1892",
-    "sterfte": "1942",
+    "beschrijving": "beeldhouwer, omgevingskunstenaar, tekenaar",
+    "geboorte": "1944",
+    "sterfte": "2012",
     "same_as": [
-      "https://rkd.nl/artists/84185"
+      "https://rkd.nl/artists/60645"
     ],
     "schildering_ids": [
-      "16042"
+      "16393"
     ]
   },
   {
@@ -3324,6 +3384,20 @@
     ],
     "schildering_ids": [
       "14333"
+    ]
+  },
+  {
+    "id": "16427",
+    "naam": "Chrétien Lindsen",
+    "type": "persoon",
+    "beschrijving": "decoratieschilder van interieurs, wandschilder",
+    "geboorte": "1840",
+    "sterfte": null,
+    "same_as": [
+      "https://rkd.nl/artists/346532"
+    ],
+    "schildering_ids": [
+      "16425"
     ]
   },
   {
@@ -3920,6 +3994,18 @@
     "same_as": [],
     "schildering_ids": [
       "14946"
+    ]
+  },
+  {
+    "id": "16406",
+    "naam": "H.J. van den Brink",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "16405"
     ]
   },
   {

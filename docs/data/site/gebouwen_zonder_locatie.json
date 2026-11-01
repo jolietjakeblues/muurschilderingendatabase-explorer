@@ -1,21 +1,5 @@
 [
   {
-    "id": "13042",
-    "naam": "Fort Bezuiden Spaarndam",
-    "plaats": "Spaarndam",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/13042",
-    "aantal_schilderingen": 2
-  },
-  {
-    "id": "12854",
-    "naam": "Fort bij Spijkerboor",
-    "plaats": "Westbeemster ",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/12854",
-    "aantal_schilderingen": 34
-  },
-  {
     "id": "15005",
     "naam": "Melkfabriek, Hilversum",
     "plaats": "Hilversum",
@@ -149,7 +133,7 @@
     "plaats": null,
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/12129",
-    "aantal_schilderingen": 201
+    "aantal_schilderingen": 191
   },
   {
     "id": "13216",
