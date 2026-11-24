@@ -27,7 +27,7 @@ officiële RCE-publicatie.
    onderwerpen (`schema:about`).
 4. **muurschilderingendatabase.nl/api (Omeka S REST)** — de SPARQL-graph bevat
    alleen media-URI's, geen thumbnail-URL's. De volledige mediacatalogus
-   (~2.900 items) wordt gepagineerd opgehaald en gekoppeld via `o:item`. Geen
+   (~3.300 items) wordt gepagineerd opgehaald en gekoppeld via `o:item`. Geen
    IIIF: geen `/iiif/`-endpoints, geen `o-module-iiifserver`-velden in de
    item-/media-API — geverifieerd, geen IIIF Server-module actief bij de bron.
    Daarom een lightbox met de grootst beschikbare Omeka-afgeleide
@@ -45,20 +45,39 @@ officiële RCE-publicatie.
      plaatsnaamdubbels — Elsloo bestaat tweemaal — niet per ongeluk af te
      keuren) en verworpen boven 30 km afwijking. Gevonden na een
      gebruikersmelding dat twee gebouwen in België stonden: bleek een bredere
-     bronfout, uiteindelijk 4 gebouwen getroffen. Zie
+     bronfout, uiteindelijk 4 gebouwen getroffen. Die vier zijn inmiddels in
+     de bron hersteld; bij de build van 24 november 2026 keurde de check
+     niets meer af. Hij blijft aan als vangnet. Zie
      `PLAUSIBILITEITSGRENS_KM` in `scripts/fetch.py`.
+6. **RCE Linked Data Voorziening, dataset "Afbeeldingen"**
+   (`https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/afbeeldingen/sparql`)
+   — Beeldbankfoto's per rijksmonument, voor de proefkoppeling hieronder.
 
 Alles wordt opgehaald door `scripts/fetch.py`. Ruwe SPARQL-extracten staan in
-`data/raw/` (niet gepubliceerd op de site, wel in de repo voor herleidbaarheid).
+`data/raw/` (niet gepubliceerd op de site, wel in de repo voor herleidbaarheid),
+gesorteerd, zodat de uitkomst niet afhangt van de rijvolgorde van het endpoint.
+
+## Links naar de linked data
+
+De site linkt per item naar de bron als linked data:
+
+- gebouw, schildering en maker naar de browser van de Linked Data Voorziening,
+  `https://linkeddata.cultureelerfgoed.nl/rce/Muurschilderingen/browser?resource=<item-URI>`,
+  waar de item-URI `https://muurschilderingendatabase.nl/api/items/<id>` is
+  (`ldvUrl()` in de JavaScript);
+- een rijksmonument naar zijn URI in de dataset cho
+  (`https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/<nr>`),
+  gevonden via het rijksmonumentnummer.
 De site laadt alleen `docs/data/site/*.json` + `gebouwen.geojson`.
 
 ## Datamodel
 
 - `docs/data/site/gebouwen.geojson` — één punt per gebouw. `geometrie_bron` is
-  `muurschilderingendatabase` (eigen coördinaat uit de bron),
-  `rijksmonumentenregister_centroid` (fallback via rijksmonumentnummer) of
+  `muurschilderingendatabase` (eigen coördinaat uit de bron, 592 gebouwen),
+  `rijksmonumentenregister_centroid` (fallback via rijksmonumentnummer, 36) of
   `reliwiki_adres_pdok` (fallback via een in de Reliwiki-link gecodeerd adres,
-  gegeocodeerd met PDOK).
+  gegeocodeerd met PDOK, 9). `rce` bevat de uitkomst van de proefkoppeling
+  (zie hieronder) en is `null` voor gebouwen zonder rijksmonumentnummer.
 - `docs/data/site/muurschilderingen.json` — één record per schildering, met
   `gebouw_id` als foreign key en een `makers`-array (elk `{id, naam, type}`,
   type `persoon` of `organisatie`).
@@ -67,15 +86,21 @@ De site laadt alleen `docs/data/site/*.json` + `gebouwen.geojson`.
 - `docs/data/site/makers.json` — makers-index: per persoon/organisatie naam,
   `type`, geboorte-/sterftedatum (alleen personen), `same_as` (RKD/Wikidata)
   en de gekoppelde schildering-id's. Alleen makers met ≥1 gekoppelde
-  schildering worden gepubliceerd (217 van de 239 in de bron); de rest van de
+  schildering worden gepubliceerd (232 van de 272 in de bron: 265 personen en
+  7 organisaties); de rest van de
   authority-lijst (nog niet aan een schildering gekoppeld) blijft ongebruikt.
-- `docs/data/site/gebouwen_zonder_locatie.json` — gebouwen zonder puntgeometrie
-  via geen van de drie bovenstaande routes. Niet stilzwijgend laten vallen:
-  ~24 van 576 gebouwen. Een deel daarvan zijn geen "echte" gebouwrecords maar
-  losse/ongeïdentificeerde items uit de brondatabase (bv. titels als
-  "Onbekend gebouw" of een losse schilderingtitel zonder plaatsnaam) — die
-  hebben sowieso geen adres om te geocoderen. Zie de knop "gebouwen zonder
-  coördinaten" direct onder de statistiekregel in de kaartweergave.
+- `docs/data/site/gebouwen_zonder_locatie.json` — alles wat niet op de kaart
+  staat, met per regel een `reden`. `geen_coordinaat`: gebouwen zonder
+  puntgeometrie via geen van de drie bovenstaande routes, 19 van 656. Een
+  deel daarvan zijn geen "echte" gebouwrecords maar losse/ongeïdentificeerde
+  items uit de brondatabase (bv. "Onbekend gebouw" met 183 schilderingen, of
+  een losse schilderingtitel zonder plaatsnaam) — die hebben sowieso geen
+  adres om te geocoderen. `geen_gebouwrecord`: 4 locaties waar schilderingen
+  naar verwijzen maar die in de bron geen `gtm:Gebouw` zijn. Zie de knop
+  "gebouwen en locaties niet op de kaart" direct onder de statistiekregel in
+  de kaartweergave.
+- `docs/data/site/metadata.json` — tijdstip van de build en de kerngetallen.
+  De krimpcontrole van de volgende build vergelijkt hiermee.
 
 ## Proefkoppeling op rijksmonumentnummer
 
@@ -110,9 +135,10 @@ afzonderlijke schildering: daarvoor bestaat geen sleutel.
 
 ## Bekende beperkingen
 
-- Sommige `schema:artMedium`/`artworkSurface`-waarden zijn losse tekst i.p.v.
-  een thesaurus-URI in de brondata (bv. `"waskrijt?"`) — die komen ongewijzigd
-  door.
+- Een deel van de `schema:artMedium`/`artworkSurface`-waarden is losse tekst
+  i.p.v. een thesaurus-URI in de brondata (bv. `"kalk op pleister"` bij 223
+  schilderingen) — die komen ongewijzigd door. Zie
+  `data/gevonden-datafouten.md` voor het volledige overzicht van bronfouten.
 - `schema:about` staat in de brondata in drie vormen: de entity-URI
   (`http://www.wikidata.org/entity/Q…`), de pagina-URL
   (`https://www.wikidata.org/wiki/Q…`) en vrije tekst met zo'n URL erin (bv.
@@ -126,19 +152,42 @@ afzonderlijke schildering: daarvoor bestaat geen sleutel.
   kaart. Ze zijn wel te openen via de knop "niet op de kaart" in de
   kaartweergave (`reden: geen_gebouwrecord` in `gebouwen_zonder_locatie.json`,
   respectievelijk de verzamelregel "Schilderingen zonder gekoppeld gebouw").
-- De build breekt af, zonder iets weg te schrijven, als PDOK na vier pogingen
-  onbereikbaar blijft of als een kerngetal meer dan 10% onder de vorige build
+- De build breekt af, zonder iets weg te schrijven, als een SPARQL-endpoint na
+  vijf pogingen of PDOK na vier pogingen onbereikbaar blijft, of als een kerngetal meer dan 10% onder de vorige build
   zakt (`check_tegen_vorige_build()`; bewust overslaan met `ALLOW_SHRINK=1`).
-- Van de ~948 iconografische Wikidata-onderwerpen leverde Wikidata voor een
-  deel geen `nl`- of `en`-label op (verwijderde/samengevoegde items); die tonen
-  het Q-nummer.
+- Van de 901 iconografische onderwerpen hebben er 5 geen label: 3
+  Wikidata-items zonder `nl`- of `en`-label en 2 verwijzingen naar een
+  CHT-term. Die tonen het laatste deel van de URI.
 - Coördinaten van gebouwen komen uit een Omeka mapping-module zonder
-  expliciet lat/lon-onderscheid per triple; het bouwscript classificeert op
-  waardebereik (Nederland: breedte 50–54°, lengte 3–7,5°).
-- De bron gebruikt `"0"` als sentinel voor "geen datering bekend" bij 20
+  expliciet lat/lon-onderscheid per triple; het bouwscript classificeert per
+  marker op waardebereik (Nederland: breedte 50–54°, lengte 3–7,5°).
+- 35 gebouwen hebben meerdere markers, vaak één op de plaats ("Blauwhuis,
+  Súdwest-Fryslân, Fryslân, Nederland") en één op het gebouw zelf. Markers
+  waarvan het label alleen plaats, gemeente en provincie noemt vallen af
+  zolang er een andere is; daarna wint het label met de meeste onderdelen, en
+  bij gelijke stand het gemiddelde (`pick_marker()`). Dat is een vuistregel
+  op het label, geen zekerheid; de verschuiving ten opzichte van de oude
+  werkwijze is hooguit zo'n 400 meter.
+- De naam van een gebouw is `o:title`, de weergavenaam die Omeka zelf
+  gebruikt. 107 gebouwen hebben daarnaast andere titels (bv. de Friese naam);
+  die staan in `andere_namen`, worden in het detailpaneel getoond en zijn
+  doorzoekbaar. Hetzelfde voor anderstalige plaatsnamen (`plaats_anders`).
+- De huidige functie is vrije tekst in de bron, in ruim honderd
+  schrijfwijzen. Het filter werkt op `functie_groepen`: een indeling op
+  trefwoord in negen groepen (`FUNCTIE_GROEPEN` in `scripts/fetch.py`), waarbij
+  een gebouw in meerdere groepen kan vallen. 205 gebouwen hebben geen
+  bruikbare waarde ("Onbekend"), 19 vallen in "Overig". De oorspronkelijke
+  tekst blijft in `huidige_functie` staan.
+- Als afbeelding van een schildering geldt de media die in de bron als
+  `o:primary_media` is aangewezen; zonder aanwijzing de eerste uit de API.
+- De bron gebruikte `"0"` als sentinel voor "geen datering bekend" bij 20
   schilderingen (bv. wijdingskruizen zonder vastgestelde datering) — geen
-  letterlijk jaar 0. Het bouwscript zet dit om naar `null`.
-- Van de 217 gepubliceerde makers is een deel geen individueel geïdentificeerde
+  letterlijk jaar 0. Het bouwscript zet dit om naar `null`. Sinds november
+  2026 komt de waarde in de bron niet meer voor; de omzetting blijft staan.
+- Is van een schildering maar één jaartal bekend, dan toont de kaartweergave
+  de vrije dateringstekst uit de bron, en zonder die tekst "vanaf" of "tot"
+  het jaartal.
+- Van de 232 gepubliceerde makers is een deel geen individueel geïdentificeerde
   persoon maar een naamloze authority-list-entry (bv. "A) Anonieme
   kerkdecoratieschilder", of de generieke RKD/Wikidata-entiteit "anoniem" met
   153 gekoppelde schilderingen) — nodig om ook ongeïdentificeerde makers als
@@ -172,6 +221,11 @@ Algemene informatie over het specialisme Kleur en Schilderingen:
 ## Licenties en attributie
 
 - Broninhoud: RCE Muurschilderingendatabase / RCE Linked Data Voorziening.
+- Oorspronkelijke functie: rijksmonumentenregister (dataset cho), formeel
+  standpunt van de RCE.
+- Beeldbankfoto's in het detailpaneel: Beeldbank RCE, per foto een eigen
+  licentie (overwegend CC BY-SA 3.0/4.0); elke miniatuur linkt naar de
+  detailpagina met maker en licentie.
 - Iconografielabels en -afbeeldingen: Wikidata / Wikimedia Commons, per
   onderwerp eigen licentie (doorgaans CC0/CC BY-SA); zie de Wikidata-link per
   onderwerp.

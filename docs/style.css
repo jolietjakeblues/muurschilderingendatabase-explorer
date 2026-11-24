@@ -570,3 +570,8 @@ footer.credits a { color: inherit; }
 .rce-fotos { display: flex; gap: 0.35rem; overflow-x: auto; margin: 0.35rem 0; }
 .rce-fotos img { height: 72px; width: 96px; object-fit: cover; border-radius: 4px; display: block; }
 .rce-bron { font-size: 0.7rem; color: var(--ink-soft); }
+
+/* Beschrijving en linked-data-link per schildering */
+.painting-card details.beschrijving { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.3rem; white-space: pre-line; }
+.painting-card details.beschrijving summary { cursor: pointer; color: var(--accent-ink); }
+.ld-link { display: inline-block; margin-top: 0.3rem; font-size: 0.72rem; color: var(--accent-ink); }

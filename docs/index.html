@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>Muurschilderingen Nederland — kaart</title>
-  <meta name="description" content="Kaart van kerken en gebouwen met geregistreerde muurschilderingen, op basis van de RCE Muurschilderingendatabase (linked data)." />
+  <meta name="description" content="Kaart van kerken en gebouwen met geregistreerde muurschilderingen, op basis van de RCE Muurschilderingendatabase (linked data), gekoppeld aan het rijksmonumentenregister en de Beeldbank van de RCE." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@3.6.2/dist/maplibre-gl.css" />
   <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
@@ -30,7 +30,7 @@
       <div id="filters">
         <input type="search" id="q" placeholder="Zoek op gebouw of plaats…" />
         <div class="row">
-          <select id="f-functie"><option value="">Alle functies</option></select>
+          <select id="f-functie"><option value="">Huidige functie: alle</option></select>
           <select id="f-rm">
             <option value="">Rijksmonument: alle</option>
             <option value="ja">Alleen rijksmonumenten</option>
@@ -60,7 +60,7 @@
     Data: <a href="https://muurschilderingendatabase.nl" target="_blank" rel="noopener">Muurschilderingendatabase</a>,
     gepubliceerd als linked data door de <a href="https://www.cultureelerfgoed.nl" target="_blank" rel="noopener">Rijksdienst voor het Cultureel Erfgoed</a>
     via de <a href="https://linkeddata.cultureelerfgoed.nl" target="_blank" rel="noopener">Linked Data Voorziening</a>.
-    Iconografielabels: <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a>. Kaartbasis: OpenStreetMap-bijdragers.
+    Iconografielabels: <a href="https://www.wikidata.org" target="_blank" rel="noopener">Wikidata</a>. Oorspronkelijke functie: rijksmonumentenregister (formeel standpunt RCE). Foto's bij "gekoppeld via rijksmonumentnummer": <a href="https://beeldbank.cultureelerfgoed.nl" target="_blank" rel="noopener">Beeldbank RCE</a>, licentie per foto (overwegend CC BY-SA). Kaartbasis: OpenStreetMap-bijdragers.
     Deze site is een onafhankelijke verkenner, geen officiële RCE-publicatie. Zie <a href="https://github.com/jolietjakeblues/muurschilderingendatabase-explorer/blob/main/docs/methode.md" target="_blank" rel="noopener">methode</a>. Vragen over kleurhistorisch onderzoek? Zie <a href="https://www.cultureelerfgoed.nl/onderwerpen/schilderwerk-en-kleurhistorie" target="_blank" rel="noopener">Schilderwerk en kleurhistorie</a> (RCE).
   </footer>
 

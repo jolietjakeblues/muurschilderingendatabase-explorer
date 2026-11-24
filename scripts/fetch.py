@@ -4,25 +4,36 @@ Bouw de statische dataset voor de Muurschilderingendatabase-explorer.
 
 Bronnen:
   1. RCE Linked Data Voorziening, dataset "Muurschilderingen" (SPARQL) --
-     gebouwen en schilderingen, queries/gebouwen.sparql en
-     queries/paintings.sparql.
+     gebouwen, schilderingen en makers: queries/gebouwen.sparql,
+     queries/paintings.sparql, queries/personen.sparql en
+     queries/organisaties.sparql.
   2. RCE Linked Data Voorziening, dataset "cho" (SPARQL) -- skos:prefLabel
      voor de materiaal-/drager-thesaurusconcepten die in (1) alleen als URI
-     voorkomen.
+     voorkomen; de rijksmonumentgeometrie als terugvaloptie voor gebouwen
+     zonder bruikbare eigen coördinaat; en, voor de proefkoppeling op
+     rijksmonumentnummer, de oorspronkelijke functie (alleen formeel
+     standpunt) met de hoofdcategorie uit de functiethesaurus.
   3. Wikidata Query Service (SPARQL) -- labels (en, waar aanwezig, een
      representatieve afbeelding P18) voor de iconografische onderwerpen
      (schema:about), die in (1) alleen als wikidata-URI voorkomen.
   4. muurschilderingendatabase.nl/api/media (Omeka S REST, geen SPARQL) --
      de SPARQL-graph bevat alleen media-URI's, geen thumbnail/origineel-URLs;
-     die REST-API wel. Volledig gepagineerd opgehaald or o:item (de
+     die REST-API wel. Volledig gepagineerd opgehaald en op o:item (de
      schildering of het gebouw) gekoppeld.
-  5. PDOK Locatieserver (BAG-adressen, REST) -- laatste redmiddel voor
-     gebouwen zonder eigen coördinaat en zonder (vindbaar) rijksmonument:
-     een deel heeft wel een Reliwiki-link met adres erin (schema:sameAs),
-     dat adres geocoderen we hiermee.
+  5. PDOK Locatieserver (BAG-adressen, REST) -- twee toepassingen. De
+     plausibiliteitscheck: elke eigen coördinaat wordt getoetst aan de
+     woonplaats van het gebouw. En als laatste redmiddel voor gebouwen
+     zonder eigen coördinaat en zonder (vindbaar) rijksmonument: een deel
+     heeft wel een Reliwiki-link met adres erin (schema:sameAs), dat adres
+     geocoderen we hiermee.
+  6. RCE Linked Data Voorziening, dataset "Afbeeldingen" (SPARQL) --
+     Beeldbankfoto's per rijksmonumentnummer, voor de proefkoppeling.
 
 Schrijft data/raw/*.json (ruwe extracts, voor herleidbaarheid) en
-data/site/*.json + gebouwen.geojson (het datamodel dat de viewer laadt).
+docs/data/site/*.json + gebouwen.geojson (het datamodel dat de viewer
+laadt). Wegschrijven gebeurt pas aan het eind: de build breekt af zonder
+iets te overschrijven als een endpoint of PDOK onbereikbaar blijft, of als een kerngetal
+meer dan 10% onder de vorige build zakt (ALLOW_SHRINK=1 slaat dat over).
 
 Geen live queries vanuit de browser: alles hier voorgebakken, zelfde
 architectuurkeuze als het dodenakkers-project waar dit uit voortkomt.
@@ -58,8 +69,25 @@ HEADERS_SPARQL = {"Accept": "application/sparql-results+json"}
 HEADERS_UA = {"User-Agent": "muurschilderingendatabase-explorer/0.1 (build script; GitHub Pages viewer)"}
 
 
+SPARQL_POGINGEN = 5
+
+
 def run_sparql(endpoint: str, query: str) -> list[dict]:
-    resp = requests.post(endpoint, data={"query": query}, headers={**HEADERS_SPARQL, **HEADERS_UA}, timeout=180)
+    # De endpoints geven af en toe een 502/503/504 of verbreken de verbinding;
+    # dat is bijna altijd voorbij na een paar seconden. Een 4xx is een fout in
+    # de query en wordt niet herhaald.
+    for poging in range(SPARQL_POGINGEN):
+        try:
+            resp = requests.post(endpoint, data={"query": query}, headers={**HEADERS_SPARQL, **HEADERS_UA}, timeout=180)
+            if resp.status_code < 500:
+                break
+            fout: Exception = requests.HTTPError(f"HTTP {resp.status_code} van {endpoint}")
+        except (requests.ConnectionError, requests.Timeout) as exc:
+            fout = exc
+        if poging == SPARQL_POGINGEN - 1:
+            raise RuntimeError(f"SPARQL-endpoint onbereikbaar na {SPARQL_POGINGEN} pogingen: {fout}")
+        print(f"  {fout} -- nieuwe poging over {5 * 2 ** poging} s")
+        time.sleep(5 * 2 ** poging)
     resp.raise_for_status()
     data = resp.json()
     rows = []
@@ -72,6 +100,10 @@ def run_sparql(endpoint: str, query: str) -> list[dict]:
 def fetch_muur_rows(name: str) -> list[dict]:
     query = (QUERIES_DIR / f"{name}.sparql").read_text(encoding="utf-8")
     rows = run_sparql(MUUR_ENDPOINT, query)
+    # Vaste volgorde: de SPARQL-uitvoer komt per keer anders gesorteerd terug.
+    # Zonder dit wisselt "eerste waarde wint" in group_by_subject per build,
+    # en is elke verversing van data/raw/ één grote diff.
+    rows.sort(key=lambda r: json.dumps(r, sort_keys=True, ensure_ascii=False))
     # Wegschrijven naar data/raw/ gebeurt pas aan het eind van main(), na de
     # krimpcontrole -- een mislukte build laat zo ook de ruwe extracts intact.
     print(f"{name}: {len(rows)} rijen uit SPARQL")
@@ -100,8 +132,10 @@ def group_by_subject(rows: list[dict], subject_key: str, single_fields: list[str
 
 
 # --------------------------------------------------------------------------
-# Coördinaten: geen lat/lon-onderscheid in het predicate zelf, dus op
-# waardebereik classificeren (dataset is Nederland-only).
+# Coördinaten: een gebouw kan meerdere markers hebben, elk met twee waarden
+# zonder lat/lon-onderscheid in het predicate zelf. Per marker op
+# waardebereik classificeren (dataset is Nederland-only), daarna één marker
+# per gebouw kiezen.
 # --------------------------------------------------------------------------
 
 def split_lat_lon(coords: list[str]) -> tuple[float, float] | None:
@@ -111,6 +145,76 @@ def split_lat_lon(coords: list[str]) -> tuple[float, float] | None:
     if lat is None or lon is None:
         return None
     return lat, lon
+
+
+def markers_per_gebouw(rows: list[dict]) -> dict[str, list[dict]]:
+    """Per gebouw de markers uit de Omeka mapping-module, elk als
+    {"latlon": (lat, lon), "label": ...}. De twee coördinaatwaarden van één
+    marker blijven bij elkaar via ?feat; los sorteren over alle markers heen
+    kan de breedte van de ene met de lengte van de andere paren."""
+    per_feat: dict[tuple[str, str], dict] = {}
+    for row in rows:
+        if not row.get("feat") or not row.get("coord"):
+            continue
+        entry = per_feat.setdefault((row["s"], row["feat"]), {"coords": set(), "label": row.get("featLabel")})
+        entry["coords"].add(row["coord"])
+    result: dict[str, list[dict]] = defaultdict(list)
+    for (uri, _feat), entry in sorted(per_feat.items()):
+        latlon = split_lat_lon(sorted(entry["coords"]))
+        if latlon:
+            result[uri].append({"latlon": latlon, "label": entry["label"] or ""})
+    return dict(result)
+
+
+PLAATSMARKER_RE = re.compile(r"^[^,\d]+(,[^,\d]+){1,3},\s*Nederland$")
+
+
+def pick_marker(markers: list[dict]) -> tuple[float, float] | None:
+    """Eén punt per gebouw. Bij meerdere markers is er vaak één op de plaats
+    gezet ("Blauwhuis, Súdwest-Fryslân, Fryslân, Nederland") en één op het
+    gebouw zelf ("St. Vituskerk, Vitusdyk, Blauwhuis, ..." of een adres met
+    huisnummer en postcode). Markers waarvan het label alleen plaats,
+    gemeente en provincie noemt vallen af zolang er een andere is; van wat
+    overblijft wint het label met de meeste onderdelen. Bij gelijke stand het
+    gemiddelde van die markers."""
+    if not markers:
+        return None
+    specifiek = [m for m in markers if not PLAATSMARKER_RE.match(m["label"].strip())]
+    kandidaten = specifiek or markers
+    onderdelen = lambda m: len([d for d in m["label"].split(",") if d.strip()])
+    hoogste = max(onderdelen(m) for m in kandidaten)
+    beste = sorted({m["latlon"] for m in kandidaten if onderdelen(m) == hoogste})
+    return (sum(b[0] for b in beste) / len(beste), sum(b[1] for b in beste) / len(beste))
+
+
+# --------------------------------------------------------------------------
+# Huidige functie: vrije tekst in de bron, hier gegroepeerd voor het filter.
+# --------------------------------------------------------------------------
+
+FUNCTIE_GROEPEN = [
+    ("Religieus", r"kerk|kapel|synagoge|religieus|klooster|missiehuis"),
+    ("Museum en cultuur", r"museum|cultur|theater|schouwburg|concert|bioscoop|expositie|atelier"),
+    ("Onderwijs", r"school|universiteit|faculteit|college|academie|aula"),
+    ("Wonen", r"woon|woning|hofje|appartement|buitenhuis"),
+    ("Kantoor en bestuur", r"kanto|stadhuis|provinciehuis|bestuur|archief|vergader|bedrijfslocatie|bedrijven"),
+    ("Horeca, evenementen en verhuur", r"horeca|hotel|restaurant|evenement|verhuur|brouwerij|sociëteit|theehuis|kamperen|camping"),
+    ("Buiten gebruik of gesloopt", r"buiten gebruik|gesloopt|transformatie|^geen$"),
+]
+FUNCTIE_ONBEKEND = "Onbekend"
+FUNCTIE_OVERIG = "Overig"
+
+
+def functie_groepen(value: str | None) -> list[str]:
+    """De bron kent ruim honderd schrijfwijzen voor de huidige functie
+    ("kerk", "Kerk / Hervormde kerk", "Kerk / Hervormde Kerk", ...). Voor het
+    filter in de kaartweergave gegroepeerd op trefwoord; een gebouw kan in
+    meerdere groepen vallen ("Kerk en cultureel centrum"). De oorspronkelijke
+    tekst blijft ongewijzigd in huidige_functie staan."""
+    tekst = (value or "").strip().lower()
+    if not tekst or tekst in ("onbekend", "onduidelijk") or tekst.startswith("http"):
+        return [FUNCTIE_ONBEKEND]
+    groepen = [naam for naam, patroon in FUNCTIE_GROEPEN if re.search(patroon, tekst)]
+    return groepen or [FUNCTIE_OVERIG]
 
 
 # --------------------------------------------------------------------------
@@ -235,6 +339,7 @@ def fetch_all_media() -> dict[str, list[dict]]:
             thumbs = m.get("o:thumbnail_urls") or {}
             by_item[item_id].append(
                 {
+                    "id": str(m.get("o:id")),
                     "titel": m.get("o:title"),
                     "origineel": m.get("o:original_url"),
                     "large": thumbs.get("large"),
@@ -425,10 +530,21 @@ def fetch_reliwiki_geocodes(candidates: list[tuple[str, str, str]]) -> dict[str,
     return result
 
 
+def primaire_eerst(media: list[dict], primary_uri: str | None) -> list[dict]:
+    """Zet de afbeelding die in de bron als o:primary_media is aangewezen
+    vooraan; zonder aanwijzing blijft de volgorde van de API staan."""
+    m = re.search(r"/media/(\d+)$", primary_uri or "")
+    if not m:
+        return media
+    return sorted(media, key=lambda x: x["id"] != m.group(1))
+
+
 def clean_year(value: str | None) -> str | None:
     """De bron gebruikt '0' als sentinel voor 'geen datering bekend', niet
     een letterlijk jaar 0 (geen Nederlandse kerk dateert uit 0-99 n.Chr.) --
-    geverifieerd op de 20 rijen die dit raken, zie docs/methode.md."""
+    geverifieerd op de 20 rijen die dit in september 2026 raakten, zie
+    docs/methode.md. Sinds november 2026 komt de waarde in de bron niet meer
+    voor; dit blijft staan als vangnet."""
     return None if value == "0" else value
 
 
@@ -579,6 +695,12 @@ SELECT ?rm ?f ?titel ?thumb ?pagina ?licentie WHERE {{
     return result
 
 
+METADATA_SOURCE = (
+    "RCE Linked Data Voorziening, dataset Muurschilderingen (+ cho voor thesauruslabels, "
+    "rijksmonumentgeometrie en oorspronkelijke functie; Afbeeldingen voor Beeldbankfoto's; "
+    "Wikidata voor iconografielabels; Omeka-API voor afbeeldingen; PDOK voor geocodering)"
+)
+
 KRIMPGRENS = 0.9
 KRIMP_SLEUTELS = [
     "gebouwen_totaal",
@@ -633,8 +755,15 @@ def main() -> None:
         gebouw_rows,
         "s",
         single_fields=["titel", "identifier", "rijksmonumentnummer", "woonplaats", "huidigeFunctie", "bouwgeschiedenis", "restauratiegeschiedenis"],
-        multi_fields=["sameAs", "coord"],
+        multi_fields=["sameAs", "andereNaam", "woonplaatsAnders"],
     )
+    markers = markers_per_gebouw(gebouw_rows)
+    for g in gebouwen.values():
+        # o:title is de weergavenaam van Omeka; ontbreekt die, dan de eerste
+        # dcterms:title. De overige titels blijven als andere namen bewaard.
+        g["andereNaam"] = sorted({n.strip() for n in g["andereNaam"] if n.strip()})
+        g["titel"] = (g["titel"] or "").strip() or (g["andereNaam"][0] if g["andereNaam"] else None)
+        g["andereNaam"] = [n for n in g["andereNaam"] if n != g["titel"]]
     for g in gebouwen.values():
         g["rijksmonumentnummer"] = clean_rm(g["rijksmonumentnummer"])
 
@@ -682,19 +811,27 @@ def main() -> None:
     # zonder dat daar in de data zelf een signaal voor staat. Alleen
     # gebouwen met een eigen coördinaat kosten een plaats-lookup.
     plaatsen_te_checken = {
-        g["woonplaats"] for g in gebouwen.values() if g["coord"] and g["woonplaats"]
+        naam
+        for uri, g in gebouwen.items()
+        if uri in markers
+        for naam in [g["woonplaats"], *g["woonplaatsAnders"]]
+        if naam
     }
     plaats_candidates = fetch_plaats_candidates(plaatsen_te_checken)
 
     own_latlon_by_uri: dict[str, tuple[float, float]] = {}
     afgekeurd = []
     for uri, g in gebouwen.items():
-        if not g["coord"]:
-            continue
-        latlon = split_lat_lon(g["coord"])
+        latlon = pick_marker(markers.get(uri, []))
         if latlon is None:
             continue
-        candidates = plaats_candidates.get(g["woonplaats"])
+        # Alle naamvarianten van de plaats tellen mee: het Friese Oostrum heet
+        # in de BAG "Eastrum", en "Oostrum" alleen levert het Limburgse dorp op.
+        candidates = [
+            c
+            for naam in [g["woonplaats"], *g["woonplaatsAnders"]]
+            for c in plaats_candidates.get(naam, [])
+        ]
         if candidates:
             nearest = min(candidates, key=lambda c: haversine_km(*latlon, *c))
             afstand = haversine_km(*latlon, *nearest)
@@ -737,7 +874,7 @@ def main() -> None:
     # -- gebouwen.geojson --
     features = []
     gebouw_id_by_uri: dict[str, str] = {}
-    zonder_locatie = []  # niet stilzwijgend laten vallen: apart bewaard voor data/site/gebouwen_zonder_locatie.json
+    zonder_locatie = []  # niet stilzwijgend laten vallen: apart bewaard voor docs/data/site/gebouwen_zonder_locatie.json
     for uri, g in gebouwen.items():
         gid = item_id_from_uri(uri) or uri.rsplit("/", 1)[-1]
         gebouw_id_by_uri[uri] = gid
@@ -771,7 +908,10 @@ def main() -> None:
                 "properties": {
                     "id": gid,
                     "naam": g["titel"],
+                    "andere_namen": g["andereNaam"],
                     "plaats": g["woonplaats"],
+                    "plaats_anders": g["woonplaatsAnders"],
+                    "bron_item_url": uri,
                     "identifier": g["identifier"],
                     "rijksmonumentnummer": g["rijksmonumentnummer"],
                     "monumentenregister_url": (
@@ -780,6 +920,7 @@ def main() -> None:
                         else None
                     ),
                     "huidige_functie": g["huidigeFunctie"],
+                    "functie_groepen": functie_groepen(g["huidigeFunctie"]),
                     "geometrie_bron": geometrie_bron,
                     # Proefkoppeling: kennis uit het rijksmonumentenregister
                     # (formeel standpunt) en foto's uit de Beeldbank.
@@ -845,7 +986,7 @@ def main() -> None:
         pid = item_id_from_uri(uri) or uri.rsplit("/", 1)[-1]
         gebouw_uri = p["gebouw"]
         gebouw_id = gebouw_id_by_uri.get(gebouw_uri) or item_id_from_uri(gebouw_uri)
-        media = media_by_item.get(pid, [])
+        media = primaire_eerst(media_by_item.get(pid, []), p["primaryMedia"])
         onderwerpen = [
             {"uri": u, "label": subject_labels.get(u, {}).get("label"), "afbeelding": subject_labels.get(u, {}).get("image")}
             for u in p["about"]
@@ -942,6 +1083,8 @@ def main() -> None:
         "iconografische_onderwerpen": len(onderwerpen_out),
         "onderwerpen_met_label": sum(1 for o in onderwerpen_out if o["label"]),
         "gebouwen_met_rijksmonumentnummer": sum(1 for g in gebouwen.values() if g["rijksmonumentnummer"]),
+        "gebouwen_met_meerdere_markers": sum(1 for m in markers.values() if len(m) > 1),
+        "gebouwen_met_andere_namen": sum(1 for g in gebouwen.values() if g["andereNaam"]),
         "gebouwen_met_cho_functie": sum(1 for f in features if (f["properties"]["rce"] or {}).get("functies")),
         "gebouwen_met_beeldbankfoto": sum(1 for f in features if (f["properties"]["rce"] or {}).get("beeldbank")),
         "makers_gekoppeld": len(makers_out),
@@ -968,7 +1111,7 @@ def main() -> None:
     (SITE_DIR / "gebouwen_zonder_locatie.json").write_text(json.dumps(zonder_locatie, ensure_ascii=False, indent=2), encoding="utf-8")
 
     metadata = {
-        "source": "RCE Linked Data Voorziening, dataset Muurschilderingen (+ cho voor thesauruslabels, Wikidata voor iconografielabels)",
+        "source": METADATA_SOURCE,
         "endpoint": MUUR_ENDPOINT,
         "retrieved_at": datetime.now(timezone.utc).isoformat(),
         "stats": stats,

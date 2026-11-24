@@ -11,13 +11,18 @@ Onafhankelijk project, geen officiële RCE-publicatie.
 ## Wat je kunt doen
 
 - **Kaart**: 637 gebouwen met geregistreerde muurschilderingen, filterbaar op
-  naam/plaats, huidige functie, rijksmonumentstatus, oorspronkelijke functie
-  volgens het rijksmonumentenregister en periode (histogram met zes
-  tijdvakken, van middeleeuwen tot post-65 — 29% van de schilderingen is
-  20e-eeuws of later, met een piek in het interbellum). Klik een gebouw voor
-  een detailpaneel met alle gekoppelde schilderingen (datering, locatie in het
-  gebouw, materiaal/drager, maker, afbeelding, links naar
+  naam/plaats (ook op andere namen, zoals de Friese), huidige functie
+  (gegroepeerd), rijksmonumentstatus, oorspronkelijke functie volgens het
+  rijksmonumentenregister en periode (histogram met zes tijdvakken, van
+  middeleeuwen tot post-65 — 29% van de schilderingen is 20e-eeuws of later,
+  met een piek in het interbellum). Klik een gebouw voor een detailpaneel met
+  alle gekoppelde schilderingen (datering, locatie in het gebouw,
+  materiaal/drager, maker, beschrijving, afbeelding, links naar
   Monumentenregister/Wikidata/Reliwiki).
+- **Links naar de linked data**: elk gebouw, elke schildering en elke maker
+  linkt naar zijn eigen pagina in de Linked Data Voorziening van de RCE
+  (dataset Muurschilderingen); een rijksmonument daarnaast naar zijn URI in de
+  dataset cho.
 - **Niet op de kaart**: 19 gebouwen zonder vindbare locatie, 4 locaties die in
   de bron geen gebouwrecord zijn en 8 schilderingen zonder gebouw staan in een
   aparte lijst onder de filters; hun schilderingen zijn daar gewoon te openen.
@@ -95,8 +100,10 @@ build-Action nodig — de site is al statisch gegenereerd.
 GitHub Action) om nieuwe schilderingen/gebouwen uit de bron mee te nemen.
 
 De build schrijft niets weg als de uitkomst niet te vertrouwen is: hij breekt
-af als PDOK na vier pogingen onbereikbaar blijft, of als een kerngetal meer
-dan 10% onder de vorige build zakt. Is zo'n daling terecht, draai dan met
+af als een SPARQL-endpoint na vijf pogingen of PDOK na vier pogingen
+onbereikbaar blijft, of als een kerngetal meer dan 10% onder de vorige build
+zakt. De ruwe extracts worden gesorteerd weggeschreven, zodat een verversing
+alleen de echte wijzigingen in de bron als diff laat zien. Is zo'n daling terecht, draai dan met
 `ALLOW_SHRINK=1`.
 
 ## Licentie

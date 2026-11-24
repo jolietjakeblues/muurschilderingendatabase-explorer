@@ -10,6 +10,12 @@
 # per schildering -> hier als losse rijen opgehaald (GROUP_CONCAT zou een
 # cartesisch product geven zodra een schildering >1 van elk heeft), en in
 # scripts/fetch.py per ?s samengevoegd tot lijsten.
+#
+# schema:about komt in de bron in twee vormen voor (wikidata.org/entity/Q…
+# en wikidata.org/wiki/Q…); scripts/fetch.py herleidt beide tot de
+# entity-URI (normalize_about). schema:location wijst bij een handvol
+# schilderingen naar een item dat geen gtm:Gebouw is, of ontbreekt; zie
+# data/gevonden-datafouten.md.
 
 PREFIX schema: <https://schema.org/>
 PREFIX dcterms: <http://purl.org/dc/terms/>

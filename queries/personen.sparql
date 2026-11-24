@@ -2,11 +2,11 @@
 # via dcterms:creator op schema:Painting (zie queries/paintings.sparql en
 # queries/organisaties.sparql voor het organisatie-equivalent).
 #
-# 239 personen in totaal, waarvan 166 met een geboortedatum (dus een
-# werkelijk geïdentificeerde maker; de rest is een naamloze
-# authority-list-entry als "A) Anonieme kerkdecoratieschilder", nodig om
-# ook ongeïdentificeerde makers als aparte, telbare entiteit te kunnen
-# koppelen).
+# 265 personen in totaal, waarvan 184 met een geboortedatum (stand
+# 2026-11-24). Een deel van de rest is een naamloze authority-list-entry als
+# "A) Anonieme kerkdecoratieschilder", nodig om ook ongeïdentificeerde makers
+# als aparte, telbare entiteit te kunnen koppelen. scripts/fetch.py
+# publiceert alleen personen met minstens één gekoppelde schildering.
 
 PREFIX schema: <https://schema.org/>
 PREFIX dcterms: <http://purl.org/dc/terms/>

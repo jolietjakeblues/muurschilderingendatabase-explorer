@@ -1,6 +1,9 @@
 // Kaartweergave van gebouwen met geregistreerde muurschilderingen.
-// Laadt data/site/gebouwen.geojson (punten) en data/site/muurschilderingen.json
-// (schilderingen per gebouw) statisch -- geen live SPARQL vanuit de browser.
+// Laadt data/site/gebouwen.geojson (punten, met per rijksmonument de
+// proefkoppeling naar register en Beeldbank in properties.rce),
+// data/site/muurschilderingen.json (schilderingen per gebouw) en
+// data/site/gebouwen_zonder_locatie.json (alles wat niet op de kaart staat)
+// statisch -- geen live SPARQL vanuit de browser.
 
 const DATA_BASE = "data/site";
 
@@ -15,7 +18,7 @@ const ERAS = [
   { id: "1800-1919", label: "1800–1919", start: 1800, end: 1919 },
   { id: "interbellum", label: "1920–1944", start: 1920, end: 1944 },
   { id: "wederopbouw", label: "1945–1965", start: 1945, end: 1965 },
-  { id: "post65", label: "1965–heden", start: 1966, end: 9999 },
+  { id: "post65", label: "1966–heden", start: 1966, end: 9999 },
 ];
 
 // Sleutel voor schilderingen zonder schema:location in de bron: ze hebben geen
@@ -130,17 +133,19 @@ function renderPeriodeFilter() {
   }
 }
 
+// Huidige functie is vrije tekst in de bron (ruim honderd schrijfwijzen);
+// het bouwscript groepeert die op trefwoord in functie_groepen. Het filter
+// werkt op de groepen, het detailpaneel toont de oorspronkelijke tekst.
 function populateFunctieFilter() {
   const select = document.getElementById("f-functie");
-  const seen = new Set();
+  const counts = new Map();
   for (const f of state.gebouwen.features) {
-    const fn = f.properties.huidige_functie;
-    if (fn) seen.add(fn);
+    for (const g of f.properties.functie_groepen || []) counts.set(g, (counts.get(g) || 0) + 1);
   }
-  for (const fn of [...seen].sort()) {
+  for (const [g, n] of [...counts].sort((a, b) => b[1] - a[1])) {
     const opt = document.createElement("option");
-    opt.value = fn;
-    opt.textContent = fn;
+    opt.value = g;
+    opt.textContent = `${g} (${n})`;
     select.appendChild(opt);
   }
 }
@@ -174,10 +179,10 @@ function matchesFilters(feature) {
   const rm = document.getElementById("f-rm").value;
   const p = feature.properties;
   if (q) {
-    const hay = `${p.naam || ""} ${p.plaats || ""}`.toLowerCase();
+    const hay = [p.naam, p.plaats, ...(p.andere_namen || []), ...(p.plaats_anders || [])].filter(Boolean).join(" ").toLowerCase();
     if (!hay.includes(q)) return false;
   }
-  if (functie && p.huidige_functie !== functie) return false;
+  if (functie && !(p.functie_groepen || []).includes(functie)) return false;
   if (rm === "ja" && !p.rijksmonumentnummer) return false;
   if (rm === "nee" && p.rijksmonumentnummer) return false;
   if (state.activeEras.size) {
@@ -239,7 +244,7 @@ function renderList() {
     const thumb = document.createElement("div");
     if (p.afbeelding) {
       thumb.className = "thumb";
-      thumb.style.backgroundImage = `url(${p.afbeelding})`;
+      thumb.style.backgroundImage = `url("${p.afbeelding.replace(/"/g, "%22")}")`;
     } else {
       thumb.className = "thumb no-photo";
       thumb.textContent = "geen foto";
@@ -311,6 +316,12 @@ function findGebouw(gebouwId) {
   };
 }
 
+// Link naar een item in de Linked Data Voorziening van de RCE (dataset
+// Muurschilderingen): de browser toont alle triples van die resource.
+function ldvUrl(uri) {
+  return `https://linkeddata.cultureelerfgoed.nl/rce/Muurschilderingen/browser?resource=${encodeURIComponent(uri)}`;
+}
+
 function escapeAttr(str) {
   return escapeHtml(str ?? "").replace(/"/g, "&quot;");
 }
@@ -367,8 +378,9 @@ function openDetail(gebouwId) {
   const period = periodOf(gebouwId);
 
   const links = [];
-  if (p.bron_item_url) links.push([p.bron_item_url, "bron"]);
   if (p.monumentenregister_url) links.push([p.monumentenregister_url, "Monumentenregister"]);
+  if (p.rce?.cho_uri) links.push([p.rce.cho_uri, "Linked data rijksmonument"]);
+  if (p.bron_item_url) links.push([ldvUrl(p.bron_item_url), "Linked data gebouw"]);
   for (const uri of p.same_as || []) {
     if (uri.includes("wikidata.org")) links.push([uri, "Wikidata"]);
     else if (uri.includes("reliwiki")) links.push([uri, "Reliwiki"]);
@@ -379,7 +391,8 @@ function openDetail(gebouwId) {
     <h2>${escapeHtml(p.naam || "(zonder naam)")}</h2>
     <div class="plaats-line">${escapeHtml(p.plaats || "")}${p.huidige_functie ? " · " + escapeHtml(p.huidige_functie) : ""}${period ? ` · schilderingen ${period[0]}–${period[1]}` : ""}</div>
     ${opKaart ? "" : '<div class="plaats-line">Niet op de kaart: geen bruikbare locatie in de bron. <a href="#" id="terug-niet-op-kaart">← terug naar de lijst</a></div>'}
-    <div class="links">${links.map(([href, label]) => `<a href="${href}" target="_blank" rel="noopener">${label}</a>`).join("")}</div>
+    ${p.andere_namen?.length ? `<div class="plaats-line">Ook bekend als: ${escapeHtml(p.andere_namen.join(", "))}</div>` : ""}
+    <div class="links">${links.map(([href, label]) => `<a href="${escapeAttr(href)}" target="_blank" rel="noopener">${label}</a>`).join("")}</div>
     ${rceBlok(p)}
     <div id="painting-cards"></div>
   `;
@@ -401,13 +414,15 @@ function openDetail(gebouwId) {
       .map((m) => `<a href="makers.html?maker=${encodeURIComponent(m.id)}">${escapeHtml((m.naam || "").replace(/^A\)\s*/, ""))}</a>`)
       .join(", ");
     card.innerHTML = `
-      ${img ? `<img class="zoomable" src="${img}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
+      ${img ? `<img class="zoomable" src="${escapeAttr(img)}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
       <div class="body">
         <div class="titel">${escapeHtml(s.titel || "(zonder titel)")}</div>
         ${dat ? `<div class="datering">${escapeHtml(String(dat))}</div>` : ""}
         ${s.locatieomschrijving ? `<div class="locatie">${escapeHtml(s.locatieomschrijving)}</div>` : ""}
         ${makerLine ? `<div class="maker">door ${makerLine}</div>` : ""}
         <div class="tags">${tags.slice(0, 6).map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
+        ${s.beschrijving ? `<details class="beschrijving"><summary>beschrijving</summary>${escapeHtml(s.beschrijving)}</details>` : ""}
+        ${s.bron_item_url ? `<a class="ld-link" href="${escapeAttr(ldvUrl(s.bron_item_url))}" target="_blank" rel="noopener">linked data</a>` : ""}
       </div>
     `;
     if (img) {
@@ -445,7 +460,7 @@ function openZonderLocatie() {
           <div class="body">
             <div class="titel">${escapeHtml(g.naam || "(zonder naam)")}</div>
             <div class="locatie">${escapeHtml(g.plaats || "")}${g.plaats && n ? " · " : ""}${n ? `${n} schildering${n === 1 ? "" : "en"}` : ""}${g.reden === "geen_gebouwrecord" ? " · in de bron geen gebouwrecord" : ""}</div>
-            <div class="links" style="margin-top:0.3rem;">${n ? `<a href="#" class="toon-schilderingen" data-id="${escapeHtml(g.id)}">toon schilderingen</a>` : ""}${g.bron_item_url ? `<a href="${g.bron_item_url}" target="_blank" rel="noopener">bron</a>` : ""}${g.rijksmonumentnummer ? `<a href="https://monumentenregister.cultureelerfgoed.nl/monumenten/${g.rijksmonumentnummer}" target="_blank" rel="noopener">monumentenregister</a>` : ""}</div>
+            <div class="links" style="margin-top:0.3rem;">${n ? `<a href="#" class="toon-schilderingen" data-id="${escapeHtml(g.id)}">toon schilderingen</a>` : ""}${g.bron_item_url ? `<a href="${escapeAttr(ldvUrl(g.bron_item_url))}" target="_blank" rel="noopener">linked data</a>` : ""}${g.rijksmonumentnummer ? `<a href="https://monumentenregister.cultureelerfgoed.nl/monumenten/${g.rijksmonumentnummer}" target="_blank" rel="noopener">monumentenregister</a>` : ""}</div>
           </div>
         </div>`;
     })

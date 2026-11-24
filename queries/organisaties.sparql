@@ -1,6 +1,6 @@
 # Organisaties (schema:Organization) uit de RCE Muurschilderingendatabase --
 # ateliers/restauratiebedrijven, gekoppeld via dcterms:creator op
-# schema:Painting (zie queries/paintings.sparql). Klein aantal (6
+# schema:Painting (zie queries/paintings.sparql). Klein aantal (7
 # landelijk), zie queries/personen.sparql voor het persoonequivalent.
 
 PREFIX schema: <https://schema.org/>

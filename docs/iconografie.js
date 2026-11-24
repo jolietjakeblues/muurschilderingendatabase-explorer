@@ -1,5 +1,6 @@
 // Iconografie-browser: elk item in data/site/onderwerpen.json is een
-// Wikidata-onderwerp (schema:about op een schema:Painting) met het aantal
+// onderwerp (schema:about op een schema:Painting; vrijwel altijd een
+// Wikidata-entiteit, een enkele keer een CHT-term) met het aantal
 // gekoppelde schilderingen. Klikken toont de schilderingen zelf uit
 // data/site/muurschilderingen.json, met link terug naar de kaart.
 
@@ -19,6 +20,16 @@ function escapeHtml(str) {
   const div = document.createElement("div");
   div.textContent = str ?? "";
   return div.innerHTML;
+}
+
+// Link naar een item in de Linked Data Voorziening van de RCE (dataset
+// Muurschilderingen): de browser toont alle triples van die resource.
+function ldvUrl(uri) {
+  return `https://linkeddata.cultureelerfgoed.nl/rce/Muurschilderingen/browser?resource=${encodeURIComponent(uri)}`;
+}
+
+function escapeAttr(str) {
+  return escapeHtml(str ?? "").replace(/"/g, "&quot;");
 }
 
 function placeholderThumb(label) {
@@ -47,7 +58,7 @@ function renderGrid(filterText) {
     card.className = "icono-card";
     const thumb = document.createElement("div");
     thumb.className = "thumb";
-    thumb.style.backgroundImage = `url(${o.afbeelding || placeholderThumb(o.label)})`;
+    thumb.style.backgroundImage = `url("${(o.afbeelding || placeholderThumb(o.label)).replace(/"/g, "%22")}")`;
     const info = document.createElement("div");
     info.className = "info";
     info.innerHTML = `<div class="label">${escapeHtml(o.label || o.uri.split("/").pop())}</div><div class="count">${o.schildering_ids.length} schildering${o.schildering_ids.length === 1 ? "" : "en"}</div>`;
@@ -66,7 +77,7 @@ function showSubject(o) {
     <h2 style="margin:0 0 0.2rem;">${escapeHtml(o.label || o.uri.split("/").pop())}</h2>
     <div style="font-size:0.82rem;color:var(--ink-soft);">
       ${paintings.length} schildering${paintings.length === 1 ? "" : "en"} ·
-      <a href="${o.uri}" target="_blank" rel="noopener">Wikidata</a>
+      <a href="${escapeAttr(o.uri)}" target="_blank" rel="noopener">${o.uri.includes("wikidata.org") ? "Wikidata" : o.uri.includes("data.cultureelerfgoed.nl") ? "RCE-thesaurus" : "bron"}</a>
     </div>
     <div class="gallery"></div>
   `;
@@ -77,8 +88,8 @@ function showSubject(o) {
     const fig = document.createElement("figure");
     const gebouwLink = gebouw ? `<a href="index.html?gebouw=${encodeURIComponent(gebouw.id)}">${escapeHtml(gebouw.naam || gebouw.plaats || "")}</a>` : "";
     fig.innerHTML = `
-      ${img ? `<img class="zoomable" src="${img}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
-      <figcaption>${escapeHtml(s.titel || "")}${gebouwLink ? " — " + gebouwLink : ""}</figcaption>
+      ${img ? `<img class="zoomable" src="${escapeAttr(img)}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
+      <figcaption>${escapeHtml(s.titel || "")}${gebouwLink ? " — " + gebouwLink : ""}${s.bron_item_url ? ` · <a href="${escapeAttr(ldvUrl(s.bron_item_url))}" target="_blank" rel="noopener">linked data</a>` : ""}</figcaption>
     `;
     if (img) {
       fig.querySelector("img").addEventListener("click", () => {
