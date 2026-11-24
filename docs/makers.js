@@ -21,6 +21,16 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+// Link naar een item in de Linked Data Voorziening van de RCE (dataset
+// Muurschilderingen): de browser toont alle triples van die resource.
+function ldvUrl(uri) {
+  return `https://linkeddata.cultureelerfgoed.nl/rce/Muurschilderingen/browser?resource=${encodeURIComponent(uri)}`;
+}
+
+function escapeAttr(str) {
+  return escapeHtml(str ?? "").replace(/"/g, "&quot;");
+}
+
 function placeholderThumb(label, type) {
   const initial = (label || "?").trim().charAt(0).toUpperCase();
   const bg = type === "organisatie" ? "#c9b79c" : "#ddd5c7";
@@ -88,13 +98,14 @@ function showMaker(m) {
   const span = lifeSpan(m);
   const links = (m.same_as || []).map((uri) => {
     const label = uri.includes("wikidata.org") ? "Wikidata" : uri.includes("rkd.nl") ? "RKD" : "bron";
-    return `<a href="${uri}" target="_blank" rel="noopener">${label}</a>`;
+    return `<a href="${escapeAttr(uri)}" target="_blank" rel="noopener">${label}</a>`;
   });
   detail.innerHTML = `
     <h2 style="margin:0 0 0.2rem;">${escapeHtml(m.naam || "(onbekend)")}</h2>
     <div style="font-size:0.82rem;color:var(--ink-soft);">
       ${span ? span + " · " : ""}${paintings.length} schildering${paintings.length === 1 ? "" : "en"}${m.type === "organisatie" ? " · organisatie" : ""}
       ${links.length ? " · " + links.join(" · ") : ""}
+      · <a href="${escapeAttr(ldvUrl("https://muurschilderingendatabase.nl/api/items/" + m.id))}" target="_blank" rel="noopener">linked data</a>
     </div>
     ${m.beschrijving ? `<p style="font-size:0.85rem;max-width:70ch;">${escapeHtml(m.beschrijving)}</p>` : ""}
     <div class="gallery"></div>
@@ -106,8 +117,8 @@ function showMaker(m) {
     const fig = document.createElement("figure");
     const gebouwLink = gebouw ? `<a href="index.html?gebouw=${encodeURIComponent(gebouw.id)}">${escapeHtml(gebouw.naam || gebouw.plaats || "")}</a>` : "";
     fig.innerHTML = `
-      ${img ? `<img class="zoomable" src="${img}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
-      <figcaption>${escapeHtml(s.titel || "")}${gebouwLink ? " — " + gebouwLink : ""}</figcaption>
+      ${img ? `<img class="zoomable" src="${escapeAttr(img)}" loading="lazy" alt="" />` : noPhotoPlaceholder()}
+      <figcaption>${escapeHtml(s.titel || "")}${gebouwLink ? " — " + gebouwLink : ""}${s.bron_item_url ? ` · <a href="${escapeAttr(ldvUrl(s.bron_item_url))}" target="_blank" rel="noopener">linked data</a>` : ""}</figcaption>
     `;
     if (img) {
       fig.querySelector("img").addEventListener("click", () => {

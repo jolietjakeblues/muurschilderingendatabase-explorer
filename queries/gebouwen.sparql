@@ -4,9 +4,23 @@
 # bouw-/restauratiegeschiedenis en puntgeometrie (via de Omeka
 # mapping-module, geen GeoSPARQL in deze dataset).
 #
-# geography-coordinates is twee keer aanwezig per Feature zonder
-# lat/lon-onderscheid in het predicate zelf -- scripts/fetch.py herkent
-# lat vs lon aan de waardegrens (NL: lat 50-54, lon 3-7.5).
+# Naam: o:title is de titel die Omeka zelf als weergavenaam gebruikt en heeft
+# precies één waarde. dcterms:title kan er meerdere hebben (bv. een
+# Nederlandse en een Friese naam); die komen als ?andereNaam mee, zodat ze
+# doorzoekbaar blijven. Hetzelfde voor de woonplaats: de waarde zonder taal
+# (of nl) is de hoofdwaarde, anderstalige varianten komen als
+# ?woonplaatsAnders mee.
+#
+# Geometrie: een gebouw kan meerdere markers (m:feature) hebben, elk met twee
+# geography-coordinates zonder lat/lon-onderscheid in het predicate zelf.
+# ?feat houdt de twee waarden van één marker bij elkaar; scripts/fetch.py
+# herkent lat vs lon aan de waardegrens (NL: lat 50-54, lon 3-7.5) en kiest
+# per gebouw de marker met het meest specifieke label (pick_marker).
+#
+# ceo:rijksmonumentnummer is in de bron een enkele keer vervuild ("RM35671",
+# een regeleinde erachter); scripts/fetch.py brengt het terug tot de cijfers
+# (clean_rm), omdat het de koppelsleutel is naar de datasets cho en
+# Afbeeldingen.
 
 PREFIX gtm: <https://www.goudatijdmachine.nl/def#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
@@ -15,15 +29,18 @@ PREFIX o: <http://omeka.org/s/vocabs/o#>
 PREFIX m: <http://omeka.org/s/vocabs/module/mapping#>
 PREFIX schema: <https://schema.org/>
 
-SELECT ?s ?titel ?identifier ?rijksmonumentnummer ?woonplaats ?huidigeFunctie
-       ?bouwgeschiedenis ?restauratiegeschiedenis ?sameAs ?coord
+SELECT ?s ?titel ?andereNaam ?identifier ?rijksmonumentnummer ?woonplaats
+       ?woonplaatsAnders ?huidigeFunctie ?bouwgeschiedenis
+       ?restauratiegeschiedenis ?sameAs ?feat ?featLabel ?coord
 WHERE {
   GRAPH ?g {
     ?s a gtm:Gebouw .
-    OPTIONAL { ?s dcterms:title ?titel }
+    OPTIONAL { ?s o:title ?titel }
+    OPTIONAL { ?s dcterms:title ?andereNaam }
     OPTIONAL { ?s dcterms:identifier ?identifier }
     OPTIONAL { ?s ceo:rijksmonumentnummer ?rijksmonumentnummer }
-    OPTIONAL { ?s ceo:woonplaatsnaam ?woonplaats }
+    OPTIONAL { ?s ceo:woonplaatsnaam ?woonplaats . FILTER(lang(?woonplaats) = "" || lang(?woonplaats) = "nl") }
+    OPTIONAL { ?s ceo:woonplaatsnaam ?woonplaatsAnders . FILTER(lang(?woonplaatsAnders) != "" && lang(?woonplaatsAnders) != "nl") }
     OPTIONAL { ?s ceo:heeftHuidigeFunctie ?huidigeFunctie }
     OPTIONAL { ?s <https://omeka.phpetra.nl/ns/mural#bouwgeschiedenis> ?bouwgeschiedenis }
     OPTIONAL { ?s <https://omeka.phpetra.nl/ns/mural#restauratiegeschiedenis> ?restauratiegeschiedenis }
@@ -31,6 +48,7 @@ WHERE {
     OPTIONAL {
       ?s m:feature ?feat .
       ?feat m:geography-coordinates ?coord .
+      OPTIONAL { ?feat o:label ?featLabel }
     }
   }
 }

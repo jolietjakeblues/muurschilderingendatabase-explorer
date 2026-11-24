@@ -1,4 +1,4 @@
-// Kleine gedeelde lightbox voor kaart- en iconografiepagina: klik op een
+// Kleine gedeelde lightbox voor de kaart-, iconografie- en makerspagina: klik op een
 // schilderingthumbnail voor de grote/originele foto op zwarte achtergrond.
 // Geen IIIF beschikbaar bij de bron (geverifieerd -- geen /iiif/-endpoints,
 // geen o-module-iiifserver-velden in de item-/media-API), dus dit is het
