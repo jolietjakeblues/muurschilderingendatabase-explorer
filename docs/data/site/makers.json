@@ -178,6 +178,7 @@
       "https://rkd.nl/artists/26953"
     ],
     "schildering_ids": [
+      "16569",
       "10802",
       "10806",
       "10789",
@@ -202,6 +203,7 @@
       "10784",
       "13813",
       "14917",
+      "16571",
       "14942",
       "10783",
       "14295",
@@ -357,37 +359,6 @@
     ]
   },
   {
-    "id": "10616",
-    "naam": "Mengelberg, Atelier",
-    "type": "organisatie",
-    "beschrijving": null,
-    "geboorte": null,
-    "sterfte": null,
-    "same_as": [],
-    "schildering_ids": [
-      "11367",
-      "11368",
-      "11370",
-      "11372",
-      "11374",
-      "11376",
-      "11378",
-      "11380",
-      "11382",
-      "11384",
-      "11386",
-      "11388",
-      "11390",
-      "11392",
-      "11394",
-      "10897",
-      "10895",
-      "10894",
-      "10896",
-      "14795"
-    ]
-  },
-  {
     "id": "10580",
     "naam": "Kees Dunselman",
     "type": "persoon",
@@ -418,6 +389,36 @@
       "10757",
       "10758",
       "14915"
+    ]
+  },
+  {
+    "id": "10616",
+    "naam": "Mengelberg, Atelier",
+    "type": "organisatie",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "11367",
+      "11368",
+      "11370",
+      "11372",
+      "11374",
+      "11376",
+      "11378",
+      "11380",
+      "11382",
+      "11384",
+      "11386",
+      "11388",
+      "11390",
+      "11392",
+      "11394",
+      "10897",
+      "10895",
+      "10896",
+      "14795"
     ]
   },
   {
@@ -1198,6 +1199,28 @@
     ]
   },
   {
+    "id": "10631",
+    "naam": "Lode Sengers",
+    "type": "persoon",
+    "beschrijving": "Nederlands (wand)schilder, graficus en monumentaal vormgever. Academie voor Beeldende Kunsten Rotterdam",
+    "geboorte": "1896-09-05",
+    "sterfte": "1956-03-02",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q46998223",
+      "https://rkd.nl/artists/71959"
+    ],
+    "schildering_ids": [
+      "12149",
+      "10988",
+      "10989",
+      "10990",
+      "10991",
+      "10992",
+      "10993",
+      "16587"
+    ]
+  },
+  {
     "id": "11717",
     "naam": "Dirk Nijland",
     "type": "persoon",
@@ -1259,27 +1282,6 @@
       "10973",
       "10975",
       "10974"
-    ]
-  },
-  {
-    "id": "10631",
-    "naam": "Lode Sengers",
-    "type": "persoon",
-    "beschrijving": "Nederlands (wand)schilder, graficus en monumentaal vormgever. Academie voor Beeldende Kunsten Rotterdam",
-    "geboorte": "1896-09-05",
-    "sterfte": "1956-03-02",
-    "same_as": [
-      "http://www.wikidata.org/entity/Q46998223",
-      "https://rkd.nl/artists/71959"
-    ],
-    "schildering_ids": [
-      "12149",
-      "10988",
-      "10989",
-      "10990",
-      "10991",
-      "10992",
-      "10993"
     ]
   },
   {
@@ -1737,6 +1739,24 @@
     ]
   },
   {
+    "id": "10622",
+    "naam": "Toon Ninaber van Eyben",
+    "type": "persoon",
+    "beschrijving": "Nederlands glazenier. Koninklijke academie van beeldende kunsten (Den Haag)",
+    "geboorte": "1896-12-21",
+    "sterfte": "1977-04-19",
+    "same_as": [
+      "http://www.wikidata.org/entity/Q22261664",
+      "https://rkd.nl/artists/59679"
+    ],
+    "schildering_ids": [
+      "10943",
+      "10945",
+      "10944",
+      "16587"
+    ]
+  },
+  {
     "id": "11700",
     "naam": "Gerard Hoet",
     "type": "persoon",
@@ -1838,23 +1858,6 @@
       "10811",
       "10812",
       "10813"
-    ]
-  },
-  {
-    "id": "10622",
-    "naam": "Toon Ninaber van Eyben",
-    "type": "persoon",
-    "beschrijving": "Nederlands glazenier. Koninklijke academie van beeldende kunsten (Den Haag)",
-    "geboorte": "1896-12-21",
-    "sterfte": "1977-04-19",
-    "same_as": [
-      "http://www.wikidata.org/entity/Q22261664",
-      "https://rkd.nl/artists/59679"
-    ],
-    "schildering_ids": [
-      "10943",
-      "10945",
-      "10944"
     ]
   },
   {
@@ -2390,6 +2393,21 @@
     "schildering_ids": [
       "16042",
       "16123"
+    ]
+  },
+  {
+    "id": "16496",
+    "naam": "Daniël Marot",
+    "type": "persoon",
+    "beschrijving": "graveur (prentkunstenaar), hofarchitect, architect, keramisch ontwerper, etser, tekenaar",
+    "geboorte": "1661",
+    "sterfte": "1752",
+    "same_as": [
+      "https://rkd.nl/artists/52771"
+    ],
+    "schildering_ids": [
+      "12225",
+      "16495"
     ]
   },
   {
@@ -3271,6 +3289,20 @@
     ]
   },
   {
+    "id": "15229",
+    "naam": "Evert Margry",
+    "type": "persoon",
+    "beschrijving": "architect",
+    "geboorte": "1841",
+    "sterfte": "1891",
+    "same_as": [
+      "https://rkd.nl/artists/272724"
+    ],
+    "schildering_ids": [
+      "16599"
+    ]
+  },
+  {
     "id": "15826",
     "naam": "Cuno van den Steene",
     "type": "persoon",
@@ -3325,6 +3357,34 @@
     ],
     "schildering_ids": [
       "16393"
+    ]
+  },
+  {
+    "id": "16596",
+    "naam": "Otto Mengelberg",
+    "type": "persoon",
+    "beschrijving": "beeldhouwer, glasschilder",
+    "geboorte": "1867",
+    "sterfte": "1924",
+    "same_as": [
+      "https://rkd.nl/artists/55223"
+    ],
+    "schildering_ids": [
+      "16594"
+    ]
+  },
+  {
+    "id": "16616",
+    "naam": "Adriaan van der Weijden",
+    "type": "persoon",
+    "beschrijving": "pastellist, wandschilder, houtgraveur, aquarellist, mozaïekwerker, vervaardiger van gouaches, graficus, schilder, tekenaar, monumentaal kunstenaar",
+    "geboorte": "1910",
+    "sterfte": "1971",
+    "same_as": [
+      "https://rkd.nl/artists/83372"
+    ],
+    "schildering_ids": [
+      "16615"
     ]
   },
   {
@@ -3745,6 +3805,18 @@
     ]
   },
   {
+    "id": "16625",
+    "naam": "A. Hazenberg",
+    "type": "persoon",
+    "beschrijving": "matroos, schilder",
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "16623"
+    ]
+  },
+  {
     "id": "13764",
     "naam": "G. Tielens",
     "type": "persoon",
@@ -4006,6 +4078,18 @@
     "same_as": [],
     "schildering_ids": [
       "16405"
+    ]
+  },
+  {
+    "id": "16584",
+    "naam": "A. Federlee",
+    "type": "persoon",
+    "beschrijving": null,
+    "geboorte": null,
+    "sterfte": null,
+    "same_as": [],
+    "schildering_ids": [
+      "16581"
     ]
   },
   {

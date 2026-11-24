@@ -1848,6 +1848,14 @@
     "sameAs": "https://rkd.nl/artists/2739"
   },
   {
+    "s": "https://muurschilderingendatabase.nl/api/items/15229",
+    "titel": "Evert Margry",
+    "beschrijving": "architect",
+    "geboorte": "1841",
+    "sterfte": "1891",
+    "sameAs": "https://rkd.nl/artists/272724"
+  },
+  {
     "s": "https://muurschilderingendatabase.nl/api/items/15826",
     "titel": "Cuno van den Steene",
     "beschrijving": "theatervormgever, lithograaf, wandschilder, penschilder, kunstnijveraar, illustrator, linosnijder, grafisch ontwerper, houtsnijder (prentkunstenaar), vervaardiger van gouaches, graficus, keramist, etser, schilder, tekenaar, monumentaal kunstenaar, textielkunstenaar",
@@ -1902,6 +1910,30 @@
     "geboorte": "1944",
     "sterfte": "2012",
     "sameAs": "https://rkd.nl/artists/60645"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16496",
+    "titel": "Daniël Marot",
+    "beschrijving": "graveur (prentkunstenaar), hofarchitect, architect, keramisch ontwerper, etser, tekenaar",
+    "geboorte": "1661",
+    "sterfte": "1752",
+    "sameAs": "https://rkd.nl/artists/52771"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16596",
+    "titel": "Otto Mengelberg",
+    "beschrijving": "beeldhouwer, glasschilder",
+    "geboorte": "1867",
+    "sterfte": "1924",
+    "sameAs": "https://rkd.nl/artists/55223"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16616",
+    "titel": "Adriaan van der Weijden",
+    "beschrijving": "pastellist, wandschilder, houtgraveur, aquarellist, mozaïekwerker, vervaardiger van gouaches, graficus, schilder, tekenaar, monumentaal kunstenaar",
+    "geboorte": "1910",
+    "sterfte": "1971",
+    "sameAs": "https://rkd.nl/artists/83372"
   },
   {
     "s": "https://muurschilderingendatabase.nl/api/items/10574",
@@ -1966,14 +1998,6 @@
     "geboorte": "1921",
     "sterfte": "1979",
     "sameAs": "https://rkd.nl/artists/29192"
-  },
-  {
-    "s": "https://muurschilderingendatabase.nl/api/items/15229",
-    "titel": "Evert Margry",
-    "beschrijving": "architect",
-    "geboorte": "1841",
-    "sterfte": "1891",
-    "sameAs": "https://rkd.nl/artists/272724"
   },
   {
     "s": "https://muurschilderingendatabase.nl/api/items/11718",
@@ -2534,6 +2558,11 @@
     "beschrijving": "restaurator"
   },
   {
+    "s": "https://muurschilderingendatabase.nl/api/items/16625",
+    "titel": "A. Hazenberg",
+    "beschrijving": "matroos, schilder"
+  },
+  {
     "s": "https://muurschilderingendatabase.nl/api/items/10611",
     "titel": "Maas",
     "beschrijving": "[ Zonder voorletters niet te vinden bij RKD"
@@ -2668,6 +2697,14 @@
   {
     "s": "https://muurschilderingendatabase.nl/api/items/16406",
     "titel": "H.J. van den Brink"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16584",
+    "titel": "A. Federlee"
+  },
+  {
+    "s": "https://muurschilderingendatabase.nl/api/items/16601",
+    "titel": "Rob Bremer"
   },
   {
     "s": "https://muurschilderingendatabase.nl/api/items/14164",
