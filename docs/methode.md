@@ -77,15 +77,58 @@ De site laadt alleen `docs/data/site/*.json` + `gebouwen.geojson`.
   hebben sowieso geen adres om te geocoderen. Zie de knop "gebouwen zonder
   coördinaten" direct onder de statistiekregel in de kaartweergave.
 
+## Proefkoppeling op rijksmonumentnummer
+
+Een proef om te laten zien wat koppelen met andere RCE-datasets oplevert. De
+sleutel is het rijksmonumentnummer van het gebouw (opgeschoond tot alleen
+cijfers, `clean_rm()`); gebouwen zonder dat nummer doen niet mee. Het resultaat
+staat per gebouw in `properties.rce` van `gebouwen.geojson`.
+
+- **Oorspronkelijke functie** uit de CHO-dataset
+  (`ceo:heeftOorspronkelijkeFunctie`, alleen kennis met
+  `ceo:formeelStandpunt true`), met de hoofdcategorie uit de functiethesaurus:
+  de term direct onder "bebouwde omgeving", zoals "Religieuze gebouwen" of
+  "Boerderijen, molens en bedrijven". Daarop filtert de keuzelijst
+  "Oorspronkelijke functie (RCE)" in de kaartweergave. Zie
+  `fetch_cho_functies()`.
+- **Beeldbankfoto's** uit de dataset Afbeeldingen
+  (`.../datasets/rce/afbeeldingen/sparql`, graph `photos`). Een foto verwijst
+  met `sdo:about` naar een monumentknoop binnen die dataset
+  (`sdo:LandmarksOrHistoricalBuildings`), en die knoop draagt het
+  rijksmonumentnummer als `sdo:identifier` (`sdo:PropertyValue` met
+  `propertyID` "rijksmonumentnummer"). Per gebouw het totaal, het aantal
+  waarvan de titel op een schildering wijst (trefwoorden "schildering",
+  "fresco", "beschilder") en zes miniaturen, met die foto's vooraan. Zie
+  `fetch_beeldbank()`.
+
+Stand bij de build van 24 november 2026: 559 van de 576 rijksmonumentnummers
+zijn in CHO gevonden, allemaal met een oorspronkelijke functie; 536 van de 576
+nummers hebben foto's in de Beeldbank (59.524 foto's, waarvan 8.877
+met een schildering in de titel). De 17 nummers die in CHO niet gevonden zijn,
+zijn vooral recente aanwijzingen (53xxxx). De foto's hangen aan het gebouw, niet aan een
+afzonderlijke schildering: daarvoor bestaat geen sleutel.
+
 ## Bekende beperkingen
 
 - Sommige `schema:artMedium`/`artworkSurface`-waarden zijn losse tekst i.p.v.
   een thesaurus-URI in de brondata (bv. `"waskrijt?"`) — die komen ongewijzigd
   door.
-- Een deel van de Wikidata-`schema:about`-waarden in de brondata is zelf al
-  een vrije tekst met een ingebedde wikidata-link (bv.
-  `"duiven (https://www.wikidata.org/wiki/Q2984138)")`) in plaats van een
-  schone URI-referentie; die worden getoond zoals ze zijn, niet herschreven.
+- `schema:about` staat in de brondata in drie vormen: de entity-URI
+  (`http://www.wikidata.org/entity/Q…`), de pagina-URL
+  (`https://www.wikidata.org/wiki/Q…`) en vrije tekst met zo'n URL erin (bv.
+  `"duiven (https://www.wikidata.org/wiki/Q2984138)"`). Het bouwscript
+  herleidt alle drie tot de entity-URI (`normalize_about()`), zodat ze een
+  label krijgen en één onderwerp niet over meerdere indexregels verdeeld
+  raakt. Waarden zonder Wikidata-verwijzing (een CHT-term, een beeldbanklink)
+  blijven ongewijzigd.
+- Schilderingen waarvan `schema:location` naar een item wijst dat geen
+  `gtm:Gebouw` is, of die helemaal geen locatie hebben, staan niet op de
+  kaart. Ze zijn wel te openen via de knop "niet op de kaart" in de
+  kaartweergave (`reden: geen_gebouwrecord` in `gebouwen_zonder_locatie.json`,
+  respectievelijk de verzamelregel "Schilderingen zonder gekoppeld gebouw").
+- De build breekt af, zonder iets weg te schrijven, als PDOK na vier pogingen
+  onbereikbaar blijft of als een kerngetal meer dan 10% onder de vorige build
+  zakt (`check_tegen_vorige_build()`; bewust overslaan met `ALLOW_SHRINK=1`).
 - Van de ~948 iconografische Wikidata-onderwerpen leverde Wikidata voor een
   deel geen `nl`- of `en`-label op (verwijderde/samengevoegde items); die tonen
   het Q-nummer.

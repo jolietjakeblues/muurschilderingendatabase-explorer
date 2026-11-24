@@ -553,3 +553,20 @@ footer.credits a { color: inherit; }
   #icono-wrap { padding: 1rem 0.9rem 2.5rem; }
   #icono-filters { flex-direction: column; align-items: stretch; }
 }
+
+/* Proefkoppeling met rijksmonumentenregister en Beeldbank (detailpaneel) */
+#filters .row #f-categorie { width: 100%; }
+.rce-blok {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent-ink);
+  border-radius: 6px;
+  padding: 0.55rem 0.7rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.82rem;
+}
+.rce-kop { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); margin-bottom: 0.3rem; }
+.rce-regel { margin-bottom: 0.25rem; }
+.rce-cat { color: var(--ink-soft); }
+.rce-fotos { display: flex; gap: 0.35rem; overflow-x: auto; margin: 0.35rem 0; }
+.rce-fotos img { height: 72px; width: 96px; object-fit: cover; border-radius: 4px; display: block; }
+.rce-bron { font-size: 0.7rem; color: var(--ink-soft); }

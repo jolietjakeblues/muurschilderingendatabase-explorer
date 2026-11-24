@@ -31,8 +31,10 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 import sys
+import time
 import urllib.parse
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -42,6 +44,7 @@ import requests
 
 MUUR_ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/Muurschilderingen/sparql"
 CHO_ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql"
+AFBEELDINGEN_ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/afbeeldingen/sparql"
 WIKIDATA_ENDPOINT = "https://query.wikidata.org/sparql"
 OMEKA_MEDIA_API = "https://muurschilderingendatabase.nl/api/media"
 PDOK_LOCATIESERVER = "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free"
@@ -69,8 +72,8 @@ def run_sparql(endpoint: str, query: str) -> list[dict]:
 def fetch_muur_rows(name: str) -> list[dict]:
     query = (QUERIES_DIR / f"{name}.sparql").read_text(encoding="utf-8")
     rows = run_sparql(MUUR_ENDPOINT, query)
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-    (RAW_DIR / f"{name}.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
+    # Wegschrijven naar data/raw/ gebeurt pas aan het eind van main(), na de
+    # krimpcontrole -- een mislukte build laat zo ook de ruwe extracts intact.
     print(f"{name}: {len(rows)} rijen uit SPARQL")
     return rows
 
@@ -136,6 +139,43 @@ SELECT ?concept ?label WHERE {{
         labels.setdefault(row["concept"], row["label"])
     print(f"thesaurus-labels: {len(labels)}/{len(uris)} gevonden")
     return labels
+
+
+WIKIDATA_QID_RE = re.compile(r"https?://(?:www\.)?wikidata\.org/(?:wiki|entity)/(Q\d+)")
+
+
+def normalize_about(value: str) -> str:
+    """schema:about staat in de bron in drie vormen: de entity-URI
+    (http://www.wikidata.org/entity/Q1), de pagina-URL
+    (https://www.wikidata.org/wiki/Q1) en vrije tekst met zo'n URL erin
+    ("duiven (https://www.wikidata.org/wiki/Q2984138)"). Alle drie bedoelen
+    dezelfde entiteit; zonder normalisatie krijgen de laatste twee geen label
+    en wordt één onderwerp over meerdere indexregels verdeeld. Waarden zonder
+    Wikidata-verwijzing (bv. een CHT-term) blijven ongewijzigd."""
+    m = WIKIDATA_QID_RE.search(value)
+    return f"http://www.wikidata.org/entity/{m.group(1)}" if m else value
+
+
+def fetch_item_titles(uris: set[str]) -> dict[str, str]:
+    """dcterms:title voor willekeurige items uit de Muurschilderingen-dataset,
+    ongeacht hun klasse -- voor schema:location-doelen die geen gtm:Gebouw
+    zijn en dus niet in queries/gebouwen.sparql meekomen."""
+    uris = {u for u in uris if u.startswith("http://") or u.startswith("https://")}
+    if not uris:
+        return {}
+    values = " ".join(f"<{u}>" for u in sorted(uris))
+    query = f"""
+PREFIX dcterms: <http://purl.org/dc/terms/>
+SELECT ?s ?titel WHERE {{
+  GRAPH ?g {{
+    VALUES ?s {{ {values} }}
+    ?s dcterms:title ?titel .
+  }}
+}}"""
+    titles: dict[str, str] = {}
+    for row in run_sparql(MUUR_ENDPOINT, query):
+        titles.setdefault(row["s"], row["titel"])
+    return titles
 
 
 def fetch_wikidata_labels(uris: set[str]) -> dict[str, dict]:
@@ -278,10 +318,36 @@ def reliwiki_address(url: str) -> str | None:
     return rest.split(" - ")[0].strip()
 
 
+PDOK_POGINGEN = 4
+
+
+def pdok_docs(params: dict) -> list[dict]:
+    """Eén PDOK-zoekopdracht, met herhaalpogingen. Een storing mag niet
+    stilzwijgend als 'geen resultaat' tellen: dan vervalt de
+    plausibiliteitscheck (en belanden Ameide en Molenhoek weer in België) of
+    verdwijnt een gebouw van de kaart, zonder dat de build dat merkt. Na
+    PDOK_POGINGEN mislukte pogingen breekt de build daarom af. Alleen een
+    4xx op de zoekterm zelf (geen 429) geldt als 'geen resultaat'."""
+    laatste: Exception | None = None
+    for poging in range(PDOK_POGINGEN):
+        try:
+            resp = requests.get(PDOK_LOCATIESERVER, params=params, headers=HEADERS_UA, timeout=15)
+            if 400 <= resp.status_code < 500 and resp.status_code != 429:
+                print(f"  PDOK weigert zoekterm {params.get('q')!r} (HTTP {resp.status_code}), overgeslagen")
+                return []
+            resp.raise_for_status()
+            return resp.json()["response"]["docs"]
+        except (requests.RequestException, ValueError, KeyError) as exc:
+            laatste = exc
+            if poging < PDOK_POGINGEN - 1:
+                time.sleep(2 ** poging)
+    raise RuntimeError(
+        f"PDOK Locatieserver onbereikbaar na {PDOK_POGINGEN} pogingen (zoekterm {params.get('q')!r}): {laatste}"
+    )
+
+
 def geocode_pdok(query: str) -> tuple[float, float] | None:
-    resp = requests.get(PDOK_LOCATIESERVER, params={"q": query, "rows": 1}, headers=HEADERS_UA, timeout=15)
-    resp.raise_for_status()
-    docs = resp.json()["response"]["docs"]
+    docs = pdok_docs({"q": query, "rows": 1})
     if not docs:
         return None
     m = WKT_POINT_RE.search(docs[0]["centroide_ll"])
@@ -324,17 +390,7 @@ def fetch_plaats_candidates(plaatsen: set[str]) -> dict[str, list[tuple[float, f
     for plaats in plaatsen:
         if not plaats:
             continue
-        try:
-            resp = requests.get(
-                PDOK_LOCATIESERVER,
-                params={"q": plaats, "fq": "type:woonplaats", "rows": 10},
-                headers=HEADERS_UA,
-                timeout=15,
-            )
-            resp.raise_for_status()
-            docs = resp.json()["response"]["docs"]
-        except requests.RequestException:
-            continue
+        docs = pdok_docs({"q": plaats, "fq": "type:woonplaats", "rows": 10})
         candidates = []
         plaats_norm = plaats.strip().lower()
         for doc in docs:
@@ -362,10 +418,7 @@ def fetch_reliwiki_geocodes(candidates: list[tuple[str, str, str]]) -> dict[str,
         addr = reliwiki_address(reliwiki_url)
         if not addr:
             continue
-        try:
-            latlon = geocode_pdok(f"{addr}, {plaats or ''}".strip(", "))
-        except requests.RequestException:
-            continue
+        latlon = geocode_pdok(f"{addr}, {plaats or ''}".strip(", "))
         if latlon:
             result[gebouw_uri] = latlon
     print(f"reliwiki-adressen gegeocodeerd via PDOK: {len(result)}/{len(candidates)}")
@@ -387,6 +440,186 @@ def item_id_from_uri(uri: str | None) -> str | None:
 
 
 # --------------------------------------------------------------------------
+# Proefkoppeling met andere RCE-datasets, op rijksmonumentnummer.
+# --------------------------------------------------------------------------
+
+def clean_rm(value: str | None) -> str | None:
+    """De bron bevat een paar vervuilde nummers ("RM35671", "517621\n").
+    Het rijksmonumentnummer is de koppelsleutel naar CHO en de Beeldbank,
+    dus hier teruggebracht tot alleen de cijfers."""
+    if not value:
+        return None
+    m = re.search(r"\d+", value)
+    return m.group(0) if m else None
+
+
+INSTANTIES_GRAPH = "https://linkeddata.cultureelerfgoed.nl/graph/instanties-rce"
+PHOTOS_GRAPH = "https://linkeddata.cultureelerfgoed.nl/rce/afbeeldingen/graphs/photos"
+BEELDBANK_BATCH = 25
+FUNCTIE_WORTEL = "bebouwde omgeving"
+KOPPEL_BATCH = 100
+BEELDBANK_MAX_PER_GEBOUW = 6
+SCHILDERING_RE = re.compile(r"schildering|fresco|beschilder", re.IGNORECASE)
+
+
+def fetch_cho_functies(rm_numbers: set[str]) -> dict[str, dict]:
+    """Oorspronkelijke functie per rijksmonument uit de CHO-dataset, met de
+    hoofdcategorie uit de functiethesaurus (de term direct onder
+    'bebouwde omgeving', bv. 'Religieuze gebouwen' of 'Boerderijen, molens
+    en bedrijven'). Alleen kennis met ceo:formeelStandpunt true.
+
+    De functie-koppeling staat in de graph instanties-rce; de labels en de
+    broader-keten staan in de thesaurusgraphs, dus buiten die
+    GRAPH-restrictie."""
+    result: dict[str, dict] = {}
+    nummers = sorted(rm_numbers)
+    for i in range(0, len(nummers), KOPPEL_BATCH):
+        values = " ".join(f'"{n}"' for n in nummers[i : i + KOPPEL_BATCH])
+        query = f"""
+PREFIX ceo: <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+SELECT DISTINCT ?rm ?cho ?hoofd ?c ?l0 ?l1 ?l2 ?l3 ?l4 WHERE {{
+  GRAPH <{INSTANTIES_GRAPH}> {{
+    VALUES ?rm {{ {values} }}
+    ?cho a ceo:Rijksmonument ; ceo:rijksmonumentnummer ?rm .
+    OPTIONAL {{
+      ?cho ceo:heeftOorspronkelijkeFunctie ?k .
+      ?k ceo:formeelStandpunt true ; ceo:heeftFunctieNaam ?c .
+      OPTIONAL {{ ?k ceo:hoofdfunctie ?hoofd }}
+    }}
+  }}
+  OPTIONAL {{ ?c skos:prefLabel ?l0 . FILTER(lang(?l0) = "nl") }}
+  OPTIONAL {{
+    ?c skos:broader ?b1 . ?b1 skos:prefLabel ?l1 . FILTER(lang(?l1) = "nl")
+    OPTIONAL {{
+      ?b1 skos:broader ?b2 . ?b2 skos:prefLabel ?l2 . FILTER(lang(?l2) = "nl")
+      OPTIONAL {{
+        ?b2 skos:broader ?b3 . ?b3 skos:prefLabel ?l3 . FILTER(lang(?l3) = "nl")
+        OPTIONAL {{ ?b3 skos:broader ?b4 . ?b4 skos:prefLabel ?l4 . FILTER(lang(?l4) = "nl") }}
+      }}
+    }}
+  }}
+}}"""
+        for row in run_sparql(CHO_ENDPOINT, query):
+            entry = result.setdefault(row["rm"], {"cho_uri": row["cho"], "_functies": {}})
+            if not row.get("l0"):
+                continue
+            keten = [row[k] for k in ("l0", "l1", "l2", "l3", "l4") if row.get(k)]
+            if FUNCTIE_WORTEL in keten:
+                idx = keten.index(FUNCTIE_WORTEL)
+                categorie = keten[idx - 1] if idx > 0 else None
+            else:
+                categorie = keten[-1]
+            functie = entry["_functies"].setdefault(row["l0"], {"hoofd": False, "categorie": None})
+            functie["hoofd"] = functie["hoofd"] or row.get("hoofd") == "true"
+            functie["categorie"] = functie["categorie"] or categorie
+    for entry in result.values():
+        functies = sorted(entry.pop("_functies").items(), key=lambda kv: (not kv[1]["hoofd"], kv[0]))
+        entry["functies"] = [naam for naam, _ in functies]
+        categorieen: list[str] = []
+        for _, f in functies:
+            if f["categorie"] and f["categorie"] not in categorieen:
+                categorieen.append(f["categorie"])
+        entry["categorieen"] = categorieen
+    print(f"CHO-koppeling: {len(result)}/{len(nummers)} rijksmonumentnummers gevonden, "
+          f"{sum(1 for e in result.values() if e['functies'])} met oorspronkelijke functie")
+    return result
+
+
+def fetch_beeldbank(rm_numbers: set[str]) -> dict[str, dict]:
+    """Beeldbankfoto's per rijksmonument uit de dataset Afbeeldingen.
+
+    Model (sinds november 2026): een foto verwijst met sdo:about naar een
+    monumentknoop binnen de dataset zelf (sdo:LandmarksOrHistoricalBuildings),
+    en die knoop draagt het rijksmonumentnummer als sdo:identifier
+    (sdo:PropertyValue, propertyID "rijksmonumentnummer"). Er is dus geen
+    verwijzing naar de CHO-URI meer nodig.
+
+    Per gebouw het totaal, het aantal waarvan de titel op een schildering
+    wijst, en een kleine selectie met die foto's vooraan."""
+    per_rm: dict[str, dict[str, dict]] = defaultdict(dict)
+    nummers = sorted(rm_numbers)
+    for i in range(0, len(nummers), BEELDBANK_BATCH):
+        values = " ".join(f'"{n}"' for n in nummers[i : i + BEELDBANK_BATCH])
+        query = f"""
+PREFIX sdo: <https://schema.org/>
+SELECT ?rm ?f ?titel ?thumb ?pagina ?licentie WHERE {{
+  GRAPH <{PHOTOS_GRAPH}> {{
+    VALUES ?rm {{ {values} }}
+    ?id sdo:propertyID "rijksmonumentnummer" ; sdo:value ?rm .
+    ?m sdo:identifier ?id .
+    ?f a sdo:Photograph ; sdo:about ?m ; sdo:image ?img .
+    ?img sdo:thumbnailUrl ?thumb .
+    OPTIONAL {{ ?f sdo:name ?titel }}
+    OPTIONAL {{ ?f sdo:url ?pagina }}
+    OPTIONAL {{ ?f sdo:license ?licentie }}
+  }}
+}}"""
+        for row in run_sparql(AFBEELDINGEN_ENDPOINT, query):
+            per_rm[row["rm"]].setdefault(
+                row["f"],
+                {
+                    "titel": row.get("titel"),
+                    "thumb": row["thumb"],
+                    "url": row.get("pagina"),
+                    "licentie": row.get("licentie"),
+                },
+            )
+    result: dict[str, dict] = {}
+    for rm, fotos in per_rm.items():
+        lijst = sorted(fotos.values(), key=lambda f: (not SCHILDERING_RE.search(f["titel"] or ""), f["titel"] or ""))
+        result[rm] = {
+            "aantal": len(lijst),
+            "aantal_schildering": sum(1 for f in lijst if SCHILDERING_RE.search(f["titel"] or "")),
+            "fotos": lijst[:BEELDBANK_MAX_PER_GEBOUW],
+        }
+    print(f"Beeldbank-koppeling: {len(result)}/{len(nummers)} rijksmonumenten met foto's, "
+          f"{sum(r['aantal'] for r in result.values())} foto's, "
+          f"{sum(r['aantal_schildering'] for r in result.values())} met een schildering in de titel")
+    return result
+
+
+KRIMPGRENS = 0.9
+KRIMP_SLEUTELS = [
+    "gebouwen_totaal",
+    "gebouwen_met_geometrie",
+    "schilderingen_totaal",
+    "schilderingen_met_afbeelding",
+    "iconografische_onderwerpen",
+    "onderwerpen_met_label",
+    "makers_gekoppeld",
+]
+
+
+def check_tegen_vorige_build(stats: dict) -> None:
+    """Breekt af als een kerngetal meer dan 10% onder de vorige build zakt.
+    De bron groeit alleen; een flinke daling betekent vrijwel zeker een
+    half antwoord van een van de endpoints (lege SPARQL-uitvoer, Wikidata
+    zonder labels, Omeka zonder media), en dat hoort niet over een goede
+    build heen geschreven te worden. Bewust overslaan kan met
+    ALLOW_SHRINK=1."""
+    vorige_pad = SITE_DIR / "metadata.json"
+    if not vorige_pad.exists():
+        return
+    try:
+        vorige = json.loads(vorige_pad.read_text(encoding="utf-8")).get("stats", {})
+    except (ValueError, OSError):
+        return
+    gekrompen = [
+        f"{k}: {vorige[k]} -> {stats[k]}"
+        for k in KRIMP_SLEUTELS
+        if isinstance(vorige.get(k), int) and vorige[k] > 0 and stats[k] < KRIMPGRENS * vorige[k]
+    ]
+    if not gekrompen:
+        return
+    melding = "build gekrompen t.o.v. de vorige: " + "; ".join(gekrompen)
+    if os.environ.get("ALLOW_SHRINK") == "1":
+        print(f"WAARSCHUWING ({melding}) -- ALLOW_SHRINK=1, toch doorgegaan")
+        return
+    raise SystemExit(f"AFGEBROKEN: {melding}. Niets weggeschreven. Zet ALLOW_SHRINK=1 om dit bewust te accepteren.")
+
+
+# --------------------------------------------------------------------------
 # Main build
 # --------------------------------------------------------------------------
 
@@ -402,6 +635,9 @@ def main() -> None:
         single_fields=["titel", "identifier", "rijksmonumentnummer", "woonplaats", "huidigeFunctie", "bouwgeschiedenis", "restauratiegeschiedenis"],
         multi_fields=["sameAs", "coord"],
     )
+    for g in gebouwen.values():
+        g["rijksmonumentnummer"] = clean_rm(g["rijksmonumentnummer"])
+
     # Bronfout: een handvol schema:temporal-waarden zijn per ongeluk een
     # item-URL i.p.v. vrije tekst (kennelijk een verkeerd ingevoerd veld in
     # de brondatabase). group_by_subject pakt de eerste niet-lege waarde per
@@ -418,6 +654,9 @@ def main() -> None:
         single_fields=["titel", "beschrijving", "identifier", "gebouw", "begin", "eind", "temporeel", "locatieomschrijving", "onderdeelVan", "spatial", "primaryMedia"],
         multi_fields=["genre", "about", "medium", "surface", "creator"],
     )
+
+    for p in paintings.values():
+        p["about"] = sorted({normalize_about(u) for u in p["about"]})
 
     personen = group_by_subject(
         persoon_rows, "s", single_fields=["titel", "beschrijving", "geboorte", "sterfte"], multi_fields=["sameAs"]
@@ -491,6 +730,10 @@ def main() -> None:
     ]
     reliwiki_geocodes = fetch_reliwiki_geocodes(reliwiki_candidates)
 
+    alle_rm = {g["rijksmonumentnummer"] for g in gebouwen.values() if g["rijksmonumentnummer"]}
+    cho_functies = fetch_cho_functies(alle_rm)
+    beeldbank = fetch_beeldbank(alle_rm)
+
     # -- gebouwen.geojson --
     features = []
     gebouw_id_by_uri: dict[str, str] = {}
@@ -515,6 +758,7 @@ def main() -> None:
                     "rijksmonumentnummer": g["rijksmonumentnummer"],
                     "bron_item_url": uri,
                     "aantal_schilderingen": sum(1 for p in paintings.values() if p["gebouw"] == uri),
+                    "reden": "geen_coordinaat",
                 }
             )
             continue
@@ -537,12 +781,50 @@ def main() -> None:
                     ),
                     "huidige_functie": g["huidigeFunctie"],
                     "geometrie_bron": geometrie_bron,
+                    # Proefkoppeling: kennis uit het rijksmonumentenregister
+                    # (formeel standpunt) en foto's uit de Beeldbank.
+                    "rce": (
+                        {
+                            "cho_uri": cho_functies.get(g["rijksmonumentnummer"], {}).get("cho_uri"),
+                            "functies": cho_functies.get(g["rijksmonumentnummer"], {}).get("functies", []),
+                            "categorieen": cho_functies.get(g["rijksmonumentnummer"], {}).get("categorieen", []),
+                            "beeldbank": beeldbank.get(g["rijksmonumentnummer"]),
+                        }
+                        if g["rijksmonumentnummer"] in cho_functies or g["rijksmonumentnummer"] in beeldbank
+                        else None
+                    ),
                     "same_as": g["sameAs"],
                     "afbeelding": media[0]["medium"] if media else None,
                 },
             }
         )
     gebouwen_fc = {"type": "FeatureCollection", "name": "muurschilderingen_gebouwen", "features": features}
+
+    # schema:location wijst bij een handvol schilderingen naar een item dat
+    # geen gtm:Gebouw is (een los o:Item, een PhysicalObject, of zelfs een
+    # andere schildering). Die komen niet uit queries/gebouwen.sparql en
+    # zouden anders nergens in de kaartweergave opduiken; hier krijgen ze een
+    # eigen regel in de niet-op-de-kaart-lijst, met dezelfde id als het
+    # gebouw_id dat hun schilderingen hieronder krijgen.
+    locatie_telling: dict[str, int] = defaultdict(int)
+    for p in paintings.values():
+        if p["gebouw"] and p["gebouw"] not in gebouwen and item_id_from_uri(p["gebouw"]):
+            locatie_telling[p["gebouw"]] += 1
+    locatie_titels = fetch_item_titles(set(locatie_telling))
+    for loc_uri, aantal in sorted(locatie_telling.items()):
+        zonder_locatie.append(
+            {
+                "id": item_id_from_uri(loc_uri),
+                "naam": locatie_titels.get(loc_uri),
+                "plaats": None,
+                "rijksmonumentnummer": None,
+                "bron_item_url": loc_uri,
+                "aantal_schilderingen": aantal,
+                "reden": "geen_gebouwrecord",
+            }
+        )
+    if locatie_telling:
+        print(f"locaties die geen gtm:Gebouw zijn: {len(locatie_telling)} ({sum(locatie_telling.values())} schilderingen)")
 
     # -- muurschilderingen.json --
     # Makers (personen + organisaties) samenvoegen tot één opzoektabel:
@@ -651,15 +933,32 @@ def main() -> None:
     stats = {
         "gebouwen_totaal": len(gebouwen),
         "gebouwen_met_geometrie": len(features),
-        "gebouwen_zonder_geometrie": len(zonder_locatie),
+        "gebouwen_zonder_geometrie": sum(1 for z in zonder_locatie if z["reden"] == "geen_coordinaat"),
+        "locaties_geen_gebouwrecord": len(locatie_telling),
+        "schilderingen_locatie_geen_gebouwrecord": sum(locatie_telling.values()),
+        "schilderingen_zonder_gebouw": sum(1 for s in schilderingen_out if not s["gebouw_id"]),
         "schilderingen_totaal": len(schilderingen_out),
         "schilderingen_met_afbeelding": sum(1 for s in schilderingen_out if s["afbeelding"]),
         "iconografische_onderwerpen": len(onderwerpen_out),
+        "onderwerpen_met_label": sum(1 for o in onderwerpen_out if o["label"]),
         "gebouwen_met_rijksmonumentnummer": sum(1 for g in gebouwen.values() if g["rijksmonumentnummer"]),
+        "gebouwen_met_cho_functie": sum(1 for f in features if (f["properties"]["rce"] or {}).get("functies")),
+        "gebouwen_met_beeldbankfoto": sum(1 for f in features if (f["properties"]["rce"] or {}).get("beeldbank")),
         "makers_gekoppeld": len(makers_out),
         "makers_met_geboortedatum": sum(1 for m in makers_out if m["geboorte"]),
         "schilderingen_met_maker": sum(1 for s in schilderingen_out if s["makers"]),
     }
+
+    check_tegen_vorige_build(stats)
+
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+    for name, rows in (
+        ("gebouwen", gebouw_rows),
+        ("paintings", painting_rows),
+        ("personen", persoon_rows),
+        ("organisaties", organisatie_rows),
+    ):
+        (RAW_DIR / f"{name}.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
 
     SITE_DIR.mkdir(parents=True, exist_ok=True)
     (SITE_DIR / "gebouwen.geojson").write_text(json.dumps(gebouwen_fc, ensure_ascii=False, indent=None, separators=(",", ":")), encoding="utf-8")

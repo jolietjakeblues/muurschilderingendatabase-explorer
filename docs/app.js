@@ -18,6 +18,10 @@ const ERAS = [
   { id: "post65", label: "1965–heden", start: 1966, end: 9999 },
 ];
 
+// Sleutel voor schilderingen zonder schema:location in de bron: ze hebben geen
+// gebouw_id, maar blijven zo wel bereikbaar via de niet-op-de-kaart-lijst.
+const GEEN_GEBOUW = "geen-gebouw";
+
 const state = {
   gebouwen: null, // GeoJSON FeatureCollection
   schilderingenByGebouw: new Map(),
@@ -42,11 +46,11 @@ async function loadData() {
     state.zonderLocatie = await zonderLocatieRes.json();
     const schilderingen = await schilderingenRes.json();
     for (const s of schilderingen) {
-      if (!s.gebouw_id) continue;
-      if (!state.schilderingenByGebouw.has(s.gebouw_id)) {
-        state.schilderingenByGebouw.set(s.gebouw_id, []);
+      const key = s.gebouw_id || GEEN_GEBOUW;
+      if (!state.schilderingenByGebouw.has(key)) {
+        state.schilderingenByGebouw.set(key, []);
       }
-      state.schilderingenByGebouw.get(s.gebouw_id).push(s);
+      state.schilderingenByGebouw.get(key).push(s);
     }
   } catch (err) {
     console.error("app.js: data laden mislukt", err);
@@ -141,9 +145,32 @@ function populateFunctieFilter() {
   }
 }
 
+// Proefkoppeling met het rijksmonumentenregister: hoofdcategorie van de
+// oorspronkelijke functie (formeel standpunt RCE), alleen gevuld voor
+// gebouwen met een rijksmonumentnummer.
+function populateCategorieFilter() {
+  const select = document.getElementById("f-categorie");
+  const counts = new Map();
+  for (const f of state.gebouwen.features) {
+    for (const c of f.properties.rce?.categorieen || []) counts.set(c, (counts.get(c) || 0) + 1);
+  }
+  if (!counts.size) {
+    select.parentElement.style.display = "none";
+    return;
+  }
+  for (const [c, n] of [...counts].sort((a, b) => b[1] - a[1])) {
+    const opt = document.createElement("option");
+    opt.value = c;
+    opt.textContent = `${c} (${n})`;
+    select.appendChild(opt);
+  }
+}
+
 function matchesFilters(feature) {
   const q = document.getElementById("q").value.trim().toLowerCase();
   const functie = document.getElementById("f-functie").value;
+  const categorie = document.getElementById("f-categorie").value;
+  if (categorie && !(feature.properties.rce?.categorieen || []).includes(categorie)) return false;
   const rm = document.getElementById("f-rm").value;
   const p = feature.properties;
   if (q) {
@@ -254,17 +281,93 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-function openDetail(gebouwId) {
-  state.activeId = gebouwId;
+// Gebouwen en locaties die niet op de kaart staan: de regels uit
+// gebouwen_zonder_locatie.json, plus één verzamelregel voor schilderingen
+// die in de bron aan geen enkel gebouw gekoppeld zijn.
+function nietOpKaartEntries() {
+  const entries = state.zonderLocatie.slice();
+  if (state.schilderingenByGebouw.has(GEEN_GEBOUW)) {
+    entries.push({ id: GEEN_GEBOUW, naam: "Schilderingen zonder gekoppeld gebouw", plaats: null });
+  }
+  return entries;
+}
+
+// Eigenschappen van een gebouw, of het nu op de kaart staat of niet.
+function findGebouw(gebouwId) {
   const feature = state.gebouwen.features.find((f) => f.properties.id === gebouwId);
-  if (!feature) return;
-  const p = feature.properties;
-  const paintings = (state.schilderingenByGebouw.get(gebouwId) || []).sort(
-    (a, b) => (parseInt(a.datering?.van) || 9999) - (parseInt(b.datering?.van) || 9999)
-  );
+  if (feature) return { p: feature.properties, opKaart: true };
+  const z = nietOpKaartEntries().find((g) => g.id === gebouwId);
+  if (!z) return null;
+  return {
+    opKaart: false,
+    p: {
+      naam: z.naam,
+      plaats: z.plaats,
+      bron_item_url: z.bron_item_url,
+      monumentenregister_url: z.rijksmonumentnummer
+        ? `https://monumentenregister.cultureelerfgoed.nl/monumenten/${z.rijksmonumentnummer}`
+        : null,
+    },
+  };
+}
+
+function escapeAttr(str) {
+  return escapeHtml(str ?? "").replace(/"/g, "&quot;");
+}
+
+// Blok in het detailpaneel met wat de proefkoppeling op rijksmonumentnummer
+// oplevert: oorspronkelijke functie uit het register en foto's uit de Beeldbank.
+function rceBlok(p) {
+  const rce = p.rce;
+  if (!rce) return "";
+  const delen = [];
+  if (rce.functies?.length) {
+    const cat = rce.categorieen?.length ? ` <span class="rce-cat">(${escapeHtml(rce.categorieen.join("; "))})</span>` : "";
+    delen.push(`<div class="rce-regel">Oorspronkelijke functie: <strong>${escapeHtml(rce.functies.join(", "))}</strong>${cat}</div>`);
+  }
+  const bb = rce.beeldbank;
+  if (bb?.fotos?.length) {
+    const thumbs = bb.fotos
+      .map((f) => {
+        const img = `<img src="${escapeAttr(f.thumb)}" loading="lazy" alt="${escapeAttr(f.titel || "")}" title="${escapeAttr(f.titel || "")}" />`;
+        return f.url ? `<a href="${escapeAttr(f.url)}" target="_blank" rel="noopener">${img}</a>` : img;
+      })
+      .join("");
+    const schildering = bb.aantal_schildering ? `, waarvan ${bb.aantal_schildering} met een schildering in de titel` : "";
+    delen.push(`<div class="rce-regel">Beeldbank RCE: ${bb.aantal} foto${bb.aantal === 1 ? "" : "'s"}${schildering}</div><div class="rce-fotos">${thumbs}</div>`);
+  }
+  if (!delen.length) return "";
+  return `<div class="rce-blok">
+    <div class="rce-kop">Gekoppeld via rijksmonumentnummer ${escapeHtml(p.rijksmonumentnummer || "")}</div>
+    ${delen.join("")}
+    <div class="rce-bron">Functie: rijksmonumentenregister, formeel standpunt RCE. Foto's: Beeldbank RCE, licentie per foto op de detailpagina (overwegend CC BY-SA).</div>
+  </div>`;
+}
+
+function dateringLabel(s) {
+  const van = s.datering?.van;
+  const tot = s.datering?.tot;
+  if (van && tot) return van === tot ? van : `${van}–${tot}`;
+  // Met maar één jaartal zegt de vrije tekst uit de bron meestal precies wat
+  // bedoeld is ("na 1947", "omstreeks 1520"); ontbreekt die, toon dan het
+  // ene jaartal in plaats van niets.
+  if (s.datering?.tekst) return s.datering.tekst;
+  if (van) return `vanaf ${van}`;
+  if (tot) return `tot ${tot}`;
+  return "";
+}
+
+function openDetail(gebouwId) {
+  const gevonden = findGebouw(gebouwId);
+  if (!gevonden) return;
+  state.activeId = gebouwId;
+  const { p, opKaart } = gevonden;
+  const sorteerjaar = (s) => parseInt(s.datering?.van) || parseInt(s.datering?.tot) || 9999;
+  const paintings = (state.schilderingenByGebouw.get(gebouwId) || []).sort((a, b) => sorteerjaar(a) - sorteerjaar(b));
   const period = periodOf(gebouwId);
 
   const links = [];
+  if (p.bron_item_url) links.push([p.bron_item_url, "bron"]);
   if (p.monumentenregister_url) links.push([p.monumentenregister_url, "Monumentenregister"]);
   for (const uri of p.same_as || []) {
     if (uri.includes("wikidata.org")) links.push([uri, "Wikidata"]);
@@ -275,9 +378,15 @@ function openDetail(gebouwId) {
   body.innerHTML = `
     <h2>${escapeHtml(p.naam || "(zonder naam)")}</h2>
     <div class="plaats-line">${escapeHtml(p.plaats || "")}${p.huidige_functie ? " · " + escapeHtml(p.huidige_functie) : ""}${period ? ` · schilderingen ${period[0]}–${period[1]}` : ""}</div>
+    ${opKaart ? "" : '<div class="plaats-line">Niet op de kaart: geen bruikbare locatie in de bron. <a href="#" id="terug-niet-op-kaart">← terug naar de lijst</a></div>'}
     <div class="links">${links.map(([href, label]) => `<a href="${href}" target="_blank" rel="noopener">${label}</a>`).join("")}</div>
+    ${rceBlok(p)}
     <div id="painting-cards"></div>
   `;
+  document.getElementById("terug-niet-op-kaart")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    openZonderLocatie();
+  });
   const cardsWrap = document.getElementById("painting-cards");
   if (!paintings.length) {
     cardsWrap.innerHTML = '<p style="color:var(--ink-soft);font-size:0.85rem;">Geen schilderingen gekoppeld aan dit gebouw in de brondata.</p>';
@@ -286,9 +395,7 @@ function openDetail(gebouwId) {
     const card = document.createElement("div");
     card.className = "painting-card";
     const img = s.afbeelding?.square || s.afbeelding?.medium;
-    const dat = s.datering?.van && s.datering?.tot
-      ? (s.datering.van === s.datering.tot ? s.datering.van : `${s.datering.van}–${s.datering.tot}`)
-      : (s.datering?.tekst || "");
+    const dat = dateringLabel(s);
     const tags = [...s.onderwerpen.map((o) => o.label || o.uri.split("/").pop()), ...s.materiaal, ...s.drager].filter(Boolean);
     const makerLine = (s.makers || [])
       .map((m) => `<a href="makers.html?maker=${encodeURIComponent(m.id)}">${escapeHtml((m.naam || "").replace(/^A\)\s*/, ""))}</a>`)
@@ -327,25 +434,34 @@ function closeDetail() {
 function openZonderLocatie() {
   state.activeId = null;
   const body = document.getElementById("detail-body");
-  const rows = state.zonderLocatie
+  const entries = nietOpKaartEntries();
+  const aantal = (g) => (state.schilderingenByGebouw.get(g.id) || []).length;
+  const rows = entries
     .slice()
     .sort((a, b) => (a.plaats || "").localeCompare(b.plaats || ""))
-    .map(
-      (g) =>
-        `<div class="painting-card" style="align-items:flex-start;">
+    .map((g) => {
+      const n = aantal(g);
+      return `<div class="painting-card" style="align-items:flex-start;">
           <div class="body">
             <div class="titel">${escapeHtml(g.naam || "(zonder naam)")}</div>
-            <div class="locatie">${escapeHtml(g.plaats || "")}${g.aantal_schilderingen ? ` · ${g.aantal_schilderingen} schildering${g.aantal_schilderingen === 1 ? "" : "en"} in de brondata` : ""}</div>
-            <div class="links" style="margin-top:0.3rem;"><a href="${g.bron_item_url}" target="_blank" rel="noopener">bron</a>${g.rijksmonumentnummer ? `<a href="https://monumentenregister.cultureelerfgoed.nl/monumenten/${g.rijksmonumentnummer}" target="_blank" rel="noopener">monumentenregister</a>` : ""}</div>
+            <div class="locatie">${escapeHtml(g.plaats || "")}${g.plaats && n ? " · " : ""}${n ? `${n} schildering${n === 1 ? "" : "en"}` : ""}${g.reden === "geen_gebouwrecord" ? " · in de bron geen gebouwrecord" : ""}</div>
+            <div class="links" style="margin-top:0.3rem;">${n ? `<a href="#" class="toon-schilderingen" data-id="${escapeHtml(g.id)}">toon schilderingen</a>` : ""}${g.bron_item_url ? `<a href="${g.bron_item_url}" target="_blank" rel="noopener">bron</a>` : ""}${g.rijksmonumentnummer ? `<a href="https://monumentenregister.cultureelerfgoed.nl/monumenten/${g.rijksmonumentnummer}" target="_blank" rel="noopener">monumentenregister</a>` : ""}</div>
           </div>
-        </div>`
-    )
+        </div>`;
+    })
     .join("");
+  const totaal = entries.reduce((som, g) => som + aantal(g), 0);
   body.innerHTML = `
-    <h2>Gebouwen zonder coördinaten</h2>
-    <div class="plaats-line">${state.zonderLocatie.length} gebouwen hebben geen vindbare puntgeometrie (niet in de bron zelf, niet via rijksmonumentnummer, niet via een Reliwiki-adres) en staan daarom niet op de kaart. Hun schilderingen blijven wel bewaard in de dataset — zie de bronlink per gebouw hieronder.</div>
+    <h2>Niet op de kaart</h2>
+    <div class="plaats-line">${entries.length} gebouwen en locaties staan niet op de kaart: er is geen puntgeometrie te vinden (niet in de bron zelf, niet via rijksmonumentnummer, niet via een Reliwiki-adres), of de schildering is in de bron niet aan een gebouwrecord gekoppeld. Samen gaat het om ${totaal} schilderingen; die zijn hieronder per regel te openen.</div>
     ${rows}
   `;
+  for (const a of body.querySelectorAll(".toon-schilderingen")) {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      openDetail(a.dataset.id);
+    });
+  }
   document.getElementById("detail").classList.add("open");
 }
 
@@ -365,6 +481,7 @@ async function main() {
   initMap();
   await loadData();
   populateFunctieFilter();
+  populateCategorieFilter();
   renderPeriodeFilter();
   renderMarkers(); // vult de lijst meteen; kaartmarkers volgen zodra de stijl geladen is
   state.map.on("load", renderMarkers);
@@ -372,6 +489,7 @@ async function main() {
   document.getElementById("q").addEventListener("input", renderMarkers);
   document.getElementById("f-functie").addEventListener("change", renderMarkers);
   document.getElementById("f-rm").addEventListener("change", renderMarkers);
+  document.getElementById("f-categorie").addEventListener("change", renderMarkers);
   document.getElementById("detail-close").addEventListener("click", closeDetail);
 
   const handle = document.getElementById("sidebar-handle");
@@ -383,10 +501,11 @@ async function main() {
 
   document.getElementById("surprise-btn").addEventListener("click", surpriseMe);
 
-  if (state.zonderLocatie.length) {
+  const nietOpKaart = nietOpKaartEntries();
+  if (nietOpKaart.length) {
     const btn = document.getElementById("zonder-locatie-btn");
     btn.style.display = "block";
-    btn.textContent = `+ ${state.zonderLocatie.length} gebouwen zonder coördinaten →`;
+    btn.textContent = `+ ${nietOpKaart.length} gebouwen en locaties niet op de kaart →`;
     btn.addEventListener("click", openZonderLocatie);
   }
 

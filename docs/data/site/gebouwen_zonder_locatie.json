@@ -1,19 +1,21 @@
 [
   {
+    "id": "16475",
+    "naam": "Fort Pannerden, Doornenburg",
+    "plaats": "Doornenburg",
+    "rijksmonumentnummer": "532472",
+    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/16475",
+    "aantal_schilderingen": 5,
+    "reden": "geen_coordinaat"
+  },
+  {
     "id": "15005",
     "naam": "Melkfabriek, Hilversum",
     "plaats": "Hilversum",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/15005",
-    "aantal_schilderingen": 1
-  },
-  {
-    "id": "15824",
-    "naam": "Loods 6, voormalige KNSM Passengersterminal, Amsterdam",
-    "plaats": "Amsterdam",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/15824",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "16027",
@@ -21,15 +23,8 @@
     "plaats": "Utrecht",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/16027",
-    "aantal_schilderingen": 1
-  },
-  {
-    "id": "13142",
-    "naam": "Metrostation Wibautstraat, Amsterdam",
-    "plaats": "Amsterdam",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/13142",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "10564",
@@ -37,7 +32,8 @@
     "plaats": "Leeuwarden",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/10564",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "14939",
@@ -45,7 +41,8 @@
     "plaats": "Heemstede",
     "rijksmonumentnummer": "522623",
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/14939",
-    "aantal_schilderingen": 0
+    "aantal_schilderingen": 0,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "14673",
@@ -53,7 +50,8 @@
     "plaats": "Maastricht",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/14673",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "14782",
@@ -61,7 +59,8 @@
     "plaats": "Overveen",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/14782",
-    "aantal_schilderingen": 3
+    "aantal_schilderingen": 3,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "15126",
@@ -69,7 +68,8 @@
     "plaats": "Maastricht",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/15126",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "15389",
@@ -77,7 +77,8 @@
     "plaats": "Gorcum",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/15389",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "16032",
@@ -85,7 +86,8 @@
     "plaats": "Utrecht",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/16032",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "11928",
@@ -93,15 +95,8 @@
     "plaats": "Sluis",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/11928",
-    "aantal_schilderingen": 1
-  },
-  {
-    "id": "12851",
-    "naam": "Techlab van de Bossche Vakschool",
-    "plaats": "’s-Hertogenbosch",
-    "rijksmonumentnummer": null,
-    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/12851",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "13055",
@@ -109,7 +104,8 @@
     "plaats": "Utrecht",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/13055",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "13145",
@@ -117,7 +113,8 @@
     "plaats": "Leiden",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/13145",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "14999",
@@ -125,7 +122,8 @@
     "plaats": "Amsterdam",
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/14999",
-    "aantal_schilderingen": 1
+    "aantal_schilderingen": 1,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "12129",
@@ -133,7 +131,8 @@
     "plaats": null,
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/12129",
-    "aantal_schilderingen": 191
+    "aantal_schilderingen": 183,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "13216",
@@ -141,7 +140,8 @@
     "plaats": null,
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/13216",
-    "aantal_schilderingen": 0
+    "aantal_schilderingen": 0,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "14014",
@@ -149,7 +149,8 @@
     "plaats": null,
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/14014",
-    "aantal_schilderingen": 0
+    "aantal_schilderingen": 0,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "15251",
@@ -157,7 +158,8 @@
     "plaats": null,
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/15251",
-    "aantal_schilderingen": 0
+    "aantal_schilderingen": 0,
+    "reden": "geen_coordinaat"
   },
   {
     "id": "15375",
@@ -165,6 +167,43 @@
     "plaats": null,
     "rijksmonumentnummer": null,
     "bron_item_url": "https://muurschilderingendatabase.nl/api/items/15375",
-    "aantal_schilderingen": 0
+    "aantal_schilderingen": 0,
+    "reden": "geen_coordinaat"
+  },
+  {
+    "id": "10239",
+    "naam": "Voormalige Galileërkerk",
+    "plaats": null,
+    "rijksmonumentnummer": null,
+    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/10239",
+    "aantal_schilderingen": 6,
+    "reden": "geen_gebouwrecord"
+  },
+  {
+    "id": "11639",
+    "naam": "Oostlijn (metrolijn in Amsterdam)",
+    "plaats": null,
+    "rijksmonumentnummer": null,
+    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/11639",
+    "aantal_schilderingen": 3,
+    "reden": "geen_gebouwrecord"
+  },
+  {
+    "id": "11641",
+    "naam": "Metrostation Waterlooplein, Amsterdam",
+    "plaats": null,
+    "rijksmonumentnummer": null,
+    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/11641",
+    "aantal_schilderingen": 1,
+    "reden": "geen_gebouwrecord"
+  },
+  {
+    "id": "16177",
+    "naam": "Rietveld-Schröderhuis, Utrecht",
+    "plaats": null,
+    "rijksmonumentnummer": null,
+    "bron_item_url": "https://muurschilderingendatabase.nl/api/items/16177",
+    "aantal_schilderingen": 1,
+    "reden": "geen_gebouwrecord"
   }
 ]
