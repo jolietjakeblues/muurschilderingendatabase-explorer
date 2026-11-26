@@ -315,67 +315,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q284865",
-    "label": "putto",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Andrea%20mantegna%2C%20camera%20degli%20sposi%2C%201465-74%2C%20parete%20ovest%2C%20detta%20dell%27incontro%2C%2003%20putti%20con%20targa%20dedicatoria%2009%2C2.jpg",
-    "schildering_ids": [
-      "12508",
-      "12397",
-      "12309",
-      "12514",
-      "12194",
-      "12598",
-      "12526",
-      "12151",
-      "12517",
-      "12558",
-      "12195",
-      "12395",
-      "12357",
-      "12589",
-      "12204",
-      "12149",
-      "12276",
-      "12578",
-      "12440",
-      "12482",
-      "12570",
-      "12199",
-      "12197",
-      "12191",
-      "12198",
-      "12189",
-      "12519",
-      "12434",
-      "12571",
-      "12488",
-      "12502",
-      "12566",
-      "12414",
-      "12461",
-      "12220",
-      "12498",
-      "12170",
-      "12193",
-      "12157",
-      "12463",
-      "12380",
-      "12375",
-      "12376",
-      "12601",
-      "12159",
-      "12484",
-      "12278",
-      "8279",
-      "12229",
-      "8278",
-      "12221",
-      "12156",
-      "12158",
-      "12459"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q8441",
     "label": "man",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Pioneer%20plaque%20line-drawing%20of%20a%20human%20male.svg",
@@ -433,6 +372,66 @@
       "15923",
       "16068",
       "16071"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q284865",
+    "label": "putto",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Andrea%20mantegna%2C%20camera%20degli%20sposi%2C%201465-74%2C%20parete%20ovest%2C%20detta%20dell%27incontro%2C%2003%20putti%20con%20targa%20dedicatoria%2009%2C2.jpg",
+    "schildering_ids": [
+      "12508",
+      "12397",
+      "12309",
+      "12194",
+      "12598",
+      "12526",
+      "12151",
+      "12517",
+      "12558",
+      "12195",
+      "12395",
+      "12357",
+      "12589",
+      "12204",
+      "12149",
+      "12276",
+      "12578",
+      "12440",
+      "12482",
+      "12570",
+      "12199",
+      "12197",
+      "12191",
+      "12198",
+      "12189",
+      "12519",
+      "12434",
+      "12571",
+      "12488",
+      "12502",
+      "12566",
+      "12414",
+      "12461",
+      "12220",
+      "12498",
+      "12170",
+      "12193",
+      "12157",
+      "12463",
+      "12380",
+      "12375",
+      "12376",
+      "12601",
+      "12159",
+      "12484",
+      "12278",
+      "8279",
+      "12229",
+      "8278",
+      "12221",
+      "12156",
+      "12158",
+      "12459"
     ]
   },
   {
@@ -495,63 +494,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q18535",
-    "label": "allegorie",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Bruxelles%20Bellone%20904.jpg",
-    "schildering_ids": [
-      "12308",
-      "12508",
-      "12397",
-      "12366",
-      "13228",
-      "12206",
-      "13234",
-      "13222",
-      "12304",
-      "12309",
-      "12514",
-      "12192",
-      "12194",
-      "12598",
-      "12307",
-      "12395",
-      "12305",
-      "12310",
-      "13226",
-      "12204",
-      "13231",
-      "12360",
-      "13232",
-      "13221",
-      "13233",
-      "12199",
-      "12197",
-      "12168",
-      "12191",
-      "12198",
-      "12189",
-      "12519",
-      "12196",
-      "12262",
-      "13229",
-      "12381",
-      "12344",
-      "12165",
-      "12312",
-      "12380",
-      "12375",
-      "12376",
-      "12379",
-      "12492",
-      "13225",
-      "13227",
-      "13230",
-      "13224",
-      "12601",
-      "12167"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q10884",
     "label": "boom",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Alnus%20glutinosa%20011.jpg",
@@ -605,6 +547,62 @@
       "12322",
       "16067",
       "16384"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q18535",
+    "label": "allegorie",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Bruxelles%20Bellone%20904.jpg",
+    "schildering_ids": [
+      "12308",
+      "12508",
+      "12397",
+      "12366",
+      "13228",
+      "12206",
+      "13234",
+      "13222",
+      "12304",
+      "12309",
+      "12192",
+      "12194",
+      "12598",
+      "12307",
+      "12395",
+      "12305",
+      "12310",
+      "13226",
+      "12204",
+      "13231",
+      "12360",
+      "13232",
+      "13221",
+      "13233",
+      "12199",
+      "12197",
+      "12168",
+      "12191",
+      "12198",
+      "12189",
+      "12519",
+      "12196",
+      "12262",
+      "13229",
+      "12381",
+      "12344",
+      "12165",
+      "12312",
+      "12380",
+      "12375",
+      "12376",
+      "12379",
+      "12492",
+      "13225",
+      "13227",
+      "13230",
+      "13224",
+      "12601",
+      "12167"
     ]
   },
   {
@@ -1118,33 +1116,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q205985",
-    "label": "godin",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/William-Adolphe%20Bouguereau%20%281825-1905%29%20-%20Dawn%20%281881%29.jpg",
-    "schildering_ids": [
-      "12397",
-      "12186",
-      "12514",
-      "12526",
-      "12151",
-      "12195",
-      "12576",
-      "12357",
-      "12578",
-      "12440",
-      "12446",
-      "12482",
-      "12212",
-      "12214",
-      "12210",
-      "12316",
-      "12275",
-      "12278",
-      "12211",
-      "12213"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q231685",
     "label": "kruisweg",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Normandie%20Manche%20Avranches3%20tango7174.jpg",
@@ -1195,6 +1166,32 @@
       "16569",
       "15039",
       "16172"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q205985",
+    "label": "godin",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/William-Adolphe%20Bouguereau%20%281825-1905%29%20-%20Dawn%20%281881%29.jpg",
+    "schildering_ids": [
+      "12397",
+      "12186",
+      "12526",
+      "12151",
+      "12195",
+      "12576",
+      "12357",
+      "12578",
+      "12440",
+      "12446",
+      "12482",
+      "12212",
+      "12214",
+      "12210",
+      "12316",
+      "12275",
+      "12278",
+      "12211",
+      "12213"
     ]
   },
   {
@@ -2385,21 +2382,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q332682",
-    "label": "hoorn des overvloeds",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Corne%20d%27Abondance%20Statue%20Louis%20XV%20Reims%20270608%201.jpg",
-    "schildering_ids": [
-      "12309",
-      "12514",
-      "12526",
-      "12517",
-      "12558",
-      "12195",
-      "12440",
-      "12214"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q11405",
     "label": "fluit",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Fluiers.jpg",
@@ -2536,7 +2518,7 @@
   {
     "uri": "http://www.wikidata.org/entity/Q8332",
     "label": "gewone vos",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20a%20red%20fox%20in%20Rautas%20fj%C3%A4llurskog%20%28cropped%29.jpg",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20a%20red%20fox%20in%20Rautas%20fj%C3%A4llurskog%20%284%C3%973%29.jpg",
     "schildering_ids": [
       "12363",
       "12348",
@@ -2657,6 +2639,20 @@
       "12142",
       "12145",
       "12146"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q332682",
+    "label": "hoorn des overvloeds",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Corne%20d%27Abondance%20Statue%20Louis%20XV%20Reims%20270608%201.jpg",
+    "schildering_ids": [
+      "12309",
+      "12526",
+      "12517",
+      "12558",
+      "12195",
+      "12440",
+      "12214"
     ]
   },
   {
@@ -3963,7 +3959,7 @@
   {
     "uri": "http://www.wikidata.org/entity/Q8338",
     "label": "trompet",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Trumpet%201.png",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Trumpet%201%20%284%C3%973%29.png",
     "schildering_ids": [
       "12420",
       "12217",
@@ -4273,16 +4269,6 @@
     ]
   },
   {
-    "uri": "http://www.wikidata.org/entity/Q109607",
-    "label": "ruïne",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/KrzemieniecZamek12.JPG",
-    "schildering_ids": [
-      "12233",
-      "12514",
-      "12593"
-    ]
-  },
-  {
     "uri": "http://www.wikidata.org/entity/Q131596",
     "label": "boerderij",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Betschdorf%20-Ferme%20%C3%A0%20colombages%282%29.jpg",
@@ -4470,16 +4456,6 @@
       "12402",
       "12195",
       "13230"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q63436511",
-    "label": "pikhaak",
-    "afbeelding": null,
-    "schildering_ids": [
-      "12514",
-      "12519",
-      "12345"
     ]
   },
   {
@@ -5163,6 +5139,15 @@
     ]
   },
   {
+    "uri": "http://www.wikidata.org/entity/Q109607",
+    "label": "ruïne",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/KrzemieniecZamek12.JPG",
+    "schildering_ids": [
+      "12233",
+      "12593"
+    ]
+  },
+  {
     "uri": "http://www.wikidata.org/entity/Q38720",
     "label": "windmolen",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Amrumer%20Windm%C3%BChle%20%282018%29.jpg",
@@ -5250,15 +5235,6 @@
     "schildering_ids": [
       "13234",
       "12391"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q141830",
-    "label": "dorsvlegel",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Dreschflegel.jpg",
-    "schildering_ids": [
-      "12466",
-      "12514"
     ]
   },
   {
@@ -5385,15 +5361,6 @@
     "schildering_ids": [
       "12309",
       "12311"
-    ]
-  },
-  {
-    "uri": "http://www.wikidata.org/entity/Q12117",
-    "label": "graan",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Various%20grains%20edit2.jpg",
-    "schildering_ids": [
-      "12514",
-      "16472"
     ]
   },
   {
@@ -5916,6 +5883,15 @@
     "schildering_ids": [
       "12150",
       "16216"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q63436511",
+    "label": "pikhaak",
+    "afbeelding": null,
+    "schildering_ids": [
+      "12519",
+      "12345"
     ]
   },
   {
@@ -6675,6 +6651,14 @@
     "uri": "http://www.wikidata.org/entity/Q107293",
     "label": "mestvork",
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/%D0%91%D0%A1%D0%AD1.%20%D0%92%D0%B8%D0%BB%D1%8B.jpg",
+    "schildering_ids": [
+      "12466"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q141830",
+    "label": "dorsvlegel",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Dreschflegel.jpg",
     "schildering_ids": [
       "12466"
     ]
@@ -8290,7 +8274,7 @@
   {
     "uri": "http://www.wikidata.org/entity/Q17590",
     "label": "Laurentius van Rome",
-    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/St.%20Laurentius%20in%20Dorfkirche%20St.%20Laurentius%20in%20Hornstorf.jpg",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Statue%20on%20column%20san%20lorenzo.jpg",
     "schildering_ids": [
       "8338"
     ]
@@ -9669,6 +9653,14 @@
     "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Prairie%20de%20fauche%20du%20Lino-Gaudinion%20%C3%A0%20Cagnotte%20%2840%29%202019-05-21.jpg",
     "schildering_ids": [
       "16473"
+    ]
+  },
+  {
+    "uri": "http://www.wikidata.org/entity/Q12117",
+    "label": "graan",
+    "afbeelding": "http://commons.wikimedia.org/wiki/Special:FilePath/Various%20grains%20edit2.jpg",
+    "schildering_ids": [
+      "16472"
     ]
   },
   {

@@ -108,6 +108,7 @@ function showMaker(m) {
       · <a href="${escapeAttr(ldvUrl("https://muurschilderingendatabase.nl/api/items/" + m.id))}" target="_blank" rel="noopener">linked data</a>
     </div>
     ${m.beschrijving ? `<p style="font-size:0.85rem;max-width:70ch;">${escapeHtml(m.beschrijving)}</p>` : ""}
+    ${(m.vaste_koppelingen || []).length ? `<p style="font-size:0.82rem;max-width:70ch;">Onderzoeksdata bij DANS (handmatig gekoppeld): ${m.vaste_koppelingen.map((k) => `<a href="${escapeAttr(k.url)}" target="_blank" rel="noopener">${escapeHtml(k.titel)}</a>`).join("; ")}</p>` : ""}
     <div class="gallery"></div>
   `;
   const gallery = detail.querySelector(".gallery");

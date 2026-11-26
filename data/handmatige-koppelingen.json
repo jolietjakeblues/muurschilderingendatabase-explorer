@@ -1,0 +1,43 @@
+{
+  "toelichting": "Vaste, met de hand gelegde koppelingen naar bronnen zonder gedeelde sleutel. scripts/fetch.py leest dit bestand en zet de koppelingen op het gebouw (gebouw_id) of de maker (maker_id); de id's zijn de itemnummers uit de Muurschilderingendatabase. Een koppeling hoort hier alleen als de dataset over dat ene gebouw of die ene maker gaat, niet als die er zijdelings in genoemd wordt.",
+  "peildatum": "2026-11-26",
+  "koppelingen": [
+    {
+      "bron": "DANS Data Station Social Sciences and Humanities",
+      "doi": "10.17026/DANS-2BX-V5CU",
+      "titel": "Interview Peter Dijkman over de gewelfschilderingen in Naarden",
+      "soort": "interview",
+      "auteurs": ["B.E. Crijns"],
+      "gebouw_id": "14832",
+      "reden": "Interview over de restauratie van de gewelfschilderingen in de Grote Kerk te Naarden (1977-1978)."
+    },
+    {
+      "bron": "DANS Data Station Social Sciences and Humanities",
+      "doi": "10.17026/DANS-X2E-HMB2",
+      "titel": "Interview Willem Haakma Wagenaar over de gewelfschilderingen in Naarden",
+      "soort": "interview",
+      "auteurs": ["B.E. Crijns"],
+      "gebouw_id": "14832",
+      "reden": "Interview in het kader van de monitoring van de gewelfschilderingen in de Grote Kerk te Naarden."
+    },
+    {
+      "bron": "DANS Data Station Social Sciences and Humanities",
+      "doi": "10.17026/DANS-XC9-U77M",
+      "titel": "Interview with Vishwa Mehra on the vault paintings in Naarden, 7 December 2017",
+      "soort": "interview",
+      "auteurs": ["Bernice Crijns"],
+      "gebouw_id": "14832",
+      "reden": "Interview over de conservering van het beschilderde houten gewelf van de Grote of Sint-Vituskerk in Naarden in de jaren zestig."
+    },
+    {
+      "bron": "DANS Data Station Social Sciences and Humanities",
+      "doi": "10.17026/SS/UGDHSJ",
+      "titel": "Muurschilderingen van F.H. Bach te Beltrum",
+      "soort": "rapport",
+      "auteurs": ["B. Crijns", "R. Morelissen", "M. Lewis", "E. Teeuw"],
+      "gebouw_id": "10468",
+      "maker_id": "10571",
+      "reden": "Vooronderzoek naar de muurschilderingen van F.H. Bach in de kerk van Beltrum; gekoppeld aan de kerk en aan de maker."
+    }
+  ]
+}

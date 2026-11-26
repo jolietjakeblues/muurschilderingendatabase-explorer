@@ -10,7 +10,7 @@ Bronnen:
   2. RCE Linked Data Voorziening, dataset "cho" (SPARQL) -- skos:prefLabel
      voor de materiaal-/drager-thesaurusconcepten die in (1) alleen als URI
      voorkomen; de rijksmonumentgeometrie als terugvaloptie voor gebouwen
-     zonder bruikbare eigen coördinaat; en, voor de proefkoppeling op
+     zonder bruikbare eigen coördinaat; en, voor de koppeling op
      rijksmonumentnummer, de oorspronkelijke functie (alleen formeel
      standpunt) met de hoofdcategorie uit de functiethesaurus.
   3. Wikidata Query Service (SPARQL) -- labels (en, waar aanwezig, een
@@ -27,7 +27,15 @@ Bronnen:
      heeft wel een Reliwiki-link met adres erin (schema:sameAs), dat adres
      geocoderen we hiermee.
   6. RCE Linked Data Voorziening, dataset "Afbeeldingen" (SPARQL) --
-     Beeldbankfoto's per rijksmonumentnummer, voor de proefkoppeling.
+     Beeldbankfoto's per rijksmonumentnummer, voor de koppeling.
+  7. RCE Linked Data Voorziening, dataset "bibliotheek" (SPARQL) -- boeken
+     en tijdschriftartikelen per rijksmonumentnummer.
+  8. RCE Linked Data Voorziening, dataset "monumenten-in-nederland" (SPARQL)
+     -- passages uit de boekenreeks per rijksmonumentnummer, met paginering
+     en link naar de tekst op DBNL. De tekst zelf wordt niet overgenomen.
+  9. data/handmatige-koppelingen.json -- vaste, met de hand gelegde
+     koppelingen naar bronnen zonder gedeelde sleutel (nu: datasets in de
+     DANS Data Stations), per gebouw of maker.
 
 Schrijft data/raw/*.json (ruwe extracts, voor herleidbaarheid) en
 docs/data/site/*.json + gebouwen.geojson (het datamodel dat de viewer
@@ -56,12 +64,15 @@ import requests
 MUUR_ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/Muurschilderingen/sparql"
 CHO_ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql"
 AFBEELDINGEN_ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/afbeeldingen/sparql"
+BIBLIOTHEEK_ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/bibliotheek/sparql"
+MIN_ENDPOINT = "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/monumenten-in-nederland/sparql"
 WIKIDATA_ENDPOINT = "https://query.wikidata.org/sparql"
 OMEKA_MEDIA_API = "https://muurschilderingendatabase.nl/api/media"
 PDOK_LOCATIESERVER = "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 QUERIES_DIR = REPO_ROOT / "queries"
+HANDMATIGE_KOPPELINGEN = REPO_ROOT / "data" / "handmatige-koppelingen.json"
 RAW_DIR = REPO_ROOT / "data" / "raw"
 SITE_DIR = REPO_ROOT / "docs" / "data" / "site"
 
@@ -556,8 +567,37 @@ def item_id_from_uri(uri: str | None) -> str | None:
 
 
 # --------------------------------------------------------------------------
-# Proefkoppeling met andere RCE-datasets, op rijksmonumentnummer.
+# Koppeling met andere RCE-datasets, op rijksmonumentnummer.
 # --------------------------------------------------------------------------
+
+def load_handmatige_koppelingen() -> tuple[dict[str, list[dict]], dict[str, list[dict]]]:
+    """Vaste, met de hand gelegde koppelingen uit
+    data/handmatige-koppelingen.json, voor bronnen zonder gedeelde sleutel
+    (nu: datasets in de DANS Data Stations). Geeft twee opzoektabellen terug:
+    per gebouw-id en per maker-id.
+
+    Geen netwerkaanroep: wat hier staat is door een mens vastgesteld en hoort
+    niet te verschuiven door een zoekresultaat van de dag."""
+    per_gebouw: dict[str, list[dict]] = defaultdict(list)
+    per_maker: dict[str, list[dict]] = defaultdict(list)
+    if not HANDMATIGE_KOPPELINGEN.exists():
+        return {}, {}
+    data = json.loads(HANDMATIGE_KOPPELINGEN.read_text(encoding="utf-8"))
+    for k in data.get("koppelingen", []):
+        item = {
+            "bron": k["bron"],
+            "titel": k["titel"],
+            "soort": k.get("soort"),
+            "auteurs": k.get("auteurs", []),
+            "doi": k["doi"],
+            "url": f"https://doi.org/{k['doi']}",
+        }
+        if k.get("gebouw_id"):
+            per_gebouw[str(k["gebouw_id"])].append(item)
+        if k.get("maker_id"):
+            per_maker[str(k["maker_id"])].append(item)
+    return dict(per_gebouw), dict(per_maker)
+
 
 def clean_rm(value: str | None) -> str | None:
     """De bron bevat een paar vervuilde nummers ("RM35671", "517621\n").
@@ -575,6 +615,7 @@ BEELDBANK_BATCH = 25
 FUNCTIE_WORTEL = "bebouwde omgeving"
 KOPPEL_BATCH = 100
 BEELDBANK_MAX_PER_GEBOUW = 6
+LITERATUUR_MAX_PER_GEBOUW = 10
 SCHILDERING_RE = re.compile(r"schildering|fresco|beschilder", re.IGNORECASE)
 
 
@@ -642,6 +683,101 @@ SELECT DISTINCT ?rm ?cho ?hoofd ?c ?l0 ?l1 ?l2 ?l3 ?l4 WHERE {{
     return result
 
 
+def fetch_min_passages(rm_numbers: set[str]) -> dict[str, list[dict]]:
+    """Passages uit de boekenreeks Monumenten in Nederland (dataset
+    monumenten-in-nederland) per rijksmonument. Een min:Passage draagt de
+    rijksmonumentnummers die erin genoemd worden, de paginering, het deel en
+    een link naar de tekst op DBNL.
+
+    De tekst zelf nemen we niet over (auteursrechtelijk beschermd werk); we
+    lezen hem alleen om vast te stellen of de passage een schildering noemt."""
+    per_rm: dict[str, dict[str, dict]] = defaultdict(dict)
+    nummers = sorted(rm_numbers)
+    for i in range(0, len(nummers), KOPPEL_BATCH):
+        values = " ".join(f'"{n}"' for n in nummers[i : i + KOPPEL_BATCH])
+        query = f"""
+PREFIX min: <https://linkeddata.cultureelerfgoed.nl/def/monumenten-in-nederland#>
+PREFIX sdo: <https://schema.org/>
+SELECT ?rm ?passage ?naam ?deel ?pagina ?url ?tekst WHERE {{
+  VALUES ?rm {{ {values} }}
+  ?passage a min:Passage ; min:rijksmonumentnummer ?rm .
+  OPTIONAL {{ ?passage sdo:name ?naam }}
+  OPTIONAL {{ ?passage min:deel ?deel }}
+  OPTIONAL {{ ?passage sdo:pagination ?pagina }}
+  OPTIONAL {{ ?passage sdo:url ?url }}
+  OPTIONAL {{ ?passage sdo:text ?tekst }}
+}}"""
+        for row in run_sparql(MIN_ENDPOINT, query):
+            per_rm[row["rm"]].setdefault(
+                row["passage"],
+                {
+                    "uri": row["passage"],
+                    "naam": row.get("naam"),
+                    "deel": row.get("deel"),
+                    "pagina": row.get("pagina"),
+                    "url": row.get("url"),
+                    "noemt_schildering": bool(SCHILDERING_RE.search(row.get("tekst") or "")),
+                },
+            )
+    result = {
+        rm: sorted(p.values(), key=lambda x: (not x["noemt_schildering"], x["deel"] or "", x["pagina"] or ""))
+        for rm, p in per_rm.items()
+    }
+    print(f"Monumenten in Nederland: {len(result)}/{len(nummers)} rijksmonumenten met een passage, "
+          f"{len({p['uri'] for ps in result.values() for p in ps})} passages, "
+          f"{len({p['uri'] for ps in result.values() for p in ps if p['noemt_schildering']})} noemen een schildering")
+    return result
+
+
+def fetch_literatuur(rm_numbers: set[str]) -> dict[str, dict]:
+    """Boeken en tijdschriftartikelen uit de bibliotheekcatalogus van de RCE
+    per rijksmonument. Zelfde model als de dataset Afbeeldingen: een titel
+    verwijst met sdo:about naar een monumentknoop die het
+    rijksmonumentnummer als sdo:identifier draagt.
+
+    Per gebouw de aantallen, hoeveel titels een schildering noemen, en een
+    selectie met die titels vooraan."""
+    per_rm: dict[str, dict[str, dict]] = defaultdict(dict)
+    nummers = sorted(rm_numbers)
+    for graph, klasse, soort in (("books", "Book", "boek"), ("article", "Article", "artikel")):
+        for i in range(0, len(nummers), KOPPEL_BATCH):
+            values = " ".join(f'"{n}"' for n in nummers[i : i + KOPPEL_BATCH])
+            query = f"""
+PREFIX sdo: <https://schema.org/>
+SELECT ?rm ?werk ?titel ?jaar ?url WHERE {{
+  GRAPH <https://linkeddata.cultureelerfgoed.nl/rce/bibliotheek/graphs/{graph}> {{
+    VALUES ?rm {{ {values} }}
+    ?id sdo:propertyID "rijksmonumentnummer" ; sdo:value ?rm .
+    ?m sdo:identifier ?id .
+    ?werk a sdo:{klasse} ; sdo:about ?m ; sdo:name ?titel .
+    OPTIONAL {{ ?werk sdo:datePublished ?jaar }}
+    OPTIONAL {{ ?werk sdo:url ?url }}
+  }}
+}}"""
+            for row in run_sparql(BIBLIOTHEEK_ENDPOINT, query):
+                per_rm[row["rm"]].setdefault(
+                    row["werk"],
+                    {"titel": row["titel"], "jaar": row.get("jaar"), "url": row.get("url"), "soort": soort},
+                )
+    result: dict[str, dict] = {}
+    for rm, werken in per_rm.items():
+        lijst = sorted(
+            werken.values(),
+            key=lambda w: (not SCHILDERING_RE.search(w["titel"]), -(int(w["jaar"][:4]) if (w["jaar"] or "")[:4].isdigit() else 0), w["titel"]),
+        )
+        result[rm] = {
+            "aantal_boeken": sum(1 for w in lijst if w["soort"] == "boek"),
+            "aantal_artikelen": sum(1 for w in lijst if w["soort"] == "artikel"),
+            "aantal_schildering": sum(1 for w in lijst if SCHILDERING_RE.search(w["titel"])),
+            "titels": lijst[:LITERATUUR_MAX_PER_GEBOUW],
+        }
+    print(f"Bibliotheek-koppeling: {len(result)}/{len(nummers)} rijksmonumenten met literatuur, "
+          f"{sum(r['aantal_boeken'] for r in result.values())} boeken, "
+          f"{sum(r['aantal_artikelen'] for r in result.values())} artikelen, "
+          f"{sum(r['aantal_schildering'] for r in result.values())} met een schildering in de titel")
+    return result
+
+
 def fetch_beeldbank(rm_numbers: set[str]) -> dict[str, dict]:
     """Beeldbankfoto's per rijksmonument uit de dataset Afbeeldingen.
 
@@ -698,6 +834,8 @@ SELECT ?rm ?f ?titel ?thumb ?pagina ?licentie WHERE {{
 METADATA_SOURCE = (
     "RCE Linked Data Voorziening, dataset Muurschilderingen (+ cho voor thesauruslabels, "
     "rijksmonumentgeometrie en oorspronkelijke functie; Afbeeldingen voor Beeldbankfoto's; "
+    "Bibliotheek voor literatuur; Monumenten in Nederland voor passages uit de boekenreeks; "
+    "DANS Data Stations via vaste koppelingen; "
     "Wikidata voor iconografielabels; Omeka-API voor afbeeldingen; PDOK voor geocodering)"
 )
 
@@ -870,6 +1008,9 @@ def main() -> None:
     alle_rm = {g["rijksmonumentnummer"] for g in gebouwen.values() if g["rijksmonumentnummer"]}
     cho_functies = fetch_cho_functies(alle_rm)
     beeldbank = fetch_beeldbank(alle_rm)
+    vast_per_gebouw, vast_per_maker = load_handmatige_koppelingen()
+    min_passages = fetch_min_passages(alle_rm)
+    literatuur = fetch_literatuur(alle_rm)
 
     # -- gebouwen.geojson --
     features = []
@@ -922,7 +1063,7 @@ def main() -> None:
                     "huidige_functie": g["huidigeFunctie"],
                     "functie_groepen": functie_groepen(g["huidigeFunctie"]),
                     "geometrie_bron": geometrie_bron,
-                    # Proefkoppeling: kennis uit het rijksmonumentenregister
+                    # Koppeling: kennis uit het rijksmonumentenregister
                     # (formeel standpunt) en foto's uit de Beeldbank.
                     "rce": (
                         {
@@ -930,11 +1071,17 @@ def main() -> None:
                             "functies": cho_functies.get(g["rijksmonumentnummer"], {}).get("functies", []),
                             "categorieen": cho_functies.get(g["rijksmonumentnummer"], {}).get("categorieen", []),
                             "beeldbank": beeldbank.get(g["rijksmonumentnummer"]),
+                            "monumenten_in_nederland": min_passages.get(g["rijksmonumentnummer"], []),
+                            "literatuur": literatuur.get(g["rijksmonumentnummer"]),
                         }
-                        if g["rijksmonumentnummer"] in cho_functies or g["rijksmonumentnummer"] in beeldbank
+                        if any(
+                            g["rijksmonumentnummer"] in bron
+                            for bron in (cho_functies, beeldbank, min_passages, literatuur)
+                        )
                         else None
                     ),
                     "same_as": g["sameAs"],
+                    "vaste_koppelingen": vast_per_gebouw.get(gid, []),
                     "afbeelding": media[0]["medium"] if media else None,
                 },
             }
@@ -1036,6 +1183,7 @@ def main() -> None:
             "geboorte": pers["geboorte"],
             "sterfte": pers["sterfte"],
             "same_as": pers["sameAs"],
+            "vaste_koppelingen": vast_per_maker.get(mid, []),
             "schildering_ids": [],
         }
     for uri, org in organisaties.items():
@@ -1048,6 +1196,7 @@ def main() -> None:
             "geboorte": None,
             "sterfte": None,
             "same_as": org["sameAs"],
+            "vaste_koppelingen": vast_per_maker.get(mid, []),
             "schildering_ids": [],
         }
     for s in schilderingen_out:
@@ -1056,6 +1205,16 @@ def main() -> None:
     # Alleen makers met minstens één gekoppelde schildering publiceren --
     # de brondatabase bevat de volledige authority-lijst, ook entries die
     # (nog) nergens aan gekoppeld zijn.
+    # Een vaste koppeling naar een id dat niet (meer) bestaat of niet op de
+    # kaart staat, zou stil verdwijnen: meld het.
+    op_kaart = {f["properties"]["id"] for f in features}
+    for gid in vast_per_gebouw:
+        if gid not in op_kaart:
+            print(f"WAARSCHUWING: vaste koppeling naar gebouw {gid}, maar dat staat niet op de kaart")
+    for mid in vast_per_maker:
+        if mid not in makers_index or not makers_index[mid]["schildering_ids"]:
+            print(f"WAARSCHUWING: vaste koppeling naar maker {mid}, maar die wordt niet gepubliceerd")
+
     makers_out = sorted(
         (m for m in makers_index.values() if m["schildering_ids"]),
         key=lambda m: -len(m["schildering_ids"]),
@@ -1087,6 +1246,12 @@ def main() -> None:
         "gebouwen_met_andere_namen": sum(1 for g in gebouwen.values() if g["andereNaam"]),
         "gebouwen_met_cho_functie": sum(1 for f in features if (f["properties"]["rce"] or {}).get("functies")),
         "gebouwen_met_beeldbankfoto": sum(1 for f in features if (f["properties"]["rce"] or {}).get("beeldbank")),
+        "gebouwen_met_passage_monumenten_in_nederland": sum(
+            1 for f in features if (f["properties"]["rce"] or {}).get("monumenten_in_nederland")
+        ),
+        "gebouwen_met_vaste_koppeling": sum(1 for f in features if f["properties"]["vaste_koppelingen"]),
+        "vaste_koppelingen": sum(len(v) for v in vast_per_gebouw.values()),
+        "gebouwen_met_literatuur": sum(1 for f in features if (f["properties"]["rce"] or {}).get("literatuur")),
         "makers_gekoppeld": len(makers_out),
         "makers_met_geboortedatum": sum(1 for m in makers_out if m["geboorte"]),
         "schilderingen_met_maker": sum(1 for s in schilderingen_out if s["makers"]),

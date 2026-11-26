@@ -1,6 +1,7 @@
 // Kaartweergave van gebouwen met geregistreerde muurschilderingen.
 // Laadt data/site/gebouwen.geojson (punten, met per rijksmonument de
-// proefkoppeling naar register en Beeldbank in properties.rce),
+// koppeling naar register, Beeldbank, Monumenten in Nederland en bibliotheek
+// in properties.rce),
 // data/site/muurschilderingen.json (schilderingen per gebouw) en
 // data/site/gebouwen_zonder_locatie.json (alles wat niet op de kaart staat)
 // statisch -- geen live SPARQL vanuit de browser.
@@ -150,7 +151,7 @@ function populateFunctieFilter() {
   }
 }
 
-// Proefkoppeling met het rijksmonumentenregister: hoofdcategorie van de
+// Koppeling met het rijksmonumentenregister: hoofdcategorie van de
 // oorspronkelijke functie (formeel standpunt RCE), alleen gevuld voor
 // gebouwen met een rijksmonumentnummer.
 function populateCategorieFilter() {
@@ -326,8 +327,25 @@ function escapeAttr(str) {
   return escapeHtml(str ?? "").replace(/"/g, "&quot;");
 }
 
-// Blok in het detailpaneel met wat de proefkoppeling op rijksmonumentnummer
-// oplevert: oorspronkelijke functie uit het register en foto's uit de Beeldbank.
+// Vaste, met de hand gelegde koppelingen (data/handmatige-koppelingen.json),
+// voor bronnen zonder gedeelde sleutel zoals de DANS Data Stations.
+function vasteKoppelingenBlok(items) {
+  if (!items?.length) return "";
+  const regels = items
+    .map((k) => {
+      const meta = [k.soort, (k.auteurs || []).join(", ")].filter(Boolean).join(", ");
+      return `<li><a href="${escapeAttr(k.url)}" target="_blank" rel="noopener">${escapeHtml(k.titel)}</a>${meta ? ` <span class="rce-cat">(${escapeHtml(meta)})</span>` : ""}</li>`;
+    })
+    .join("");
+  return `<div class="rce-blok">
+    <div class="rce-kop">Onderzoeksdata bij DANS · handmatig gekoppeld</div>
+    <ul class="rce-lijst">${regels}</ul>
+  </div>`;
+}
+
+// Blok in het detailpaneel met wat de koppeling op rijksmonumentnummer
+// oplevert: oorspronkelijke functie uit het register, foto's uit de Beeldbank,
+// passages uit Monumenten in Nederland en literatuur uit de bibliotheek.
 function rceBlok(p) {
   const rce = p.rce;
   if (!rce) return "";
@@ -347,11 +365,35 @@ function rceBlok(p) {
     const schildering = bb.aantal_schildering ? `, waarvan ${bb.aantal_schildering} met een schildering in de titel` : "";
     delen.push(`<div class="rce-regel">Beeldbank RCE: ${bb.aantal} foto${bb.aantal === 1 ? "" : "'s"}${schildering}</div><div class="rce-fotos">${thumbs}</div>`);
   }
+  const passages = rce.monumenten_in_nederland || [];
+  if (passages.length) {
+    const regels = passages
+      .map((ps) => {
+        const titel = [ps.deel, ps.pagina ? `p. ${ps.pagina}` : ""].filter(Boolean).join(", ");
+        const tekst = ps.url ? `<a href="${escapeAttr(ps.url)}" target="_blank" rel="noopener">${escapeHtml(titel)}</a>` : escapeHtml(titel);
+        return `<li>${tekst}${ps.noemt_schildering ? " · noemt schilderingen" : ""} · <a href="${escapeAttr(ps.uri)}" target="_blank" rel="noopener">linked data</a></li>`;
+      })
+      .join("");
+    delen.push(`<div class="rce-regel">Monumenten in Nederland:</div><ul class="rce-lijst">${regels}</ul>`);
+  }
+  const lit = rce.literatuur;
+  if (lit?.titels?.length) {
+    const totaal = lit.aantal_boeken + lit.aantal_artikelen;
+    const regels = lit.titels
+      .map((w) => {
+        const titel = w.url ? `<a href="${escapeAttr(w.url)}" target="_blank" rel="noopener">${escapeHtml(w.titel)}</a>` : escapeHtml(w.titel);
+        return `<li>${titel} <span class="rce-cat">(${escapeHtml([w.soort, w.jaar].filter(Boolean).join(", "))})</span></li>`;
+      })
+      .join("");
+    const schildering = lit.aantal_schildering ? `, waarvan ${lit.aantal_schildering} met een schildering in de titel` : "";
+    const rest = totaal > lit.titels.length ? ` De eerste ${lit.titels.length} staan hieronder.` : "";
+    delen.push(`<details class="rce-literatuur"><summary>Bibliotheek RCE: ${lit.aantal_boeken} boek${lit.aantal_boeken === 1 ? "" : "en"} en ${lit.aantal_artikelen} artikel${lit.aantal_artikelen === 1 ? "" : "en"}${schildering}</summary><div class="rce-bron">${rest}</div><ul class="rce-lijst">${regels}</ul></details>`);
+  }
   if (!delen.length) return "";
   return `<div class="rce-blok">
     <div class="rce-kop">Gekoppeld via rijksmonumentnummer ${escapeHtml(p.rijksmonumentnummer || "")}</div>
     ${delen.join("")}
-    <div class="rce-bron">Functie: rijksmonumentenregister, formeel standpunt RCE. Foto's: Beeldbank RCE, licentie per foto op de detailpagina (overwegend CC BY-SA).</div>
+    <div class="rce-bron">Functie: rijksmonumentenregister, formeel standpunt RCE. Foto's: Beeldbank RCE, licentie per foto op de detailpagina (overwegend CC BY-SA). Monumenten in Nederland: tekst op DBNL. Literatuur: bibliotheekcatalogus RCE.</div>
   </div>`;
 }
 
@@ -394,6 +436,7 @@ function openDetail(gebouwId) {
     ${p.andere_namen?.length ? `<div class="plaats-line">Ook bekend als: ${escapeHtml(p.andere_namen.join(", "))}</div>` : ""}
     <div class="links">${links.map(([href, label]) => `<a href="${escapeAttr(href)}" target="_blank" rel="noopener">${label}</a>`).join("")}</div>
     ${rceBlok(p)}
+    ${vasteKoppelingenBlok(p.vaste_koppelingen)}
     <div id="painting-cards"></div>
   `;
   document.getElementById("terug-niet-op-kaart")?.addEventListener("click", (e) => {
