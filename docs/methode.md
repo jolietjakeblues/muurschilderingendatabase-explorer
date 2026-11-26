@@ -46,12 +46,18 @@ officiële RCE-publicatie.
      keuren) en verworpen boven 30 km afwijking. Gevonden na een
      gebruikersmelding dat twee gebouwen in België stonden: bleek een bredere
      bronfout, uiteindelijk 4 gebouwen getroffen. Die vier zijn inmiddels in
-     de bron hersteld; bij de build van 24 november 2026 keurde de check
+     de bron hersteld; bij de builds van 24 en 26 november 2026 keurde de check
      niets meer af. Hij blijft aan als vangnet. Zie
      `PLAUSIBILITEITSGRENS_KM` in `scripts/fetch.py`.
 6. **RCE Linked Data Voorziening, dataset "Afbeeldingen"**
    (`https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/afbeeldingen/sparql`)
-   — Beeldbankfoto's per rijksmonument, voor de proefkoppeling hieronder.
+   — Beeldbankfoto's per rijksmonument, voor de koppeling hieronder.
+7. **RCE Linked Data Voorziening, dataset "bibliotheek"**
+   (`https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/bibliotheek/sparql`)
+   — boeken en tijdschriftartikelen per rijksmonument.
+8. **RCE Linked Data Voorziening, dataset "monumenten-in-nederland"**
+   (`https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/monumenten-in-nederland/sparql`)
+   — passages uit de boekenreeks Monumenten in Nederland per rijksmonument.
 
 Alles wordt opgehaald door `scripts/fetch.py`. Ruwe SPARQL-extracten staan in
 `data/raw/` (niet gepubliceerd op de site, wel in de repo voor herleidbaarheid),
@@ -73,10 +79,10 @@ De site laadt alleen `docs/data/site/*.json` + `gebouwen.geojson`.
 ## Datamodel
 
 - `docs/data/site/gebouwen.geojson` — één punt per gebouw. `geometrie_bron` is
-  `muurschilderingendatabase` (eigen coördinaat uit de bron, 592 gebouwen),
+  `muurschilderingendatabase` (eigen coördinaat uit de bron, 595 gebouwen),
   `rijksmonumentenregister_centroid` (fallback via rijksmonumentnummer, 36) of
   `reliwiki_adres_pdok` (fallback via een in de Reliwiki-link gecodeerd adres,
-  gegeocodeerd met PDOK, 9). `rce` bevat de uitkomst van de proefkoppeling
+  gegeocodeerd met PDOK, 9). `rce` bevat de uitkomst van de koppeling
   (zie hieronder) en is `null` voor gebouwen zonder rijksmonumentnummer.
 - `docs/data/site/muurschilderingen.json` — één record per schildering, met
   `gebouw_id` als foreign key en een `makers`-array (elk `{id, naam, type}`,
@@ -91,7 +97,7 @@ De site laadt alleen `docs/data/site/*.json` + `gebouwen.geojson`.
   authority-lijst (nog niet aan een schildering gekoppeld) blijft ongebruikt.
 - `docs/data/site/gebouwen_zonder_locatie.json` — alles wat niet op de kaart
   staat, met per regel een `reden`. `geen_coordinaat`: gebouwen zonder
-  puntgeometrie via geen van de drie bovenstaande routes, 19 van 656. Een
+  puntgeometrie via geen van de drie bovenstaande routes, 19 van 659. Een
   deel daarvan zijn geen "echte" gebouwrecords maar losse/ongeïdentificeerde
   items uit de brondatabase (bv. "Onbekend gebouw" met 183 schilderingen, of
   een losse schilderingtitel zonder plaatsnaam) — die hebben sowieso geen
@@ -102,36 +108,84 @@ De site laadt alleen `docs/data/site/*.json` + `gebouwen.geojson`.
 - `docs/data/site/metadata.json` — tijdstip van de build en de kerngetallen.
   De krimpcontrole van de volgende build vergelijkt hiermee.
 
-## Proefkoppeling op rijksmonumentnummer
+## Koppeling op rijksmonumentnummer
 
-Een proef om te laten zien wat koppelen met andere RCE-datasets oplevert. De
-sleutel is het rijksmonumentnummer van het gebouw (opgeschoond tot alleen
-cijfers, `clean_rm()`); gebouwen zonder dat nummer doen niet mee. Het resultaat
-staat per gebouw in `properties.rce` van `gebouwen.geojson`.
+Wat koppelen met andere RCE-datasets oplevert. De sleutel is het
+rijksmonumentnummer van het gebouw (opgeschoond tot alleen cijfers,
+`clean_rm()`); gebouwen zonder dat nummer doen niet mee. Het resultaat staat
+per gebouw in `properties.rce` van `gebouwen.geojson`.
 
-- **Oorspronkelijke functie** uit de CHO-dataset
-  (`ceo:heeftOorspronkelijkeFunctie`, alleen kennis met
+- **Oorspronkelijke functie** (`functies`, `categorieen`, `cho_uri`) uit de
+  CHO-dataset (`ceo:heeftOorspronkelijkeFunctie`, alleen kennis met
   `ceo:formeelStandpunt true`), met de hoofdcategorie uit de functiethesaurus:
   de term direct onder "bebouwde omgeving", zoals "Religieuze gebouwen" of
   "Boerderijen, molens en bedrijven". Daarop filtert de keuzelijst
   "Oorspronkelijke functie (RCE)" in de kaartweergave. Zie
   `fetch_cho_functies()`.
-- **Beeldbankfoto's** uit de dataset Afbeeldingen
-  (`.../datasets/rce/afbeeldingen/sparql`, graph `photos`). Een foto verwijst
-  met `sdo:about` naar een monumentknoop binnen die dataset
-  (`sdo:LandmarksOrHistoricalBuildings`), en die knoop draagt het
+- **Beeldbankfoto's** (`beeldbank`) uit de dataset Afbeeldingen, graph
+  `photos`. Een foto verwijst met `sdo:about` naar een monumentknoop binnen
+  die dataset (`sdo:LandmarksOrHistoricalBuildings`), en die knoop draagt het
   rijksmonumentnummer als `sdo:identifier` (`sdo:PropertyValue` met
   `propertyID` "rijksmonumentnummer"). Per gebouw het totaal, het aantal
-  waarvan de titel op een schildering wijst (trefwoorden "schildering",
-  "fresco", "beschilder") en zes miniaturen, met die foto's vooraan. Zie
-  `fetch_beeldbank()`.
+  waarvan de titel op een schildering wijst en zes miniaturen, met die foto's
+  vooraan. Zie `fetch_beeldbank()`.
+- **Passages uit Monumenten in Nederland** (`monumenten_in_nederland`) uit de
+  dataset monumenten-in-nederland. Een `min:Passage` draagt
+  `min:rijksmonumentnummer` (en `min:noemtRijksmonument` naar de CHO-URI),
+  `min:deel`, `sdo:pagination` en `sdo:url` naar de tekst op DBNL. Per passage
+  bewaart de verkenner de URI, deel, pagina's, de link en of de tekst een
+  schildering noemt; de tekst zelf niet. Zie `fetch_min_passages()`.
+- **Literatuur** (`literatuur`) uit de dataset bibliotheek, graphs `books` en
+  `article`. Zelfde model als Afbeeldingen: `sdo:about` naar een monumentknoop
+  met het rijksmonumentnummer als identifier. Per gebouw het aantal boeken en
+  artikelen, hoeveel titels een schildering noemen en de eerste tien titels
+  met jaar en link naar de catalogus, schilderingtitels vooraan. Zie
+  `fetch_literatuur()`.
 
-Stand bij de build van 24 november 2026: 559 van de 576 rijksmonumentnummers
-zijn in CHO gevonden, allemaal met een oorspronkelijke functie; 536 van de 576
-nummers hebben foto's in de Beeldbank (59.524 foto's, waarvan 8.877
-met een schildering in de titel). De 17 nummers die in CHO niet gevonden zijn,
-zijn vooral recente aanwijzingen (53xxxx). De foto's hangen aan het gebouw, niet aan een
+"Noemt een schildering" is overal een trefwoordtreffer ("schildering",
+"fresco", "beschilder") in titel of tekst, geen inhoudelijke beoordeling.
+
+Stand bij de build van 26 november 2026, voor 579 rijksmonumentnummers:
+
+| Bron | Rijksmonumenten met treffer | Omvang | Noemt een schildering |
+|---|---|---|---|
+| CHO, oorspronkelijke functie | 562 | — | — |
+| Beeldbank | 539 | 60.383 foto's | 8.894 |
+| Monumenten in Nederland | 384 | 400 passages | 139 |
+| Bibliotheek | 399 | 2.173 boeken, 723 artikelen | 292 |
+
+De 17 nummers die in CHO niet gevonden zijn, zijn vooral recente aanwijzingen
+(53xxxx). Foto's, passages en literatuur hangen aan het gebouw, niet aan een
 afzonderlijke schildering: daarvoor bestaat geen sleutel.
+
+## Vaste koppelingen
+
+Voor bronnen zonder gedeelde sleutel zijn de koppelingen met de hand gelegd, in
+`data/handmatige-koppelingen.json`. Elke regel noemt de bron, de DOI, titel,
+soort, auteurs, het `gebouw_id` en/of `maker_id` (itemnummers uit de
+Muurschilderingendatabase) en de reden van de koppeling. `scripts/fetch.py`
+leest het bestand zonder netwerkaanroep (`load_handmatige_koppelingen()`) en
+zet de koppelingen in `vaste_koppelingen` op het gebouw (`gebouwen.geojson`)
+en de maker (`makers.json`). De build waarschuwt als een koppeling naar een
+gebouw of maker wijst die niet (meer) gepubliceerd wordt.
+
+Nu vier datasets uit het DANS Data Station Social Sciences and Humanities:
+
+| Dataset | DOI | Gekoppeld aan |
+|---|---|---|
+| Interview Peter Dijkman over de gewelfschilderingen in Naarden | 10.17026/DANS-2BX-V5CU | Grote kerk, Naarden (14832) |
+| Interview Willem Haakma Wagenaar over de gewelfschilderingen in Naarden | 10.17026/DANS-X2E-HMB2 | Grote kerk, Naarden (14832) |
+| Interview with Vishwa Mehra on the vault paintings in Naarden | 10.17026/DANS-XC9-U77M | Grote kerk, Naarden (14832) |
+| Muurschilderingen van F.H. Bach te Beltrum | 10.17026/SS/UGDHSJ | O.L.V. ten Hemelopnemingkerk, Beltrum (10468) en F.H. Bach (10571) |
+
+Criterium: de dataset gaat over dat ene gebouw of die ene maker. Niet
+gekoppeld zijn daarom de algemene interviews over het restauratievak (Jonker,
+Verheij, Haakma Wagenaar, Bremer), die geen enkel gebouw als onderwerp hebben,
+en bouwhistorische rapporten over gebouwen die niet in de
+Muurschilderingendatabase staan (o.a. St.-Remigiuskerk Hengelo, De Wheeme
+Zwolle, Fokker Terminal Den Haag). De DANS Data Stations hebben een
+zoek-API maar geen veld met het rijksmonumentnummer; een automatische
+koppeling zou op losse woorden matchen.
 
 ## Bekende beperkingen
 
@@ -169,7 +223,7 @@ afzonderlijke schildering: daarvoor bestaat geen sleutel.
   op het label, geen zekerheid; de verschuiving ten opzichte van de oude
   werkwijze is hooguit zo'n 400 meter.
 - De naam van een gebouw is `o:title`, de weergavenaam die Omeka zelf
-  gebruikt. 107 gebouwen hebben daarnaast andere titels (bv. de Friese naam);
+  gebruikt. 109 gebouwen hebben daarnaast andere titels (bv. de Friese naam);
   die staan in `andere_namen`, worden in het detailpaneel getoond en zijn
   doorzoekbaar. Hetzelfde voor anderstalige plaatsnamen (`plaats_anders`).
 - De huidige functie is vrije tekst in de bron, in ruim honderd
@@ -226,6 +280,12 @@ Algemene informatie over het specialisme Kleur en Schilderingen:
 - Beeldbankfoto's in het detailpaneel: Beeldbank RCE, per foto een eigen
   licentie (overwegend CC BY-SA 3.0/4.0); elke miniatuur linkt naar de
   detailpagina met maker en licentie.
+- Monumenten in Nederland: alleen deel, pagina's en links worden getoond. De
+  tekst van de passages is auteursrechtelijk beschermd en staat op DBNL; de
+  verkenner neemt hem niet over.
+- Literatuur: titel, jaar en link uit de bibliotheekcatalogus van de RCE.
+- DANS: alleen titel, soort, auteurs en DOI; de data zelf staat bij DANS, met
+  de daar vermelde licentie en toegangsvoorwaarden.
 - Iconografielabels en -afbeeldingen: Wikidata / Wikimedia Commons, per
   onderwerp eigen licentie (doorgaans CC0/CC BY-SA); zie de Wikidata-link per
   onderwerp.

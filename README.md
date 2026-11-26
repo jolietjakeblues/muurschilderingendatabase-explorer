@@ -10,7 +10,7 @@ Onafhankelijk project, geen officiële RCE-publicatie.
 
 ## Wat je kunt doen
 
-- **Kaart**: 637 gebouwen met geregistreerde muurschilderingen, filterbaar op
+- **Kaart**: 640 gebouwen met geregistreerde muurschilderingen, filterbaar op
   naam/plaats (ook op andere namen, zoals de Friese), huidige functie
   (gegroepeerd), rijksmonumentstatus, oorspronkelijke functie volgens het
   rijksmonumentenregister en periode (histogram met zes tijdvakken, van
@@ -39,36 +39,56 @@ Onafhankelijk project, geen officiële RCE-publicatie.
 - Mobielvriendelijk: kaart en lijst worden op een telefoon uitschuivende
   bottom sheets i.p.v. een vaste zijkolom.
 
-Cijfers: build van 24 november 2026 (2866 schilderingen in 656 gebouwen). De
+Cijfers: build van 26 november 2026 (2868 schilderingen in 659 gebouwen). De
 actuele stand staat in `docs/data/site/metadata.json`.
 
-## Proefkoppeling met andere RCE-datasets
+## Koppeling met andere RCE-datasets
 
-Een proef om te laten zien wat koppelen op rijksmonumentnummer oplevert. Van de
-580 gebouwen met zo'n nummer krijgen er in het detailpaneel:
+Wat koppelen op rijksmonumentnummer oplevert. Van de 583 gebouwen met zo'n
+nummer krijgen er in het detailpaneel:
 
-- 563 hun **oorspronkelijke functie** uit het rijksmonumentenregister (dataset
+- 566 hun **oorspronkelijke functie** uit het rijksmonumentenregister (dataset
   cho, alleen het formele standpunt van de RCE), met de hoofdcategorie uit de
   functiethesaurus. Daarop filtert de keuzelijst "Oorspronkelijke functie
-  (RCE)": 418 gebouwen vallen onder "Religieuze gebouwen", 11 onder
+  (RCE)": 420 gebouwen vallen onder "Religieuze gebouwen", 11 onder
   "Boerderijen, molens en bedrijven".
-- 539 **foto's uit de Beeldbank** (dataset Afbeeldingen): het aantal per
+- 542 **foto's uit de Beeldbank** (dataset Afbeeldingen): het aantal per
   gebouw, hoeveel daarvan een schildering in de titel noemen en zes
-  miniaturen. Samen 59.524 foto's, waarvan 8.877 met een schildering in de
+  miniaturen. Samen 60.383 foto's, waarvan 8.894 met een schildering in de
   titel.
+- 386 de **passage uit Monumenten in Nederland** (dataset
+  monumenten-in-nederland): deel en pagina's, met een link naar de tekst op
+  DBNL en naar de passage als linked data. Van de 400 passages noemen er 139
+  een schildering. De tekst zelf wordt niet overgenomen.
+- 397 **literatuur uit de bibliotheek van de RCE** (dataset bibliotheek): het
+  aantal boeken en artikelen en de eerste tien titels met link naar de
+  catalogus, titels over schilderingen vooraan. Samen 2.173 boeken en 723
+  artikelen, waarvan 292 met een schildering in de titel.
 
-De foto's hangen aan het gebouw, niet aan een afzonderlijke schildering. Zie
-`docs/methode.md` voor de querypaden.
+Foto's, passages en literatuur hangen aan het gebouw, niet aan een
+afzonderlijke schildering. Zie `docs/methode.md` voor de querypaden.
+
+## Vaste koppelingen (DANS)
+
+Voor bronnen zonder gedeelde sleutel staan de koppelingen met de hand in
+[`data/handmatige-koppelingen.json`](data/handmatige-koppelingen.json): per
+dataset de DOI en het gebouw of de maker waar die over gaat. Nu vier datasets
+uit de DANS Data Stations: drie interviews over de gewelfschilderingen in de
+Grote Kerk te Naarden en het vooronderzoek naar de muurschilderingen van F.H.
+Bach in Beltrum (gekoppeld aan de kerk en aan de maker). Een nieuwe koppeling
+toevoegen is een regel in dat bestand en een nieuwe build.
 
 ## Architectuur
 
 Statische site, geen backend, geen live SPARQL vanuit de browser:
 
 ```
-RCE Linked Data (SPARQL: Muurschilderingen + cho + Afbeeldingen)
+RCE Linked Data (SPARQL: Muurschilderingen + cho + Afbeeldingen
+                         + bibliotheek + monumenten-in-nederland)
   + Wikidata Query Service (iconografielabels)
   + Omeka REST-API (afbeeldingen)
   + PDOK Locatieserver (geometriefallback + plausibiliteitscheck)
+  + data/handmatige-koppelingen.json (vaste koppelingen, nu DANS)
         │
         ▼  scripts/fetch.py
 docs/data/site/*.json + gebouwen.geojson

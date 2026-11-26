@@ -575,3 +575,9 @@ footer.credits a { color: inherit; }
 .painting-card details.beschrijving { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.3rem; white-space: pre-line; }
 .painting-card details.beschrijving summary { cursor: pointer; color: var(--accent-ink); }
 .ld-link { display: inline-block; margin-top: 0.3rem; font-size: 0.72rem; color: var(--accent-ink); }
+
+/* Passages uit Monumenten in Nederland en literatuur uit de bibliotheek */
+.rce-lijst { margin: 0.2rem 0 0.4rem; padding-left: 1.1rem; }
+.rce-lijst li { margin-bottom: 0.15rem; }
+.rce-lijst a, .rce-regel a { color: var(--accent-ink); }
+.rce-literatuur summary { cursor: pointer; margin-bottom: 0.25rem; }
